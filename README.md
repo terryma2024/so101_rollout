@@ -42,7 +42,7 @@
 | 型号 | icSpring camera（USB `32e6:9221`，序列号 `202404160005`，USB 2.0） |
 | 设备路径 | `/dev/v4l/by-id/usb-icSpring_icspring_camera_202404160005-video-index0`（当前为 `/dev/video2`；`/dev/video3` 是元数据通道） |
 | 格式 | MJPG 320×240 至 1920×1080；YUYV 仅 640×480。配置为 640×480 MJPG（省 USB 带宽） |
-| 帧率 | 标称 30 fps，各分辨率实测均约 20 fps（与曝光无关），配置为 20 fps；与手腕摄像头同时运行互不影响 |
+| 帧率 | MJPG 各分辨率只有 30 fps 一档，配置必须写 30（写 20 连接时报 `failed to set fps=20 (actual_fps=30.0)`）；实际输出约 20 fps（与曝光无关）。与手腕摄像头同时运行互不影响 |
 | 镜头 | 广角，画面边缘有畸变 |
 
 关节编号：
@@ -194,5 +194,6 @@ uv run read_pose.py
 | `Failed to open connection to X server` | SSH 会话没有图形界面，rerun 窗口打不开；`teleop.sh` 会改为发送到 `RERUN_VIEWER_HOST` 上的原生查看器 |
 | 查看器一显示图像就卡死 | rerun 0.33.x 查看器加载 JPEG 图像的 bug，查看器升级到 ≥ 0.34（推荐 0.40.0） |
 | 遥操作中从臂突然不跟随、查看器卡住 | 查看器处理不过来时会反向卡住遥操作。立即 `Ctrl+C`（扶住从臂），确认用的是 `teleop.sh`（经 `teleop_viz.py` 限流）和原生查看器 |
+| `OpenCVCamera(...) failed to set fps=...` | 摄像头不支持该帧率设置，用 `v4l2-ctl -d <设备> --list-formats-ext` 查看支持的帧率并修改 `arms.env` |
 | 摄像头打不开 / `Device or resource busy` | 摄像头被其他程序占用（如 rerun 外的预览软件），关闭后重试；`v4l2-ctl --list-devices` 查看设备 |
 | 遥操作时某关节方向或角度明显不对 | 重新校准该手臂，注意中间姿态 |
