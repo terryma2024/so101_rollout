@@ -92,6 +92,7 @@ ls -l /dev/serial/by-id/
 | `calibrate_follower.sh` | 校准从臂 |
 | `calibrate_leader.sh` | 校准主臂 |
 | `teleop.sh` | 启动遥操作（主臂控制从臂），同时用 rerun 显示手腕摄像头画面和关节数据 |
+| `teleop_viz.py` | `lerobot-teleoperate` 的包装：图像按 20 Hz、JPEG 质量 75 发给 rerun（约 0.7 MB/s，原版约 6 MB/s），控制频率不变 |
 | `read_pose.py` | 只读对比两臂当前关节角度（不上扭矩，手臂不会动） |
 
 ## 5. 使用流程
@@ -166,8 +167,10 @@ uv run read_pose.py
 
   然后再在 SSH 里运行 `./teleop.sh`。查看器没打开时脚本会提示并退出。
 
-> 不要用 rerun 网页版（`--serve-web`）：图像数据每秒几 MB，网页查看器会卡死，
-> 并通过背压把遥操作主循环卡在 `rr.log` 上，导致从臂不再跟随主臂。
+> 原版 `lerobot-teleoperate` 每个控制周期（60 Hz）都发一帧质量 95 的 JPEG，约 6 MB/s。
+> 查看器（尤其是 rerun 网页版，或经 Wi-Fi 的远程查看器）处理不过来时会反压，把遥操作主循环卡在 `rr.log` 上，
+> 从臂不再跟随主臂，日志出现 `Sender has been blocked for over 5 seconds waiting for space in channel`。
+> 因此 `teleop.sh` 通过 `teleop_viz.py` 降低图像数据量；不要用网页版（`--serve-web`）。
 
 启动前先把两只手臂摆成相近姿势：启动瞬间从臂会直接转到主臂姿态。按 `Ctrl+C` 停止，退出时从臂扭矩会释放，**注意扶住从臂以防下落**。
 
@@ -179,6 +182,6 @@ uv run read_pose.py
 | `Permission denied: /dev/ttyACM*` | 用户不在 `dialout` 组，执行 3.1 中的命令并重新登录 |
 | 找不到串口 / 舵机无响应 | 检查手臂电源和 USB 线；`ls -l /dev/serial/by-id/` 查看设备 |
 | `Failed to open connection to X server` | SSH 会话没有图形界面，rerun 窗口打不开；`teleop.sh` 会改为发送到 `RERUN_VIEWER_HOST` 上的原生查看器 |
-| 遥操作中从臂突然不跟随、查看器卡住 | 查看器处理不过来时会反向卡住遥操作。立即 `Ctrl+C`（扶住从臂），确认用的是原生查看器而不是网页版 |
+| 遥操作中从臂突然不跟随、查看器卡住 | 查看器处理不过来时会反向卡住遥操作。立即 `Ctrl+C`（扶住从臂），确认用的是 `teleop.sh`（经 `teleop_viz.py` 限流）和原生查看器 |
 | 摄像头打不开 / `Device or resource busy` | 摄像头被其他程序占用（如 rerun 外的预览软件），关闭后重试；`v4l2-ctl --list-devices` 查看设备 |
 | 遥操作时某关节方向或角度明显不对 | 重新校准该手臂，注意中间姿态 |

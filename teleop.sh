@@ -11,7 +11,7 @@ if ! xdpyinfo >/dev/null 2>&1; then
   display_args+=(--display_ip="$RERUN_VIEWER_HOST" --display_port="$RERUN_VIEWER_PORT")
 fi
 
-uv run lerobot-teleoperate \
+WRIST_CAM_FPS=$WRIST_CAM_FPS uv run python teleop_viz.py \
   --robot.type=so101_follower --robot.port="$FOLLOWER_PORT" --robot.id="$FOLLOWER_ID" \
   --robot.cameras="{ wrist: {type: opencv, index_or_path: $WRIST_CAM, width: 640, height: 480, fps: $WRIST_CAM_FPS} }" \
   --teleop.type=so101_leader --teleop.port="$LEADER_PORT" --teleop.id="$LEADER_ID" \
