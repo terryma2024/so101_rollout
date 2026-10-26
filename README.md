@@ -161,7 +161,7 @@ uv run read_pose.py
   先在那台电脑上安装并打开查看器（版本须与这里一致，0.33.x）：
 
   ```bash
-  uvx --from rerun-sdk==0.33.1 rerun     # 或：pip install rerun-sdk==0.33.1 && rerun
+  uvx --from rerun-sdk==0.33.1 rerun --bind 0.0.0.0     # 或：pip install rerun-sdk==0.33.1 && rerun --bind 0.0.0.0
   ```
 
   然后再在 SSH 里运行 `./teleop.sh`。查看器没打开时脚本会提示并退出。
