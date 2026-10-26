@@ -4,7 +4,8 @@ set -e; cd "$(dirname "$0")"; source arms.env
 display_args=(--display_data=true)
 if ! xdpyinfo >/dev/null 2>&1; then
   # 没有可用的图形界面（例如 SSH 登录）：启动 rerun 网页查看器，在浏览器中查看
-  uv run rerun --serve-web --bind 0.0.0.0 >/dev/null 2>&1 &
+  # 网页从 VIEWER_HOST 打开，需允许该来源跨域访问 gRPC 端口（默认只允许 localhost）
+  uv run rerun --serve-web --bind 0.0.0.0 --cors-allow-origin "http://$VIEWER_HOST:9090" >/dev/null 2>&1 &
   rerun_pid=$!
   trap 'kill $rerun_pid 2>/dev/null' EXIT
   sleep 3
