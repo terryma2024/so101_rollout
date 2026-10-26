@@ -1,0 +1,16 @@
+[project]
+name = "so101-test"
+version = "0.1.0"
+description = "SO101 leader/follower arm setup with LeRobot"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "lerobot[feetech]>=0.6.1",
+]
+
+[project.scripts]
+so101-test = "so101_test:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
