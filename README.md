@@ -92,7 +92,7 @@ ls -l /dev/serial/by-id/
 | `calibrate_follower.sh` | 校准从臂 |
 | `calibrate_leader.sh` | 校准主臂 |
 | `teleop.sh` | 启动遥操作（主臂控制从臂），同时用 rerun 显示手腕摄像头画面和关节数据 |
-| `teleop_viz.py` | `lerobot-teleoperate` 的包装：图像缩到 320×240、不压缩、按 20 Hz 发给 rerun（约 4.6 MB/s），控制频率不变 |
+| `teleop_viz.py` | `lerobot-teleoperate` 的包装：图像按摄像头帧率（20 Hz）发给 rerun，去掉重复帧（约 2 MB/s，原版约 6 MB/s），控制频率不变 |
 | `read_pose.py` | 只读对比两臂当前关节角度（不上扭矩，手臂不会动） |
 
 ## 5. 使用流程
@@ -159,20 +159,18 @@ uv run read_pose.py
 
 - **在本机桌面运行**：直接弹出 rerun 窗口。
 - **通过 SSH 运行（没有图形界面）**：数据发送到你自己电脑上的原生 rerun 查看器（地址见 `arms.env` 的 `RERUN_VIEWER_HOST`，当前为 MacBook `100.84.127.95`）。
-  先在那台电脑上安装并打开查看器（版本须与这里一致，0.33.x）：
+  先在那台电脑上打开查看器。**查看器版本须 ≥ 0.34**（0.33.x 加载 JPEG 图像会卡死，0.34.0 修复；这里的发送端受 LeRobot 限制为 0.33.1，已验证 0.40.0 查看器可正常显示）：
 
   ```bash
-  uvx --from rerun-sdk==0.33.1 rerun --bind 0.0.0.0     # 或：pip install rerun-sdk==0.33.1 && rerun --bind 0.0.0.0
+  uvx --from rerun-sdk==0.40.0 rerun --bind 0.0.0.0     # 或：pip install rerun-sdk==0.40.0 && rerun --bind 0.0.0.0
   ```
 
   然后再在 SSH 里运行 `./teleop.sh`。查看器没打开时脚本会提示并退出。
 
-> 原版 `lerobot-teleoperate` 每个控制周期（60 Hz）都发一帧质量 95 的 JPEG（约 6 MB/s）。两个问题：
-> - MacBook 上的 rerun 0.33.1 查看器**解码 JPEG 时界面卡死**（不压缩的原始图像正常）；
-> - 查看器处理不过来时会反压，把遥操作主循环卡在 `rr.log` 上，从臂不再跟随主臂，
->   日志出现 `Sender has been blocked for over 5 seconds waiting for space in channel`。
->
-> 因此 `teleop.sh` 通过 `teleop_viz.py` 发送缩小的原始图像（320×240，20 Hz）。不要用网页版（`--serve-web`），它同样处理不了这个数据量。
+> 原版 `lerobot-teleoperate` 每个控制周期（60 Hz）都发一帧 JPEG（约 6 MB/s），其中 2/3 是重复帧。
+> 查看器处理不过来时会反压，把遥操作主循环卡在 `rr.log` 上，从臂不再跟随主臂，
+> 日志出现 `Sender has been blocked for over 5 seconds waiting for space in channel`。
+> 因此 `teleop.sh` 通过 `teleop_viz.py` 按摄像头帧率发送图像。不要用网页版（`--serve-web`），它处理不了这个数据量。
 
 启动前先把两只手臂摆成相近姿势：启动瞬间从臂会直接转到主臂姿态。按 `Ctrl+C` 停止，退出时从臂扭矩会释放，**注意扶住从臂以防下落**。
 
@@ -184,7 +182,7 @@ uv run read_pose.py
 | `Permission denied: /dev/ttyACM*` | 用户不在 `dialout` 组，执行 3.1 中的命令并重新登录 |
 | 找不到串口 / 舵机无响应 | 检查手臂电源和 USB 线；`ls -l /dev/serial/by-id/` 查看设备 |
 | `Failed to open connection to X server` | SSH 会话没有图形界面，rerun 窗口打不开；`teleop.sh` 会改为发送到 `RERUN_VIEWER_HOST` 上的原生查看器 |
-| Mac 上 rerun 一显示图像就卡死 | 查看器解码 JPEG 卡死，确认用的是 `teleop.sh`（`teleop_viz.py` 发送不压缩图像） |
+| 查看器一显示图像就卡死 | rerun 0.33.x 查看器加载 JPEG 图像的 bug，查看器升级到 ≥ 0.34（推荐 0.40.0） |
 | 遥操作中从臂突然不跟随、查看器卡住 | 查看器处理不过来时会反向卡住遥操作。立即 `Ctrl+C`（扶住从臂），确认用的是 `teleop.sh`（经 `teleop_viz.py` 限流）和原生查看器 |
 | 摄像头打不开 / `Device or resource busy` | 摄像头被其他程序占用（如 rerun 外的预览软件），关闭后重试；`v4l2-ctl --list-devices` 查看设备 |
 | 遥操作时某关节方向或角度明显不对 | 重新校准该手臂，注意中间姿态 |
