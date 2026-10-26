@@ -3,19 +3,12 @@ set -e; cd "$(dirname "$0")"; source arms.env
 
 display_args=(--display_data=true)
 if ! xdpyinfo >/dev/null 2>&1; then
-  # 没有可用的图形界面（例如 SSH 登录）：启动 rerun 网页查看器，在浏览器中查看
-  # 网页从 VIEWER_HOST 打开，需允许该来源跨域访问 gRPC 端口（默认只允许 localhost）
-  if ss -tln | grep -qE ':(9876|9090) '; then
-    echo "端口 9876/9090 已被占用（可能是上次残留的 rerun），先执行：pkill -f 'rerun --serve-web'" >&2
+  # 没有可用的图形界面（例如 SSH 登录）：发送到远程电脑上已打开的原生 rerun 查看器
+  if ! timeout 3 bash -c "</dev/tcp/$RERUN_VIEWER_HOST/$RERUN_VIEWER_PORT" 2>/dev/null; then
+    echo "连不上 $RERUN_VIEWER_HOST:$RERUN_VIEWER_PORT 上的 rerun 查看器，请先在该电脑上运行 rerun" >&2
     exit 1
   fi
-  # setsid 放进独立进程组，退出时整组结束（uv run 会再派生 rerun 子进程）
-  setsid uv run rerun --serve-web --bind 0.0.0.0 --cors-allow-origin "http://$VIEWER_HOST:9090" >/dev/null 2>&1 &
-  rerun_pid=$!
-  trap 'kill -- -$rerun_pid 2>/dev/null' EXIT
-  sleep 3
-  echo "rerun 网页查看器：http://$VIEWER_HOST:9090/?url=rerun%2Bhttp://$VIEWER_HOST:9876/proxy"
-  display_args+=(--display_ip=127.0.0.1 --display_port=9876)
+  display_args+=(--display_ip="$RERUN_VIEWER_HOST" --display_port="$RERUN_VIEWER_PORT")
 fi
 
 uv run lerobot-teleoperate \

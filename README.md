@@ -157,9 +157,17 @@ uv run read_pose.py
 启动后会用 rerun 显示手腕摄像头画面和各关节数据（`--display_data=true`），脚本自动选择查看方式：
 
 - **在本机桌面运行**：直接弹出 rerun 窗口。
-- **通过 SSH 运行（没有图形界面）**：脚本在后台启动 rerun 网页查看器，并打印访问地址，在浏览器中打开即可：
-  `http://100.104.202.119:9090/?url=rerun%2Bhttp://100.104.202.119:9876/proxy`
-  （地址来自 `arms.env` 中的 `VIEWER_HOST`；需开放 9090 和 9876 端口，退出遥操作时查看器自动关闭）
+- **通过 SSH 运行（没有图形界面）**：数据发送到你自己电脑上的原生 rerun 查看器（地址见 `arms.env` 的 `RERUN_VIEWER_HOST`，当前为 MacBook `100.84.127.95`）。
+  先在那台电脑上安装并打开查看器（版本须与这里一致，0.33.x）：
+
+  ```bash
+  uvx --from rerun-sdk==0.33.1 rerun     # 或：pip install rerun-sdk==0.33.1 && rerun
+  ```
+
+  然后再在 SSH 里运行 `./teleop.sh`。查看器没打开时脚本会提示并退出。
+
+> 不要用 rerun 网页版（`--serve-web`）：图像数据每秒几 MB，网页查看器会卡死，
+> 并通过背压把遥操作主循环卡在 `rr.log` 上，导致从臂不再跟随主臂。
 
 启动前先把两只手臂摆成相近姿势：启动瞬间从臂会直接转到主臂姿态。按 `Ctrl+C` 停止，退出时从臂扭矩会释放，**注意扶住从臂以防下落**。
 
@@ -170,7 +178,7 @@ uv run read_pose.py
 | `EOFError: EOF when reading a line` | 在非交互环境（如 `!` 前缀）运行了校准，换到独立终端运行 |
 | `Permission denied: /dev/ttyACM*` | 用户不在 `dialout` 组，执行 3.1 中的命令并重新登录 |
 | 找不到串口 / 舵机无响应 | 检查手臂电源和 USB 线；`ls -l /dev/serial/by-id/` 查看设备 |
-| 网页查看器提示 `Data source has left unexpectedly: ... Failed to fetch` | rerun 默认只允许 localhost 页面连接 9876 端口；`teleop.sh` 已加 `--cors-allow-origin`。若用其他地址访问，修改 `arms.env` 中的 `VIEWER_HOST` |
-| `Failed to open connection to X server` | SSH 会话没有图形界面，rerun 窗口打不开；新版 `teleop.sh` 会自动改用网页查看器 |
+| `Failed to open connection to X server` | SSH 会话没有图形界面，rerun 窗口打不开；`teleop.sh` 会改为发送到 `RERUN_VIEWER_HOST` 上的原生查看器 |
+| 遥操作中从臂突然不跟随、查看器卡住 | 查看器处理不过来时会反向卡住遥操作。立即 `Ctrl+C`（扶住从臂），确认用的是原生查看器而不是网页版 |
 | 摄像头打不开 / `Device or resource busy` | 摄像头被其他程序占用（如 rerun 外的预览软件），关闭后重试；`v4l2-ctl --list-devices` 查看设备 |
 | 遥操作时某关节方向或角度明显不对 | 重新校准该手臂，注意中间姿态 |
