@@ -11,7 +11,7 @@
 | LeRobot | 0.6.1，`lerobot[feetech,viz]`（viz 提供 rerun 可视化） |
 | PyTorch | 2.11.0 + CUDA 13.0（RTX 5060 Ti 可用） |
 | 舵机 | Feetech STS3215 × 6 / 臂，波特率 1 Mbps，ID 1–6 |
-| 摄像头 | 从臂手腕 icSpring USB 摄像头，640×480，按 20 fps 使用 |
+| 摄像头 | 从臂手腕 `wrist`、侧面 `side`，均为 icSpring USB 摄像头，640×480，按 20 fps 使用 |
 
 ## 2. 硬件连接
 
@@ -34,6 +34,16 @@
 | 帧率 | 标称 30 fps，实测最高约 22.6 fps（与曝光无关），因此配置为 20 fps |
 
 > 录制数据集时帧率建议也用 20 fps，按 30 fps 录制会有约 1/4 的重复帧。
+
+侧面摄像头：
+
+| 项目 | 值 |
+|---|---|
+| 型号 | icSpring camera（USB `32e6:9221`，序列号 `202404160005`，USB 2.0） |
+| 设备路径 | `/dev/v4l/by-id/usb-icSpring_icspring_camera_202404160005-video-index0`（当前为 `/dev/video2`；`/dev/video3` 是元数据通道） |
+| 格式 | MJPG 320×240 至 1920×1080；YUYV 仅 640×480。配置为 640×480 MJPG（省 USB 带宽） |
+| 帧率 | 标称 30 fps，各分辨率实测均约 20 fps（与曝光无关），配置为 20 fps；与手腕摄像头同时运行互不影响 |
+| 镜头 | 广角，画面边缘有畸变 |
 
 关节编号：
 
@@ -88,11 +98,11 @@ ls -l /dev/serial/by-id/
 
 | 文件 | 作用 |
 |---|---|
-| `arms.env` | 主从臂串口路径和 ID（`my_leader` / `my_follower`），手腕摄像头路径和帧率 |
+| `arms.env` | 主从臂串口路径和 ID（`my_leader` / `my_follower`），手腕和侧面摄像头路径和帧率 |
 | `calibrate_follower.sh` | 校准从臂 |
 | `calibrate_leader.sh` | 校准主臂 |
-| `teleop.sh` | 启动遥操作（主臂控制从臂），同时用 rerun 显示手腕摄像头画面和关节数据 |
-| `teleop_viz.py` | `lerobot-teleoperate` 的包装：图像按摄像头帧率（20 Hz）发给 rerun，去掉重复帧（约 2 MB/s，原版约 6 MB/s），控制频率不变 |
+| `teleop.sh` | 启动遥操作（主臂控制从臂），同时用 rerun 显示手腕、侧面摄像头画面和关节数据 |
+| `teleop_viz.py` | `lerobot-teleoperate` 的包装：图像按摄像头帧率（20 Hz）发给 rerun，去掉重复帧（两个摄像头约 4 MB/s，原版约 12 MB/s），控制频率不变 |
 | `read_pose.py` | 只读对比两臂当前关节角度（不上扭矩，手臂不会动） |
 
 ## 5. 使用流程
@@ -155,7 +165,7 @@ uv run read_pose.py
 ./teleop.sh
 ```
 
-启动后会用 rerun 显示手腕摄像头画面和各关节数据（`--display_data=true`），脚本自动选择查看方式：
+启动后会用 rerun 显示手腕、侧面摄像头画面和各关节数据（`--display_data=true`），脚本自动选择查看方式：
 
 - **在本机桌面运行**：直接弹出 rerun 窗口。
 - **通过 SSH 运行（没有图形界面）**：数据发送到你自己电脑上的原生 rerun 查看器（地址见 `arms.env` 的 `RERUN_VIEWER_HOST`，当前为 MacBook `100.84.127.95`）。
