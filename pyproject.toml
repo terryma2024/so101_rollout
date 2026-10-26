@@ -5,7 +5,7 @@ description = "SO101 leader/follower arm setup with LeRobot"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "lerobot[feetech]>=0.6.1",
+    "lerobot[feetech,viz]>=0.6.1",
 ]
 
 [project.scripts]

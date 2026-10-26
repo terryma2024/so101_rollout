@@ -8,9 +8,10 @@
 |---|---|
 | 系统 | Ubuntu (Linux x86_64) |
 | Python | 3.12（由 uv 管理的 `.venv`） |
-| LeRobot | 0.6.1，`lerobot[feetech]` |
+| LeRobot | 0.6.1，`lerobot[feetech,viz]`（viz 提供 rerun 可视化） |
 | PyTorch | 2.11.0 + CUDA 13.0（RTX 5060 Ti 可用） |
 | 舵机 | Feetech STS3215 × 6 / 臂，波特率 1 Mbps，ID 1–6 |
+| 摄像头 | 从臂手腕 icSpring USB 摄像头，640×480，按 20 fps 使用 |
 
 ## 2. 硬件连接
 
@@ -22,6 +23,17 @@
 | 从臂 follower | `5CE5122459` | `/dev/serial/by-id/usb-1a86_USB_Single_Serial_5CE5122459-if00` | `/dev/ttyACM1` |
 
 > `ttyACM0/1` 编号可能随插拔顺序改变，脚本统一使用 by-id 路径。
+
+从臂手腕摄像头：
+
+| 项目 | 值 |
+|---|---|
+| 型号 | icSpring camera（USB `32e6:9005`，USB 2.0） |
+| 设备路径 | `/dev/v4l/by-id/usb-icSpring_icspring_camera-video-index0`（当前为 `/dev/video0`；`/dev/video1` 是元数据通道，不出图） |
+| 格式 | 仅支持 640×480 YUYV |
+| 帧率 | 标称 30 fps，实测最高约 22.6 fps（与曝光无关），因此配置为 20 fps |
+
+> 录制数据集时帧率建议也用 20 fps，按 30 fps 录制会有约 1/4 的重复帧。
 
 关节编号：
 
@@ -62,7 +74,7 @@ uv sync
 
 ```bash
 uv init --python 3.12 --name so101-test --no-workspace
-uv add "lerobot[feetech]"
+uv add "lerobot[feetech,viz]"
 ```
 
 ### 3.3 验证
@@ -76,10 +88,10 @@ ls -l /dev/serial/by-id/
 
 | 文件 | 作用 |
 |---|---|
-| `arms.env` | 主从臂串口路径和 ID（`my_leader` / `my_follower`） |
+| `arms.env` | 主从臂串口路径和 ID（`my_leader` / `my_follower`），手腕摄像头路径和帧率 |
 | `calibrate_follower.sh` | 校准从臂 |
 | `calibrate_leader.sh` | 校准主臂 |
-| `teleop.sh` | 启动遥操作（主臂控制从臂） |
+| `teleop.sh` | 启动遥操作（主臂控制从臂），同时用 rerun 显示手腕摄像头画面和关节数据 |
 | `read_pose.py` | 只读对比两臂当前关节角度（不上扭矩，手臂不会动） |
 
 ## 5. 使用流程
@@ -142,6 +154,8 @@ uv run read_pose.py
 ./teleop.sh
 ```
 
+启动后会自动打开 rerun 窗口，显示手腕摄像头画面和各关节数据（`--display_data=true`）。
+
 启动前先把两只手臂摆成相近姿势：启动瞬间从臂会直接转到主臂姿态。按 `Ctrl+C` 停止，退出时从臂扭矩会释放，**注意扶住从臂以防下落**。
 
 ## 6. 常见问题
@@ -151,4 +165,5 @@ uv run read_pose.py
 | `EOFError: EOF when reading a line` | 在非交互环境（如 `!` 前缀）运行了校准，换到独立终端运行 |
 | `Permission denied: /dev/ttyACM*` | 用户不在 `dialout` 组，执行 3.1 中的命令并重新登录 |
 | 找不到串口 / 舵机无响应 | 检查手臂电源和 USB 线；`ls -l /dev/serial/by-id/` 查看设备 |
+| 摄像头打不开 / `Device or resource busy` | 摄像头被其他程序占用（如 rerun 外的预览软件），关闭后重试；`v4l2-ctl --list-devices` 查看设备 |
 | 遥操作时某关节方向或角度明显不对 | 重新校准该手臂，注意中间姿态 |
