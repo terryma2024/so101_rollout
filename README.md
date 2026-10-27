@@ -169,7 +169,7 @@ uv run read_pose.py
 启动后会用 rerun 显示手腕、侧面摄像头画面和各关节数据（`--display_data=true`），脚本自动选择查看方式：
 
 - **在本机桌面运行**：直接弹出 rerun 窗口。
-- **通过 SSH 运行**（即使工作站本机桌面已登录、DISPLAY 可用）：数据发送到你自己电脑上的原生 rerun 查看器（地址见 `arms.env` 的 `RERUN_VIEWER_HOST`，当前为 MacBook `100.84.127.95`）。
+- **通过 SSH 运行**（即使工作站本机桌面已登录、DISPLAY 可用）：数据发送到你自己电脑上的原生 rerun 查看器（自动取 SSH 发起端的 IP，即 `SSH_CONNECTION` 的第一个字段；可用 `RERUN_VIEWER_HOST=<ip> ./teleop.sh` 临时指定，见 `arms.env`）。
   先在那台电脑上打开查看器。**查看器版本须 ≥ 0.34**（0.33.x 加载 JPEG 图像会卡死，0.34.0 修复；这里的发送端受 LeRobot 限制为 0.33.1，已验证 0.40.0 查看器可正常显示）：
 
   ```bash
