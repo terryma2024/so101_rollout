@@ -103,6 +103,7 @@ ls -l /dev/serial/by-id/
 | `calibrate_leader.sh` | 校准主臂 |
 | `teleop.sh` | 启动遥操作（主臂控制从臂），同时用 rerun 显示手腕、侧面摄像头画面和关节数据 |
 | `teleop_viz.py` | `lerobot-teleoperate` 的包装：图像按摄像头帧率（20 Hz）发给 rerun，去掉重复帧（两个摄像头约 4 MB/s，原版约 12 MB/s），控制频率不变 |
+| `check_bus.py` | 只读：持续读取某只手臂各舵机，统计通信失败，排查接触不良（`uv run check_bus.py leader 30`，运行时活动手臂） |
 | `read_pose.py` | 只读对比两臂当前关节角度（不上扭矩，手臂不会动） |
 
 ## 5. 使用流程
@@ -190,6 +191,7 @@ uv run read_pose.py
 |---|---|
 | `EOFError: EOF when reading a line` | 在非交互环境（如 `!` 前缀）运行了校准，换到独立终端运行 |
 | `Permission denied: /dev/ttyACM*` | 用户不在 `dialout` 组，执行 3.1 中的命令并重新登录 |
+| 启动报 `Full found motor list` 缺少某个舵机 | 舵机短暂无响应（LeRobot 启动时每个舵机只检查一次）。先给两只手臂断电重启；反复出现时运行 `uv run check_bus.py leader 30` 并活动手臂，检查对应舵机的连线 |
 | 找不到串口 / 舵机无响应 | 检查手臂电源和 USB 线；`ls -l /dev/serial/by-id/` 查看设备 |
 | `Failed to open connection to X server` | SSH 会话没有图形界面，rerun 窗口打不开；`teleop.sh` 会改为发送到 `RERUN_VIEWER_HOST` 上的原生查看器 |
 | 查看器一显示图像就卡死 | rerun 0.33.x 查看器加载 JPEG 图像的 bug，查看器升级到 ≥ 0.34（推荐 0.40.0） |
@@ -197,3 +199,56 @@ uv run read_pose.py
 | `OpenCVCamera(...) failed to set fps=...` | 摄像头不支持该帧率设置，用 `v4l2-ctl -d <设备> --list-formats-ext` 查看支持的帧率并修改 `arms.env` |
 | 摄像头打不开 / `Device or resource busy` | 摄像头被其他程序占用（如 rerun 外的预览软件），关闭后重试；`v4l2-ctl --list-devices` 查看设备 |
 | 遥操作时某关节方向或角度明显不对 | 重新校准该手臂，注意中间姿态 |
+
+## 7. 数据采集与相机标定（真机 ACT）
+
+本节的脚本都在本目录。Python 环境用 `/data/work/venvs/so101-real-lerobot-061`（LeRobot 0.6.1，带 dataset 组件），本项目自己的 `.venv` 不变。
+
+### 7.1 锁定曝光和白平衡
+
+```bash
+./camera_settings.sh show    # 查看当前值
+./camera_settings.sh lock    # 按 camera.env 设为手动曝光 + 固定白平衡
+./camera_settings.sh snap    # 两路各截一帧，看亮度、过曝比例和颜色
+./camera_settings.sh auto    # 恢复自动
+```
+
+1. 先运行 `lock`，再运行 `snap` 看截图。
+2. 按截图调整 `camera.env` 里的曝光和白平衡，重复这两步，直到红、绿方块颜色清楚，没有大面积过曝。
+3. `record.sh` 每次启动会自动运行 `lock`。拔插 USB 或重启后设置会丢失。
+
+### 7.2 录制
+
+```bash
+./record.sh real-cube-bowl-pilot-20261027 10          # 试采 10 条
+RESUME=1 ./record.sh real-cube-bowl-pilot-20261027 50  # 续录到同一数据集
+```
+
+数据集存到 `/data/work/so101-datasets/<名字>`，不上传 HF。方块按摆放清单放，清单在 `/data/work/so101-evidence/real-robot/prep-20261026/layout/a4-placement-mat.pdf`。
+
+### 7.3 相机标定（数字孪生用）
+
+先打印 `/data/work/so101-evidence/real-robot/calib-20261027/calib-targets.pdf`，A4 横向，按 100% 打印：
+
+- 第 1 页是 ChArUco 板，贴在硬纸板上；
+- 第 2 页是 ArUco 定位纸。
+
+```bash
+P=/data/work/venvs/so101-real-lerobot-061/bin/python
+$P calib_capture.py charuco wrist        # 手拿 ChArUco 板在腕部相机前换位置、角度、远近，自动存 25 张
+$P calib_capture.py charuco side         # 同上，侧面相机
+$P calib_intrinsics.py wrist
+$P calib_intrinsics.py side --rational   # 侧面广角用 8 参数模型
+# ArUco 定位纸四边对齐，盖在 A4 定位纸上（同一朝向），然后：
+$P calib_capture.py aruco
+$P calib_extrinsics.py /data/work/so101-evidence/real-robot/calib-20261027/aruco-sheet-layout.json
+```
+
+结果在 `/data/work/so101-evidence/real-robot/calib-<日期>/`：
+
+| 文件 | 内容 |
+|---|---|
+| `intrinsics-wrist.json`、`intrinsics-side.json` | 内参，rms < 0.5 px 为好 |
+| `extrinsics-side.json` | 侧面相机相对从臂转轴的位置和朝向 |
+
+侧面相机标定后不要再动。动了就重新标外参。
