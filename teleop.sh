@@ -2,8 +2,8 @@
 set -e; cd "$(dirname "$0")"; source arms.env
 
 display_args=(--display_data=true)
-if ! xdpyinfo >/dev/null 2>&1; then
-  # 没有可用的图形界面（例如 SSH 登录）：发送到远程电脑上已打开的原生 rerun 查看器
+if [ -n "$SSH_CONNECTION" ] || ! xdpyinfo >/dev/null 2>&1; then
+  # SSH 登录（即使本机桌面已登录、DISPLAY 可用）或没有图形界面：发送到远程电脑上已打开的原生 rerun 查看器
   if ! timeout 3 bash -c "</dev/tcp/$RERUN_VIEWER_HOST/$RERUN_VIEWER_PORT" 2>/dev/null; then
     echo "连不上 $RERUN_VIEWER_HOST:$RERUN_VIEWER_PORT 上的 rerun 查看器，请先在该电脑上运行 rerun" >&2
     exit 1
