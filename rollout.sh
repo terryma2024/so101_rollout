@@ -8,12 +8,14 @@
 # 时间集成（ACT temporal ensembling）：TE=1 时每步都推理，并把重叠的动作块按指数权重平均（系数 TE_COEFF，
 # 默认 0.01，ACT 论文的取值）。默认 TE=0：每 100 步推理一次、照着执行完，和训练评估时一样。
 # 例：TE=1 ./rollout.sh <策略目录> eval-real-act-002-te 10
+# 任务文本默认绿方块；红方块策略：TASK="Put the red cube into the paper bowl" ./rollout.sh <红色策略目录> eval-real-act-red-ctrl 10
 set -e; cd "$(dirname "$0")"; source arms.env
 
 policy=${1:?usage: ./rollout.sh <pretrained_model dir> <eval-dataset-name> [num-episodes]}
 name=${2:?usage: ./rollout.sh <pretrained_model dir> <eval-dataset-name> [num-episodes]}
 episodes=${3:-3}
 MAX_REL=${MAX_REL:-30}
+TASK=${TASK:-"Put the green cube into the paper bowl"}
 VENV=/data/work/venvs/so101-real-lerobot-061
 ROOT=/data/work/so101-datasets/$name
 test -f "$policy/model.safetensors" || { echo "找不到 $policy/model.safetensors" >&2; exit 1; }
@@ -45,9 +47,9 @@ HF_HOME=${HF_HOME:-/data/models/huggingface} TORCH_HOME=${TORCH_HOME:-/data/mode
   --robot.type=so101_follower --robot.port="$FOLLOWER_PORT" --robot.id="$FOLLOWER_ID" \
   --robot.max_relative_target="$MAX_REL" \
   --robot.cameras="{ wrist: {type: opencv, index_or_path: $WRIST_CAM, width: 640, height: 480, fps: $WRIST_CAM_FPS}, side: {type: opencv, index_or_path: $SIDE_CAM, width: 640, height: 480, fps: $SIDE_CAM_FPS, fourcc: MJPG} }" \
-  --fps=20 --task="Put the green cube into the paper bowl" \
+  --fps=20 --task="$TASK" \
   --dataset.repo_id="local/rollout_$name" --dataset.root="$ROOT" \
-  --dataset.single_task="Put the green cube into the paper bowl" \
+  --dataset.single_task="$TASK" \
   --dataset.fps=20 --dataset.episode_time_s=30 --dataset.reset_time_s=20 \
   --dataset.num_episodes="$episodes" --dataset.push_to_hub=false --play_sounds=false \
   "${resume_args[@]}" "${display_args[@]}"
