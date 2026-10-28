@@ -104,6 +104,7 @@ ls -l /dev/serial/by-id/
 | `teleop.sh` | 启动遥操作（主臂控制从臂），同时用 rerun 显示手腕、侧面摄像头画面和关节数据 |
 | `teleop_viz.py` | `lerobot-teleoperate` 的包装：图像按摄像头帧率（20 Hz）发给 rerun，去掉重复帧（两个摄像头约 4 MB/s，原版约 12 MB/s），控制频率不变 |
 | `check_bus.py` | 只读：持续读取某只手臂各舵机，统计通信失败，排查接触不良（`uv run check_bus.py leader 30`，运行时活动手臂） |
+| `docs/so101-lerobot.html` | 交互式原理讲解：舵机、总线协议、校准换算、位置闭环、主循环、摄像头和 rerun（浏览器直接打开） |
 | `read_pose.py` | 只读对比两臂当前关节角度（不上扭矩，手臂不会动） |
 
 ## 5. 使用流程

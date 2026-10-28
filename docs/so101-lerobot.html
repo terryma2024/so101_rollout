@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SO101 遥操作原理</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* 布局：左侧固定目录 + 右侧单列正文；每节一个可操作的部件，主臂=琥珀色，从臂=青色 */
+:root {
+  --bg: #f2f4f3;
+  --surface: #ffffff;
+  --sunk: #e8ecea;
+  --ink: #17201d;
+  --muted: #59655f;
+  --line: #d3dbd7;
+  --leader: #b86e0b;
+  --leader-soft: #f6e6cc;
+  --follower: #17788a;
+  --follower-soft: #d3ecf0;
+  --warn: #b3261e;
+  --ok: #2e7d32;
+  --f-display: "Noto Serif SC", "Songti SC", serif;
+  --f-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1413; --surface: #161d1c; --sunk: #1d2624; --ink: #e3eae7; --muted: #94a39d; --line: #2b3633;
+    --leader: #eba646; --leader-soft: #3a2a12; --follower: #52b8ca; --follower-soft: #12313a;
+    --warn: #ff8a80; --ok: #81c784; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1413; --surface: #161d1c; --sunk: #1d2624; --ink: #e3eae7; --muted: #94a39d; --line: #2b3633;
+  --leader: #eba646; --leader-soft: #3a2a12; --follower: #52b8ca; --follower-soft: #12313a;
+  --warn: #ff8a80; --ok: #81c784; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.75;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.shell { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 48px; padding-block: 40px 80px; }
+nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; font-size: 13px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: s; }
+nav.toc a { display: block; padding: 4px 10px; border-left: 2px solid var(--line); color: var(--muted); text-decoration: none; }
+nav.toc a:hover, nav.toc a.on { color: var(--ink); border-left-color: var(--follower); }
+nav.toc .k { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-right: 6px; }
+main { min-width: 0; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.3; margin: 0; }
+h1 { font-size: clamp(30px, 5vw, 46px); font-weight: 900; letter-spacing: .01em; }
+h2 { font-size: 26px; font-weight: 900; }
+h3 { font-size: 17px; font-weight: 600; margin-top: 8px; }
+p { margin: 0; max-width: 68ch; }
+.lede { color: var(--muted); font-size: 16px; }
+section { display: grid; gap: 18px; padding-block: 56px 8px; border-top: 1px solid var(--line); margin-top: 48px; scroll-margin-top: 16px; }
+section:first-of-type { border-top: 0; margin-top: 0; padding-top: 0; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--follower); }
+code, .mono { font-family: var(--f-mono); font-size: .88em; }
+code { background: var(--sunk); padding: 1px 5px; border-radius: 4px; }
+.L { color: var(--leader); font-weight: 700; }
+.F { color: var(--follower); font-weight: 700; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: grid; gap: 14px; min-width: 0; }
+.panel-title { font-size: 12px; font-family: var(--f-mono); color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.scroll { overflow-x: auto; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.fact { border-left: 2px solid var(--line); padding: 2px 0 2px 12px; }
+.fact b { display: block; font-family: var(--f-mono); font-size: 18px; font-variant-numeric: tabular-nums; }
+.fact span { font-size: 12.5px; color: var(--muted); }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 500; color: var(--muted); font-size: 12px; }
+td.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr.used td:first-child { box-shadow: inset 3px 0 0 var(--follower); }
+.tag { display: inline-block; font-size: 11px; font-family: var(--f-mono); padding: 0 6px; border-radius: 3px; background: var(--sunk); color: var(--muted); white-space: nowrap; }
+.tag.ee { background: var(--leader-soft); color: var(--leader); }
+.tag.ram { background: var(--follower-soft); color: var(--follower); }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; font-size: 13.5px; }
+.controls label { display: flex; gap: 8px; align-items: center; }
+select, input[type=number] { font: inherit; font-size: 13.5px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); }
+input[type=range] { accent-color: var(--follower); width: 150px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; flex-wrap: wrap; }
+.seg button { font: inherit; font-size: 13px; border: 0; background: transparent; color: var(--muted); padding: 5px 12px; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--follower); outline-offset: 2px; }
+.note { font-size: 13px; color: var(--muted); }
+.callout { border-left: 3px solid var(--leader); background: var(--leader-soft); padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 14px; }
+.callout.f { border-color: var(--follower); background: var(--follower-soft); }
+
+/* 总览图 */
+#diagram svg { width: 100%; min-width: 680px; height: auto; display: block; }
+#diagram .node { cursor: pointer; }
+#diagram .node rect { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; transition: stroke .15s; }
+#diagram .node:hover rect, #diagram .node.sel rect { stroke: var(--ink); stroke-width: 2; }
+#diagram .node.leader rect { stroke: var(--leader); }
+#diagram .node.follower rect { stroke: var(--follower); }
+#diagram text { fill: var(--ink); font-family: var(--f-body); font-size: 13px; }
+#diagram text.sub { fill: var(--muted); font-size: 11px; font-family: var(--f-mono); }
+#diagram .wire { stroke: var(--line); stroke-width: 2; fill: none; }
+#diagram .pkt { fill: var(--follower); }
+#diagram .pkt.l { fill: var(--leader); }
+#diagram .pkt.c { fill: var(--muted); }
+#nodeInfo h3 { margin: 0; }
+
+/* 编码器表盘 */
+.dialwrap { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 24px; align-items: center; }
+#dial { width: 100%; max-width: 260px; aspect-ratio: 1; touch-action: none; cursor: grab; }
+#dial text { font-family: var(--f-mono); font-size: 9px; fill: var(--muted); }
+.readout { display: grid; gap: 8px; font-size: 14px; }
+.row { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px dashed var(--line); padding-bottom: 6px; flex-wrap: wrap; }
+.row .v { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-weight: 600; }
+.formula { font-family: var(--f-mono); font-size: 12.5px; color: var(--muted); background: var(--sunk); padding: 8px 10px; border-radius: 6px; overflow-x: auto; white-space: pre; }
+
+/* 数据包 */
+.bytes { display: flex; flex-wrap: wrap; gap: 6px; font-family: var(--f-mono); }
+.byte { display: grid; text-align: center; min-width: 44px; border-radius: 6px; padding: 6px 4px 4px; border: 1px solid var(--line); background: var(--sunk); }
+.byte b { font-size: 15px; font-weight: 600; }
+.byte i { font-style: normal; font-size: 10px; color: var(--muted); }
+.byte.hdr { opacity: .65; }
+.byte.id { border-color: var(--leader); background: var(--leader-soft); }
+.byte.ins { border-color: var(--ink); }
+.byte.prm { border-color: var(--follower); background: var(--follower-soft); }
+.byte.chk { border-style: dashed; }
+
+/* 主循环 */
+#loopSvg { width: 100%; min-width: 620px; height: auto; display: block; }
+#loopSvg text { font-family: var(--f-mono); font-size: 11px; fill: var(--muted); }
+#loopSvg text.lab { fill: var(--ink); font-family: var(--f-body); font-size: 12px; }
+
+canvas { width: 100%; display: block; border-radius: 8px; background: var(--sunk); }
+pre.code { font-family: var(--f-mono); font-size: 12.5px; background: var(--sunk); padding: 14px; border-radius: 8px; overflow-x: auto; margin: 0; line-height: 1.6; }
+
+@media (max-width: 860px) {
+  .shell { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 24px; }
+  nav.toc { display: none; }
+  .grid2, .dialwrap { grid-template-columns: minmax(0, 1fr); }
+  #dial { margin: 0 auto; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="shell">
+<nav class="toc" aria-label="目录">
+  <ol>
+    <li><a href="#overview"><span class="k">0</span>总览</a></li>
+    <li><a href="#servo"><span class="k">1</span>舵机</a></li>
+    <li><a href="#bus"><span class="k">2</span>总线协议</a></li>
+    <li><a href="#calib"><span class="k">3</span>校准与换算</a></li>
+    <li><a href="#pid"><span class="k">4</span>位置闭环</a></li>
+    <li><a href="#loop"><span class="k">5</span>主循环</a></li>
+    <li><a href="#camera"><span class="k">6</span>摄像头</a></li>
+    <li><a href="#viz"><span class="k">7</span>rerun 可视化</a></li>
+    <li><a href="#record"><span class="k">8</span>录制与策略</a></li>
+    <li><a href="#faults"><span class="k">9</span>故障对照</a></li>
+  </ol>
+</nav>
+
+<main>
+<!-- 0 总览 -->
+<section id="overview">
+  <div class="eyebrow">LeRobot 0.6.1 · SO-101 · Feetech STS3215</div>
+  <h1>主臂动一下，从臂怎么跟上</h1>
+  <p class="lede">这一页按信号经过的顺序，讲 LeRobot 控制这套 SO-101 的每一层：舵机、串口总线、校准换算、舵机内部的位置闭环、60 Hz 主循环、摄像头和 rerun。数字取自这台工作站上的校准文件、实测和 LeRobot 源码。</p>
+  <p>一句话概括：<span class="L">主臂</span>是一个关掉扭矩的位置传感器，<span class="F">从臂</span>是一个位置执行器。LeRobot 每 1/60 秒把主臂 6 个关节的角度读出来，换算后作为目标角度写给从臂。点下图中的部件查看说明。</p>
+  <div class="panel">
+    <div class="scroll" id="diagram">
+      <svg viewBox="0 0 900 330" role="img" aria-label="系统组成图">
+        <path class="wire" id="w1" d="M150 95 H250"/>
+        <path class="wire" id="w2" d="M370 95 H440"/>
+        <path class="wire" id="w3" d="M600 95 H640"/>
+        <path class="wire" id="w4" d="M760 95 H780"/>
+        <path class="wire" id="w5" d="M520 250 V140"/>
+        <path class="wire" id="w6" d="M600 120 C 640 120, 640 250, 690 250"/>
+        <path class="wire" id="w7" d="M430 250 H330 V200"/>
+        <g class="node leader" data-k="leader" tabindex="0"><rect x="20" y="55" width="130" height="80" rx="8"/><text x="85" y="88" text-anchor="middle">主臂 leader</text><text class="sub" x="85" y="108" text-anchor="middle">6×STS3215 扭矩关</text></g>
+        <g class="node" data-k="usb" tabindex="0"><rect x="250" y="60" width="120" height="70" rx="8"/><text x="310" y="90" text-anchor="middle">USB 串口板</text><text class="sub" x="310" y="110" text-anchor="middle">CH340 · 1 Mbps</text></g>
+        <g class="node" data-k="loop" tabindex="0"><rect x="440" y="45" width="160" height="95" rx="8"/><text x="520" y="78" text-anchor="middle">LeRobot 主循环</text><text class="sub" x="520" y="98" text-anchor="middle">60 Hz · teleop_viz.py</text><text class="sub" x="520" y="116" text-anchor="middle">工作站 RTX 5060 Ti</text></g>
+        <g class="node" data-k="usb2" tabindex="0"><rect x="640" y="60" width="120" height="70" rx="8"/><text x="700" y="90" text-anchor="middle">USB 串口板</text><text class="sub" x="700" y="110" text-anchor="middle">CH340 · 1 Mbps</text></g>
+        <g class="node follower" data-k="follower" tabindex="0"><rect x="780" y="55" width="110" height="80" rx="8"/><text x="835" y="88" text-anchor="middle">从臂 follower</text><text class="sub" x="835" y="108" text-anchor="middle">扭矩开 · PID</text></g>
+        <g class="node" data-k="cams" tabindex="0"><rect x="430" y="220" width="180" height="70" rx="8"/><text x="520" y="250" text-anchor="middle">摄像头 wrist + side</text><text class="sub" x="520" y="270" text-anchor="middle">640×480 · 约 20 fps</text></g>
+        <g class="node" data-k="viz" tabindex="0"><rect x="690" y="220" width="190" height="70" rx="8"/><text x="785" y="250" text-anchor="middle">MacBook rerun 0.40</text><text class="sub" x="785" y="270" text-anchor="middle">Tailscale · 端口 9876</text></g>
+        <g class="node" data-k="calib" tabindex="0"><rect x="250" y="160" width="160" height="40" rx="8"/><text x="330" y="185" text-anchor="middle">校准文件 ×2</text></g>
+        <circle class="pkt l" r="5"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#w1"/></animateMotion></circle>
+        <circle class="pkt l" r="5"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#w2"/></animateMotion></circle>
+        <circle class="pkt" r="5"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#w3"/></animateMotion></circle>
+        <circle class="pkt" r="5"><animateMotion dur="1.2s" repeatCount="indefinite"><mpath href="#w4"/></animateMotion></circle>
+        <circle class="pkt c" r="4"><animateMotion dur="2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w5"/></animateMotion></circle>
+        <circle class="pkt c" r="4"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#w6"/></animateMotion></circle>
+      </svg>
+    </div>
+    <div id="nodeInfo" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- 1 舵机 -->
+<section id="servo">
+  <div class="eyebrow">第 1 层 · 执行器</div>
+  <h2>STS3215：自带控制器的总线舵机</h2>
+  <p>每个关节是一颗 Feetech STS3215。它不只是一个电机，里面包含直流电机、减速齿轮组、一个 12 位磁编码器，以及一块带 MCU 的控制板。电脑从不直接控制电流或电压，只读写这块控制板上的寄存器。</p>
+  <div class="facts">
+    <div class="fact"><b>4096</b><span>编码器每圈刻度（0–4095），约 0.088°/刻度</span></div>
+    <div class="fact"><b>12.2–12.3 V</b><span>本机实测供电（寄存器 62 读数 122–123，单位 0.1 V）</span></div>
+    <div class="fact"><b>44–49 °C</b><span>本机实测舵机温度（寄存器 63）</span></div>
+    <div class="fact"><b>型号 777</b><span>STS3215 在 Model_Number 寄存器里的编号</span></div>
+  </div>
+  <p>两只手臂的关节编号相同：</p>
+  <div class="panel scroll">
+    <table>
+      <thead><tr><th>ID</th><th>关节</th><th>说明</th><th>LeRobot 单位</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>shoulder_pan</td><td>底座水平旋转</td><td>度</td></tr>
+        <tr><td class="num">2</td><td>shoulder_lift</td><td>大臂抬起</td><td>度</td></tr>
+        <tr><td class="num">3</td><td>elbow_flex</td><td>肘部弯曲</td><td>度</td></tr>
+        <tr><td class="num">4</td><td>wrist_flex</td><td>手腕上下</td><td>度</td></tr>
+        <tr><td class="num">5</td><td>wrist_roll</td><td>手腕旋转，可转整圈，校准时不记录范围（固定 0–4095）</td><td>度</td></tr>
+        <tr><td class="num">6</td><td>gripper</td><td>夹爪开合</td><td>0–100</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>控制表：舵机的全部接口</h3>
+  <p>每颗舵机内部有一张按地址排列的寄存器表。<span class="tag ee">EEPROM</span> 区断电保留，用来存 ID、波特率、限位、PID 参数这些配置；<span class="tag ram">RAM</span> 区断电清零，是运行时的命令和状态。带左侧色条的行是遥操作循环里实际用到的。</p>
+  <div class="controls"><div class="seg" role="group" aria-label="筛选寄存器">
+    <button type="button" data-f="all" aria-pressed="true">全部</button><button type="button" data-f="used" aria-pressed="false">遥操作用到的</button><button type="button" data-f="ee" aria-pressed="false">EEPROM</button><button type="button" data-f="ram" aria-pressed="false">RAM</button>
+  </div></div>
+  <div class="panel scroll"><table id="regTable"><thead><tr><th>地址</th><th>名称</th><th>字节</th><th>区</th><th>LeRobot 怎么用</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<!-- 2 总线 -->
+<section id="bus">
+  <div class="eyebrow">第 2 层 · 通信</div>
+  <h2>一根线串起 6 颗舵机</h2>
+  <p>6 颗舵机首尾相连，共用一根 TTL 半双工数据线，通过 CH340 USB 串口板接到电脑，波特率 1 Mbps。半双工的意思是同一时刻只能有一方发送：电脑发完命令，把线让出来，被点名的舵机再回答。总线上没有地址线，靠每个包里的 ID 字节区分舵机。</p>
+  <p>这也解释了之前遇到的"找不到舵机 6"：任何一个接头接触不良，那颗舵机就收不到命令、也不应答。LeRobot 连接时会逐个 ping 一遍，少一个就拒绝启动。</p>
+  <h3>数据包构造器</h3>
+  <p>选一种指令看它在线上的实际字节。校验和是 ID 到最后一个参数之和取反后的低 8 位。STS 系列多字节数值是低字节在前。</p>
+  <div class="panel">
+    <div class="controls">
+      <div class="seg" role="group" aria-label="指令" id="pktSeg">
+        <button type="button" data-p="read" aria-pressed="true">READ 读位置</button><button type="button" data-p="write" aria-pressed="false">WRITE 写目标</button><button type="button" data-p="sread" aria-pressed="false">SYNC READ</button><button type="button" data-p="swrite" aria-pressed="false">SYNC WRITE</button>
+      </div>
+      <label id="pktIdL">舵机 ID <select id="pktId"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option selected>6</option></select></label>
+      <label id="pktValL">目标刻度 <input type="number" id="pktVal" min="0" max="4095" value="2047"></label>
+    </div>
+    <div class="panel-title">电脑 → 舵机</div>
+    <div class="bytes" id="pktOut"></div>
+    <div class="panel-title" id="respTitle">舵机 → 电脑</div>
+    <div class="bytes" id="pktResp"></div>
+    <p class="note" id="pktNote"></p>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-title">为什么用 SYNC READ / SYNC WRITE</div>
+      <p>逐个读 6 颗舵机要发 6 个请求、等 6 次应答。SYNC READ 只发一个广播包（ID=0xFE），列出要读的 ID，舵机按顺序依次应答。SYNC WRITE 一个包里带 6 组目标值，舵机不回包。</p>
+    </div>
+    <div class="panel">
+      <div class="panel-title">本机实测</div>
+      <div class="facts">
+        <div class="fact"><b>0.88 ms</b><span>一次 SYNC READ 6 个位置，中位数（p95 0.97 ms，300 次）</span></div>
+        <div class="fact"><b>0.62 ms</b><span>理论线上时间：62 字节 × 10 bit ÷ 1 Mbps</span></div>
+      </div>
+      <p class="note">差值来自 USB 转串口的延迟和舵机应答前的等待（LeRobot 把 Return_Delay_Time 设为最小的 2 µs）。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 校准 -->
+<section id="calib">
+  <div class="eyebrow">第 3 层 · 坐标换算</div>
+  <h2>校准：让两只手臂说同一种角度</h2>
+  <p>两只手臂装配时舵机花键插的位置不一样，同一个姿态下读到的原始刻度也不一样。校准记录每个关节三个数，存在 <code>calibration/robots/so_follower/my_follower.json</code> 和 <code>calibration/teleoperators/so_leader/my_leader.json</code>：</p>
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-title">homing_offset · 中位偏移</div>
+      <p>校准第一步你把手臂摆到中间姿态，LeRobot 读出当前刻度，算出 <code>offset = 当前刻度 − 2047</code>，写进舵机的 Homing_Offset 寄存器（地址 31）。此后舵机固件报告的 <code>Present_Position = 实际刻度 − offset</code>，中间姿态正好读 2047。</p>
+    </div>
+    <div class="panel">
+      <div class="panel-title">range_min / range_max · 活动范围</div>
+      <p>第二步你把每个关节转到两头，LeRobot 记下最小和最大刻度。它们也被写入舵机的 Min/Max_Position_Limit 寄存器，所以就算程序发了超范围的目标，舵机固件自己也会拒绝转过头。</p>
+    </div>
+  </div>
+  <h3>换算演示（本机真实校准数据）</h3>
+  <p>拖动表盘转动<span class="L">主臂</span>关节。右侧依次显示舵机实际刻度、减去偏移后的读数、LeRobot 换算出的角度，以及<span class="F">从臂</span>要转到同一角度需要的刻度。</p>
+  <div class="panel">
+    <div class="controls">
+      <label>关节 <select id="jointSel"></select></label>
+      <span class="note">拖动表盘，或聚焦后用 ← → 键</span>
+    </div>
+    <div class="dialwrap">
+      <svg id="dial" viewBox="-130 -130 260 260" tabindex="0" role="slider" aria-label="主臂关节位置" aria-valuemin="0" aria-valuemax="4095"></svg>
+      <div class="readout">
+        <div class="row"><span>主臂 实际刻度（磁编码器）</span><span class="v" id="rA"></span></div>
+        <div class="row"><span>主臂 homing_offset</span><span class="v" id="rOff"></span></div>
+        <div class="row"><span>主臂 Present_Position = 实际 − offset</span><span class="v L" id="rP"></span></div>
+        <div class="row"><span>主臂 校准范围</span><span class="v" id="rRange"></span></div>
+        <div class="row"><span>LeRobot 换算结果（action）</span><span class="v" id="rN"></span></div>
+        <div class="row"><span>从臂 Goal_Position（写入的刻度）</span><span class="v F" id="rFG"></span></div>
+        <div class="row"><span>从臂 实际刻度 = Goal + 从臂 offset</span><span class="v" id="rFA"></span></div>
+        <div class="formula" id="rFormula"></div>
+      </div>
+    </div>
+  </div>
+  <div class="callout f">换算公式（<code>motors_bus.py</code> 的 <code>_normalize</code>）：身体关节 <code>角度 = (读数 − (min+max)/2) × 360 / 4095</code>；夹爪 <code>(读数 − min) / (max − min) × 100</code>。从臂用自己的 min/max 做反向换算。注意角度 0° 是校准范围的中点，不一定是你校准时摆的那个中间姿态。</div>
+</section>
+
+<!-- 4 PID -->
+<section id="pid">
+  <div class="eyebrow">第 4 层 · 舵机内部</div>
+  <h2>位置闭环在舵机里跑</h2>
+  <p>LeRobot 只写 Goal_Position，不管电机怎么转过去。从臂每颗舵机的 MCU 以远高于 60 Hz 的频率比较目标和编码器读数，用 PID 算出驱动电机的力度。主臂扭矩关闭（Torque_Enable=0），电机不出力，只有编码器在工作，所以你能用手掰动。</p>
+  <p>LeRobot 连接从臂时写入 <code>P=16, I=0, D=32</code>（出厂 P=32）。P 小一点、D 大一点，动作偏软、不容易抖。代价是 I=0：如果关节受到持续外力（重力、夹住的东西），会留下一点稳态误差。</p>
+  <h3>模拟（简化模型，仅示意）</h3>
+  <p><span class="L">琥珀线</span>是主臂角度（每 1/60 秒更新一次的目标），<span class="F">青色线</span>是从臂响应。调参数看跟随效果的变化。</p>
+  <div class="panel">
+    <div class="controls">
+      <label>P <input type="range" id="kp" min="2" max="64" value="16"><span class="mono" id="kpV">16</span></label>
+      <label>D <input type="range" id="kd" min="0" max="64" value="32"><span class="mono" id="kdV">32</span></label>
+      <label>外部负载 <input type="range" id="load" min="0" max="100" value="0"><span class="mono" id="loadV">0%</span></label>
+      <label>扭矩上限 <input type="range" id="tmax" min="20" max="100" value="100"><span class="mono" id="tmaxV">100%</span></label>
+    </div>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="主臂动作" id="motionSeg">
+        <button type="button" data-m="step" aria-pressed="true">阶跃（快速甩动）</button><button type="button" data-m="sine" aria-pressed="false">平滑摆动</button><button type="button" data-m="hold" aria-pressed="false">静止</button>
+      </div>
+      <button type="button" class="seg" style="padding:5px 12px;background:transparent;color:var(--ink);cursor:pointer" id="pidReset">恢复 LeRobot 默认</button>
+    </div>
+    <canvas id="pidCanvas" height="220"></canvas>
+    <div class="facts">
+      <div class="fact"><b id="pidLag">–</b><span>平均跟随误差（度）</span></div>
+      <div class="fact"><b id="pidOver">–</b><span>最大超调（度）</span></div>
+      <div class="fact"><b id="pidSS">–</b><span>稳态误差（静止时，度）</span></div>
+    </div>
+  </div>
+  <div class="callout">夹爪单独加了保护：Max_Torque_Limit=500（50%）、Protection_Current=250（50%）、Overload_Torque=25。夹爪长时间夹着东西顶住，电流超过保护值就会触发过载，Status 寄存器第 5 位置 1（数值 32），舵机自动卸力。之前从臂夹爪读到的 status 32 就是这个，断电重启清除；今天实测两只手臂 Status 都是 0。</div>
+</section>
+
+<!-- 5 主循环 -->
+<section id="loop">
+  <div class="eyebrow">第 5 层 · 软件</div>
+  <h2>60 Hz 主循环</h2>
+  <p><code>teleop.sh</code> 运行的 <code>teleop_viz.py</code> 是 <code>lerobot_teleoperate</code> 的包装。连接完成后，它每轮做四件事，然后睡到 1/60 秒（16.7 ms）凑满一个周期：</p>
+  <pre class="code">while True:
+    t0 = now()
+    action = leader.get_action()        # SYNC READ 主臂 Present_Position → 换算成角度
+    robot.send_action(action)           # 角度 → 从臂刻度 → SYNC WRITE Goal_Position
+    obs = robot.get_observation()       # SYNC READ 从臂位置 + 两路摄像头最新帧
+    log_visualization_data(obs, action) # 发往 Mac 上的 rerun（图像限速到约 20 Hz）
+    precise_sleep(1/60 - (now() - t0))</pre>
+  <div class="panel">
+    <div class="controls"><div class="seg" role="group" aria-label="周期" id="cycSeg"></div><span class="note">点选第几轮。teleop_viz.py 让图像大约每 3 轮发一次。</span></div>
+    <div class="scroll"><svg id="loopSvg" viewBox="0 0 720 150"></svg></div>
+    <p class="note">串口读写耗时为本机实测或按字节数计算；摄像头取帧和 rerun 发送的耗时是估计值，随画面内容和网络变化。</p>
+  </div>
+  <div class="grid2">
+    <div class="panel"><div class="panel-title">动作就是角度</div><p>action 是一个 6 个键的字典，例如 <code>{"shoulder_pan.pos": 12.3, …, "gripper.pos": 41.0}</code>。主臂提供它，从臂执行它，录制时存下来，训练时模型学着输出它。</p></div>
+    <div class="panel"><div class="panel-title">可选的安全限幅</div><p><code>max_relative_target</code> 可以限制每轮最多移动多少。开启后 send_action 会先读一次从臂位置再裁剪目标，多花约 0.9 ms。当前配置没有开启。</p></div>
+  </div>
+</section>
+
+<!-- 6 摄像头 -->
+<section id="camera">
+  <div class="eyebrow">第 6 层 · 感知</div>
+  <h2>摄像头不拖慢控制</h2>
+  <p>每个摄像头由 OpenCV 打开，LeRobot 为它开一个后台线程不停抓帧，只保留最新的一帧。主循环调用 <code>async_read</code> 时直接拿这一帧，不等待。所以摄像头只有 20 fps，手臂控制照样 60 Hz；代价是连续三轮可能拿到同一帧。</p>
+  <div class="panel scroll">
+    <table>
+      <thead><tr><th></th><th>wrist（腕部）</th><th>side（侧面）</th></tr></thead>
+      <tbody>
+        <tr><td>设备路径</td><td class="num">…icspring_camera-video-index0</td><td class="num">…camera_202404160005-video-index0</td></tr>
+        <tr><td>分辨率</td><td class="num">640×480</td><td class="num">640×480 MJPG</td></tr>
+        <tr><td>设置 fps</td><td class="num">20</td><td class="num">30（MJPG 模式只接受 30）</td></tr>
+        <tr><td>实测 fps</td><td class="num">20.8</td><td class="num">19.9</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">自动曝光会在光线暗时延长每帧曝光时间，帧率随之下降。之前镜头盖住时测到 10 fps 和 6.3 fps，就是这个原因，不是 USB 口的问题。录制前 <code>record.sh</code> 会锁定曝光和白平衡。</div>
+</section>
+
+<!-- 7 rerun -->
+<section id="viz">
+  <div class="eyebrow">第 7 层 · 观察</div>
+  <h2>rerun：从工作站推到 Mac</h2>
+  <p><code>--display_data=true</code> 时，主循环每轮把关节数值和摄像头图像用 rerun SDK 发出去。通过 SSH 运行时，<code>arms.env</code> 取 <code>SSH_CONNECTION</code> 的第一个字段作为查看器地址，即你 SSH 的那台电脑。</p>
+  <div class="grid2">
+    <div class="panel"><div class="panel-title">版本要求</div><p>LeRobot 0.6.1 把 SDK 锁在 0.33.x，但查看器必须 ≥ 0.34：0.33 的查看器加载 JPEG 静态图会卡死，0.34.0 修复。Mac 上运行 <code>uvx --from rerun-sdk==0.40.0 rerun --bind 0.0.0.0</code>。</p></div>
+    <div class="panel"><div class="panel-title">反压</div><p>SDK 发送队列满了会阻塞调用方。查看器一卡，<code>rr.log</code> 就卡，主循环跟着停，从臂不再跟随。所以 teleop_viz.py 把图像限到摄像头实际帧率，两个摄像头的数据量从约 12 MB/s 降到约 4 MB/s；也因此不用网页版查看器。</p></div>
+  </div>
+</section>
+
+<!-- 8 录制 -->
+<section id="record">
+  <div class="eyebrow">第 8 层 · 学习</div>
+  <h2>录制数据，再让模型替代主臂</h2>
+  <p>录制（<code>record.sh</code>）用的是同一个循环，每轮多做一件事：把这一刻的观测和动作作为一帧存进 LeRobotDataset。关节数据写 parquet，图像编码成 mp4。训练好的策略模型接收同样格式的观测，输出同样格式的动作。</p>
+  <div class="panel">
+    <div class="controls"><div class="seg" role="group" aria-label="动作来源" id="srcSeg">
+      <button type="button" data-s="leader" aria-pressed="true">遥操作录制</button><button type="button" data-s="policy" aria-pressed="false">模型控制</button>
+    </div></div>
+    <pre class="code" id="srcCode"></pre>
+  </div>
+  <p>对从臂来说两种情况没有区别，它收到的始终是"把这 6 个关节转到这些角度"。录制时主臂操作者就是在给模型做示范。</p>
+</section>
+
+<!-- 9 故障 -->
+<section id="faults">
+  <div class="eyebrow">附录</div>
+  <h2>这套设备上遇到过的问题，对应到哪一层</h2>
+  <div class="panel scroll">
+    <table>
+      <thead><tr><th>现象</th><th>层</th><th>原因与处理</th></tr></thead>
+      <tbody>
+        <tr><td>启动报 Full found motor list 缺少舵机 6</td><td><a href="#bus">总线</a></td><td>那颗舵机没应答 ping。断电重启后恢复；复发时运行 <code>uv run check_bus.py leader 30</code> 并活动手臂，找出接触不良的接头。</td></tr>
+        <tr><td>从臂夹爪 Status = 32</td><td><a href="#pid">舵机</a></td><td>过载保护触发并卸力，断电重启清除。避免夹爪长时间顶住物体。</td></tr>
+        <tr><td>摄像头只有 6–10 fps</td><td><a href="#camera">摄像头</a></td><td>镜头被盖住，自动曝光拉长曝光时间。</td></tr>
+        <tr><td>failed to set fps=20</td><td><a href="#camera">摄像头</a></td><td>side 摄像头 MJPG 模式只支持 30，SIDE_CAM_FPS 设为 30。</td></tr>
+        <tr><td>rerun 查看器卡死，从臂停止跟随</td><td><a href="#viz">可视化</a></td><td>0.33 查看器的 JPEG bug 加上 SDK 反压。Mac 查看器升级到 0.40，图像限速。</td></tr>
+        <tr><td>rerun 开在工作站显示器上</td><td><a href="#viz">可视化</a></td><td>SSH 会话里有 DISPLAY=:1。现在只要是 SSH 登录就发往发起端 IP。</td></tr>
+        <tr><td>calibrate 报 EOFError</td><td><a href="#calib">校准</a></td><td>校准需要按回车交互，必须在自己的终端里运行。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+</div>
+
+<script>
+(() => {
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (reduced) $$("#diagram .pkt").forEach(c => c.remove());
+function seg(container, attr, fn) {
+  const btns = [...container.querySelectorAll("button")];
+  btns.forEach(b => b.addEventListener("click", () => { btns.forEach(x => x.setAttribute("aria-pressed", x === b)); fn(b.dataset[attr]); }));
+}
+
+/* ---------- 总览 ---------- */
+const NODES = {
+  leader: ["主臂 leader", "6 颗 STS3215，Torque_Enable=0。电机不出力，你用手掰动它时，磁编码器测出每个关节的位置。LeRobot 只从它读 Present_Position，从不写目标。", "#servo"],
+  usb: ["USB 串口板（主臂）", "1a86 CH340 芯片，把 USB 转成舵机用的 TTL 半双工串口。by-id 路径 …5CE5113682 固定对应主臂，换 USB 口也不变。", "#bus"],
+  loop: ["LeRobot 主循环", "每 1/60 秒：读主臂 → 换算 → 写从臂 → 读从臂和摄像头 → 发 rerun。全部在一个 Python 线程里同步执行，摄像头抓帧在各自的后台线程。", "#loop"],
+  usb2: ["USB 串口板（从臂）", "同型号 CH340，by-id 路径 …5CE5122459。两只手臂各占一条总线，互不干扰。", "#bus"],
+  follower: ["从臂 follower", "6 颗 STS3215，Torque_Enable=1，位置模式。收到 Goal_Position 后，舵机内部 PID 把关节驱动过去。LeRobot 设置 P=16 I=0 D=32，夹爪扭矩和电流限 50%。", "#pid"],
+  cams: ["摄像头", "腕部和侧面两个 USB 摄像头，640×480，实际约 20 fps。后台线程持续抓帧，主循环只取最新一帧。", "#camera"],
+  viz: ["rerun 查看器（Mac）", "工作站用 rerun SDK 0.33.1 把关节曲线和图像推到 SSH 发起端的 9876 端口。查看器版本必须 ≥ 0.34。", "#viz"],
+  calib: ["校准文件", "每只手臂一个 JSON，每个关节记录 homing_offset、range_min、range_max。连接时写回舵机寄存器，并用于刻度和角度的互相换算。", "#calib"],
+};
+function showNode(k) {
+  $$("#diagram .node").forEach(n => n.classList.toggle("sel", n.dataset.k === k));
+  const [t, d, href] = NODES[k];
+  $("#nodeInfo").innerHTML = `<h3>${t}</h3><p>${d} <a href="${href}">详细 →</a></p>`;
+}
+$$("#diagram .node").forEach(n => {
+  n.addEventListener("click", () => showNode(n.dataset.k));
+  n.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); showNode(n.dataset.k); } });
+});
+showNode("loop");
+
+/* ---------- 控制表 ---------- */
+const REGS = [
+  [5, "ID", 1, "ee", "舵机地址 1–6，出厂前用 lerobot-setup-motors 写入", false],
+  [6, "Baud_Rate", 1, "ee", "0 = 1 Mbps", false],
+  [9, "Min_Position_Limit", 2, "ee", "= 校准的 range_min，固件级限位", true],
+  [11, "Max_Position_Limit", 2, "ee", "= 校准的 range_max", true],
+  [16, "Max_Torque_Limit", 2, "ee", "夹爪设 500（50%）", true],
+  [21, "P_Coefficient", 1, "ee", "从臂设 16", true],
+  [22, "D_Coefficient", 1, "ee", "从臂设 32", true],
+  [23, "I_Coefficient", 1, "ee", "从臂设 0", true],
+  [28, "Protection_Current", 2, "ee", "夹爪设 250（50%）", true],
+  [31, "Homing_Offset", 2, "ee", "= 校准的 homing_offset", true],
+  [33, "Operating_Mode", 1, "ee", "0 = 位置模式（两只手臂都是）", true],
+  [36, "Overload_Torque", 1, "ee", "夹爪过载后保持的扭矩 25%", true],
+  [40, "Torque_Enable", 1, "ram", "主臂 0（可掰动），从臂 1（出力）", true],
+  [41, "Acceleration", 1, "ram", "设 0，即不限加速度", false],
+  [42, "Goal_Position", 2, "ram", "从臂每轮 SYNC WRITE 写入", true],
+  [46, "Goal_Velocity", 2, "ram", "未使用", false],
+  [55, "Lock", 1, "ram", "写 EEPROM 前解锁", false],
+  [56, "Present_Position", 2, "ram", "两只手臂每轮 SYNC READ（check_bus.py 也读它）", true],
+  [60, "Present_Load", 2, "ram", "未使用，可用来看负载", false],
+  [62, "Present_Voltage", 1, "ram", "单位 0.1 V，本机 122–123", false],
+  [63, "Present_Temperature", 1, "ram", "°C，本机 44–49", false],
+  [65, "Status", 1, "ram", "故障位：bit0 电压 bit1 传感器 bit2 温度 bit3 电流 bit5 过载", false],
+  [66, "Moving", 1, "ram", "是否在运动", false],
+  [69, "Present_Current", 2, "ram", "电流", false],
+];
+function renderRegs(f) {
+  $("#regTable tbody").innerHTML = REGS.filter(r => f === "all" || (f === "used" ? r[5] : r[3] === f)).map(r =>
+    `<tr class="${r[5] ? "used" : ""}"><td class="num">${r[0]}</td><td class="mono">${r[1]}</td><td class="num">${r[2]}</td><td><span class="tag ${r[3]}">${r[3] === "ee" ? "EEPROM" : "RAM"}</span></td><td>${r[4]}</td></tr>`).join("");
+}
+seg($("#servo .seg"), "f", renderRegs); renderRegs("all");
+
+/* ---------- 数据包 ---------- */
+const hex = n => n.toString(16).toUpperCase().padStart(2, "0");
+const chk = arr => (~arr.reduce((a, b) => a + b, 0)) & 0xFF;
+let pktMode = "read";
+function byteHtml(v, cls, lab) { return `<div class="byte ${cls}"><b>${hex(v)}</b><i>${lab}</i></div>`; }
+function renderPkt() {
+  const id = +$("#pktId").value, val = Math.max(0, Math.min(4095, +$("#pktVal").value || 0));
+  const lo = val & 0xFF, hi = val >> 8;
+  let body, labels, cls, resp = null, note;
+  const ids = [1, 2, 3, 4, 5, 6];
+  if (pktMode === "read") {
+    body = [id, 4, 0x02, 56, 2]; labels = ["ID", "LEN", "READ", "地址56", "读2字节"]; cls = ["id", "len", "ins", "prm", "prm"];
+    resp = [[id, 4, 0, 0xFF & 2047, 2047 >> 8]];
+    note = `共 8 字节。舵机回 8 字节：错误字节 00 表示无故障（非零时就是 Status 的故障位），数据 FF 07 = 0x07FF = 2047。往返约 16 字节 × 10 µs。`;
+  } else if (pktMode === "write") {
+    body = [id, 5, 0x03, 42, lo, hi]; labels = ["ID", "LEN", "WRITE", "地址42", "低字节", "高字节"]; cls = ["id", "len", "ins", "prm", "prm", "prm"];
+    resp = [[id, 2, 0]];
+    note = `${val} = 0x${hex(hi)}${hex(lo)}，低字节在前。单个 WRITE 默认会回一个 6 字节确认包。`;
+  } else if (pktMode === "sread") {
+    body = [0xFE, 10, 0x82, 56, 2, ...ids]; labels = ["广播", "LEN", "SYNC_R", "地址56", "2字节", ...ids.map(i => "ID" + i)]; cls = ["id", "len", "ins", "prm", "prm", ...ids.map(() => "prm")];
+    resp = ids.map(i => [i, 4, 0, 0xFF & 2047, 2047 >> 8]);
+    note = `请求 14 字节，6 颗舵机依次各回 8 字节，共 62 字节，线上约 0.62 ms。本机实测整次调用 0.88 ms。`;
+  } else {
+    const g = ids.map(i => [i, lo, hi]).flat();
+    body = [0xFE, 22, 0x83, 42, 2, ...g]; labels = ["广播", "LEN", "SYNC_W", "地址42", "2字节", ...ids.map(i => ["ID" + i, "低", "高"]).flat()];
+    cls = ["id", "len", "ins", "prm", "prm", ...ids.map(() => ["id", "prm", "prm"]).flat()];
+    note = `26 字节一次写完 6 个目标，约 0.26 ms。广播包舵机不应答，所以写入失败不会被发现，这也是为什么连接时要先逐个 ping。`;
+  }
+  const pkt = [byteHtml(0xFF, "hdr", "包头"), byteHtml(0xFF, "hdr", "包头"), ...body.map((b, i) => byteHtml(b, cls[i], labels[i])), byteHtml(chk(body), "chk", "校验")];
+  $("#pktOut").innerHTML = pkt.join("");
+  $("#respTitle").hidden = !resp; $("#pktResp").hidden = !resp;
+  if (resp) {
+    $("#pktResp").innerHTML = resp.map(r => [byteHtml(0xFF, "hdr", "包头"), byteHtml(0xFF, "hdr", "包头"), byteHtml(r[0], "id", "ID"), byteHtml(r[1], "len", "LEN"), byteHtml(r[2], "ins", "错误"),
+      ...r.slice(3).map((b, i) => byteHtml(b, "prm", i ? "高字节" : "低字节")), byteHtml(chk(r), "chk", "校验")].join("")).join('<span style="width:100%;height:0"></span>');
+  }
+  $("#pktIdL").hidden = pktMode === "sread" || pktMode === "swrite";
+  $("#pktValL").hidden = pktMode === "read" || pktMode === "sread";
+  $("#pktNote").textContent = note;
+}
+seg($("#pktSeg"), "p", m => { pktMode = m; renderPkt(); });
+$("#pktId").addEventListener("change", renderPkt); $("#pktVal").addEventListener("input", renderPkt);
+renderPkt();
+
+/* ---------- 校准 ---------- */
+const CAL = {
+  leader: { shoulder_pan: [773, 763, 3316], shoulder_lift: [467, 829, 3216], elbow_flex: [450, 919, 3119], wrist_flex: [673, 948, 3284], wrist_roll: [-383, 0, 4095], gripper: [-180, 1899, 3191] },
+  follower: { shoulder_pan: [313, 781, 3352], shoulder_lift: [-448, 826, 3223], elbow_flex: [69, 869, 3092], wrist_flex: [-68, 894, 3244], wrist_roll: [252, 0, 4095], gripper: [13, 2035, 3505] },
+};
+const jointSel = $("#jointSel");
+Object.keys(CAL.leader).forEach(j => jointSel.add(new Option(j, j)));
+let present = 2047;
+const mod = (n, m) => ((n % m) + m) % m;
+const dial = $("#dial");
+function arcPath(a0, a1, r) {
+  const p = a => [Math.sin(a / 4096 * 2 * Math.PI) * r, -Math.cos(a / 4096 * 2 * Math.PI) * r];
+  const [x0, y0] = p(a0), [x1, y1] = p(a1); const large = (a1 - a0) > 2048 ? 1 : 0;
+  return `M${x0.toFixed(1)} ${y0.toFixed(1)} A${r} ${r} 0 ${large} 1 ${x1.toFixed(1)} ${y1.toFixed(1)}`;
+}
+function renderCal() {
+  const j = jointSel.value, [off, mn, mx] = CAL.leader[j], [fo, fmn, fmx] = CAL.follower[j];
+  present = Math.max(mn, Math.min(mx, present));
+  const actual = mod(present + off, 4096);
+  let norm, fGoal, txt, unit;
+  if (j === "gripper") {
+    norm = (present - mn) / (mx - mn) * 100; fGoal = Math.round(norm / 100 * (fmx - fmn) + fmn); unit = "";
+    txt = `(${present} − ${mn}) / (${mx} − ${mn}) × 100 = ${norm.toFixed(1)}\n从臂: ${norm.toFixed(1)} / 100 × (${fmx} − ${fmn}) + ${fmn} = ${fGoal}`;
+  } else {
+    const mid = (mn + mx) / 2, fmid = (fmn + fmx) / 2;
+    norm = (present - mid) * 360 / 4095; fGoal = Math.round(norm * 4095 / 360 + fmid); unit = "°";
+    txt = `(${present} − ${mid}) × 360 / 4095 = ${norm.toFixed(2)}°\n从臂: ${norm.toFixed(2)} × 4095 / 360 + ${fmid} = ${fGoal}`;
+  }
+  $("#rA").textContent = actual; $("#rOff").textContent = off; $("#rP").textContent = present;
+  $("#rRange").textContent = `${mn} – ${mx}`; $("#rN").textContent = `${j}.pos = ${norm.toFixed(j === "gripper" ? 1 : 2)}${unit}`;
+  $("#rFG").textContent = fGoal; $("#rFA").textContent = mod(fGoal + fo, 4096); $("#rFormula").textContent = txt;
+  dial.setAttribute("aria-valuenow", present);
+  const ang = present / 4096 * 360;
+  let ticks = "";
+  for (let i = 0; i < 4096; i += 256) { const a = i / 4096 * 2 * Math.PI, r0 = i % 1024 ? 104 : 98; ticks += `<line x1="${(Math.sin(a) * r0).toFixed(1)}" y1="${(-Math.cos(a) * r0).toFixed(1)}" x2="${(Math.sin(a) * 110).toFixed(1)}" y2="${(-Math.cos(a) * 110).toFixed(1)}" stroke="var(--muted)" stroke-width="1"/>`; }
+  const labs = [0, 1024, 2048, 3072].map(v => { const a = v / 4096 * 2 * Math.PI; return `<text x="${(Math.sin(a) * 122).toFixed(1)}" y="${(-Math.cos(a) * 122 + 3).toFixed(1)}" text-anchor="middle">${v}</text>`; }).join("");
+  const range = mx - mn >= 4095 ? `<circle r="88" fill="none" stroke="var(--leader-soft)" stroke-width="14"/>` : `<path d="${arcPath(mn, mx, 88)}" fill="none" stroke="var(--leader-soft)" stroke-width="14"/>`;
+  const midMark = (() => { const a = 2047 / 4096 * 2 * Math.PI; return `<line x1="${(Math.sin(a) * 78).toFixed(1)}" y1="${(-Math.cos(a) * 78).toFixed(1)}" x2="${(Math.sin(a) * 98).toFixed(1)}" y2="${(-Math.cos(a) * 98).toFixed(1)}" stroke="var(--follower)" stroke-width="2"/>`; })();
+  dial.innerHTML = `<circle r="110" fill="var(--surface)" stroke="var(--line)"/>${range}${ticks}${labs}${midMark}
+    <g transform="rotate(${ang.toFixed(2)})"><rect x="-9" y="-92" width="18" height="96" rx="9" fill="var(--leader)"/><circle r="22" fill="var(--ink)"/><circle r="6" fill="var(--surface)"/></g>
+    <text y="58" text-anchor="middle" style="font-size:10px">Present_Position</text><text y="74" text-anchor="middle" style="font-size:14px;fill:var(--ink);font-weight:600">${present}</text>`;
+}
+function dialFromEvent(e) {
+  const r = dial.getBoundingClientRect(), x = e.clientX - (r.left + r.width / 2), y = e.clientY - (r.top + r.height / 2);
+  let a = Math.atan2(x, -y); if (a < 0) a += 2 * Math.PI;
+  present = Math.round(a / (2 * Math.PI) * 4096) % 4096; renderCal();
+}
+let dragging = false;
+dial.addEventListener("pointerdown", e => { dragging = true; dial.setPointerCapture(e.pointerId); dialFromEvent(e); });
+dial.addEventListener("pointermove", e => dragging && dialFromEvent(e));
+dial.addEventListener("pointerup", () => dragging = false);
+dial.addEventListener("keydown", e => {
+  const d = { ArrowRight: 20, ArrowUp: 20, ArrowLeft: -20, ArrowDown: -20 }[e.key];
+  if (d) { e.preventDefault(); present += d * (e.shiftKey ? 5 : 1); renderCal(); }
+});
+jointSel.addEventListener("change", () => { const [, mn, mx] = CAL.leader[jointSel.value]; present = Math.round((mn + mx) / 2) + 300; renderCal(); });
+present = 2347; renderCal();
+
+/* ---------- PID 模拟 ---------- */
+const cv = $("#pidCanvas"), ctx = cv.getContext("2d");
+let motion = "step", sim, hist = [];
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function resetSim() { sim = { t: 0, th: 0, w: 0, tgt: 0 }; hist = []; }
+function leaderAngle(t) {
+  if (motion === "hold") return 20;
+  if (motion === "sine") return 40 * Math.sin(t * 2 * Math.PI * 0.5);
+  return (Math.floor(t / 1.5) % 2) ? 40 : -20;
+}
+function stepSim(dt) {
+  const kp = +$("#kp").value, kd = +$("#kd").value, load = +$("#load").value / 100, tmax = +$("#tmax").value / 100;
+  const sub = 1 / 1000;
+  for (let s = 0; s < dt / sub; s++) {
+    sim.t += sub;
+    if (Math.floor(sim.t * 60) !== Math.floor((sim.t - sub) * 60)) sim.tgt = leaderAngle(sim.t); // 60 Hz 更新目标
+    let u = 0.9 * kp * (sim.tgt - sim.th) - 0.06 * kd * sim.w;  // 简化：力矩单位任意
+    u = Math.max(-1500 * tmax, Math.min(1500 * tmax, u));
+    const acc = (u - 150 * load - 0.2 * sim.w) / 0.05;
+    sim.w += acc * sub; sim.th += sim.w * sub;
+  }
+  hist.push([sim.t, sim.tgt, sim.th]); while (hist.length && hist[0][0] < sim.t - 4) hist.shift();
+}
+function drawSim() {
+  const dpr = devicePixelRatio || 1, W = cv.clientWidth, H = 220;
+  if (cv.width !== Math.round(W * dpr)) { cv.width = Math.round(W * dpr); cv.height = H * dpr; }
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+  const y = v => H / 2 - v * (H / 2 - 16) / 60, t1 = sim.t, t0 = t1 - 4, x = t => 36 + (t - t0) / 4 * (W - 46);
+  ctx.strokeStyle = css("--line"); ctx.fillStyle = css("--muted"); ctx.font = "11px " + css("--f-mono"); ctx.lineWidth = 1;
+  [-40, 0, 40].forEach(v => { ctx.beginPath(); ctx.moveTo(36, y(v)); ctx.lineTo(W - 10, y(v)); ctx.stroke(); ctx.fillText(v + "°", 4, y(v) + 4); });
+  const line = (i, col, w) => { ctx.strokeStyle = col; ctx.lineWidth = w; ctx.beginPath(); hist.forEach((h, k) => { const X = x(h[0]), Y = y(h[i]); k ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); }); ctx.stroke(); };
+  line(1, css("--leader"), 2); line(2, css("--follower"), 2.5);
+  if (hist.length > 30) {
+    const errs = hist.map(h => Math.abs(h[1] - h[2]));
+    $("#pidLag").textContent = (errs.reduce((a, b) => a + b, 0) / errs.length).toFixed(1);
+    let over = 0; hist.forEach(h => { const d = h[1] >= 0 ? h[2] - h[1] : h[1] - h[2]; if (h[1] !== 0 && d > over) over = d; });
+    $("#pidOver").textContent = motion === "hold" ? "–" : over.toFixed(1);
+    $("#pidSS").textContent = motion === "hold" ? errs[errs.length - 1].toFixed(2) : "选“静止”";
+  }
+}
+let last = null, visible = true;
+new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(cv);
+function frame(ts) {
+  if (last === null) last = ts;
+  const dt = Math.min(0.05, (ts - last) / 1000); last = ts;
+  if (visible) { stepSim(reduced ? 1 / 60 : dt); drawSim(); }
+  requestAnimationFrame(frame);
+}
+resetSim(); requestAnimationFrame(frame);
+["kp", "kd", "load", "tmax"].forEach(id => $("#" + id).addEventListener("input", e => {
+  $("#" + id + "V").textContent = e.target.value + (id === "load" || id === "tmax" ? "%" : "");
+}));
+seg($("#motionSeg"), "m", m => { motion = m; });
+$("#pidReset").addEventListener("click", () => {
+  [["kp", 16], ["kd", 32], ["load", 0], ["tmax", 100]].forEach(([id, v]) => { $("#" + id).value = v; $("#" + id).dispatchEvent(new Event("input")); });
+});
+
+/* ---------- 主循环时间线 ---------- */
+const PH = [
+  ["读主臂", 0.88, "var(--leader)", "实测"],
+  ["写从臂", 0.30, "var(--follower)", "26 字节"],
+  ["读从臂", 0.88, "var(--follower)", "实测"],
+  ["取摄像头帧", 0.2, "var(--muted)", "估计"],
+];
+const cycSeg = $("#cycSeg");
+for (let i = 1; i <= 6; i++) cycSeg.insertAdjacentHTML("beforeend", `<button type="button" data-c="${i}" aria-pressed="${i === 1}">第 ${i} 轮</button>`);
+function renderLoop(c) {
+  const img = (c - 1) % 3 === 0;
+  const phases = [...PH, ["发 rerun", img ? 3.5 : 0.3, "var(--ink)", img ? "估计·含 2 张 JPEG" : "估计·仅关节"]];
+  const W = 720, x0 = 10, scale = (W - 20) / 16.67;
+  let x = x0, out = "", total = 0;
+  phases.forEach(([n, ms, col, src], i) => {
+    const w = ms * scale;
+    out += `<rect x="${x}" y="40" width="${Math.max(w, 2)}" height="34" fill="${col}" opacity="${i === 4 ? .55 : .85}" rx="2"/>`;
+    const ly = i % 2 ? 100 : 118;
+    out += `<line x1="${x + w / 2}" y1="76" x2="${x + w / 2}" y2="${ly - 11}" stroke="var(--line)"/>`;
+    out += `<text class="lab" x="${x + w / 2}" y="${ly}" text-anchor="${i === 0 ? "start" : "middle"}">${n} ${ms.toFixed(2)} ms</text><text x="${x + w / 2}" y="${ly + 14}" text-anchor="${i === 0 ? "start" : "middle"}">${src}</text>`;
+    x += w; total += ms;
+  });
+  out += `<rect x="${x}" y="40" width="${W - 10 - x}" height="34" fill="none" stroke="var(--line)" stroke-dasharray="4 3" rx="2"/>`;
+  out += `<text class="lab" x="${(x + W - 10) / 2 + 40}" y="62" text-anchor="middle">precise_sleep ${(16.67 - total).toFixed(1)} ms</text>`;
+  out += `<text x="10" y="24">0 ms</text><text x="${W - 10}" y="24" text-anchor="end">16.67 ms（60 Hz 一个周期）</text>`;
+  $("#loopSvg").innerHTML = out;
+}
+seg(cycSeg, "c", c => renderLoop(+c)); renderLoop(1);
+
+/* ---------- 录制 / 策略 ---------- */
+const SRC = {
+  leader: `# lerobot-record，每轮（数据集 fps=20）
+obs    = robot.get_observation()   # 6 个关节角度 + wrist/side 图像
+action = leader.get_action()       # 人在操作主臂
+robot.send_action(action)
+dataset.add_frame({
+    "observation.state":        [6 个从臂角度],
+    "observation.images.wrist": 480×640×3 图像 → mp4,
+    "observation.images.side":  480×640×3 图像 → mp4,
+    "action":                   [6 个主臂角度],
+    "task": "Put the green cube into the paper bowl",
+})`,
+  policy: `# 训练后（ACT、SmolVLA 等），没有主臂
+obs    = robot.get_observation()   # 同样的观测
+action = policy.select_action(obs) # 模型输出 6 个目标角度
+robot.send_action(action)          # 从臂执行，和遥操作完全相同`,
+};
+seg($("#srcSeg"), "s", s => { $("#srcCode").textContent = SRC[s]; }); $("#srcCode").textContent = SRC.leader;
+
+/* ---------- 目录高亮 ---------- */
+const links = $$("nav.toc a");
+const tocObs = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+}), { rootMargin: "-40% 0px -55% 0px" });
+$$("main section").forEach(s => tocObs.observe(s));
+})();
+</script>
+</body>
+</html>
