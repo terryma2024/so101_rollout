@@ -5,6 +5,9 @@
 # 每条开始前摆好方块；键盘：n 或 → 结束当前这一段（策略运行中=本条结束；复位中=立刻开始下一条），
 # r 或 ← 作废并重录本条，q 或 Esc 结束并保存。复位阶段机械臂自动回到启动时的姿态（折叠位）。
 # 安全：每一步关节目标离当前位置最多 MAX_REL 度（默认 30，训练数据里遥操作的 p99 约 27 度）。
+# 时间集成（ACT temporal ensembling）：TE=1 时每步都推理，并把重叠的动作块按指数权重平均（系数 TE_COEFF，
+# 默认 0.01，ACT 论文的取值）。默认 TE=0：每 100 步推理一次、照着执行完，和训练评估时一样。
+# 例：TE=1 ./rollout.sh <策略目录> eval-real-act-002-te 10
 set -e; cd "$(dirname "$0")"; source arms.env
 
 policy=${1:?usage: ./rollout.sh <pretrained_model dir> <eval-dataset-name> [num-episodes]}
@@ -30,10 +33,15 @@ fi
 [ -f camera.env ] && ./camera_settings.sh lock >/dev/null
 resume_args=()
 [ "${RESUME:-0}" = 1 ] && resume_args=(--resume=true)
+policy_args=()
+if [ "${TE:-0}" = 1 ]; then
+  policy_args=(--policy.temporal_ensemble_coeff="${TE_COEFF:-0.01}" --policy.n_action_steps=1)
+  echo "时间集成：开（temporal_ensemble_coeff=${TE_COEFF:-0.01}，n_action_steps=1，每步推理）"
+fi
 
 HF_HOME=${HF_HOME:-/data/models/huggingface} TORCH_HOME=${TORCH_HOME:-/data/models/torch} "$VENV/bin/lerobot-rollout" \
   --strategy.type=episodic \
-  --policy.path="$policy" --device=cuda \
+  --policy.path="$policy" --device=cuda "${policy_args[@]}" \
   --robot.type=so101_follower --robot.port="$FOLLOWER_PORT" --robot.id="$FOLLOWER_ID" \
   --robot.max_relative_target="$MAX_REL" \
   --robot.cameras="{ wrist: {type: opencv, index_or_path: $WRIST_CAM, width: 640, height: 480, fps: $WRIST_CAM_FPS}, side: {type: opencv, index_or_path: $SIDE_CAM, width: 640, height: 480, fps: $SIDE_CAM_FPS, fourcc: MJPG} }" \
