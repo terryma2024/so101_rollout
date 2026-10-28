@@ -9,6 +9,7 @@
 """
 import collections
 import queue
+import threading
 import time
 
 JOINTS = ("shoulder_pan", "shoulder_lift", "elbow_flex", "wrist_flex", "wrist_roll", "gripper")
@@ -71,7 +72,8 @@ class RunStats:
 
 class VoiceRunner:
     def __init__(self, robot, policies, tasks, rest, fps=20, timeout_s=30.0, return_s=2.0, done_tol=10.0,
-                 done_hold_s=1.0, clock=time.perf_counter, say=print, event=None, recorder=None, on_run_start=None):
+                 done_hold_s=1.0, clock=time.perf_counter, say=print, event=None, recorder=None, on_run_start=None,
+                 chain=None):
         self.robot, self.policies, self.tasks, self.rest = robot, policies, tasks, dict(rest)
         self.period = 1.0 / fps
         self.timeout_s, self.return_s = timeout_s, return_s
@@ -79,11 +81,17 @@ class VoiceRunner:
         self.clock, self.say = clock, say
         self.event = event or (lambda e: None)
         self.recorder, self.on_run_start = recorder, on_run_start
+        self.chain = chain          # optional voice_verify.VerifyChain (--verify)
+        if chain is not None:
+            chain.attach(self)
         self.state = IDLE
         self.finished = False
         self.last_reason = None
         self.last_stats = None
         self._cmds = queue.Queue()
+        self._count_lock = threading.Lock()
+        self._submitted = 0
+        self._processed = 0
         self._quit = False
         self._colour = None
         self._start = 0.0
@@ -95,9 +103,27 @@ class VoiceRunner:
         self.history = collections.deque(maxlen=50)
 
     # --- thread-safe entry points -------------------------------------------------
-    def submit(self, kind, colour=None):
-        """kind: run (colour) | stop | home | quit。可在任意线程调用。"""
-        self._cmds.put((kind, colour))
+    def submit(self, kind, colour=None, token=None):
+        """kind: run (colour) | stop | home | quit。可在任意线程调用。
+
+        token 只给 --verify 的自动重试用（链的 epoch，过期就忽略）。停/回去/退出在调用线程里立刻取消整条重试链，
+        不用等下一个控制拍，所以验证答案和随后的自动重试都来不及插进去。"""
+        cancelled = False
+        if self.chain is not None and kind in ("stop", "home", "quit"):
+            cancelled = self.chain.cancel(kind)
+        with self._count_lock:
+            self._submitted += 1
+        self._cmds.put((kind, colour, token, cancelled))
+
+    def is_settled(self):
+        """True when every submitted command has been fully handled and the runner is idle.
+
+        Unlike "queue empty and state == IDLE", this is not fooled by a command that was already dequeued but
+        has not changed the state yet (a "run" popped from the queue while state is still IDLE).
+        """
+        with self._count_lock:
+            done = self._submitted == self._processed
+        return done and self.state == IDLE and (self.chain is None or not self.chain.active)
 
     # --- state machine --------------------------------------------------------------
     def step(self):
@@ -122,12 +148,16 @@ class VoiceRunner:
     def _drain(self):
         while True:
             try:
-                kind, colour = self._cmds.get_nowait()
+                kind, colour, token, cancelled = self._cmds.get_nowait()
             except queue.Empty:
                 return
-            self._handle(kind, colour)
+            try:
+                self._handle(kind, colour, token, cancelled)
+            finally:
+                with self._count_lock:
+                    self._processed += 1
 
-    def _handle(self, kind, colour):
+    def _handle(self, kind, colour, token=None, cancelled=False):
         if kind == "quit":
             self._quit = True
             if self.state == RUNNING:
@@ -136,7 +166,7 @@ class VoiceRunner:
         if kind == "stop":
             if self.state == RUNNING:
                 self._end_run("stop")
-            elif self.state == IDLE:
+            elif self.state == IDLE and not cancelled:
                 self.say("当前没有在执行")
             return
         if kind == "home":
@@ -146,24 +176,44 @@ class VoiceRunner:
                 self._begin_return()
             return
         if kind == "run":
+            auto = token is not None
+            if auto and not (self.chain is not None and self.chain.accepts(token)):
+                return              # a retry that a stop / home / quit already voided
             if self.state != IDLE:
+                if auto:
+                    self.chain.finish("busy", "自动重试时机器人不空闲，不再重试。")
                 what = "复位中" if self.state == RETURNING else f"正在执行{COLOUR_ZH.get(self._colour, self._colour)}"
                 self.say(f"{what}，忽略新的颜色指令；要打断请说“停”")
                 self.event({"event": "refused", "colour": colour, "state": self.state})
                 return
+            if not auto and self.chain is not None and self.chain.active:
+                self.say("验证重试中，忽略新的颜色指令；要打断请说“停”")
+                self.event({"event": "refused", "colour": colour, "state": "verify_chain"})
+                return
             if self._quit:
                 return
             if self.recorder is not None and getattr(self.recorder, "busy", False):
+                if auto:
+                    self.chain.finish("recorder_busy", "评估数据还没保存完，不再自动重试。")
                 self.say("正在保存上一条评估数据，请稍后再说")
                 self.event({"event": "refused", "colour": colour, "state": "saving"})
                 return
-            self._begin_run(colour)
+            self._begin_run(colour, auto)
 
-    def _begin_run(self, colour):
+    def _begin_run(self, colour, auto=False):
         policy = self.policies.get(colour)
         if policy is None:
             self.say(f"没有加载 {colour} 的策略")
+            if auto:
+                self.chain.finish("no_policy", "没有这个颜色的策略，不再重试。")
             return
+        attempt = None
+        if self.chain is not None:
+            if auto:
+                attempt = self.chain.begin_auto_run()
+            else:
+                self.chain.begin_user_run(colour)
+                attempt = 1
         policy.reset()
         if self.on_run_start:
             self.on_run_start(colour)
@@ -174,8 +224,12 @@ class VoiceRunner:
         self.state = RUNNING
         if self.recorder:
             self.recorder.begin(self.tasks[colour])
-        self.say(f"开始执行：{COLOUR_ZH.get(colour, colour)}（任务：{self.tasks[colour]}）")
-        self.event({"event": "run_start", "colour": colour, "task": self.tasks[colour]})
+        self.say(f"开始执行：{COLOUR_ZH.get(colour, colour)}（任务：{self.tasks[colour]}）"
+                 + (f"，第 {attempt} 次" if attempt is not None and attempt > 1 else ""))
+        ev = {"event": "run_start", "colour": colour, "task": self.tasks[colour]}
+        if attempt is not None:
+            ev["attempt"] = attempt
+        self.event(ev)
 
     def _run_tick(self):
         now = self.clock()
@@ -219,6 +273,8 @@ class VoiceRunner:
             ev["error"] = error
         self.history.append(ev)
         self.event(ev)
+        if self.chain is not None:
+            self.chain.on_run_end(reason)
         self._begin_return()
 
     def _begin_return(self):
@@ -249,3 +305,13 @@ class VoiceRunner:
             self.say("已回到休息位，等待指令（红色 / 绿色 / 停 / q 退出）")
             if self._quit:
                 self.finished = True
+            elif self.chain is not None and self.chain.active:
+                self.chain.on_rested(self._fresh_obs())
+
+    def _fresh_obs(self):
+        """Latest observation at rest (for the verification frame); falls back to the last one we have."""
+        try:
+            self._last_obs = self.robot.get_observation()
+        except Exception as error:  # noqa: BLE001
+            self.say(f"读取验证画面失败：{error!r}；用上一帧")
+        return self._last_obs

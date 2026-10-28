@@ -358,3 +358,31 @@ def test_new_run_refused_while_recorder_is_still_saving():
 
 def test_arm_keys_are_five_and_exclude_gripper():
     assert len(ARM_KEYS) == 5 and "gripper.pos" not in ARM_KEYS
+
+
+def test_is_settled_not_fooled_by_a_dequeued_run_command():
+    runner, robot, clock, msgs, events = make()
+    assert runner.is_settled()
+    runner.submit("run", "red")
+    # queue still holds the command: old check "queue empty and IDLE" is false, settled must be false too
+    assert not runner.is_settled()
+    # simulate the dequeue-but-not-yet-handled window: queue is empty, state still IDLE, handling not done
+    kind, colour, *extra = runner._cmds.get_nowait()
+    assert runner._cmds.empty() and runner.state == IDLE
+    assert not runner.is_settled()
+    runner._handle(kind, colour, *extra)
+    with runner._count_lock:
+        runner._processed += 1
+    assert runner.state == RUNNING and not runner.is_settled()
+    runner.submit("stop")
+    tick(runner, clock, 1)
+    assert runner.state == RETURNING and not runner.is_settled()
+    tick(runner, clock, 60)
+    assert runner.state == IDLE and runner.is_settled()
+
+
+def test_is_settled_counts_refused_and_ignored_commands():
+    runner, robot, clock, msgs, events = make()
+    runner.submit("stop")                 # nothing running: handled with a message
+    tick(runner, clock, 1)
+    assert runner.is_settled()

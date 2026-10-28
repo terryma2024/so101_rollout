@@ -2,6 +2,8 @@
 # 语音/键盘选择红、绿 ACT 的抓取 agent（真机，人必须在机械臂旁边）。
 # 用法：./voice_agent.sh [--asr] [--record <评估数据集名>] [--red-policy <pretrained_model>] [--rest a,b,c,d,e,f] ...
 # 离线演练（不碰硬件）：./voice_agent.sh --fake-robot green=<数据集根> --fake-robot red=<数据集根>
+# 大模型理解：./voice_agent.sh --llm [--llm-model deepseek-flash] [--llm-timeout 3]（需要环境变量 DEEPSEEK_API_KEY；“停”仍走本地规则，失败退回关键词）
+# 视觉验证重试：./voice_agent.sh --verify [--max-attempts 10] [--verify-model deepseek-flash] [--verify-timeout 15]（需要 DEEPSEEK_API_KEY，独立于 --llm；“停/回去/q”取消整条重试链）
 # 键盘：红 / 绿 / 停 / 回去 + 回车，q 退出。完整参数见 ./voice_agent.sh --help
 # 复位位姿是启动时手臂所在的姿态（和 rollout.sh 一样），启动前先把手臂摆到折叠位。
 set -e; cd "$(dirname "$0")"; source arms.env

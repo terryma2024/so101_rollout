@@ -5,7 +5,7 @@
 确认时的决定：
 - 麦克风用 USB 麦克风，还没到货。先用键盘兜底验证全流程，语音识别模块照常写好并用样本音频测试。
 - 指令语言：中文为主，同时认英文关键词（red / green / stop），成本很低（按"选推荐方案"的规则定）。
-- 绿色策略用 REAL-ACT-002（ckpt 100000）。红色策略在 REAL-ACT-RED 拉回之前，离线演练用 REAL-ACT-001 顶替。
+- 绿色策略用 REAL-ACT-002（ckpt 100000）。红色策略用 REAL-ACT-RED（ckpt 100000，2026-10-28 拉回；之前离线演练用 REAL-ACT-001 顶替）。
 
 ## 目标
 
@@ -56,6 +56,42 @@
 - `max_relative_target=30`，和 rollout 一样。
 - Ctrl-C：先停策略，回休息位，再断开。
 - 识别结果和每次执行的开始、结束原因都写日志（`/data/work/so101-evidence/real-robot/voice-agent-<日期>/`）。
+
+## 大模型理解（可选，`--llm`）
+
+关键词规则听不懂自然说法（"拿那个绿的""先抓绿色的那个""把它放回去"）。`./voice_agent.sh --llm` 把这类句子交给
+DeepSeek（`deepseek-flash`，`--llm-model` 可改），不加 `--llm` 时行为和以前完全一样。
+
+- 需要环境变量 `DEEPSEEK_API_KEY`；没设置就在加载策略之前退出。key 不写日志、不进错误信息。
+- 模型只能返回 `{"intent": "red|green|stop|home|quit|unclear", "reply": "<一句中文>"}`。intent 不在白名单、
+  JSON 坏了、缺字段，都当失败。同时提到两种颜色、含糊、无关闲聊 → `unclear`，reply 里问清楚。
+- 超时（`--llm-timeout`，默认 3 秒）、HTTP 错误、输出不合格 → 退回本地关键词规则，终端和日志里 source 写 `fallback`
+  并带简短原因（`Timeout`、`http_401`、`bad_json` 等）。成功时 source 是 `llm`。
+- **安全**：退出词照旧；然后永远先跑本地规则，命中“停”就立刻停，不调用 API。其它句子进后台线程按顺序请求，
+  所以大模型在等的时候输入“停”仍然马上生效。
+- 日志（JSONL）新增 `llm_intent` 事件：`channel`（键盘/语音）、`text`、`intent`、`source`、`latency_ms`、`error`、`reply`。
+- stdin 结束（管道脚本）时，等所有已提交的指令都处理完、大模型请求都回来、机器人回到空闲，再发退出。
+  这同时修了一个竞态：以前只看“队列空且空闲”，刚取出的“run”还没开始就被判成空闲，导致红色 0.0 秒就退出。
+
+## 视觉验证和自动重试（可选，`--verify`）
+
+默认关闭，独立于 `--llm`。需要 `DEEPSEEK_API_KEY`，没有就在加载策略之前退出。参数：`--max-attempts`（默认 10，>=1）、
+`--verify-model`（默认 `deepseek-flash`）、`--verify-timeout`（默认 15 秒）。
+
+- 一次执行结束（完成判定或超时）、手臂回到休息位后，在后台线程里把侧面相机（观测键 `side`）最新一帧编成 JPEG，
+  发给视觉模型，要求返回 `{"visible": bool, "in_bowl": bool, "note": "<一句中文>"}`。控制循环不阻塞。
+  模型先推理再回答，`max_tokens` 必须够大（2000），小了 content 会是空的。
+- `in_bowl` 为真：成功，停。`visible` 为假：停，提示“目标方块不见了”（可能被碰出画面）。看得见但没进碗：自动再跑一次同一颜色，
+  最多 `--max-attempts` 次，到了就放弃。
+- 验证本身出错（超时、HTTP 错误、JSON 坏了、字段缺失或类型不对、visible=false 却 in_bowl=true）一律停止重试，只报错误类名或状态码，
+  不写 key，不盲目重试。
+- **安全**：“停 / 回去 / q”（键盘、语音、`--llm` 路径都一样）在提交的那一刻就取消整条重试链，在途的验证答案作废
+  （epoch，和 `LlmWorker` 一样），之后的自动重试带着旧 epoch，进队列也会被丢掉。链进行中新的颜色指令被拒绝；
+  执行中的拒绝提示不变。`max_relative_target` 和回休息位逻辑没动。
+- 每次验证把 JPEG 和答案（含延迟、第几次、颜色）存到日志目录的 `verify/<时间>-<颜色>-a<N>.jpg|json`，并记 `verify` 事件；
+  `run_start` 事件带 `attempt`。`--record` 时每次尝试各是一条 episode（等上一条存完再重试）。
+- stdin 结束（管道脚本）时，`wait_until_settled` 等整条链（含在途验证和自动重试）结束再退出。
+- 实现：`voice_verify.py`（`VisionVerifier`、`VerifyResult`、`VerifyChain`），`VoiceRunner` 只多了一个可选的 `chain` 钩子。
 
 ## 实施步骤（Sonnet 子代理执行，我审查）
 

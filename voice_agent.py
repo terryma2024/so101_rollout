@@ -7,6 +7,16 @@
 
 真机：./voice_agent.sh                      （人必须在机械臂旁边）
 离线演练：./voice_agent.sh --fake-robot green=<数据集根> --fake-robot red=<数据集根>   （不碰任何硬件）
+
+视觉验证重试（可选）：./voice_agent.sh --verify [--max-attempts 10] [--verify-model deepseek-flash] [--verify-timeout 15]
+  一次执行结束、手臂回到休息位后，在后台线程里把侧面相机最新一帧发给 DeepSeek 视觉模型，问目标颜色的方块是否在碗里：
+  在碗里 = 成功，停；看不到方块 = 停（可能被碰出画面）；看得到但没进碗 = 自动再试一次，直到 --max-attempts；
+  验证出错（超时、HTTP、JSON 坏了）一律停，不盲目重试。“停/回去/q”取消整条重试链，在途的验证答案作废。
+  帧和答案存在日志目录的 verify/ 下。需要 DEEPSEEK_API_KEY（没有就直接退出），独立于 --llm。
+
+大模型理解（可选）：./voice_agent.sh --llm            需要环境变量 DEEPSEEK_API_KEY（没有就直接退出）
+  “停”类指令永远先走本地规则、立刻生效；其它句子在后台线程里问 DeepSeek（--llm-model，默认 deepseek-flash），
+  超过 --llm-timeout（默认 3 秒）、HTTP 出错或输出不合格就退回本地关键词规则。不加 --llm 时行为不变。
 """
 import argparse
 import datetime
@@ -19,14 +29,16 @@ import threading
 import time
 
 from voice_intent import GREEN, HOME, RED, STOP, UNCLEAR, UNCLEAR_HINT, parse_intent
-from voice_runner import IDLE, KEYS, VoiceRunner
+from voice_llm_intent import DEFAULT_MODEL, DEFAULT_TIMEOUT_S, QUIT, LlmIntentParser, LlmWorker
+from voice_runner import KEYS, VoiceRunner
+from voice_verify import VerifyChain, VisionVerifier
+from voice_verify import DEFAULT_MAX_ATTEMPTS, DEFAULT_TIMEOUT_S as VERIFY_TIMEOUT_S
+from voice_verify import DEFAULT_MODEL as VERIFY_MODEL
 
 POLICIES = "/data/work/so101-policies"
 DEFAULT_POLICY = {
     "green": f"{POLICIES}/real-act-002-20261028/checkpoints/100000/pretrained_model",
-    # REAL-ACT-RED 还在训练：先用 REAL-ACT-001 顶替，训练完用 --red-policy 或 VOICE_RED_POLICY 指向
-    # real-act-red-20261028/checkpoints/100000/pretrained_model
-    "red": f"{POLICIES}/real-act-001-20261027T1007Z/checkpoints/100000/pretrained_model",
+    "red": f"{POLICIES}/real-act-red-20261028/checkpoints/100000/pretrained_model",
 }
 QUIT_WORDS = {"q", "quit", "exit", "退出", "退出程序"}
 
@@ -54,6 +66,15 @@ def build_parser():
     p.add_argument("--fake-robot", action="append", default=[], metavar="[COLOUR=]ROOT",
                    help="离线演练：从数据集回放画面和状态，不连任何硬件；可重复，COLOUR=red|green，不写颜色则两种颜色共用")
     p.add_argument("--fake-episode", type=int, default=2, help="离线演练回放数据集里的第几条 episode")
+    p.add_argument("--llm", action="store_true", default=False,
+                   help="用 DeepSeek 理解自然语言（需要 DEEPSEEK_API_KEY）；“停”仍走本地规则，失败退回关键词规则")
+    p.add_argument("--llm-model", default=DEFAULT_MODEL)
+    p.add_argument("--llm-timeout", type=float, default=DEFAULT_TIMEOUT_S, help="大模型请求超时（秒）")
+    p.add_argument("--verify", action="store_true", default=False,
+                   help="每次执行回到休息位后，用 DeepSeek 视觉模型看侧面相机一帧，方块没进碗就自动重试（需要 DEEPSEEK_API_KEY）")
+    p.add_argument("--max-attempts", type=int, default=DEFAULT_MAX_ATTEMPTS, help="--verify 同一个颜色最多尝试几次（>=1）")
+    p.add_argument("--verify-model", default=VERIFY_MODEL)
+    p.add_argument("--verify-timeout", type=float, default=VERIFY_TIMEOUT_S, help="视觉验证请求超时（秒）")
     p.add_argument("--log-dir", default=os.environ.get("VOICE_LOG_DIR"), help="JSONL 日志目录")
     return p
 
@@ -103,7 +124,15 @@ def main(argv=None):
     # deadlocks the workers, so use spawn (found in the P6 --record dry run).
     import multiprocessing
     multiprocessing.set_start_method("spawn", force=True)
-    args = build_parser().parse_args(argv)
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    if args.max_attempts < 1:
+        parser.error("--max-attempts 必须 >= 1")
+    llm_key = os.environ.get("DEEPSEEK_API_KEY", "")
+    if args.llm and not llm_key:
+        raise SystemExit("--llm 需要环境变量 DEEPSEEK_API_KEY（没设置），已退出，未加载任何策略")
+    if args.verify and not llm_key:
+        raise SystemExit("--verify 需要环境变量 DEEPSEEK_API_KEY（没设置），已退出，未加载任何策略")
     from voice_policy import TASKS, EpisodeRecorder, LoadedPolicy, make_real_follower, read_arms_env
 
     log = JsonlLog(args.log_dir)
@@ -111,8 +140,6 @@ def main(argv=None):
     log({"event": "start", "argv": sys.argv[1:], "args": vars(args)})
 
     fake_roots = parse_fake_roots(args.fake_robot)
-    if args.red_policy == DEFAULT_POLICY["red"]:
-        say("提示：红色策略目前是 REAL-ACT-001 顶替品；REAL-ACT-RED 训练完用 --red-policy 指定")
 
     # --- policies first (a bad path fails before touching hardware) ---
     import torch
@@ -153,10 +180,13 @@ def main(argv=None):
         if args.record:
             recorder = EpisodeRecorder(robot, args.record, fps=args.fps, root_base=args.record_root)
             say(f"评估数据保存到 {recorder.root}")
+        chain = make_verify_chain(log, say, llm_key, args) if args.verify else None
         runner = VoiceRunner(robot, policies, TASKS, rest, fps=args.fps, timeout_s=args.timeout,
                              return_s=args.return_s, say=say, event=log, recorder=recorder,
-                             on_run_start=getattr(robot, "start_replay", None) if fake_roots else None)
-        run_loop(args, runner, log, say)
+                             on_run_start=getattr(robot, "start_replay", None) if fake_roots else None,
+                             chain=chain)
+        llm = make_llm_worker(runner, log, say, llm_key, args) if args.llm else None
+        run_loop(args, runner, log, say, llm=llm)
     finally:
         if recorder is not None:
             recorder.close()
@@ -169,16 +199,65 @@ def main(argv=None):
         say("已退出")
 
 
-def handle_text(runner, log, text, source):
+def make_verify_chain(log, say, api_key, args, post=None, encode=None):
+    verifier = VisionVerifier(api_key, model=args.verify_model, timeout=args.verify_timeout, post=post)
+    say(f"已开启视觉验证重试：{args.verify_model}，最多 {args.max_attempts} 次，超时 {args.verify_timeout:g} 秒"
+        f"（“停/回去/退出”随时取消）")
+    kw = {"encode": encode} if encode else {}
+    return VerifyChain(verifier, max_attempts=args.max_attempts, say=say, event=log,
+                       save_dir=log.path.parent / "verify", **kw)
+
+
+def make_llm_worker(runner, log, say, api_key, args, post=None):
+    parser = LlmIntentParser(api_key, model=args.llm_model, timeout=args.llm_timeout, post=post)
+    say(f"已开启大模型理解：{args.llm_model}，超时 {args.llm_timeout:g} 秒（“停”仍走本地规则）")
+    return LlmWorker(parser, lambda text, channel, result: apply_llm_result(runner, log, text, channel, result),
+                     on_dropped=lambda text, channel, result: drop_llm_result(log, say, text, channel, result))
+
+
+def drop_llm_result(log, say, text, channel, result):
+    """An answer to a sentence typed before a 停 / quit: never act on it."""
+    log({"event": "llm_intent_dropped", "channel": channel, "text": text, "intent": result.intent,
+         "source": result.source, "latency_ms": result.latency_ms, "error": result.error})
+    say(f"[{channel}] {text!r} -> {result.intent}（已作废：之后收到了停止/退出）")
+
+
+def apply_llm_result(runner, log, text, channel, result):
+    log({"event": "llm_intent", "channel": channel, "text": text, "intent": result.intent, "source": result.source,
+         "latency_ms": result.latency_ms, "error": result.error, "reply": result.reply})
+    note = f"，{result.error}" if result.error else ""
+    say(f"[{channel}] {text!r} -> {result.intent}（{result.source}，{result.latency_ms:.0f} ms{note}）"
+        + (f" {result.reply}" if result.reply else ""))
+    if result.intent in (RED, GREEN):
+        runner.submit("run", result.intent)
+    elif result.intent == STOP:
+        runner.submit("stop")
+    elif result.intent == HOME:
+        runner.submit("home")
+    elif result.intent == QUIT:
+        runner.submit("quit")
+    elif not result.reply:
+        say(UNCLEAR_HINT)
+
+
+def handle_text(runner, log, text, source, llm=None):
     text = text.strip()
     if not text:
         return
     if text.lower() in QUIT_WORDS:
         log({"event": "input", "source": source, "text": text, "intent": "quit"})
+        if llm is not None:
+            llm.cancel()
         runner.submit("quit")
         return
     intent = parse_intent(text)
-    log({"event": "input", "source": source, "text": text, "intent": intent})
+    if llm is not None and intent == STOP:
+        llm.cancel()                # sentences still waiting for DeepSeek must not start a run after this stop
+    if llm is not None and intent != STOP:
+        log({"event": "input", "source": source, "text": text, "intent": "llm_pending"})
+        llm.submit(text, source)    # answered on the worker thread; typing 停 meanwhile still stops at once
+        return
+    log({"event": "input", "source": source, "text": text, "intent": intent, "intent_source": "rules"})
     say(f"[{source}] {text!r} -> {intent}")
     if intent in (RED, GREEN):
         runner.submit("run", intent)
@@ -190,17 +269,20 @@ def handle_text(runner, log, text, source):
         say(UNCLEAR_HINT)
 
 
-def run_loop(args, runner, log, say):
+def wait_until_settled(runner, llm=None, sleep=time.sleep):
+    """Block until pending LLM requests are answered and every submitted command is fully processed."""
+    while not ((llm is None or llm.pending() == 0) and runner.is_settled()):
+        sleep(0.1)
+
+
+def run_loop(args, runner, log, say, llm=None):
     from lerobot.utils.robot_utils import precise_sleep
 
     def stdin_thread():
         for line in sys.stdin:
-            handle_text(runner, log, line, "键盘")
+            handle_text(runner, log, line, "键盘", llm)
         # stdin closed (piped script): finish what is running, then quit
-        for _ in range(2):
-            while not (runner._cmds.empty() and runner.state == IDLE):
-                time.sleep(0.1)
-            time.sleep(0.3)
+        wait_until_settled(runner, llm)
         runner.submit("quit")
 
     threading.Thread(target=stdin_thread, daemon=True, name="stdin").start()
@@ -210,7 +292,7 @@ def run_loop(args, runner, log, say):
         from voice_asr import EnergySegmenter, MicListener, WhisperTranscriber
         say("加载语音识别模型 ...")
         transcriber = WhisperTranscriber(args.asr_model, args.asr_device, language=args.asr_language)
-        listener = MicListener(transcriber, lambda text: handle_text(runner, log, text, "语音"), device=args.mic,
+        listener = MicListener(transcriber, lambda text: handle_text(runner, log, text, "语音", llm), device=args.mic,
                                segmenter=EnergySegmenter(min_rms=args.asr_min_rms),
                                on_error=lambda e: say(f"识别出错：{e!r}"))
         listener.start()
