@@ -27,9 +27,9 @@ assert sys.executable == expected_python, ('interpreter mismatch', sys.executabl
 package = Path(expected_package).resolve()
 assert not package.is_relative_to(Path.cwd().resolve()), 'probe cwd contains expected package'
 origins = {name: str(Path(importlib.import_module(name).__file__).resolve())
-           for name in ('so101_test.config', 'so101_test.voice.voice_intent',
-                        'so101_test.voice.voice_runner')}
-dist = importlib.metadata.distribution('so101-test')
+           for name in ('so101_rollout.config', 'so101_rollout.voice.voice_intent',
+                        'so101_rollout.voice.voice_runner')}
+dist = importlib.metadata.distribution('so101-rollout')
 direct_url = json.loads(dist.read_text('direct_url.json') or '{}')
 files = sorted(str(path) for path in dist.files or [])
 for name, origin in origins.items():
@@ -52,15 +52,15 @@ elif mode == 'wheel':
         'camera': ('calib_capture', 'calib_intrinsics', 'calib_extrinsics', 'calib_targets', 'align_side'),
         'operations': ('record_viz', 'teleop_viz', 'check_bus', 'read_pose'),
     }
-    required = {'so101_test/config.py'} | {
-        f'so101_test/{group}/{name}.py' for group, names in groups.items() for name in names}
+    required = {'so101_rollout/config.py'} | {
+        f'so101_rollout/{group}/{name}.py' for group, names in groups.items() for name in names}
     assert required <= set(files), ('wheel is missing application files', sorted(required - set(files)))
     assert all(Path(dist.locate_file(path)).is_file() for path in required), 'installed wheel files missing'
     # uv may omit archive hashes for local wheels. Compare actual installed
     # package bytes with the independently hashed wheel, including every group.
     with zipfile.ZipFile(source) as archive:
         package_files = {path for path in archive.namelist()
-                         if path.startswith('so101_test/') and not path.endswith('/')}
+                         if path.startswith('so101_rollout/') and not path.endswith('/')}
         assert required <= package_files, 'wheel archive is missing application files'
         for path in package_files:
             assert Path(dist.locate_file(path)).read_bytes() == archive.read(path), ('installed wheel bytes mismatch', path)
@@ -76,7 +76,7 @@ def installed_probe(cwd, *, python=None, package=None, source=None):
            if key not in ('PYTHONPATH', 'AMENT_PREFIX_PATH', 'COLCON_PREFIX_PATH')}
     return subprocess.run(
         [sys.executable, '-P', '-c', PROVENANCE_PROBE,
-         python or sys.executable, str(package or REPO / 'src' / 'so101_test'),
+         python or sys.executable, str(package or REPO / 'src' / 'so101_rollout'),
          'editable', str(source or REPO)],
         cwd=cwd, env=env, capture_output=True, text=True, timeout=15)
 
@@ -86,7 +86,7 @@ def test_installed_package_origin_outside_cwd(tmp_path):
     assert result.returncode == 0, result.stderr
     observed = json.loads(result.stdout)
     assert observed['cwd'] == str(tmp_path)
-    assert observed['origins']['so101_test.config'] == str(REPO / 'src/so101_test/config.py')
+    assert observed['origins']['so101_rollout.config'] == str(REPO / 'src/so101_rollout/config.py')
 
 
 @pytest.mark.parametrize('boundary,expected_message', [

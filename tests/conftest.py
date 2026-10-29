@@ -6,7 +6,7 @@ def pytest_sessionstart(session) -> None:
     """Record tempfile placement only for explicitly controlled evidence runs."""
     import os
 
-    run_dir_value = os.environ.get("SO101_TEST_EVIDENCE_RUN_DIR")
+    run_dir_value = os.environ.get("SO101_ROLLOUT_EVIDENCE_RUN_DIR")
     if not run_dir_value:
         return
 

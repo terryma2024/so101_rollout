@@ -7,7 +7,7 @@ import pytest
 
 
 def test_config_selection_and_missing_path(tmp_path, monkeypatch):
-    config = importlib.import_module('so101_test.config')
+    config = importlib.import_module('so101_rollout.config')
     monkeypatch.chdir(tmp_path)
     monkeypatch.delenv('SO101_CONFIG_DIR', raising=False)
     default = tmp_path / 'config'
@@ -39,7 +39,7 @@ def test_config_selection_and_missing_path(tmp_path, monkeypatch):
 
 
 def test_literal_parser_never_evaluates_shell(tmp_path, monkeypatch):
-    config = importlib.import_module('so101_test.config')
+    config = importlib.import_module('so101_rollout.config')
     path = tmp_path / 'literal.env'
     path.write_text('# ignored=x\nA=${HOME}\nB=$(touch forbidden)\nC=a=b\nD="quoted" # literal\n E= spaced \nEMPTY=\nno assignment\n')
     def forbidden(*args, **kwargs):
@@ -53,7 +53,7 @@ def test_literal_parser_never_evaluates_shell(tmp_path, monkeypatch):
 
 def test_process_values_override_defaults(tmp_path, monkeypatch):
     # Legacy public API remains valid throughout migration; this exposes the old bug.
-    from so101_test.voice.voice_policy import read_arms_env
+    from so101_rollout.voice.voice_policy import read_arms_env
     path = tmp_path / 'arms.env'
     path.write_text('FOLLOWER_PORT=default\nLEADER_PORT=default\n')
     monkeypatch.setenv('FOLLOWER_PORT', 'port with spaces')

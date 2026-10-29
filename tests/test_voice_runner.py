@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from so101_test.voice.voice_runner import ARM_KEYS, IDLE, KEYS, RETURNING, RUNNING, DoneDetector, VoiceRunner
+from so101_rollout.voice.voice_runner import ARM_KEYS, IDLE, KEYS, RETURNING, RUNNING, DoneDetector, VoiceRunner
 
 REST = dict(zip(KEYS, [0.0, -104.0, 90.0, 75.0, 5.0, 2.0]))
 

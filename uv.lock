@@ -1181,7 +1181,7 @@ wheels = [
 ]
 
 [[package]]
-name = "so101-test"
+name = "so101-rollout"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

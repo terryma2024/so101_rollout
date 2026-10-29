@@ -68,10 +68,10 @@ def test_wrapper_forwards_argv_and_exit(checkout, tmp_path, name):
 
 
 @pytest.mark.parametrize('name,args,expected', [
-    ('voice_agent', ['--fake-robot', 'green=with spaces', ''], ['-m', 'so101_test.voice.voice_agent', '--fake-robot', 'green=with spaces', '']),
+    ('voice_agent', ['--fake-robot', 'green=with spaces', ''], ['-m', 'so101_rollout.voice.voice_agent', '--fake-robot', 'green=with spaces', '']),
     ('calibrate_follower', [], ['run', '--no-sync', 'lerobot-calibrate', '--robot.type=so101_follower', '--robot.port=override port', '--robot.id=my_follower']),
     ('calibrate_leader', [], ['run', '--no-sync', 'lerobot-calibrate', '--teleop.type=so101_leader', '--teleop.port=', '--teleop.id=my_leader']),
-    ('camera_settings', ['snap'], ['-m', 'so101_test.camera.calib_capture', 'snap']),
+    ('camera_settings', ['snap'], ['-m', 'so101_rollout.camera.calib_capture', 'snap']),
     ('teleop', [], None), ('record', ['unit-test-unused', '2'], None), ('rollout', None, None),
 ])
 def test_shell_defaults_preserve_environment(checkout, tmp_path, name, args, expected):
@@ -129,7 +129,7 @@ def test_voice_launcher_preserves_runtime_boundary(checkout, tmp_path, override,
     assert len(calls) == 1
     child = calls[0]
     assert child['executable'] == str(selected / 'bin' / 'python')
-    assert child['args'] == ['-m', 'so101_test.voice.voice_agent', *args]
+    assert child['args'] == ['-m', 'so101_rollout.voice.voice_agent', *args]
     assert child['cwd'] == str(root)
     assert child['env']['SO101_CONFIG_DIR'] == str(root / 'config')
     assert all(child['env'][key] is None for key in ('PYTHONPATH', 'AMENT_PREFIX_PATH', 'COLCON_PREFIX_PATH'))
@@ -169,9 +169,9 @@ def test_selected_shell_config_and_missing_directory(checkout, tmp_path):
 
 
 @pytest.mark.parametrize('name,args,prefix,executable', [
-    ('teleop', ['ignored extra'], ['run', '--no-sync', 'python', '-m', 'so101_test.operations.teleop_viz'], 'uv'),
-    ('record', ['unit-test-unused', '2', 'ignored extra'], ['-m', 'so101_test.operations.record_viz'], 'python'),
-    ('camera_settings', ['snap', 'ignored extra'], ['-m', 'so101_test.camera.calib_capture', 'snap'], 'python'),
+    ('teleop', ['ignored extra'], ['run', '--no-sync', 'python', '-m', 'so101_rollout.operations.teleop_viz'], 'uv'),
+    ('record', ['unit-test-unused', '2', 'ignored extra'], ['-m', 'so101_rollout.operations.record_viz'], 'python'),
+    ('camera_settings', ['snap', 'ignored extra'], ['-m', 'so101_rollout.camera.calib_capture', 'snap'], 'python'),
 ])
 def test_camera_operation_launchers_use_canonical_modules(checkout, tmp_path, name, args, prefix, executable):
     root, fake, capture, env = checkout

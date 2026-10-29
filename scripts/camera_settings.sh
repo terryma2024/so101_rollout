@@ -44,6 +44,6 @@ case "${1:-show}" in
   lock) lock_one "$WRIST_CAM" "$WRIST_EXPOSURE" "$WRIST_WB" "${WRIST_SATURATION:-}"; lock_one "$SIDE_CAM" "$SIDE_EXPOSURE" "$SIDE_WB" "${SIDE_SATURATION:-}"
         show_one wrist "$WRIST_CAM"; show_one side "$SIDE_CAM" ;;
   auto) auto_one "$WRIST_CAM"; auto_one "$SIDE_CAM"; show_one wrist "$WRIST_CAM"; show_one side "$SIDE_CAM" ;;
-  snap) /data/work/venvs/so101-real-lerobot-061/bin/python -m so101_test.camera.calib_capture snap ;;
+  snap) /data/work/venvs/so101-real-lerobot-061/bin/python -m so101_rollout.camera.calib_capture snap ;;
   *) echo "用法：$0 show|lock|auto|snap" >&2; exit 2 ;;
 esac

@@ -2,7 +2,7 @@ import wave
 
 import numpy as np
 
-from so101_test.voice.voice_asr import SAMPLE_RATE, EnergySegmenter, MicListener, read_wav_16k_mono
+from so101_rollout.voice.voice_asr import SAMPLE_RATE, EnergySegmenter, MicListener, read_wav_16k_mono
 
 
 def tone(seconds, amp=0.2, freq=300.0):

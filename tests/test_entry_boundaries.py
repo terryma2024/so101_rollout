@@ -14,10 +14,10 @@ REPO = Path(__file__).resolve().parents[1]
 
 def test_voice_patch_targets_canonical_module(monkeypatch):
     # A root forwarding module must never receive patches intended for the implementation.
-    assert importlib.util.find_spec('so101_test.voice') is not None, 'canonical voice package is missing'
-    from so101_test.voice import voice_agent
+    assert importlib.util.find_spec('so101_rollout.voice') is not None, 'canonical voice package is missing'
+    from so101_rollout.voice import voice_agent
 
-    assert voice_agent is importlib.import_module('so101_test.voice.voice_agent')
+    assert voice_agent is importlib.import_module('so101_rollout.voice.voice_agent')
     messages, commands, events = [], [], []
     monkeypatch.setattr(voice_agent, 'say', messages.append)
 
@@ -71,7 +71,7 @@ with contextlib.redirect_stdout(output):
         # Importing the compatibility file must not dispatch main.
         runpy.run_path(str(Path(repo) / entry), run_name='stub_import_probe')
         assert not output.getvalue(), output.getvalue()
-        assert not any(name.startswith('so101_test.voice.') for name in sys.modules)
+        assert not any(name.startswith('so101_rollout.voice.') for name in sys.modules)
     sys.argv = [entry, '--help']
     try:
         if entry.endswith('.py'):
@@ -102,8 +102,8 @@ def voice_help_probe(entry, cwd, config=None):
                           cwd=cwd, env=env, text=True, capture_output=True, timeout=15)
 
 
-@pytest.mark.parametrize('entry', ['so101_test.voice.voice_agent', 'voice_agent.py',
-                                 'so101_test.voice.voice_latency_check', 'voice_latency_check.py'])
+@pytest.mark.parametrize('entry', ['so101_rollout.voice.voice_agent', 'voice_agent.py',
+                                 'so101_rollout.voice.voice_latency_check', 'voice_latency_check.py'])
 @pytest.mark.parametrize('config', [None, '', 'missing selected config'])
 def test_voice_help_stays_inert(tmp_path, entry, config):
     result = voice_help_probe(entry, tmp_path, config)
@@ -150,10 +150,10 @@ sys.meta_path.insert(0, DenyRuntime())
 sys.addaudithook(audit)
 # Before migration load the actual legacy file to expose its eager SDK boundary.
 try:
-    if importlib.util.find_spec('so101_test.operations') is None:
+    if importlib.util.find_spec('so101_rollout.operations') is None:
         runpy.run_path(str(pathlib.Path(repo) / (name + '.py')), run_name='legacy_diagnostic_probe')
     else:
-        __import__('so101_test.operations.' + name)
+        __import__('so101_rollout.operations.' + name)
         runpy.run_path(str(pathlib.Path(repo) / (name + '.py')), run_name='root_diagnostic_probe')
 except AssertionError:
     pass
@@ -226,7 +226,7 @@ else:
         p = cache / 'lerobot/calibration' / group / (ident + '.json')
         p.parent.mkdir(parents=True)
         p.write_text(json.dumps({'shoulder_pan': {'id': value}}))
-impl = importlib.import_module('so101_test.operations.' + name)
+impl = importlib.import_module('so101_rollout.operations.' + name)
 assert events == [], events
 sys.argv = [name + '.py', *args]
 if name == 'check_bus':
@@ -244,7 +244,7 @@ print(json.dumps({'events': events, 'output': output.getvalue()}))
     (['follower', '2'], 'follower', 'overridden-follower-port', '2'),
     (['other', '2'], 'other', 'overridden-follower-port', '2')])
 def test_check_bus_main_preserves_poll_order(tmp_path, args, arm, port, duration):
-    assert importlib.util.find_spec('so101_test.operations') is not None, 'canonical diagnostics missing'
+    assert importlib.util.find_spec('so101_rollout.operations') is not None, 'canonical diagnostics missing'
     result = isolated_probe(DIAGNOSTIC_MAIN_PROBE, tmp_path, 'check_bus', json.dumps(args))
     assert result['events'] == [['port', port], ['packet', 0], ['open'], ['baud', 1_000_000],
                                *[['read', i, 56] for i in range(1, 7)], ['close']]
@@ -255,7 +255,7 @@ def test_check_bus_main_preserves_poll_order(tmp_path, args, arm, port, duration
 
 
 def test_read_pose_main_preserves_calibration_identity_and_disconnect(tmp_path):
-    assert importlib.util.find_spec('so101_test.operations') is not None, 'canonical diagnostics missing'
+    assert importlib.util.find_spec('so101_rollout.operations') is not None, 'canonical diagnostics missing'
     result = isolated_probe(DIAGNOSTIC_MAIN_PROBE, tmp_path, 'read_pose', '[]')
     events = result['events']
     assert [event[:2] for event in events] == [
@@ -316,7 +316,7 @@ cv2.NORM_HAMMING = 6
 cv2.ORB_create = lambda n: object()
 cv2.BFMatcher = lambda *a, **k: object()
 module('numpy')
-import so101_test.config as config
+import so101_rollout.config as config
 config_calls = []
 config.load_arms_env = lambda: config_calls.append('capture-config') or {'WRIST_CAM': 'fake-wrist', 'SIDE_CAM': 'fake-side'}
 # Fail closed if unstubbed runtime imports/actions are attempted.
@@ -335,15 +335,15 @@ def audit(event, args):
 sys.meta_path.insert(0, DenyRuntime()); sys.addaudithook(audit)
 os.environ['WRIST_CAM_FPS'] = '20'; os.environ['SIDE_CHECK_EVERY'] = '10'
 events.clear()
-impl = importlib.import_module('so101_test.operations.' + name)
+impl = importlib.import_module('so101_rollout.operations.' + name)
 if name == 'record_viz':
     assert events == ['lerobot_record.log_visualization_data', 'keyboard_input.apply_recording_control',
                       'lerobot_record.record_loop', 'dataset.save_episode'], events
     assert impl.log_visualization_data is original_visual
     assert impl._original_apply is original_apply and impl._original_record_loop is original_loop
     assert impl._original_save_episode is original_save
-    assert impl.align_side is sys.modules['so101_test.camera.align_side']
-    assert impl.align_side.open_cam is sys.modules['so101_test.camera.calib_capture'].open_cam
+    assert impl.align_side is sys.modules['so101_rollout.camera.align_side']
+    assert impl.align_side.open_cam is sys.modules['so101_rollout.camera.calib_capture'].open_cam
     assert config_calls == ['capture-config'], config_calls
 else:
     assert events == ['lerobot_teleoperate.log_visualization_data'], events
@@ -399,7 +399,7 @@ print(json.dumps({'install_order': installed, 'main_calls': main_calls, 'config_
 @pytest.mark.parametrize('name', ['record_viz', 'teleop_viz'])
 @pytest.mark.parametrize('entry', ['root', 'module'])
 def test_adapter_patches_precede_main_once(tmp_path, name, entry):
-    assert importlib.util.find_spec('so101_test.operations') is not None, 'canonical adapters missing'
+    assert importlib.util.find_spec('so101_rollout.operations') is not None, 'canonical adapters missing'
     result = isolated_probe(ADAPTER_PROBE, tmp_path, name, entry)
     assert len(result['main_calls']) == 1
 
@@ -407,7 +407,7 @@ def test_adapter_patches_precede_main_once(tmp_path, name, entry):
 DELEGATE_PROBE = r'''
 import json, os, pathlib, runpy, sys, types
 repo, group, name = sys.argv[1:]
-canonical = 'so101_test.' + group + '.' + name
+canonical = 'so101_rollout.' + group + '.' + name
 module = types.ModuleType(canonical)
 def main():
     print(json.dumps({'argv': sys.argv[1:], 'cwd': os.getcwd(), 'config': os.environ['SO101_CONFIG_DIR']}))
@@ -431,7 +431,7 @@ else: raise AssertionError('delegate swallowed main exit')
     [('operations', name) for name in ('check_bus', 'read_pose', 'record_viz', 'teleop_viz')])
 @pytest.mark.parametrize('config', [None, '', 'explicit selected config'])
 def test_calibration_and_operation_delegates_preserve_argv_cwd_exit(tmp_path, group, name, config):
-    assert importlib.util.find_spec('so101_test.' + group) is not None, 'canonical delegate target missing'
+    assert importlib.util.find_spec('so101_rollout.' + group) is not None, 'canonical delegate target missing'
     result = isolated_probe(DELEGATE_PROBE, tmp_path, group, name, config=config)
     assert result['argv'] == ['relative reference.png', '--image', 'relative image.png', '']
     assert result['cwd'] == str(REPO if name == 'align_side' else tmp_path)
@@ -443,9 +443,9 @@ import importlib, json, sys, types
 repo, name, arguments = sys.argv[1:]
 sys.modules['cv2'] = types.ModuleType('cv2')
 sys.modules['numpy'] = types.ModuleType('numpy')
-import so101_test.config as config
+import so101_rollout.config as config
 config.load_arms_env = lambda: {'WRIST_CAM': 'fake-wrist', 'SIDE_CAM': 'fake-side'}
-impl = importlib.import_module('so101_test.camera.' + name)
+impl = importlib.import_module('so101_rollout.camera.' + name)
 calls = []
 for key in ('snap', 'aruco', 'charuco'):
     setattr(impl, key, lambda *args, key=key: calls.append([key, *args]))
@@ -468,7 +468,7 @@ else: print(json.dumps({'calls': calls, 'usage': False}))
     ('calib_extrinsics', [], [], True),
 ])
 def test_camera_main_keeps_dispatch_and_usage(tmp_path, name, args, calls, usage):
-    assert importlib.util.find_spec('so101_test.camera') is not None, 'canonical camera package missing'
+    assert importlib.util.find_spec('so101_rollout.camera') is not None, 'canonical camera package missing'
     assert isolated_probe(CAMERA_MAIN_PROBE, tmp_path, name, json.dumps(args)) == {'calls': calls, 'usage': usage}
 
 
@@ -486,9 +486,9 @@ def imread(path):
 cv2.imread = imread
 sys.modules['cv2'] = cv2
 sys.modules['numpy'] = types.ModuleType('numpy')
-import so101_test.config as config
+import so101_rollout.config as config
 config.load_arms_env = lambda: {'WRIST_CAM': 'fake-wrist', 'SIDE_CAM': 'fake-side'}
-impl = importlib.import_module('so101_test.camera.align_side')
+impl = importlib.import_module('so101_rollout.camera.align_side')
 impl.features = lambda image: ('reference-keypoints', 'reference-descriptors')
 impl.estimate = lambda *args: 'estimated'
 impl.report = lambda result: result

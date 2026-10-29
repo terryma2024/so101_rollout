@@ -25,4 +25,4 @@ fi
 
 export HF_HOME=${HF_HOME:-/data/models/huggingface} TORCH_HOME=${TORCH_HOME:-/data/models/torch}
 unset PYTHONPATH AMENT_PREFIX_PATH COLCON_PREFIX_PATH
-exec "$VENV/bin/python" -m so101_test.voice.voice_agent "$@"
+exec "$VENV/bin/python" -m so101_rollout.voice.voice_agent "$@"
