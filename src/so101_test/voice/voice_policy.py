@@ -7,7 +7,7 @@
 import pathlib
 import threading
 
-from so101_test.config import load_arms_env
+from ..config import load_arms_env
 
 GREEN_TASK = "Put the green cube into the paper bowl"
 RED_TASK = "Put the red cube into the paper bowl"

@@ -53,7 +53,7 @@ def test_literal_parser_never_evaluates_shell(tmp_path, monkeypatch):
 
 def test_process_values_override_defaults(tmp_path, monkeypatch):
     # Legacy public API remains valid throughout migration; this exposes the old bug.
-    from voice_policy import read_arms_env
+    from so101_test.voice.voice_policy import read_arms_env
     path = tmp_path / 'arms.env'
     path.write_text('FOLLOWER_PORT=default\nLEADER_PORT=default\n')
     monkeypatch.setenv('FOLLOWER_PORT', 'port with spaces')

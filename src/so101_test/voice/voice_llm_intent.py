@@ -13,7 +13,7 @@ import time
 from dataclasses import dataclass
 from typing import Optional
 
-from voice_intent import GREEN, HOME, RED, STOP, UNCLEAR, parse_intent
+from .voice_intent import GREEN, HOME, RED, STOP, UNCLEAR, parse_intent
 
 API_URL = "https://api.deepseek.com/chat/completions"
 DEFAULT_MODEL = "deepseek-flash"

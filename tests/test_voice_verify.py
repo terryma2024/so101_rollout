@@ -5,9 +5,9 @@ import time
 import numpy as np
 import pytest
 
-import voice_agent
-from voice_runner import IDLE, KEYS, VoiceRunner
-from voice_verify import PROMPT, VerifyChain, VerifyResult, VisionVerifier
+from so101_test.voice import voice_agent
+from so101_test.voice.voice_runner import IDLE, KEYS, VoiceRunner
+from so101_test.voice.voice_verify import PROMPT, VerifyChain, VerifyResult, VisionVerifier
 
 KEY = "sk-test-SECRET-0123456789"
 REST = dict(zip(KEYS, [0.0, -104.0, 90.0, 75.0, 5.0, 2.0]))

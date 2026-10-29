@@ -4,9 +4,9 @@ import time
 
 import pytest
 
-import voice_agent
-from voice_intent import GREEN, HOME, RED, UNCLEAR
-from voice_llm_intent import SYSTEM_PROMPT, LlmIntentParser, LlmWorker
+from so101_test.voice import voice_agent
+from so101_test.voice.voice_intent import GREEN, HOME, RED, UNCLEAR
+from so101_test.voice.voice_llm_intent import SYSTEM_PROMPT, LlmIntentParser, LlmWorker
 
 KEY = "sk-test-SECRET-0123456789"
 

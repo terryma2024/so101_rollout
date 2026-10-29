@@ -1,6 +1,6 @@
 import pytest
 
-from voice_intent import GREEN, HOME, RED, STOP, UNCLEAR, parse_intent
+from so101_test.voice.voice_intent import GREEN, HOME, RED, STOP, UNCLEAR, parse_intent
 
 
 @pytest.mark.parametrize("text,expected", [

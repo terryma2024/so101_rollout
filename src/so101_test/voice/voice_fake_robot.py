@@ -6,7 +6,7 @@ send_action() 只记录（并统计与回放状态的最大偏差），不影响
 """
 import numpy as np
 
-from voice_runner import KEYS
+from .voice_runner import KEYS
 
 
 def _load_episode(root, episode, max_frames):

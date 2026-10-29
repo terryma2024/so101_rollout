@@ -76,12 +76,12 @@ Files: move all nine voice modules to `src/so101_test/voice/`; create its inert 
 
 Consumes: explicit config contract, installed project, launcher helper. Produces: canonical voice module imports, unchanged parser/main interfaces and safe old/new voice entry paths.
 
-- [ ] Add `test_voice_patch_targets_canonical_module` for implementation-module identity and patched `say`, and `test_voice_help_stays_inert` in a subprocess with denied policy/hardware/ASR imports. Compare parser defaults and help against baseline, allowing only displayed invocation path differences. Test root stub and `python -m so101_test.voice.voice_agent --help`.
-- [ ] Establish assertion RED, then move the nine files and change all eager/delayed local imports to relative package imports. Preserve their location relative to key/argument validation. Do not edit model defaults, action queues, policy construction, ASR timing or runner logic.
-- [ ] Change existing tests to canonical imports. Remove the root `sys.path` insertion in conftest; do not keep root copies of internal voice helpers or module aliases. Keep the existing `say` fixture patching the canonical module.
-- [ ] Add the two guarded root delegates; switch the voice shell body to `"$VENV/bin/python" -m so101_test.voice.voice_agent`. Preserve VENV override, fake/help camera-lock bypass, cache defaults and environment cleanup.
-- [ ] Run targeted voice tests to GREEN, including immediate stop, stale answer rejection, stop/quit/home during verification and retry cancellation. They remain in the final full suite; do not duplicate their assertions in new tests.
-- [ ] Read the source/import diff inline, verify delayed dependencies remain delayed and commit the voice checkpoint.
+- [x] Add `test_voice_patch_targets_canonical_module` for implementation-module identity and patched `say`, and `test_voice_help_stays_inert` in a subprocess with denied policy/hardware/ASR imports. Compare parser defaults and help against baseline, allowing only displayed invocation path differences. Test root stub and `python -m so101_test.voice.voice_agent --help`.
+- [x] Establish assertion RED, then move the nine files and change all eager/delayed local imports to relative package imports. Preserve their location relative to key/argument validation. Do not edit model defaults, action queues, policy construction, ASR timing or runner logic.
+- [x] Change existing tests to canonical imports. Remove the root `sys.path` insertion in conftest; do not keep root copies of internal voice helpers or module aliases. Keep the existing `say` fixture patching the canonical module.
+- [x] Add the two guarded root delegates; switch the voice shell body to `"$VENV/bin/python" -m so101_test.voice.voice_agent`. Preserve VENV override, fake/help camera-lock bypass, cache defaults and environment cleanup.
+- [x] Run targeted voice tests to GREEN, including immediate stop, stale answer rejection, stop/quit/home during verification and retry cancellation. They remain in the final full suite; do not duplicate their assertions in new tests.
+- [x] Read the source/import diff inline, verify delayed dependencies remain delayed and commit the voice checkpoint.
 
 ### Task 4: Move the connected camera and operations cluster
 

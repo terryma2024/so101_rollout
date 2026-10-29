@@ -38,7 +38,7 @@ def checkout(tmp_path):
 from pathlib import Path
 name = Path(sys.argv[0]).name
 with open(os.environ['CAPTURE'], 'a') as stream:
-    stream.write(json.dumps({'name': name, 'args': sys.argv[1:], 'cwd': os.getcwd(), 'env': {k: os.environ.get(k) for k in ('FOLLOWER_PORT','LEADER_PORT','WRIST_EXPOSURE','SIDE_WB','RERUN_VIEWER_HOST','RERUN_VIEWER_PORT','SO101_CONFIG_DIR','PYTHONPATH')}}) + '\\n')
+    stream.write(json.dumps({'name': name, 'executable': sys.argv[0], 'args': sys.argv[1:], 'cwd': os.getcwd(), 'env': {k: os.environ.get(k) for k in ('FOLLOWER_PORT','LEADER_PORT','WRIST_EXPOSURE','SIDE_WB','RERUN_VIEWER_HOST','RERUN_VIEWER_PORT','SO101_CONFIG_DIR','PYTHONPATH','AMENT_PREFIX_PATH','COLCON_PREFIX_PATH','HF_HOME','TORCH_HOME')}}) + '\\n')
 if name == 'xdpyinfo': sys.exit(1)
 if name in ('timeout', 'v4l2-ctl'): sys.exit(0)
 sys.exit(23)
@@ -68,7 +68,7 @@ def test_wrapper_forwards_argv_and_exit(checkout, tmp_path, name):
 
 
 @pytest.mark.parametrize('name,args,expected', [
-    ('voice_agent', ['--fake-robot', 'green=with spaces', ''], ['voice_agent.py', '--fake-robot', 'green=with spaces', '']),
+    ('voice_agent', ['--fake-robot', 'green=with spaces', ''], ['-m', 'so101_test.voice.voice_agent', '--fake-robot', 'green=with spaces', '']),
     ('calibrate_follower', [], ['run', '--no-sync', 'lerobot-calibrate', '--robot.type=so101_follower', '--robot.port=override port', '--robot.id=my_follower']),
     ('calibrate_leader', [], ['run', '--no-sync', 'lerobot-calibrate', '--teleop.type=so101_leader', '--teleop.port=', '--teleop.id=my_leader']),
     ('camera_settings', ['snap'], ['calib_capture.py', 'snap']),
@@ -95,7 +95,7 @@ def test_shell_defaults_preserve_environment(checkout, tmp_path, name, args, exp
     assert child['env']['SO101_CONFIG_DIR'] == str(root / 'config')
     assert child['env']['RERUN_VIEWER_HOST'] == '192.0.2.4'
     if expected is not None:
-        if name in ('voice_agent', 'camera_settings'):
+        if name == 'camera_settings':
             expected = [str(root / expected[0]), *expected[1:]]
         assert child['args'] == expected
     if name == 'camera_settings':
@@ -106,6 +106,37 @@ def test_shell_defaults_preserve_environment(checkout, tmp_path, name, args, exp
     if name in ('teleop', 'record', 'rollout'):
         assert '--display_ip=192.0.2.4' in child['args']
         assert any('--robot.port=override port' == arg for arg in child['args'])
+
+
+@pytest.mark.parametrize('override', [False, True])
+@pytest.mark.parametrize('args', [['--help'], ['-h'], ['--fake-robot', 'green=with spaces', '']])
+def test_voice_launcher_preserves_runtime_boundary(checkout, tmp_path, override, args):
+    root, fake, capture, env = checkout
+    selected = fake
+    if override:
+        selected = tmp_path / 'overridden voice environment'
+        (selected / 'bin').mkdir(parents=True)
+        shutil.copy2(fake / 'bin' / 'python', selected / 'bin' / 'python')
+        env['VENV'] = str(selected)
+    # A camera-lock call would fail before reaching the selected Python.
+    (root / 'camera_settings.sh').write_text('#!/bin/bash\nexit 97\n')
+    env.update(PYTHONPATH='forbidden overlay', AMENT_PREFIX_PATH='forbidden overlay',
+               COLCON_PREFIX_PATH='forbidden overlay')
+    env.pop('HF_HOME', None)
+    env.pop('TORCH_HOME', None)
+    result = subprocess.run([str(root / 'voice_agent.sh'), *args], cwd=tmp_path,
+                            env=env, capture_output=True, text=True)
+    assert result.returncode == 23, result.stderr
+    calls = [json.loads(line) for line in capture.read_text().splitlines()]
+    assert len(calls) == 1
+    child = calls[0]
+    assert child['executable'] == str(selected / 'bin' / 'python')
+    assert child['args'] == ['-m', 'so101_test.voice.voice_agent', *args]
+    assert child['cwd'] == str(root)
+    assert child['env']['SO101_CONFIG_DIR'] == str(root / 'config')
+    assert all(child['env'][key] is None for key in ('PYTHONPATH', 'AMENT_PREFIX_PATH', 'COLCON_PREFIX_PATH'))
+    assert child['env']['HF_HOME'] == '/data/models/huggingface'
+    assert child['env']['TORCH_HOME'] == '/data/models/torch'
 
 
 @pytest.mark.parametrize('host,want', [(None, '100.84.127.95'), ('', ''), ('viewer override', 'viewer override')])
