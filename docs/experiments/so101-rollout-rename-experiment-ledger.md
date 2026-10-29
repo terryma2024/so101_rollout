@@ -6,13 +6,13 @@ success_contract: New stable path, imports, console command, managed wheel prove
 worktree: /home/matianyi/Projects/so101_rollout
 branch: main
 base_commit: 424d1ded82e0d11b8b26747fcc2b84c0a9bef1e8
-current_commit: 6a382bb70e42ba1a002859780076c205309b1808 (source rename; local rollout ledger commit follows)
+current_commit: 4f24175eee79ce455b4f6a464274f484cf8b365a (validated local rollout; final evidence commit follows)
 evidence_root: /data/work/so101-evidence/project-rename/20261029-so101-rollout
-confirmed_conclusions: Existing root environment requires absolute path repair; local main is seven commits ahead of origin/main; coordinator verified GitHub repository ID 1434336506, administrator access and availability of so101_rollout.
+confirmed_conclusions: Local rename, README, environments and worktrees verified; GitHub repository ID 1434336506 now has full_name terryma2024/so101_rollout; remote refs unchanged; no commits pushed.
 disproven_routes: NONE
-open_hypotheses: NONE at planning stage; recheck external state before mutation.
-latest_checkpoint: CP-LOCAL-DEPLOY
-next_experiment: Coordinated GitHub rename and remote verification (Task 3)
+open_hypotheses: NONE.
+latest_checkpoint: CP-COMPLETE
+next_experiment: NONE (complete)
 
 ## CP-PLAN
 
@@ -39,3 +39,10 @@ Root `.venv`: removed old and temporary editable project distributions, rewrote 
 Updated README after the move as requested, retaining the explicitly historical original initialization command. Ruling: rebuilt the final wheel after the README update and replaced only the project wheel in each managed environment — this keeps installed wheel metadata aligned with the new README while preserving the pre-move wheel — if wrong, both wheels are retained and hashes distinguish them. Final wheel: `/data/work/so101-build/project-rename/20261029-so101-rollout/final/so101_rollout-0.1.0-py3-none-any.whl`, SHA256 `df63d3a8d13cb59f169b48710205821ae04d076ff9281089b2e621c5cb8b718e`.
 
 External neutral-cwd provenance probe passed in root editable and real/voice immutable-wheel modes. It checked exact interpreters, module origins, direct URLs, independently computed wheel hash and installed package bytes; old distribution and import are absent in all three environments. Actual root `pytest --version` (9.2.0), `so101-rollout` greeting, repaired shebang/activation prompt and `voice_agent.sh --help` passed. Controlled stable-path full suite `pytest.O8PxeeCv`: 241/241 passed, zero skips/failures/errors, controller plus eight worker tempfile proofs. Independently verified all 43 repaired third-party launcher RECORD hashes/sizes, all unrelated distribution lists unchanged (root 258, real 283, voice 296), no old checkout prefix in root `.venv`, and active old-name scan found only the historical README initialization line. Camera module from neutral cwd requires explicit `SO101_CONFIG_DIR` as documented; its `--help` usage text exits 1 by existing CLI convention, so no hardware path was invoked. Final audit and 265 artifact paths/hashes are registered under E. Retained: all test runs, wheel versions, installation backups, worktrees and evidence. Archived: ignored old-name bytecode under E. Deletion candidates: scratch runs and superseded environment backups after readback; nothing deleted.
+
+
+## CP-COMPLETE
+
+Coordinator independently reviewed source/launcher/provenance/lockfile and final README diffs, root environment repair implementation, wheel manifest and final JUnit (241 tests, zero failures/errors/skips). No blocking review finding. GitHub plugin does not expose repository rename; used secure REST fallback with configured credentials kept out of argv, output and evidence. Rechecked administrator access, absent target name and unchanged remote refs immediately before PATCH. Readback confirms immutable repository ID `1434336506`, full_name `terryma2024/so101_rollout`, default branch `main`. `origin` fetch/push URL is `git@github.com:terryma2024/so101_rollout.git`; advertised refs are byte-for-byte unchanged. No push performed: the original seven local commits and the three migration/evidence commits remain unpublished (main ahead 10, behind 0 against origin/main after this checkpoint commit).
+
+Evidence: sanitized `github-preflight.json`, `github-renamed.json`, `remote-refs-before.txt`, `remote-refs-after.txt`, and `coordinator-artifact-hashes.json` under E. Retained all test runs, worktrees, wheels and environment rollback backups. Archived old ignored bytecode is retained under E. Scratch and superseded backups remain deletion candidates; nothing deleted.
