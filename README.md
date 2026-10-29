@@ -1,6 +1,6 @@
-# SO101 arm setup with LeRobot
+# SO101 Rollout
 
-This repository configures SO101 leader and follower arms for teleoperation with [LeRobot](https://github.com/huggingface/lerobot).
+[so101_rollout](https://github.com/terryma2024/so101_rollout) configures SO101 leader and follower arms for teleoperation and rollout with [LeRobot](https://github.com/huggingface/lerobot).
 
 ## 1. Environment
 
@@ -76,7 +76,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 The project dependencies are locked in `uv.lock`. For a fresh setup, synchronize that lock and explicitly install the local package:
 
 ```bash
-cd ~/Projects/so101_test
+cd ~/Projects/so101_rollout
 uv sync --locked
 uv pip install --python .venv/bin/python --no-deps -e .
 ```
@@ -107,16 +107,16 @@ uv run --no-sync python -c "import torch, lerobot; print(torch.__version__, torc
 ls -l /dev/serial/by-id/
 ```
 
-The existing `so101-test` command still prints its greeting.
+The `so101-rollout` command prints its greeting.
 
 ## 4. Source layout and configuration
 
 | Path | Purpose |
 |---|---|
-| `src/so101_test/voice/` | Voice orchestration, intent, policy, ASR, verification and replay modules |
-| `src/so101_test/camera/` | Camera capture, calibration targets, intrinsics, extrinsics and alignment |
-| `src/so101_test/operations/` | Recording and teleoperation adapters, bus diagnostics and pose reading |
-| `src/so101_test/config.py` | Configuration selection and literal env-file parsing |
+| `src/so101_rollout/voice/` | Voice orchestration, intent, policy, ASR, verification and replay modules |
+| `src/so101_rollout/camera/` | Camera capture, calibration targets, intrinsics, extrinsics and alignment |
+| `src/so101_rollout/operations/` | Recording and teleoperation adapters, bus diagnostics and pose reading |
+| `src/so101_rollout/config.py` | Configuration selection and literal env-file parsing |
 | `config/arms.env` | Arm ports and IDs (`my_leader` / `my_follower`), wrist/side camera paths and frame rates |
 | `config/camera.env` | Exposure and white-balance defaults |
 | `scripts/` | Shell launcher implementations, sharing `scripts/lib/common.sh` |
@@ -130,18 +130,18 @@ The existing `so101-test` command still prints its greeting.
 
 The seven root shell commands remain available: `voice_agent.sh`, `teleop.sh`, `record.sh`, `rollout.sh`, `calibrate_follower.sh`, `calibrate_leader.sh` and `camera_settings.sh`. They anchor cwd to the checkout root before running their implementations.
 
-Root Python compatibility commands remain for `voice_agent.py`, `voice_latency_check.py`, `calib_capture.py`, `calib_intrinsics.py`, `calib_extrinsics.py`, `calib_targets.py`, `align_side.py`, `check_bus.py`, `read_pose.py`, `record_viz.py` and `teleop_viz.py`. Their implementation lives in the package. Internal voice helpers have no root copies. Package commands use `python -m so101_test.<group>.<module>`, for example:
+Root Python compatibility commands remain for `voice_agent.py`, `voice_latency_check.py`, `calib_capture.py`, `calib_intrinsics.py`, `calib_extrinsics.py`, `calib_targets.py`, `align_side.py`, `check_bus.py`, `read_pose.py`, `record_viz.py` and `teleop_viz.py`. Their implementation lives in the package. Internal voice helpers have no root copies. Package commands use `python -m so101_rollout.<group>.<module>`, for example:
 
 ```bash
-uv run --no-sync python -m so101_test.operations.read_pose
+uv run --no-sync python -m so101_rollout.operations.read_pose
 ./voice_agent.sh --help
 ```
 
 Configuration stays outside the wheel. Root delegates supply the checkout's `config/` directory when `SO101_CONFIG_DIR` is unset. Installed commands outside a checkout need an explicit directory:
 
 ```bash
-SO101_CONFIG_DIR=/home/matianyi/Projects/so101_test/config \
-  /data/work/venvs/so101-real-lerobot-061/bin/python -m so101_test.camera.calib_intrinsics wrist
+SO101_CONFIG_DIR=/home/matianyi/Projects/so101_rollout/config \
+  /data/work/venvs/so101-real-lerobot-061/bin/python -m so101_rollout.camera.calib_intrinsics wrist
 ```
 
 The Python loader selects an explicit directory first, then `SO101_CONFIG_DIR`, then cwd's `config/`. A selected missing directory fails. Existing CLI handling takes precedence over process environment, which takes precedence over checked-in defaults; explicitly empty environment values also override defaults. Bash launchers evaluate trusted shell defaults, including the viewer host derived from `SSH_CONNECTION`. The Python parser reads values literally: direct Python calibration needs an explicit `RERUN_VIEWER_HOST` if the default contains a shell expression.
