@@ -71,7 +71,7 @@ def test_wrapper_forwards_argv_and_exit(checkout, tmp_path, name):
     ('voice_agent', ['--fake-robot', 'green=with spaces', ''], ['-m', 'so101_test.voice.voice_agent', '--fake-robot', 'green=with spaces', '']),
     ('calibrate_follower', [], ['run', '--no-sync', 'lerobot-calibrate', '--robot.type=so101_follower', '--robot.port=override port', '--robot.id=my_follower']),
     ('calibrate_leader', [], ['run', '--no-sync', 'lerobot-calibrate', '--teleop.type=so101_leader', '--teleop.port=', '--teleop.id=my_leader']),
-    ('camera_settings', ['snap'], ['calib_capture.py', 'snap']),
+    ('camera_settings', ['snap'], ['-m', 'so101_test.camera.calib_capture', 'snap']),
     ('teleop', [], None), ('record', ['unit-test-unused', '2'], None), ('rollout', None, None),
 ])
 def test_shell_defaults_preserve_environment(checkout, tmp_path, name, args, expected):
@@ -95,8 +95,6 @@ def test_shell_defaults_preserve_environment(checkout, tmp_path, name, args, exp
     assert child['env']['SO101_CONFIG_DIR'] == str(root / 'config')
     assert child['env']['RERUN_VIEWER_HOST'] == '192.0.2.4'
     if expected is not None:
-        if name == 'camera_settings':
-            expected = [str(root / expected[0]), *expected[1:]]
         assert child['args'] == expected
     if name == 'camera_settings':
         assert child['env']['WRIST_EXPOSURE'] == 'override exposure'
@@ -168,3 +166,28 @@ def test_selected_shell_config_and_missing_directory(checkout, tmp_path):
     assert result.returncode != 0
     assert 'Configuration directory does not exist' in result.stderr
     assert capture.read_bytes() == before
+
+
+@pytest.mark.parametrize('name,args,prefix,executable', [
+    ('teleop', ['ignored extra'], ['run', '--no-sync', 'python', '-m', 'so101_test.operations.teleop_viz'], 'uv'),
+    ('record', ['unit-test-unused', '2', 'ignored extra'], ['-m', 'so101_test.operations.record_viz'], 'python'),
+    ('camera_settings', ['snap', 'ignored extra'], ['-m', 'so101_test.camera.calib_capture', 'snap'], 'python'),
+])
+def test_camera_operation_launchers_use_canonical_modules(checkout, tmp_path, name, args, prefix, executable):
+    root, fake, capture, env = checkout
+    if name == 'record':
+        (root / 'camera_settings.sh').write_text('#!/bin/bash\nexit 0\n')
+    result = subprocess.run([str(root / f'{name}.sh'), *args], cwd=tmp_path,
+                            env=env, capture_output=True, text=True)
+    assert result.returncode == 23, result.stderr
+    child = json.loads(capture.read_text().splitlines()[-1])
+    assert child['executable'] == str(fake / ('uv' if executable == 'uv' else 'bin/python'))
+    assert child['args'][:len(prefix)] == prefix
+    assert 'ignored extra' not in child['args']
+    assert child['cwd'] == str(root)
+    assert child['env']['SO101_CONFIG_DIR'] == str(root / 'config')
+    if name == 'record':
+        assert '--dataset.num_episodes=2' in child['args']
+        assert '--dataset.fps=20' in child['args']
+        assert '--dataset.episode_time_s=30' in child['args']
+        assert '--dataset.reset_time_s=20' in child['args']

@@ -7,7 +7,7 @@ success_contract: approved migration; baseline and final full tests with min(8, 
 worktree: /home/matianyi/Projects/so101_test/.worktrees/repo-organisation
 branch: chore/so101-test-organisation
 base_commit: c724e389536e56875a54642b230d48532dfbde35
-current_commit: Task 3 checkpoint containing this ledger; exact SHA recorded in evidence task3-report.json
+current_commit: Task 4 checkpoint containing this ledger; exact SHA recorded in evidence task4-report.json
 evidence_root: /data/work/so101-evidence/repo-organisation/20261029-e8a252c0
 confirmed_conclusions:
   - approval document hashes match execution-approval.json (CP-001)
@@ -16,12 +16,13 @@ confirmed_conclusions:
   - existing application dependencies are unchanged in all three environments (CP-002)
   - explicit config and launcher contracts pass; all 167 tests pass with eight workers (GATE-003)
   - canonical voice identity, guarded help and launcher contracts pass; all 186 ordinary tests pass with eight workers (GATE-004)
+  - connected camera/operations import and CLI contracts pass; all 237 ordinary tests pass with eight workers (GATE-005)
 disproven_routes:
   - running this non-ROS gate with inherited ROS PYTHONPATH is invalid (GATE-001)
 open_hypotheses:
   - NONE
-latest_checkpoint: CP-004
-next_experiment: Task 4 connected camera/operations migration
+latest_checkpoint: CP-005
+next_experiment: Task 5 distribution, documentation and stable checkout
 ```
 
 The coordinator owns sequential handoffs; the active task executor is the sole ledger writer. Task 1 executor: GPT-6.1 Sol / High implementation subagent. Execution is local on ai-station. No SSH, hardware, cameras, ASR, policy loading, API requests, ROS or GUI runs are included. ROS domain, Gazebo partition, overlays and physical/visual outcomes are N/A because this is a source-only LeRobot task.
@@ -302,3 +303,69 @@ Inline self review: spec PASS and quality PASS; details in `task3/inline-self-re
 Retention for Task 3: retain `task3-preparation.json`, `task3/` and all four `scratch/pytest-task3-*` runs with logs, JUnit and proof files. Archived: NONE. Deletion candidates after readback: each of those four runs' `tmp/` subtree. Nothing was deleted. Two external read-only helpers remain in `/data/work/so101-tools/repo-organisation-task3/`, with paths and SHA256 in `task3/helpers.json`. No builds or wheels were produced in Task 3.
 
 Task 3: complete; exact checkpoint commit in `task3-report.json`. Release source/ledger/project-environment ownership after final clean readback and report. Do not start Task 4 in this lease.
+
+
+## GATE-005: Task 4 connected camera/operations migration
+
+```yaml
+status: PLANNED
+prior_experiment: GATE-004
+hypothesis: legacy diagnostics execute SDK/config/device operations on import and launchers still target flat scripts
+prediction: isolated import and launcher consumer assertions fail before migration, then pass with guarded canonical entry points
+single_variable: connected camera/operations ownership, entry boundaries and owning shell module dispatch
+lifecycle: N/A (isolated headless stub subprocesses; no robot stack)
+preconditions:
+  - exclusive Task 4 source/ledger/project-environment lease after clean CP-004 07fcc751
+  - exact stable project Python editable at approved worktree; real/voice environments untouched
+  - external SDK, OpenCV, LeRobot and config/cache/device boundaries stubbed or denied
+success_criteria:
+  - assertion RED then focused GREEN; full tests/ with min(8, CPU) and fresh NVMe scratch/JUnit/proofs
+  - source AST parity except approved imports/main extraction/guard relocation; Bash syntax clean
+invalid_criteria:
+  - collection/setup failure or actual device, camera, ASR, model, API or runtime-environment access
+provenance:
+  source_commit: 07fcc751f449e1f1ad8b22dcba034916f1d70efa plus Task 4 changes
+  runtime_executable: /home/matianyi/Projects/so101_test/.venv/bin/python
+  install_overlay: editable project at approved worktree; ROS variables removed
+  ros_domain_id: N/A
+  gz_partition: N/A
+```
+
+Ruling: this approved shared evidence ledger and scratch replace the generic execution skill's extra workspace scripts; only Task 4 is leased. Existing calibration argument guards must move into their existing main functions so delegates retain usage and exit behavior. No extra permission, reviewer, runtime install or second evidence root is required.
+
+
+GATE-005 final status: VALID. Canonical boundary RED in `scratch/pytest-task4-red-boundary.6htrce77` has five actual consumer assertion failures (two eager SDK imports and three flat launcher argv), zero collection errors/skips, exit 1. Expanded pre-migration RED `scratch/pytest-task4-red-all.vtzo8ras` has 50 failures and 36 passes, zero errors/skips; canonical target checks fail before unsafe legacy execution. The first GREEN and focused root-argv diagnosis are fixture-invalid: `runpy.run_path` correctly exposes the executed absolute script path as `argv[0]`, while the test expected a basename. Corrected only that expectation; production unchanged. Both diagnostic runs are retained and excluded from source RED.
+
+Focused clean GREEN: `scratch/pytest-task4-green-clean.kswj8mn0`, exit 0, 88 passed, zero failed/errors/skipped, elapsed 2.980 s. Full ordinary gate: `scratch/pytest-task4-full.78x_3vrw`, exit 0, 237 collected/executed/passed, zero failed/errors/skipped, xdist8/CPU32, elapsed 1.843 s (JUnit 1.653 s). All nine controller/gw0–gw7 proofs identify the exact project Python and fresh registered run/tmp; every recorded gate process has ended. Commands, times, counts, hashes and proof readback: `task4/gate-readback.json`.
+
+Read-only compatibility verification proves all nine moved modules retain executable AST except approved relative imports/main extraction/validation relocation, removed unused capture HERE, and canonical alignment chdir removal. Existing calibration usage exits are inside their existing main signatures; their root delegates preserve guard behavior. Twenty-eight config/helper/metadata/voice/other-launcher paths remain byte-identical. Only three owning shell Python invocation lines change; existing calibration `lerobot-calibrate`, rollout `lerobot-rollout`, uv no-sync and runtime choices remain. Fifteen Bash syntax checks and git diff --check pass. Evidence: `task4/compatibility-provenance.json`, `task4/bash-syntax.json`.
+
+## CP-005: Task 4 connected camera/operations checkpoint
+
+```yaml
+checkpoint_id: CP-005
+last_valid_experiment: GATE-005
+current_hypothesis: NONE
+working_tree_status: clean at Task 4 checkpoint; exact SHA in task4-report.json
+owned_processes: NONE
+preserved_processes: all existing host processes; no services started
+confirmed_conclusions:
+  - five camera and four operations implementations live only in their canonical package groups
+  - diagnostics import without SDK/config/cache/device activity and preserve controlled-main behavior
+  - adapter patches install in original order, capture originals once and precede external main
+  - record -> canonical align_side -> canonical calib_capture identity remains intact
+  - all nine remaining Python delegates preserve argv/exit/config and declared cwd behavior
+  - three affected shell bodies dispatch canonical modules through their existing interpreter choices
+  - 237 ordinary tests pass on eight workers with zero skips/failures/errors; source AST parity passes
+open_risks:
+  - real/voice wheel deployment remains Task 5 and must wait for separate mic task managed-environment release
+  - project editable remains at worktree; Task 5 must rebind stable checkout after local integration
+  - physical/visual/live runtime acceptance N/A for this source-only scope
+next_command: coordinator grants Task 5 only after runtime environment lease is released
+```
+
+Inline self review: spec PASS and quality PASS; `task4/inline-self-review.json` records source/order/cwd/import review and mutation reasoning. No independent reviewer or extra agent was dispatched. No model/ACT/motion/ASR/camera parameter or artifact-default changes occurred. No project reinstall, managed runtime write, hardware/GUI, network/API, ROS, benchmark, integration or remote push occurred.
+
+Retention for Task 4: retain `task4/` and all six `scratch/pytest-task4-*` runs, with logs/JUnit/results/proofs. Archived: NONE. Deletion candidates after readback: each of the six run/tmp subtrees; no deletion is authorised or performed. Two external helpers remain in `/data/work/so101-tools/repo-organisation-task4/`, with path/SHA256 in `task4/helpers.json`. No builds or wheels were produced.
+
+Task 4: complete; exact checkpoint in `task4-report.json`. Release source/ledger/project-environment ownership after final clean readback. Do not start Task 5 under this lease.
