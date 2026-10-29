@@ -7,7 +7,7 @@ success_contract: approved migration; baseline and final full tests with min(8, 
 worktree: /home/matianyi/Projects/so101_test/.worktrees/repo-organisation
 branch: chore/so101-test-organisation
 base_commit: c724e389536e56875a54642b230d48532dfbde35
-current_commit: Task 5 source/distribution checkpoint; exact SHA recorded in evidence task5-report.json
+current_commit: Task 5 final integrated checkpoint; exact SHA recorded in evidence task5-report.json
 evidence_root: /data/work/so101-evidence/repo-organisation/20261029-e8a252c0
 confirmed_conclusions:
   - approval document hashes match execution-approval.json (CP-001)
@@ -18,12 +18,13 @@ confirmed_conclusions:
   - canonical voice identity, guarded help and launcher contracts pass; all 186 ordinary tests pass with eight workers (GATE-004)
   - connected camera/operations import and CLI contracts pass; all 237 ordinary tests pass with eight workers (GATE-005)
   - complete wheel deployed into managed runtimes with exact file-byte provenance and unchanged application versions; all 241 tests pass with eight workers (GATE-006)
+  - original main integrated locally and project editable rebound to stable checkout; stable full gate passes 241 tests, zero skips (CP-007)
 disproven_routes:
   - running this non-ROS gate with inherited ROS PYTHONPATH is invalid (GATE-001)
 open_hypotheses:
   - NONE
-latest_checkpoint: CP-006
-next_experiment: approved local fast-forward and project editable rebind to stable checkout
+latest_checkpoint: CP-007
+next_experiment: NONE
 ```
 
 The coordinator owns sequential handoffs; the active task executor is the sole ledger writer. Task 1 executor: GPT-6.1 Sol / High implementation subagent. Execution is local on ai-station. No SSH, hardware, cameras, ASR, policy loading, API requests, ROS or GUI runs are included. ROS domain, Gazebo partition, overlays and physical/visual outcomes are N/A because this is a source-only LeRobot task.
@@ -441,3 +442,36 @@ next_command: recheck original clean main at a137842; local git merge --ff-only 
 ```
 
 Retention at CP-006: retain all six Task 5 pytest runs, both wheel versions, build/install/help/provenance logs and all JSON readbacks. Archived NONE. All six run/tmp subtrees are deletion candidates after readback; nothing was deleted. External helpers/build files are recorded by path, bytes and SHA256 in `task5/external-artifact-manifest.json`; exact build/install commands reproduce the wheel/deployment. Source and ledger lease remain with Task 5 through local integration and stable rebind.
+
+
+## CP-007: final stable checkout and ownership release
+
+The original checkout was clean on `main` at exact approved bootstrap `a1378429a39ef014befdab36ee8779809c0a2b06`; the commit object exists, and it is an ancestor of the task branch. The local `git merge --ff-only chore/so101-test-organisation` integrated source checkpoint `b7404c8c9fa3f0d44d3c1ab6a49d0e392f4cf0ff` without a remote operation. Records: `task5/integration-preflight.json`, `task5/local-fast-forward.json` and its log.
+
+The exact stable project Python was rebound with `uv pip install --offline --python /home/matianyi/Projects/so101_test/.venv/bin/python --no-deps -e /home/matianyi/Projects/so101_test`. Outside-cwd imports now resolve to that stable checkout, and editable `direct_url.json` points there. All 76 nonproject distributions in the sanitized project environment retain their versions. Real/voice origins remain the independently verified wheel locations from the released managed install window, with no editable worktree pointers. Their package bytes and metadata do not depend on checkout integration. Evidence: `task5/project-stable-rebind-command.json`, `task5/project-stable-provenance.json`, `task5/dependency-invariance-stable.json`, and retained runtime deployed provenance.
+
+Postintegration full gate from the stable checkout: `scratch/pytest-task5-stable-full.bsiknktc`, 241 collected/executed/passed, zero failed/errors/skipped, xdist8/CPU32, exit 0, elapsed 1.961 s (pytest 1.76 s), nine exact-Python controller/worker proofs under fresh run/tmp; all gate processes ended. This full suite includes launcher stubs and denied-runtime root/module help at stable paths. Additional guarded root shell/Python voice help and parser/default/action comparisons use only the project interpreter after the managed window was released. `uv run --no-sync so101-test` prints its original greeting; both metadata and lock hashes remain unchanged. All 14 shell delegates/bodies are executable. Evidence: `task5/stable-public-commands.json` and `task5/{stable-shell,stable-root}-voice-safety.json`.
+
+Final source/default/rename/link inventory, 15 Bash syntax checks, seven gate readbacks and inline self review pass. The final documentation-only completion commit updates this ledger and plan checkboxes; application/test/README bytes remain identical to the stable full-gate source checkpoint. Main is fast-forwarded once more to include that checkpoint, with expected-head and cleanliness checks again. Exact final commits and status are in `task5-report.json`. No source fix, package rebuild, further runtime environment access or repeated full gate is needed for this ledger-only finish.
+
+```yaml
+checkpoint_id: CP-007
+last_valid_experiment: GATE-006 plus stable-checkout full readback
+current_hypothesis: NONE
+working_tree_status: clean original main and task branch at final integrated commit; exact SHA in task5-report.json
+owned_processes: NONE
+preserved_processes: all unrelated host processes; mic work may proceed under Master ownership
+confirmed_conclusions:
+  - all approved source grouping/config/delegate/entry/provenance contracts pass
+  - project environment points to stable original checkout; real/voice use exact verified wheel
+  - no application dependency versions, model/device defaults, artifact paths or lock resolution changed
+  - 241 ordinary tests pass from stable checkout with eight workers and zero skipped/failed/errors
+  - public greeting, root help and stubbed launcher commands work at stable paths
+open_risks:
+  - physical robot, camera, ASR, model/API and GUI acceptance remain N/A and are not claimed
+next_command: NONE; Task 5 complete; all leases released after clean report
+```
+
+Final retention: retain the registered root, all seven Task 5 pytest runs (including RED and fixture-invalid records), runtime/source/integration evidence, both wheel versions and the local worktree. Archived NONE. Each Task 5 run/tmp and previously classified scratch remains a deletion candidate after readback; no evidence/build/worktree deletion occurred. Every external helper/build file has path, size and SHA256 in `task5/external-artifact-manifest.json`; build/install/rebind commands are retained. Inline self review is PASS, with no critical/important issues or deferred minor findings. Rulings were limited to the explicit approved workflow and verifier boundary corrections; no robot behavior was changed.
+
+Task 5: complete. Release source/ledger/project-environment ownership after final clean readback; managed real+voice install ownership was already released before local integration. No push or cleanup is authorised or performed.
