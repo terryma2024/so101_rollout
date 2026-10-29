@@ -7,7 +7,7 @@ success_contract: approved migration; baseline and final full tests with min(8, 
 worktree: /home/matianyi/Projects/so101_test/.worktrees/repo-organisation
 branch: chore/so101-test-organisation
 base_commit: c724e389536e56875a54642b230d48532dfbde35
-current_commit: Task 1 checkpoint containing this ledger; exact SHA recorded in evidence task1-report.json
+current_commit: Task 2 checkpoint containing this ledger; exact SHA recorded in evidence task2-report.json
 evidence_root: /data/work/so101-evidence/repo-organisation/20261029-e8a252c0
 confirmed_conclusions:
   - approval document hashes match execution-approval.json (CP-001)
@@ -18,8 +18,8 @@ disproven_routes:
   - running this non-ROS gate with inherited ROS PYTHONPATH is invalid (GATE-001)
 open_hypotheses:
   - NONE
-latest_checkpoint: CP-002
-next_experiment: Task 2 focused configuration/launcher RED gates
+latest_checkpoint: CP-003
+next_experiment: Task 3 voice migration
 ```
 
 The coordinator owns sequential handoffs; the active task executor is the sole ledger writer. Task 1 executor: GPT-6.1 Sol / High implementation subagent. Execution is local on ai-station. No SSH, hardware, cameras, ASR, policy loading, API requests, ROS or GUI runs are included. ROS domain, Gazebo partition, overlays and physical/visual outcomes are N/A because this is a source-only LeRobot task.
@@ -148,3 +148,77 @@ Final retention classification for Task 1:
 - Deletion candidates after readback: `scratch/pytest-baseline.YvUPD9KY/tmp`, `scratch/pytest-baseline-clean.ESi619lW/tmp`, and `task1/hook-verification/tmp`. Retain logs, JUnit, results and proof JSON. Nothing was deleted.
 
 Task 1: complete (main approval/ignore commit a137842; branch checkpoint SHA in task1-report.json; inline spec and quality review clean). Hand off sequentially to a fresh approved GPT-6.1 Sol / High Task 2 executor.
+
+
+## GATE-003: Task 2 configuration and launcher contracts
+
+```yaml
+status: VALID
+prior_experiment: GATE-002
+hypothesis: legacy file reads and unconditional Bash assignments overwrite explicit process configuration
+prediction: legacy consumers fail process override assertions; shared loaders preserve set and empty values
+single_variable: explicit config loader, unchanged config moves, shell anchoring and delegates
+lifecycle: N/A (isolated headless subprocess tests; no robot stack)
+preconditions:
+  - Task 1 exact project Python, unchanged runtime environments and original baseline
+  - fake executables intercept Python, uv, viewer/network and device utility boundaries
+success_criteria:
+  - functional assertion RED then GREEN; full tests/ on eight workers; bash syntax checks
+invalid_criteria:
+  - collection/setup failure, real external utility access or scratch/provenance failure
+provenance:
+  source_commit: 5d624cd plus Task 2 changes; exact checkpoint in task2-report.json
+  install_overlay: editable project source from approved worktree; no ROS environment
+  runtime_executable: /home/matianyi/Projects/so101_test/.venv/bin/python
+  ros_domain_id: N/A
+  gz_partition: N/A
+commands:
+  - scratch/pytest-task2-red-clean.3n0ui7bm/command.json; exit 1
+  - scratch/pytest-task2-green-clean.fpsfwnzu/command.json; exit 0
+  - scratch/pytest-task2-final.wi5uoxqe/command.json; exit 0
+observed:
+  - canonical RED has eight assertion failures, zero errors/skips, including every launcher overwriting FOLLOWER_PORT
+  - focused GREEN has 21 passed, zero failures/errors/skips
+  - final full tests/ has 167 passed, zero failures/errors/skips, eight workers on CPU32, elapsed 1.542 seconds
+  - controller and gw0 through gw7 prove identical NVMe tempfile placement in fresh run/tmp
+  - 15 Bash files pass bash -n; config bytes, pyproject, uv.lock and Python version file unchanged
+  - project editable wheel built by uv 0.12.17; no application dependencies changed
+inferred:
+  - approved config precedence correction is isolated from robot/action/model behavior
+conclusion: Task 2 contracts pass; package moves and runtime deployment remain for later tasks
+evidence:
+  - task2/gate-readback.json
+  - task2/compatibility-provenance.json
+  - task2/bash-syntax.json
+  - task2/inline-self-review.json
+decision: KEEP
+next_experiment: Task 3 voice migration
+```
+
+Initial `pytest-task2-red.k7bv8_uk` is mixed fixture-invalid: record/rollout temporary replacement prefixes contained spaces in an unquoted legacy assignment. It is retained and excluded from canonical RED. Correcting only the fake executable directory name established the eight valid override failures above. Initial `pytest-task2-green.hiba2n1w` had 18 pass and two incorrect test expectations for relative Python paths; the plan requires absolute sibling calls, so those expectations were corrected. No product behavior was changed to accommodate either fixture issue. All run commands, actual exit codes, elapsed times and counts are in `task2/gate-readback.json`.
+
+## CP-003: Task 2 configuration and shell checkpoint
+
+```yaml
+checkpoint_id: CP-003
+last_valid_experiment: GATE-003
+current_hypothesis: NONE
+working_tree_status: clean at Task 2 checkpoint; exact SHA in task2-report.json
+owned_processes: NONE
+preserved_processes: all existing host processes; no services started
+confirmed_conclusions:
+  - Python config selection and literal parsing preserve declared process overrides including empty values
+  - seven root wrappers delegate quoted argv and exit 23; shell bodies anchor repository root from outside cwd
+  - Bash defaults retain source expansion and SSH viewer fallback while preserving explicit values
+  - all 167 tests pass with required parallelism; 15 Bash syntax checks pass
+  - arms.env and camera.env moved byte-for-byte; runtime real/voice environments untouched
+open_risks:
+  - project environment currently points editable at approved worktree; Task 5 must rebind stable checkout
+  - Task 3 must migrate test_config.py legacy voice_policy import alongside canonical voice test imports
+  - Task 3/4 must replace owning flat shell Python paths with package -m calls and adapt launcher expectations
+next_command: read Task 3 plan; grant next fresh executor sequential source/ledger/environment lease
+```
+
+Inline self review: spec PASS and quality PASS; details in `task2/inline-self-review.json`. No independent reviewer was dispatched. Runtime, ROS, hardware and visual acceptance are N/A for this source-only task.
+
+Retention for Task 2: retained all `task2/`, `task2-turn-recovery.json` and every `scratch/pytest-task2-*` run, logs, JUnit and process proofs. Archived: NONE. Deletion candidates after readback: each Task 2 run's `tmp/` subtree. Nothing was deleted. External editable wheel/build cache and executable helper remain at their approved build/tools paths with path, SHA256 and reproduction command in `task2/compatibility-provenance.json`.

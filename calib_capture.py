@@ -15,11 +15,13 @@ import pathlib
 import sys
 import time
 
+from so101_test.config import load_arms_env
+
 import cv2
 import numpy as np
 
 HERE = pathlib.Path(__file__).parent
-ENV = dict(l.split('=', 1) for l in (HERE / 'arms.env').read_text().splitlines() if '=' in l and not l.startswith('#'))
+ENV = load_arms_env()
 CAMS = {'wrist': (ENV['WRIST_CAM'], None, int(ENV.get('WRIST_CAM_FPS', 20))),
         'side': (ENV['SIDE_CAM'], 'MJPG', int(ENV.get('SIDE_CAM_FPS', 30)))}
 OUT = pathlib.Path(os.environ.get('CALIB_DIR', f'/data/work/so101-evidence/real-robot/calib-{datetime.date.today():%Y%m%d}'))

@@ -3,10 +3,12 @@ import json
 import os
 import pathlib
 
+from so101_test.config import load_arms_env
+
 from lerobot.motors import Motor, MotorCalibration, MotorNormMode
 from lerobot.motors.feetech import FeetechMotorsBus
 
-env = dict(l.split("=", 1) for l in pathlib.Path(__file__).with_name("arms.env").read_text().split("\n") if "=" in l and not l.startswith("#"))
+env = load_arms_env()
 base = pathlib.Path(os.environ.get("HF_HOME", "~/.cache/huggingface")).expanduser() / "lerobot/calibration"
 arms = {
     "leader": (env["LEADER_PORT"], base / f"teleoperators/so_leader/{env['LEADER_ID']}.json"),

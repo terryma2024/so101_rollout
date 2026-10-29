@@ -7,6 +7,8 @@
 import pathlib
 import threading
 
+from so101_test.config import load_arms_env
+
 GREEN_TASK = "Put the green cube into the paper bowl"
 RED_TASK = "Put the red cube into the paper bowl"
 TASKS = {"green": GREEN_TASK, "red": RED_TASK}
@@ -14,9 +16,8 @@ HERE = pathlib.Path(__file__).resolve().parent
 
 
 def read_arms_env(path=None):
-    """Parse arms.env the way calib_capture.py does (KEY=VALUE lines; only literal values are needed)."""
-    path = pathlib.Path(path) if path else HERE / "arms.env"
-    return dict(line.split("=", 1) for line in path.read_text().splitlines() if "=" in line and not line.startswith("#"))
+    """Read literal defaults with process overrides for declared keys."""
+    return load_arms_env(path)
 
 
 def observation_hw_features(robot_obs_features):

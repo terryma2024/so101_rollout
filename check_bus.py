@@ -8,11 +8,13 @@ import pathlib
 import sys
 import time
 
+from so101_test.config import load_arms_env
+
 import scservo_sdk as scs
 
 PRESENT_POSITION = 56
 
-env = dict(l.split("=", 1) for l in pathlib.Path(__file__).with_name("arms.env").read_text().split("\n") if "=" in l and not l.startswith("#"))
+env = load_arms_env()
 arm = sys.argv[1] if len(sys.argv) > 1 else "leader"
 duration = float(sys.argv[2]) if len(sys.argv) > 2 else 30
 port = env["LEADER_PORT"] if arm == "leader" else env["FOLLOWER_PORT"]
