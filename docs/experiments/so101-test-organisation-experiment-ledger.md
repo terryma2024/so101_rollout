@@ -7,7 +7,7 @@ success_contract: approved migration; baseline and final full tests with min(8, 
 worktree: /home/matianyi/Projects/so101_test/.worktrees/repo-organisation
 branch: chore/so101-test-organisation
 base_commit: c724e389536e56875a54642b230d48532dfbde35
-current_commit: Task 4 checkpoint containing this ledger; exact SHA recorded in evidence task4-report.json
+current_commit: Task 5 source/distribution checkpoint; exact SHA recorded in evidence task5-report.json
 evidence_root: /data/work/so101-evidence/repo-organisation/20261029-e8a252c0
 confirmed_conclusions:
   - approval document hashes match execution-approval.json (CP-001)
@@ -17,12 +17,13 @@ confirmed_conclusions:
   - explicit config and launcher contracts pass; all 167 tests pass with eight workers (GATE-003)
   - canonical voice identity, guarded help and launcher contracts pass; all 186 ordinary tests pass with eight workers (GATE-004)
   - connected camera/operations import and CLI contracts pass; all 237 ordinary tests pass with eight workers (GATE-005)
+  - complete wheel deployed into managed runtimes with exact file-byte provenance and unchanged application versions; all 241 tests pass with eight workers (GATE-006)
 disproven_routes:
   - running this non-ROS gate with inherited ROS PYTHONPATH is invalid (GATE-001)
 open_hypotheses:
   - NONE
-latest_checkpoint: CP-005
-next_experiment: Task 5 distribution, documentation and stable checkout
+latest_checkpoint: CP-006
+next_experiment: approved local fast-forward and project editable rebind to stable checkout
 ```
 
 The coordinator owns sequential handoffs; the active task executor is the sole ledger writer. Task 1 executor: GPT-6.1 Sol / High implementation subagent. Execution is local on ai-station. No SSH, hardware, cameras, ASR, policy loading, API requests, ROS or GUI runs are included. ROS domain, Gazebo partition, overlays and physical/visual outcomes are N/A because this is a source-only LeRobot task.
@@ -369,3 +370,74 @@ Inline self review: spec PASS and quality PASS; `task4/inline-self-review.json` 
 Retention for Task 4: retain `task4/` and all six `scratch/pytest-task4-*` runs, with logs/JUnit/results/proofs. Archived: NONE. Deletion candidates after readback: each of the six run/tmp subtrees; no deletion is authorised or performed. Two external helpers remain in `/data/work/so101-tools/repo-organisation-task4/`, with path/SHA256 in `task4/helpers.json`. No builds or wheels were produced.
 
 Task 4: complete; exact checkpoint in `task4-report.json`. Release source/ledger/project-environment ownership after final clean readback. Do not start Task 5 under this lease.
+
+## GATE-006: Task 5 installed distribution and stable checkout
+
+```yaml
+status: PLANNED
+prior_experiment: GATE-005
+hypothesis: explicit outside-cwd provenance detects an incorrect interpreter, package origin or editable source; the complete package distributes without checkout configuration
+prediction: negative controls expose missing validation assertions, then reject all three incorrect paths; real/voice wheel readback covers all application modules
+single_variable: distribution/provenance validation, documentation paths and final project deployment
+lifecycle: N/A (headless source and installed-code checks; no robot stack)
+preconditions:
+  - Task 5 exclusive source/ledger/project-environment lease at clean 49d5eb8c8debe61fc90868cecff20ce0ac0f8dbe
+  - managed real/voice installation waits for the coordinator's separate runtime lease
+  - exact stable project Python; fresh NVMe scratch and sanitized ROS variables for each pytest run
+success_criteria:
+  - validator assertion RED then GREEN; complete ordinary tests/ at min(8, CPU), nine tempfile proofs, zero added skips
+  - verified complete wheel, project-only runtime installs, unchanged application dependency versions
+  - clean local fast-forward and editable rebind to stable original checkout; exact outside-cwd origins
+invalid_criteria:
+  - collection/setup failure, unintended dependency changes, unsafe runtime access or provenance/scratch mismatch
+provenance:
+  source_commit: 49d5eb8c8debe61fc90868cecff20ce0ac0f8dbe plus Task 5 changes
+  runtime_executable: /home/matianyi/Projects/so101_test/.venv/bin/python
+  install_overlay: editable at approved worktree until local integration; no ROS overlays
+  ros_domain_id: N/A
+  gz_partition: N/A
+```
+
+Ruling: the application package already exists after Tasks 2–4, so Task 5 RED tests the new provenance validator's consumer contract with wrong interpreter/package/editable-source arguments, before adding its assertions. Missing runtime installation is setup, never source RED. Use the existing registered ledger/evidence layout and inline self review; the approved plan overrides generic skill workspace/deletion/reviewer instructions.
+
+
+GATE-006 status: RUNNING; source validation complete, managed runtime deployment and integration pending. Provenance validator RED `scratch/pytest-task5-red-provenance.11xyil2c`: three assertion failures accepting wrong interpreter/package/editable-source arguments, one positive pass, no collection errors/skips, exit 1. The first GREEN had one fixture issue: the wrong package path was inside cwd, so the outside-cwd precondition correctly failed before the intended origin check. This is retained as fixture-invalid; moving only that fake path to a sibling yields clean GREEN `scratch/pytest-task5-green-provenance-clean.plfohuxj`, four passed, exit 0.
+
+Final full ordinary gate `scratch/pytest-task5-full.9vkej8jr`: 241 collected/executed/passed, zero failures/errors/skips, xdist8/CPU32, exit 0, elapsed 1.891 s. All nine exact-Python controller/worker tempfile proofs read back correctly, and gate processes ended. Baseline was 146 tests with zero skips; Task 4 had 237 tests with zero skips. New tests account for four additional cases in Task 5. Readback: `task5/gate-readback.json`.
+
+The offline bundled uv_build/uv 0.12.17 build produced `/data/work/so101-build/repo-organisation/20261029-e8a252c0/wheels/final/so101_test-0.1.0-py3-none-any.whl`, SHA256 `8e7d0e78682e699f664753a6e4017c995cdfe72ea6251bc935318232b18a425f`. All 18 application modules, config helper and four inert/root init files match source bytes; only package files and distribution metadata occur in the wheel. No checkout configuration, root compatibility files or external artifacts are included. Build commands, metadata and manifest: `task5/wheel.json`. The first successful wheel is retained with `task5/wheel-initial.json`; README source literals were restored before the final build. An initial verifier incorrectly counted ZIP directory records as files; this verifier-only issue was corrected and the same first wheel inspected without rebuilding, recorded in `task5/wheel-first-verifier-diagnosis.json`.
+
+README prose is English and reviewed with the project humanizer skill. Original hardware facts, identifiers, cache paths, commands and placeholders remain, with intended config/doc and no-sync command changes. The teaching HTML and historical voice plan move byte-identically. Local Markdown links and HTML anchors/assets resolve. Seventy-two source/default/doc paths, all 15 Bash syntax checks, unchanged application/metadata/lock/greeting bytes and the exact root delegate inventory pass: `task5/compatibility-provenance.json`. Project provenance outside cwd passes at the worktree; application dependency versions are unchanged. Inline source review: `task5/inline-self-review.json`.
+
+Managed runtime installation is waiting only for the coordinator's separate lease. No managed runtime project install, hardware/camera/ASR/model/API/ROS/GUI operation, commit/integration, remote push or deletion has occurred in Task 5 so far. Original main remained clean at approved `a1378429a39ef014befdab36ee8779809c0a2b06`. External task helpers and hashes are in `task5/helpers.json`. Retain both wheels/build logs and all four Task 5 pytest runs; archived NONE; each run/tmp is a deletion candidate after readback, with no deletion authorised.
+
+
+GATE-006 final status: VALID. Master explicitly granted the managed real+voice install lease after mic Phase 1 released its read lease; `task5/runtime-preinstall-preflight.json` found no active runtime or unreadable same-user processes. Both `uv pip install --offline --python <exact-python> --no-deps <exact-final-wheel>` commands exited 0. Only `so101-test==0.1.0` was added; all 101 real and 114 voice nonproject distribution versions remain identical. Exact outside-cwd interpreter/module paths, wheel source URL, independently measured SHA256, distribution file coverage and all 23 installed package files' bytes match the verified wheel. `uv` does not store a local-wheel archive hash in `direct_url.json`; the initial metadata-only hash assumption is retained as verifier-invalid, and actual artifact hashing plus every installed file's bytes provide the required proof. No reinstall or dependency repair was needed. Evidence: `task5/dependency-invariance-after.json`, `task5/{real,voice}-deployed-provenance.json`, `task5/runtime-wheel-verifier-diagnosis.json`.
+
+Guarded help through the root shell and root Python entry uses the exact managed voice interpreter and its wheel implementation. Complete help text (except invocation path), parser defaults/actions and both runtime greeting commands match the Task 1 baseline. Hardware/device/config/cache/model/ASR/network actions are denied; zero forbidden attempts occurred. `task5/managed-runtime-readback.json` records the readbacks. The managed runtime window was explicitly RELEASED to the coordinator immediately afterward; no further managed environment writes or reads are part of the remaining project-only integration.
+
+After correcting the optional-hash verifier assumption, focused provenance passes 4/4 in `scratch/pytest-task5-final-provenance.z6mn_dj_`. Full `tests/` passes 241/241, zero failures/errors/skips, xdist8/CPU32, nine tempfile proofs, exit 0 and elapsed 1.772 s in `scratch/pytest-task5-final-full.212abthq`. All gate processes ended. Source/default/doc/link/syntax/readback audit passes again. `task5/inline-self-review.json` records PASS for spec and quality, with no critical/important/minor findings. Generic skill independent-reviewer/menu/deletion flows are replaced by the user's explicit inline-review, approved local-fast-forward and retention instructions.
+
+## CP-006: Task 5 distribution and source checkpoint
+
+```yaml
+checkpoint_id: CP-006
+last_valid_experiment: GATE-006
+current_hypothesis: NONE
+working_tree_status: final Task 5 source/docs checkpoint; exact SHA in task5-report.json
+owned_processes: NONE
+preserved_processes: all unrelated host processes; managed runtime lease released to Master
+confirmed_conclusions:
+  - 18 application modules plus config helper distribute with exact source bytes and no checkout configuration or root delegates
+  - real/voice wheel installations have exact outside-cwd provenance and unchanged nonproject versions
+  - guarded managed voice help/parser/actions match baseline without hardware/model/ASR/network activity
+  - README English rewrite and exact-byte historical document moves preserve facts and resolve local links
+  - 241 complete ordinary tests pass at eight workers with zero skips/errors/failures
+open_risks:
+  - project editable still points to task worktree until the approved stable-checkout rebind
+  - local main integration must stop on user changes/divergence; never stash/reset/force
+  - physical/visual/runtime action acceptance is N/A for this source-only migration
+next_command: recheck original clean main at a137842; local git merge --ff-only chore/so101-test-organisation
+```
+
+Retention at CP-006: retain all six Task 5 pytest runs, both wheel versions, build/install/help/provenance logs and all JSON readbacks. Archived NONE. All six run/tmp subtrees are deletion candidates after readback; nothing was deleted. External helpers/build files are recorded by path, bytes and SHA256 in `task5/external-artifact-manifest.json`; exact build/install commands reproduce the wheel/deployment. Source and ledger lease remain with Task 5 through local integration and stable rebind.

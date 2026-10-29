@@ -1,255 +1,283 @@
-# SO101 机械臂环境配置手册
+# SO101 arm setup with LeRobot
 
-基于 [LeRobot](https://github.com/huggingface/lerobot) 的 SO101 主从臂（leader / follower）遥操作环境。
+This repository configures SO101 leader and follower arms for teleoperation with [LeRobot](https://github.com/huggingface/lerobot).
 
-## 1. 环境概览
+## 1. Environment
 
-| 项目 | 版本 / 说明 |
+| Component | Version or setting |
 |---|---|
-| 系统 | Ubuntu (Linux x86_64) |
-| Python | 3.12（由 uv 管理的 `.venv`） |
-| LeRobot | 0.6.1，`lerobot[feetech,viz]`（viz 提供 rerun 可视化） |
-| PyTorch | 2.11.0 + CUDA 13.0（RTX 5060 Ti 可用） |
-| 舵机 | Feetech STS3215 × 6 / 臂，波特率 1 Mbps，ID 1–6 |
-| 摄像头 | 从臂手腕 `wrist`、侧面 `side`，均为 icSpring USB 摄像头，640×480，按 20 fps 使用 |
+| System | Ubuntu, Linux x86_64 |
+| Python | 3.12 in the uv-managed project `.venv` |
+| LeRobot | 0.6.1, `lerobot[feetech,viz]`; the `viz` extra provides rerun visualization |
+| PyTorch | 2.11.0 + CUDA 13.0, usable with the RTX 5060 Ti |
+| Servos | Six Feetech STS3215 servos per arm, 1 Mbps, IDs 1 through 6 |
+| Cameras | icSpring USB cameras named `wrist` and `side`, 640×480, used at about 20 fps |
 
-## 2. 硬件连接
+## 2. Hardware connections
 
-两只手臂通过 USB 串口连接（CH343 芯片，`1a86:55d3`）。使用 `/dev/serial/by-id/` 路径，重新插拔后不会变化：
+Both arms use CH343 USB serial adapters (`1a86:55d3`). Use `/dev/serial/by-id/` paths, which remain stable after reconnecting:
 
-| 手臂 | 序列号 | 串口路径 | 当前设备 |
+| Arm | Serial number | Serial path | Current device |
 |---|---|---|---|
-| 主臂 leader | `5CE5113682` | `/dev/serial/by-id/usb-1a86_USB_Single_Serial_5CE5113682-if00` | `/dev/ttyACM0` |
-| 从臂 follower | `5CE5122459` | `/dev/serial/by-id/usb-1a86_USB_Single_Serial_5CE5122459-if00` | `/dev/ttyACM1` |
+| Leader | `5CE5113682` | `/dev/serial/by-id/usb-1a86_USB_Single_Serial_5CE5113682-if00` | `/dev/ttyACM0` |
+| Follower | `5CE5122459` | `/dev/serial/by-id/usb-1a86_USB_Single_Serial_5CE5122459-if00` | `/dev/ttyACM1` |
 
-> `ttyACM0/1` 编号可能随插拔顺序改变，脚本统一使用 by-id 路径。
+The `ttyACM0/1` numbers can change with connection order. The scripts use the by-id paths.
 
-从臂手腕摄像头：
+Wrist camera:
 
-| 项目 | 值 |
+| Property | Value |
 |---|---|
-| 型号 | icSpring camera（USB `32e6:9005`，USB 2.0） |
-| 设备路径 | `/dev/v4l/by-id/usb-icSpring_icspring_camera-video-index0`（当前为 `/dev/video0`；`/dev/video1` 是元数据通道，不出图） |
-| 格式 | 仅支持 640×480 YUYV |
-| 帧率 | 标称 30 fps，实测最高约 22.6 fps（与曝光无关），因此配置为 20 fps |
+| Model | icSpring camera, USB `32e6:9005`, USB 2.0 |
+| Device | `/dev/v4l/by-id/usb-icSpring_icspring_camera-video-index0`, currently `/dev/video0`; `/dev/video1` carries metadata, not images |
+| Format | 640×480 YUYV only |
+| Frame rate | Nominally 30 fps; measured maximum about 22.6 fps regardless of exposure, so configured at 20 fps |
 
-> 录制数据集时帧率建议也用 20 fps，按 30 fps 录制会有约 1/4 的重复帧。
+Record datasets at 20 fps as well. Recording at 30 fps produces about one quarter duplicate frames.
 
-侧面摄像头：
+Side camera:
 
-| 项目 | 值 |
+| Property | Value |
 |---|---|
-| 型号 | icSpring camera（USB `32e6:9221`，序列号 `202404160005`，USB 2.0） |
-| 设备路径 | `/dev/v4l/by-id/usb-icSpring_icspring_camera_202404160005-video-index0`（当前为 `/dev/video2`；`/dev/video3` 是元数据通道） |
-| 格式 | MJPG 320×240 至 1920×1080；YUYV 仅 640×480。配置为 640×480 MJPG（省 USB 带宽） |
-| 帧率 | MJPG 各分辨率只有 30 fps 一档，配置必须写 30（写 20 连接时报 `failed to set fps=20 (actual_fps=30.0)`）；实际输出约 20 fps（与曝光无关）。与手腕摄像头同时运行互不影响 |
-| 镜头 | 广角，画面边缘有畸变 |
+| Model | icSpring camera, USB `32e6:9221`, serial `202404160005`, USB 2.0 |
+| Device | `/dev/v4l/by-id/usb-icSpring_icspring_camera_202404160005-video-index0`, currently `/dev/video2`; `/dev/video3` carries metadata |
+| Format | MJPG from 320×240 to 1920×1080; YUYV only at 640×480. Configured at 640×480 MJPG to reduce USB bandwidth |
+| Frame rate | MJPG offers only 30 fps at each resolution. Set 30: setting 20 fails with `failed to set fps=20 (actual_fps=30.0)`. Actual output is about 20 fps regardless of exposure. Both cameras can run together without affecting each other |
+| Lens | Wide angle, with distortion near the image edges |
 
-关节编号：
+Joint IDs:
 
-| ID | 关节 | 说明 |
+| ID | Joint | Function |
 |---|---|---|
-| 1 | shoulder_pan | 底座旋转 |
-| 2 | shoulder_lift | 大臂俯仰 |
-| 3 | elbow_flex | 小臂俯仰 |
-| 4 | wrist_flex | 手腕俯仰 |
-| 5 | wrist_roll | 手腕旋转 |
-| 6 | gripper | 夹爪 |
+| 1 | shoulder_pan | Base rotation |
+| 2 | shoulder_lift | Upper arm pitch |
+| 3 | elbow_flex | Elbow bend |
+| 4 | wrist_flex | Wrist pitch |
+| 5 | wrist_roll | Wrist rotation |
+| 6 | gripper | Gripper |
 
-## 3. 安装
+## 3. Installation and interpreters
 
-### 3.1 系统准备
+### 3.1 System preparation
 
 ```bash
-# 串口权限：当前用户需在 dialout 组（加入后需重新登录）
+# Serial access: log out and back in after joining dialout.
 sudo usermod -aG dialout $USER
 
-# 录制数据集需要 ffmpeg
+# Dataset recording requires ffmpeg.
 sudo apt install ffmpeg
 
 # uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-### 3.2 Python 环境
+### 3.2 Project environment
 
-本项目已用 uv 初始化，依赖锁定在 `uv.lock`，直接同步即可：
+The project dependencies are locked in `uv.lock`. For a fresh setup, synchronize that lock and explicitly install the local package:
 
 ```bash
 cd ~/Projects/so101_test
-uv sync
+uv sync --locked
+uv pip install --python .venv/bin/python --no-deps -e .
 ```
 
-从零创建时使用的命令（供参考）：
+Use `uv run --no-sync` for project commands after setup. It uses the existing environment without resolving or updating dependencies. Reinstall the editable project if its checkout location changes.
+
+These were the original initialization commands, retained for reference:
 
 ```bash
 uv init --python 3.12 --name so101-test --no-workspace
 uv add "lerobot[feetech,viz]"
 ```
 
-### 3.3 验证
+The interpreters have separate roles:
+
+| Workflow | Environment |
+|---|---|
+| Calibration, teleoperation, project tools and tests | Project `.venv` |
+| Recording, rollout and camera snapshots | `/data/work/venvs/so101-real-lerobot-061` |
+| Voice agent | `/data/work/venvs/so101-voice-lerobot-061`; `voice_agent.sh` retains its `VENV` override |
+
+The application must also be installed in each runtime environment. Build a wheel with `uv build --wheel --out-dir <wheel-directory>`, then install that exact wheel with `uv pip install --python <environment>/bin/python --no-deps <wheel>`. This installs the project without upgrading runtime dependencies. Keep runtime installations independent of temporary worktrees.
+
+### 3.3 Verification
 
 ```bash
-uv run python -c "import torch, lerobot; print(torch.__version__, torch.cuda.is_available())"
+uv run --no-sync python -c "import torch, lerobot; print(torch.__version__, torch.cuda.is_available())"
 ls -l /dev/serial/by-id/
 ```
 
-## 4. 文件说明
+The existing `so101-test` command still prints its greeting.
 
-| 文件 | 作用 |
+## 4. Source layout and configuration
+
+| Path | Purpose |
 |---|---|
-| `arms.env` | 主从臂串口路径和 ID（`my_leader` / `my_follower`），手腕和侧面摄像头路径和帧率 |
-| `calibrate_follower.sh` | 校准从臂 |
-| `calibrate_leader.sh` | 校准主臂 |
-| `teleop.sh` | 启动遥操作（主臂控制从臂），同时用 rerun 显示手腕、侧面摄像头画面和关节数据 |
-| `teleop_viz.py` | `lerobot-teleoperate` 的包装：图像按摄像头帧率（20 Hz）发给 rerun，去掉重复帧（两个摄像头约 4 MB/s，原版约 12 MB/s），控制频率不变 |
-| `check_bus.py` | 只读：持续读取某只手臂各舵机，统计通信失败，排查接触不良（`uv run check_bus.py leader 30`，运行时活动手臂） |
-| `docs/so101-lerobot.html` | 交互式原理讲解：舵机、总线协议、校准换算、位置闭环、主循环、摄像头和 rerun（浏览器直接打开） |
-| `read_pose.py` | 只读对比两臂当前关节角度（不上扭矩，手臂不会动） |
+| `src/so101_test/voice/` | Voice orchestration, intent, policy, ASR, verification and replay modules |
+| `src/so101_test/camera/` | Camera capture, calibration targets, intrinsics, extrinsics and alignment |
+| `src/so101_test/operations/` | Recording and teleoperation adapters, bus diagnostics and pose reading |
+| `src/so101_test/config.py` | Configuration selection and literal env-file parsing |
+| `config/arms.env` | Arm ports and IDs (`my_leader` / `my_follower`), wrist/side camera paths and frame rates |
+| `config/camera.env` | Exposure and white-balance defaults |
+| `scripts/` | Shell launcher implementations, sharing `scripts/lib/common.sh` |
+| `calibrate_follower.sh`, `calibrate_leader.sh` | Follower and leader calibration |
+| `teleop.sh` | Leader/follower teleoperation with wrist/side images and joint data in rerun |
+| `teleop_viz.py` | Compatibility entry for the teleoperation adapter: sends images at camera rate (20 Hz), removing duplicates without changing control frequency; about 4 MB/s for both cameras instead of about 12 MB/s |
+| `check_bus.py` | Read-only servo communication diagnostics, for example `uv run --no-sync check_bus.py leader 30` while moving the arm by hand |
+| `read_pose.py` | Read-only comparison of both arms' joint angles, without enabling torque or moving the arms |
+| [docs/guides/so101-lerobot.html](docs/guides/so101-lerobot.html) | Interactive explanation of servos, the bus protocol, calibration conversion, position control, the main loop, cameras and rerun; open directly in a browser |
+| [docs/plans/voice-agent-plan.md](docs/plans/voice-agent-plan.md) | Historical voice-agent plan |
 
-## 5. 使用流程
+The seven root shell commands remain available: `voice_agent.sh`, `teleop.sh`, `record.sh`, `rollout.sh`, `calibrate_follower.sh`, `calibrate_leader.sh` and `camera_settings.sh`. They anchor cwd to the checkout root before running their implementations.
 
-> 校准和遥操作需要键盘交互，请在独立终端中运行（不要用 Claude Code 的 `!` 前缀）。
-
-### 5.1 识别串口（换电脑或换线后）
+Root Python compatibility commands remain for `voice_agent.py`, `voice_latency_check.py`, `calib_capture.py`, `calib_intrinsics.py`, `calib_extrinsics.py`, `calib_targets.py`, `align_side.py`, `check_bus.py`, `read_pose.py`, `record_viz.py` and `teleop_viz.py`. Their implementation lives in the package. Internal voice helpers have no root copies. Package commands use `python -m so101_test.<group>.<module>`, for example:
 
 ```bash
-uv run lerobot-find-port
+uv run --no-sync python -m so101_test.operations.read_pose
+./voice_agent.sh --help
 ```
 
-按提示拔掉某只手臂的 USB，即可确认其串口；然后更新 `arms.env`。
+Configuration stays outside the wheel. Root delegates supply the checkout's `config/` directory when `SO101_CONFIG_DIR` is unset. Installed commands outside a checkout need an explicit directory:
 
-### 5.2 校准
+```bash
+SO101_CONFIG_DIR=/home/matianyi/Projects/so101_test/config \
+  /data/work/venvs/so101-real-lerobot-061/bin/python -m so101_test.camera.calib_intrinsics wrist
+```
+
+The Python loader selects an explicit directory first, then `SO101_CONFIG_DIR`, then cwd's `config/`. A selected missing directory fails. Existing CLI handling takes precedence over process environment, which takes precedence over checked-in defaults; explicitly empty environment values also override defaults. Bash launchers evaluate trusted shell defaults, including the viewer host derived from `SSH_CONNECTION`. The Python parser reads values literally: direct Python calibration needs an explicit `RERUN_VIEWER_HOST` if the default contains a shell expression.
+
+Direct calibration commands preserve caller cwd for relative paths. The root `align_side.py` compatibility command retains its repository-root cwd; its package module uses caller cwd.
+
+## 5. Workflow
+
+Calibration and teleoperation require keyboard input. Run them in a separate terminal, without Claude Code's `!` prefix.
+
+### 5.1 Identify serial ports after changing machines or cables
+
+```bash
+uv run --no-sync lerobot-find-port
+```
+
+Follow the prompt to unplug an arm's USB cable and identify its port. Update `config/arms.env`.
+
+### 5.2 Calibrate
 
 ```bash
 ./calibrate_follower.sh
 ./calibrate_leader.sh
 ```
 
-每只手臂的步骤：
+For each arm:
 
-1. **摆到中间位置后按 Enter。** 每个关节放在其活动范围的大约正中间（无需精确）：
-   底座朝正前方，大臂竖直向上，小臂与大臂约 90° 向前伸，手腕伸直，夹爪半开。
-   参考官方图片：<https://huggingface.co/docs/lerobot/so101>（Calibrate 一节）。
-2. **逐个关节慢慢转到两端极限**，屏幕显示每个关节的 MIN / MAX。
-3. 全部转完后**再按 Enter** 保存。
+1. Place each joint roughly halfway through its range, then press Enter. Point the base forward, hold the upper arm vertically, bend the elbow about 90° forward, straighten the wrist and leave the gripper half open. See the official [SO101 calibration images](https://huggingface.co/docs/lerobot/so101), in the Calibrate section.
+2. Slowly move each joint to both limits. The terminal shows each joint's MIN and MAX.
+3. Press Enter again to save after moving all joints.
 
-主臂和从臂的中间姿态要尽量一致。
+Use similar midpoint poses for the leader and follower.
 
-校准文件位置（本机设置了 `HF_HOME=/data/models/huggingface`）：
+On this machine, `HF_HOME=/data/models/huggingface`, so calibration files live at:
 
-```
+```text
 /data/models/huggingface/lerobot/calibration/robots/so_follower/my_follower.json
 /data/models/huggingface/lerobot/calibration/teleoperators/so_leader/my_leader.json
 ```
 
-未设置 `HF_HOME` 时默认在 `~/.cache/huggingface/lerobot/calibration/`。
+Without `HF_HOME`, the default is `~/.cache/huggingface/lerobot/calibration/`. Existing `TORCH_HOME=/data/models/torch`, model files, calibration caches, datasets, policies and evidence stay at their existing locations.
 
-正常的校准结果：
+A normal calibration has joint 1 through 4 `range_min`/`range_max` values centered roughly on 2047 with spans of about 2000 to 2600. Joint 5, `wrist_roll`, is a continuous-rotation servo with the fixed range `0` to `4095`. The gripper range is about 1300 to 1500; different leader/follower ranges are fine because each maps to 0 to 100%.
 
-- 1–4 号关节 `range_min`/`range_max` 大致以 2047 为中心，跨度约 2000–2600；
-- 5 号 `wrist_roll` 为整圈舵机，固定为 `0`–`4095`；
-- 6 号夹爪范围约 1300–1500，主从臂不同不影响使用（按 0–100% 映射）。
+### 5.3 Check calibration
 
-### 5.3 校准检查
-
-把两只手臂摆成相同姿势，然后：
+Place both arms in the same pose, then run:
 
 ```bash
-uv run read_pose.py
+uv run --no-sync read_pose.py
 ```
 
-各关节 `diff` 在 ±2° 左右即说明两臂校准一致。若姿势相同但某关节相差很大，重新校准对应手臂。
+A `diff` of about ±2° per joint indicates matching calibration. Recalibrate an arm if a joint differs substantially despite matching physical poses.
 
-### 5.4 遥操作
+### 5.4 Teleoperate
 
 ```bash
 ./teleop.sh
 ```
 
-启动后会用 rerun 显示手腕、侧面摄像头画面和各关节数据（`--display_data=true`），脚本自动选择查看方式：
+The script shows wrist/side images and joint data in rerun (`--display_data=true`):
 
-- **在本机桌面运行**：直接弹出 rerun 窗口。
-- **通过 SSH 运行**（即使工作站本机桌面已登录、DISPLAY 可用）：数据发送到你自己电脑上的原生 rerun 查看器（自动取 SSH 发起端的 IP，即 `SSH_CONNECTION` 的第一个字段；可用 `RERUN_VIEWER_HOST=<ip> ./teleop.sh` 临时指定，见 `arms.env`）。
-  先在那台电脑上打开查看器。**查看器版本须 ≥ 0.34**（0.33.x 加载 JPEG 图像会卡死，0.34.0 修复；这里的发送端受 LeRobot 限制为 0.33.1，已验证 0.40.0 查看器可正常显示）：
+- On the local desktop, it opens a rerun window.
+- Over SSH, it sends data to a native rerun viewer on your own computer, even if the workstation desktop is logged in and `DISPLAY` is available. It takes the initiating IP from the first field of `SSH_CONNECTION`. Override it with `RERUN_VIEWER_HOST=<ip> ./teleop.sh`; see `config/arms.env`.
 
-  ```bash
-  uvx --from rerun-sdk==0.40.0 rerun --bind 0.0.0.0     # 或：pip install rerun-sdk==0.40.0 && rerun --bind 0.0.0.0
-  ```
+Start that viewer before launching teleoperation. The viewer must be version 0.34 or later: 0.33.x hangs when loading JPEG images, fixed in 0.34.0. LeRobot constrains the sender to 0.33.1; viewer 0.40.0 has been verified with it:
 
-  然后再在 SSH 里运行 `./teleop.sh`。查看器没打开时脚本会提示并退出。
+```bash
+uvx --from rerun-sdk==0.40.0 rerun --bind 0.0.0.0     # Or: pip install rerun-sdk==0.40.0 && rerun --bind 0.0.0.0
+```
 
-> 原版 `lerobot-teleoperate` 每个控制周期（60 Hz）都发一帧 JPEG（约 6 MB/s），其中 2/3 是重复帧。
-> 查看器处理不过来时会反压，把遥操作主循环卡在 `rr.log` 上，从臂不再跟随主臂，
-> 日志出现 `Sender has been blocked for over 5 seconds waiting for space in channel`。
-> 因此 `teleop.sh` 通过 `teleop_viz.py` 按摄像头帧率发送图像。不要用网页版（`--serve-web`），它处理不了这个数据量。
+Then run `./teleop.sh` in the SSH session. The script reports a missing viewer and exits.
 
-启动前先把两只手臂摆成相近姿势：启动瞬间从臂会直接转到主臂姿态。按 `Ctrl+C` 停止，退出时从臂扭矩会释放，**注意扶住从臂以防下落**。
+The original `lerobot-teleoperate` sends a JPEG on every 60 Hz control cycle, about 6 MB/s; two thirds are duplicates. A slow viewer can block the teleoperation loop in `rr.log`, stopping follower updates and logging `Sender has been blocked for over 5 seconds waiting for space in channel`. `teleop.sh` uses the camera-rate limiter in `teleop_viz.py`. Use the native viewer; the web viewer (`--serve-web`) cannot handle this volume.
 
-## 6. 常见问题
+Before starting, place both arms in similar poses: the follower moves directly to the leader's pose at startup. Stop with `Ctrl+C`. Exiting releases follower torque, so support the arm to prevent it from falling.
 
-| 现象 | 原因 / 处理 |
+## 6. Troubleshooting
+
+| Symptom | Cause or action |
 |---|---|
-| `EOFError: EOF when reading a line` | 在非交互环境（如 `!` 前缀）运行了校准，换到独立终端运行 |
-| `Permission denied: /dev/ttyACM*` | 用户不在 `dialout` 组，执行 3.1 中的命令并重新登录 |
-| 启动报 `Full found motor list` 缺少某个舵机 | 舵机短暂无响应（LeRobot 启动时每个舵机只检查一次）。先给两只手臂断电重启；反复出现时运行 `uv run check_bus.py leader 30` 并活动手臂，检查对应舵机的连线 |
-| 找不到串口 / 舵机无响应 | 检查手臂电源和 USB 线；`ls -l /dev/serial/by-id/` 查看设备 |
-| `Failed to open connection to X server` | SSH 会话没有图形界面，rerun 窗口打不开；`teleop.sh` 会改为发送到 `RERUN_VIEWER_HOST` 上的原生查看器 |
-| 查看器一显示图像就卡死 | rerun 0.33.x 查看器加载 JPEG 图像的 bug，查看器升级到 ≥ 0.34（推荐 0.40.0） |
-| 遥操作中从臂突然不跟随、查看器卡住 | 查看器处理不过来时会反向卡住遥操作。立即 `Ctrl+C`（扶住从臂），确认用的是 `teleop.sh`（经 `teleop_viz.py` 限流）和原生查看器 |
-| `OpenCVCamera(...) failed to set fps=...` | 摄像头不支持该帧率设置，用 `v4l2-ctl -d <设备> --list-formats-ext` 查看支持的帧率并修改 `arms.env` |
-| 摄像头打不开 / `Device or resource busy` | 摄像头被其他程序占用（如 rerun 外的预览软件），关闭后重试；`v4l2-ctl --list-devices` 查看设备 |
-| 遥操作时某关节方向或角度明显不对 | 重新校准该手臂，注意中间姿态 |
+| `EOFError: EOF when reading a line` | Calibration ran without interactive input, such as through `!`. Use a separate terminal |
+| `Permission denied: /dev/ttyACM*` | Join `dialout` using section 3.1 and log in again |
+| Startup `Full found motor list` omits a servo | A servo briefly failed to respond; LeRobot checks once at startup. Power-cycle both arms. If it recurs, run `uv run --no-sync check_bus.py leader 30`, move the arm by hand and inspect the affected servo's wiring |
+| Missing serial port or unresponsive servo | Check arm power and USB cables; inspect `ls -l /dev/serial/by-id/` |
+| `Failed to open connection to X server` | SSH lacks a graphical session. `teleop.sh` sends to the native viewer at `RERUN_VIEWER_HOST` |
+| Viewer hangs as soon as an image appears | The rerun 0.33.x JPEG bug. Upgrade the viewer to 0.34 or later; 0.40.0 is the documented choice |
+| Follower stops tracking and viewer freezes | Viewer backpressure can block teleoperation. Immediately press `Ctrl+C` while supporting the follower. Use `teleop.sh` with its `teleop_viz.py` limiter and the native viewer |
+| `OpenCVCamera(...) failed to set fps=...` | Unsupported camera rate. Inspect `v4l2-ctl -d <设备> --list-formats-ext` and update `config/arms.env` |
+| Camera unavailable or `Device or resource busy` | Another program holds the camera. Close it and retry; inspect `v4l2-ctl --list-devices` |
+| Joint direction or angle is clearly wrong | Recalibrate that arm, checking its midpoint pose |
 
-## 7. 数据采集与相机标定（真机 ACT）
+## 7. Data collection and camera calibration for real ACT
 
-本节的脚本都在本目录。Python 环境用 `/data/work/venvs/so101-real-lerobot-061`（LeRobot 0.6.1，带 dataset 组件），本项目自己的 `.venv` 不变。
+Root commands remain available in this directory. These workflows use `/data/work/venvs/so101-real-lerobot-061`, with LeRobot 0.6.1 and dataset components. The separate project `.venv` keeps its role.
 
-### 7.1 锁定曝光和白平衡
-
-```bash
-./camera_settings.sh show    # 查看当前值
-./camera_settings.sh lock    # 按 camera.env 设为手动曝光 + 固定白平衡
-./camera_settings.sh snap    # 两路各截一帧，看亮度、过曝比例和颜色
-./camera_settings.sh auto    # 恢复自动
-```
-
-1. 先运行 `lock`，再运行 `snap` 看截图。
-2. 按截图调整 `camera.env` 里的曝光和白平衡，重复这两步，直到红、绿方块颜色清楚，没有大面积过曝。
-3. `record.sh` 每次启动会自动运行 `lock`。拔插 USB 或重启后设置会丢失。
-
-### 7.2 录制
+### 7.1 Lock exposure and white balance
 
 ```bash
-./record.sh real-cube-bowl-pilot-20261027 10          # 试采 10 条
-RESUME=1 ./record.sh real-cube-bowl-pilot-20261027 50  # 续录到同一数据集
+./camera_settings.sh show    # Show current values.
+./camera_settings.sh lock    # Apply manual exposure and fixed white balance from config/camera.env.
+./camera_settings.sh snap    # Capture both views; inspect brightness, clipping and color.
+./camera_settings.sh auto    # Restore automatic settings.
 ```
 
-数据集存到 `/data/work/so101-datasets/<名字>`，不上传 HF。方块按摆放清单放，清单在 `/data/work/so101-evidence/real-robot/prep-20261026/layout/a4-placement-mat.pdf`。
+Run `lock`, then `snap`. Adjust exposure and white balance in `config/camera.env`, repeating until the red and green cubes are clear without large overexposed areas. `record.sh` runs `lock` on every start. Reconnecting USB or restarting loses these camera settings.
 
-### 7.3 相机标定（数字孪生用）
+### 7.2 Record
 
-先打印 `/data/work/so101-evidence/real-robot/calib-20261027/calib-targets.pdf`，A4 横向，按 100% 打印：
+```bash
+./record.sh real-cube-bowl-pilot-20261027 10          # Pilot: 10 episodes.
+RESUME=1 ./record.sh real-cube-bowl-pilot-20261027 50  # Resume the same dataset.
+```
 
-- 第 1 页是 ChArUco 板，贴在硬纸板上；
-- 第 2 页是 ArUco 定位纸。
+Datasets stay at `/data/work/so101-datasets/<名字>` and are not uploaded to HF. Use the cube placement checklist at `/data/work/so101-evidence/real-robot/prep-20261026/layout/a4-placement-mat.pdf`.
+
+### 7.3 Calibrate cameras for the digital twin
+
+Print `/data/work/so101-evidence/real-robot/calib-20261027/calib-targets.pdf` on landscape A4 at 100% scale. Page 1 is a ChArUco board to mount on stiff card; page 2 is the ArUco positioning sheet.
 
 ```bash
 P=/data/work/venvs/so101-real-lerobot-061/bin/python
-$P calib_capture.py charuco wrist        # 手拿 ChArUco 板在腕部相机前换位置、角度、远近，自动存 25 张
-$P calib_capture.py charuco side         # 同上，侧面相机
+$P calib_capture.py charuco wrist        # Move the ChArUco board through positions, angles and distances; saves 25 images.
+$P calib_capture.py charuco side         # Repeat for the side camera.
 $P calib_intrinsics.py wrist
-$P calib_intrinsics.py side --rational   # 侧面广角用 8 参数模型
-# ArUco 定位纸四边对齐，盖在 A4 定位纸上（同一朝向），然后：
+$P calib_intrinsics.py side --rational   # Eight-parameter model for the wide-angle side camera.
+# Align the ArUco sheet's edges and orientation with the A4 positioning sheet, then:
 $P calib_capture.py aruco
 $P calib_extrinsics.py /data/work/so101-evidence/real-robot/calib-20261027/aruco-sheet-layout.json
 ```
 
-结果在 `/data/work/so101-evidence/real-robot/calib-<日期>/`：
+Results stay at `/data/work/so101-evidence/real-robot/calib-<日期>/`:
 
-| 文件 | 内容 |
+| File | Contents |
 |---|---|
-| `intrinsics-wrist.json`、`intrinsics-side.json` | 内参，rms < 0.5 px 为好 |
-| `extrinsics-side.json` | 侧面相机相对从臂转轴的位置和朝向 |
+| `intrinsics-wrist.json`, `intrinsics-side.json` | Intrinsics; rms below 0.5 px is good |
+| `extrinsics-side.json` | Side camera position and orientation relative to the follower's rotation axis |
 
-侧面相机标定后不要再动。动了就重新标外参。
+Keep the side camera fixed after calibration. Recalibrate its extrinsics if it moves.
