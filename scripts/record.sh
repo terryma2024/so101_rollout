@@ -28,7 +28,55 @@ if ! xdpyinfo >/dev/null 2>&1; then
   display_args+=(--display_ip="$RERUN_VIEWER_HOST" --display_port="$RERUN_VIEWER_PORT")
 fi
 # 录制前锁定曝光和白平衡（camera.env），保证每次录制画面一致
-[ -f "$SO101_CONFIG_DIR/camera.env" ] && "$SO101_ROOT/camera_settings.sh" lock >/dev/null
+preflight_failed=0
+lock_failed=false
+if [ -f "$SO101_CONFIG_DIR/camera.env" ]; then
+  if ! "$SO101_ROOT/camera_settings.sh" lock >/dev/null; then
+    echo "相机曝光/白平衡锁定失败。"
+    preflight_failed=1
+    lock_failed=true
+  fi
+else
+  echo "缺少camera.env，无法锁定相机曝光/白平衡。"
+  preflight_failed=1
+  lock_failed=true
+fi
+# 每次创建新目录；配置错误、异常与超时均进入同一默认拒绝确认。
+evidence_dir=""
+if mkdir -p "/data/work/so101-evidence/real-robot" && \
+   evidence_dir=$(mktemp -d "/data/work/so101-evidence/real-robot/record-preflight-XXXXXXXX"); then
+  if ! timeout --signal=TERM --kill-after=2s 30s "$VENV/bin/python" -m so101_rollout.camera.preflight \
+      --config "$SO101_CONFIG_DIR/preflight.json" --evidence-dir "$evidence_dir"; then
+    echo "采集前检查失败、异常或超时。"
+    preflight_failed=1
+  fi
+else
+  echo "无法创建检查证据目录。"
+  preflight_failed=1
+fi
+proceed=true
+if [ "$preflight_failed" != 0 ]; then
+  printf '采集前检查未通过，是否仍继续？[y/N] '
+  answer=""
+  if ! read -r answer || [[ "$answer" != y && "$answer" != Y ]]; then
+    proceed=false
+  else
+    echo "警告：采集前检查未通过仍继续录制。"
+  fi
+fi
+# Shell writes only fixed boolean literals, with no user input interpolated into JSON.
+if [ -n "$evidence_dir" ]; then
+  if ! printf '{"proceed":%s,"override":%s,"lock_failed":%s}\n' \
+      "$proceed" "$([[ "$preflight_failed" != 0 && "$proceed" == true ]] && echo true || echo false)" \
+      "$lock_failed" > "$evidence_dir/decision.json"; then
+    echo "无法保存用户决定；停止录制。" >&2
+    exit 1
+  fi
+fi
+if [ "$proceed" != true ]; then
+  echo "已取消录制。"
+  exit 1
+fi
 resume_args=()
 [ "${RESUME:-0}" = 1 ] && resume_args=(--resume=true)
 

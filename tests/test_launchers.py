@@ -29,7 +29,7 @@ def checkout(tmp_path):
     for name in ('arms.env', 'camera.env'):
         shutil.copy2(REPO / 'config' / name, config / name)
     for path in root.rglob('*.sh'):
-        value = path.read_text()
+        value = path.read_text().replace('/data/work/so101-evidence/real-robot', str(root / 'evidence'))
         for prefix in ('/data/work/venvs/so101-real-lerobot-061', '/data/work/venvs/so101-voice-lerobot-061'):
             value = value.replace(prefix, str(fake))
         path.write_text(value)

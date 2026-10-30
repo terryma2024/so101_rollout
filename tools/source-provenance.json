@@ -1,0 +1,46 @@
+[
+  {
+    "path": "/data/work/so101-evidence/real-robot/p0-20261029T215724/review_all.py",
+    "sha256": "48237df6f32fbb7aca419525ff8769c0348c568bc8b007ea189b988662c4f504"
+  },
+  {
+    "path": "/data/work/so101-evidence/real-robot/p0-20261029T215724/check_r1.py",
+    "sha256": "d65ae2cdb3466e42c6936353113ecffa3c54ce22109125916f2e541d7f45872f"
+  },
+  {
+    "path": "/data/work/so101-evidence/real-robot/p0-20261029T215724/summarize_all.py",
+    "sha256": "5eb137b3da120a3304af5daeb0fea16f4a8d6b7dbc6a236409d187755dcf474e"
+  },
+  {
+    "path": "/data/work/so101-evidence/real-robot/p0-20261029T215724/save_r1_review.py",
+    "sha256": "47c39ec13d64b4f878c972801d89a3b34ffe51471cf251fcc1d605f64c49d7ef"
+  },
+  {
+    "path": "/data/work/so101-evidence/real-robot/p0-20261029T215724/save_p2_proposal.py",
+    "sha256": "36e6f53e0450cead9c5f38abd837eda1481e68a19dd89f4ca7d0b407ef88fb86"
+  },
+  {
+    "path": "/data/work/so101-evidence/real-robot/p0-20261029T215724/p2-cards/v5/make_cards.py",
+    "sha256": "696bc7451c16bae6f66fa98645eb8d4c097649ef89802f57a4bb2427057be1a1"
+  },
+  {
+    "path": "/data/work/so101-evidence/real-robot/p0-20261029T215724/p2-cards/supplement50/make_supplement.py",
+    "sha256": "b58d0dcbf2093915221a3d9146694336d7bb24523bbd0ae824e4fac59777b690"
+  },
+  {
+    "path": "/data/work/so101-evidence/real-robot/p0-print-20261029/make_print.py",
+    "sha256": "e974fdde1f1782179e24d89ced0816399fa97544e441e6b69402522ade69b29c"
+  },
+  {
+    "path": "/data/work/so101-evidence/real-robot/pilot-check-20261027/rollout_sheet.py",
+    "sha256": "cf38cdedfd3216d5947dff182a44448b1b232a28e8598a6f690825373b69e120"
+  },
+  {
+    "path": "/data/work/so101-evidence/real-robot/pilot-check-20261027/rollout_firstlast.py",
+    "sha256": "3cf2a451ad297912fe6c47ff379ae5c5f974c4bc0c79dd8a986dda551e1aa06f"
+  },
+  {
+    "path": "/data/work/so101-evidence/real-robot/pilot-check-20261027/luma_per_episode.py",
+    "sha256": "786f627ce4e4e59dfcf3fd74e0b3e08aecbf27e10c72dc60ad36eff8ef860dbc"
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "size": [
+    640,
+    480
+  ],
+  "capture": {
+    "warmup_seconds": 2,
+    "frames": 40,
+    "interval_seconds": 0.05,
+    "deadline_seconds": 12
+  },
+  "side_light": {
+    "max_reference_delta": 15,
+    "max_overexposed_fraction": 0.01,
+    "max_range": 5
+  },
+  "wrist_light": {
+    "min_mean": 80,
+    "max_mean": 220,
+    "max_overexposed_fraction": 0.03,
+    "max_range": 8
+  },
+  "lighting_reference": {
+    "path": "preflight/side-reference.png",
+    "source": "/data/work/so101-evidence/real-robot/preflight-20261030-0928/side-sample-39.png",
+    "sha256": "bb8710fee35d24f14e0443ccb12b563d5389a69b9dca57a24d5037f7e0bd0f18"
+  },
+  "alignment_reference": {
+    "path": "preflight/side-training-reference.png",
+    "source": "/data/work/so101-evidence/real-robot/pilot-check-20261027/full/side-ref-ep41-61.png",
+    "sha256": "fab82a1f59f13b5be892a019b4459cc9648194a5474e7e524e258f0048735c6f"
+  },
+  "alignment": {
+    "min_inliers": 10
+  }
+}

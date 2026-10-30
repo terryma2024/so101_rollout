@@ -2,6 +2,8 @@
 
 [so101_rollout](https://github.com/terryma2024/so101_rollout) configures SO101 leader and follower arms for teleoperation and rollout with [LeRobot](https://github.com/huggingface/lerobot).
 
+Offline dataset review, collection cards and evidence utilities: [tools](tools/README.md).
+
 ## 1. Environment
 
 | Component | Version or setting |
@@ -281,3 +283,23 @@ Results stay at `/data/work/so101-evidence/real-robot/calib-<日期>/`:
 | `extrinsics-side.json` | Side camera position and orientation relative to the follower's rotation axis |
 
 Keep the side camera fixed after calibration. Recalibrate its extrinsics if it moves.
+
+### 采集前自动检查
+
+`./record.sh <数据集名> [条数]` 在数据集存在检查、查看器检查和相机曝光/白平衡锁定之后，自动检查侧面位置与两路光照，通过后才启动录制。检查失败、锁定失败、配置/基准损坏、空帧或超时都会显示原因和证据目录，并询问 `[y/N]`；只有单独输入 `y` 或 `Y` 才会带警告继续，回车、EOF、`yes` 等均取消。没有环境变量跳过入口。
+
+单独检查（只访问相机，不连接机械臂）：
+
+```bash
+/data/work/venvs/so101-real-lerobot-061/bin/python -m so101_rollout.camera.preflight --help
+# 使用当前相机路径与帧率；独立CLI可通过同名环境变量指定相机
+/data/work/venvs/so101-real-lerobot-061/bin/python -m so101_rollout.camera.preflight --config "$PWD/config/preflight.json"
+```
+
+`SO101_CONFIG_DIR` 选择配置目录，或用 CLI 的 `--config` 指定 JSON。默认配置是 `config/preflight.json`，两张基准图路径相对该 JSON 解析，分别验证 SHA256 与 640×480 尺寸，并保留来源。位置基准 `alignment_reference` 是原 `align_side` 使用的正式第41–61条首帧中值图，原始字节保存在 `config/preflight/side-training-reference.png`；光照基准 `lighting_reference` 保留今日人工确认的 `config/preflight/side-reference.png`，不会用历史训练图判断光照。
+
+位置判断直接复用 `camera.align_side` 的 ORB + CLAHE、RANSAC 和最近7帧偏差中值，只取 y≥170 的桌面和纸张特征，避免上部布料决定位置。图像中心平移严格要求 |dx|、|dy| <6 px，旋转绝对值 <2.5°，中值内点至少10个；匹配不足、无有效匹配或非有限结果拒绝通过。缩放仅作诊断显示，不另设门槛。终端和 JSON 都记录中心平移、旋转、缩放、内点、阈值与通过状态。上部背景及纸张文字独立匹配不再作为位置否决项；腕部仍只检查光照。
+
+默认每路预热 2 秒，随后采集 40 帧。侧面各固定区平均灰度与基准差 ≤15/255，灰度 ≥250 的比例 ≤1%，全图短序列平均灰度范围 ≤5；腕部全图平均灰度 80–220，灰度过曝比例 ≤3%，短序列范围 ≤8。以上为工程初值，可在 JSON 调整。单路读取期限 12 秒，CLI 采集阶段期限 27 秒，启动脚本另设 30 秒外层超时覆盖整次检查。两路顺序打开并在 finally 释放；仅侧面使用 MJPG，腕部保持默认格式。
+
+每次在 `/data/work/so101-evidence/real-robot/record-preflight-*` 创建唯一证据目录，保存 `result.json`（通过状态、原因、测量、配置/基准来源、时间、帧数）、每路首尾原图及标注训练位置基准/当前侧面图的 1280×480 对照预览；启动脚本另写 `decision.json` 记录是否继续与覆盖决定。CLI 可用 `--evidence-dir` 指定空目录，拒绝覆盖非空目录。基准只在人工确认光照、侧面构图合格后手动重建，并同步更新来源和 SHA256，程序不会自动更新基准。

@@ -1,0 +1,45 @@
+P2 collection commands — reference only; nothing in this file executes automatically.
+Run the selected batch manually from the repository root with the robot recording
+environment configured as described in the root README. These commands move the robot.
+Do not run all four commands unattended. Reset the scene between episodes and follow
+tools/plans/p2-20261030.json and the already printed cards. Do not reprint the old cards.
+
+A: green G01–G10, 10 episodes, independent dataset folder:
+TASK="Put the green cube into the paper bowl" \
+  ./record.sh \
+  real-cube-bowl-p2-green-20261030 \
+  10
+
+A2: green G11–G40, 30 episodes, independent dataset folder:
+TASK="Put the green cube into the paper bowl" \
+  ./record.sh \
+  real-cube-bowl-p2-green-extra-20261030 \
+  30
+
+B: red R01–R20, 20 episodes, independent dataset folder:
+TASK="Put the red cube into the paper bowl" \
+  ./record.sh \
+  real-cube-bowl-p2-red-20261030 \
+  20
+
+B2: red R21–R40, 20 episodes, independent dataset folder:
+TASK="Put the red cube into the paper bowl" \
+  ./record.sh \
+  real-cube-bowl-p2-red-extra-20261030 \
+  20
+
+Each folder starts its own recorded episode numbering at 1: plan card IDs are not
+recorded episode indices. Write the actual recorded episode on each card, including
+retries. Do not use RESUME to merge these four batches into one folder.
+
+Keep the exact color-specific TASK strings and all original source datasets.
+If all planned demonstrations are accepted, the separate ACT training totals are
+green 133 and red 132. Acceptance requires manual review, including first grasp
+and stable final placement in the bowl; counts are conditional, not achieved totals.
+Keep failures and very short records in the original evidence and annotate them.
+Build filtered exports later rather than deleting original records.
+
+A later derived multi-task export can train one SmolVLA model to select the red or
+green cube from the instruction. Keep both labels and source provenance. Plan
+coverage is only a collection-planning check: it does not prove physically matched
+camera scenes, successful demonstrations, or language-conditioned robot behavior.

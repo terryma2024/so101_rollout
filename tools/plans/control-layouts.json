@@ -1,0 +1,44 @@
+{
+  "episodes": [
+    {
+      "green": "A1",
+      "red": "C3"
+    },
+    {
+      "green": "A1",
+      "red": "A2"
+    },
+    {
+      "green": "A4",
+      "red": "A3"
+    },
+    {
+      "green": "A4",
+      "red": "C2"
+    },
+    {
+      "green": "D1",
+      "red": "B3"
+    },
+    {
+      "green": "D1",
+      "red": "C1"
+    },
+    {
+      "green": "D4",
+      "red": "D3"
+    },
+    {
+      "green": "D4",
+      "red": "B2"
+    },
+    {
+      "green": "B2",
+      "red": "D4"
+    },
+    {
+      "green": "B2",
+      "red": "B1"
+    }
+  ]
+}
