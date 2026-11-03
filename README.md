@@ -356,6 +356,9 @@ ACT runs at a target 20 Hz, with 30 seconds per episode and 20 seconds for reset
 
 The default checkpoint is `/data/work/so101-policies/real-smolvla-red-green-v1-20261030/checkpoints/020000/pretrained_model`. The launcher uses the repository's `so101_async` backend: target 20 Hz, 50-step action chunks, and next-chunk inference starting with 10 actions left. Pending results from a previous episode are invalidated on reset. Asynchronous inference does not add action smoothing or guarantee correct color selection. Implementation and offline validation: [async rollout report](docs/experiments/smolvla-async-rollout-20261031.md).
 
+SmolVLA v2 final20k and its exact 262-episode train / 76-episode validation datasets are published publicly on Hugging Face, with all 62 release files verified against their manifests. See the [model/dataset links, hashes and pinned download commands](docs/experiments/smolvla-v2-huggingface-publication-20261104.md). To select the existing local v2 explicitly, pass `/data/work/so101-policies/real-smolvla-red-green-v2-local-20261103/checkpoints/020000/pretrained_model` as the third argument; the default stays v1. v2 scored 11/12 on historical C2/C3 and 9/16 on novel position combinations (green2/8, red7/8), so these limited screens do not establish reliable generalization.
+
+
 ### 9.1 Check the command and cameras
 
 ```bash
