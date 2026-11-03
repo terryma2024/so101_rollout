@@ -50,7 +50,7 @@ def build_parser():
     p.add_argument("--device", default="cuda")
     p.add_argument("--fps", type=int, default=20)
     p.add_argument("--max-rel", type=float, default=float(os.environ.get("MAX_REL", 30)),
-                   help="max_relative_target（度），和 rollout.sh 一样默认 30")
+                   help="max_relative_target（度），和 rollout_act.sh 一样默认 30")
     p.add_argument("--timeout", type=float, default=30.0, help="单次执行超时（秒）")
     p.add_argument("--return-s", type=float, default=2.0, help="回休息位的插值时间（秒）")
     p.add_argument("--rest", default=None, help="休息位，6 个数（度，顺序 肩旋转,肩抬,肘,腕弯,腕转,夹爪）；默认启动时的姿态")

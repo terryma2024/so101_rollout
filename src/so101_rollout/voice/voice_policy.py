@@ -82,7 +82,7 @@ class LoadedPolicy:
 
 
 def make_real_follower(env, max_relative_target=30.0):
-    """SO101 follower with the same two cameras as rollout.sh / record.sh (opens serial port and cameras)."""
+    """SO101 follower with the same two cameras as rollout_act.sh / record.sh (opens serial port and cameras)."""
     from lerobot.cameras.opencv.configuration_opencv import OpenCVCameraConfig
     from lerobot.robots import make_robot_from_config
     from lerobot.robots.so_follower import SO101FollowerConfig
@@ -100,7 +100,7 @@ def make_real_follower(env, max_relative_target=30.0):
 
 class EpisodeRecorder:
     """--record <name>: every run becomes one LeRobotDataset episode (dataset root /data/work/so101-datasets/<name>,
-    repo id local/rollout_<name>, same as rollout.sh). Frames are (observation, commanded action, task)."""
+    repo id local/rollout_<name>, same as rollout_act.sh). Frames are (observation, commanded action, task)."""
 
     def __init__(self, robot, name, fps=20, root_base="/data/work/so101-datasets"):
         from lerobot.datasets import LeRobotDataset

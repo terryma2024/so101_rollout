@@ -9,7 +9,7 @@ import sys
 import pytest
 
 REPO = Path(__file__).resolve().parents[1]
-NAMES = ('voice_agent', 'teleop', 'record', 'rollout', 'calibrate_follower', 'calibrate_leader', 'camera_settings')
+NAMES = ('voice_agent', 'teleop', 'record', 'rollout_act', 'calibrate_follower', 'calibrate_leader', 'camera_settings')
 
 
 @pytest.fixture
@@ -72,18 +72,18 @@ def test_wrapper_forwards_argv_and_exit(checkout, tmp_path, name):
     ('calibrate_follower', [], ['run', '--no-sync', 'lerobot-calibrate', '--robot.type=so101_follower', '--robot.port=override port', '--robot.id=my_follower']),
     ('calibrate_leader', [], ['run', '--no-sync', 'lerobot-calibrate', '--teleop.type=so101_leader', '--teleop.port=', '--teleop.id=my_leader']),
     ('camera_settings', ['snap'], ['-m', 'so101_rollout.camera.calib_capture', 'snap']),
-    ('teleop', [], None), ('record', ['unit-test-unused', '2'], None), ('rollout', None, None),
+    ('teleop', [], None), ('record', ['unit-test-unused', '2'], None), ('rollout_act', None, None),
 ])
 def test_shell_defaults_preserve_environment(checkout, tmp_path, name, args, expected):
     root, _, capture, env = checkout
     env.update(FOLLOWER_PORT='override port', LEADER_PORT='', WRIST_EXPOSURE='override exposure', SIDE_WB='', SSH_CONNECTION='192.0.2.4 12 192.0.2.5 22', PYTHONPATH='must be removed by voice')
-    if name == 'rollout':
+    if name == 'rollout_act':
         policy = tmp_path / 'policy with spaces'
         policy.mkdir()
         (policy / 'model.safetensors').touch()
         args = [str(policy), 'unit-test-unused', '2']
     # Avoid camera utility side effects during lock while still running the real helper/body.
-    if name in ('record', 'rollout'):
+    if name in ('record', 'rollout_act'):
         (root / 'camera_settings.sh').write_text('#!/bin/bash\nexit 0\n')
     result = subprocess.run([str(root / f'{name}.sh'), *args], cwd=tmp_path, env=env, capture_output=True, text=True)
     assert result.returncode == 23, result.stderr
@@ -101,7 +101,7 @@ def test_shell_defaults_preserve_environment(checkout, tmp_path, name, args, exp
         assert child['env']['SIDE_WB'] == ''
     if name == 'voice_agent':
         assert child['env']['PYTHONPATH'] is None
-    if name in ('teleop', 'record', 'rollout'):
+    if name in ('teleop', 'record', 'rollout_act'):
         assert '--display_ip=192.0.2.4' in child['args']
         assert any('--robot.port=override port' == arg for arg in child['args'])
 

@@ -38,7 +38,7 @@ Add inert `__init__.py` files to the three groups. Keep the lightweight package 
 
 ## Public entry points
 
-The seven root shell names remain: `voice_agent.sh`, `teleop.sh`, `record.sh`, `rollout.sh`, `calibrate_follower.sh`, `calibrate_leader.sh`, `camera_settings.sh`. Each computes its own absolute root and uses `exec` to call `scripts/<same-name>` with `"$@"`. The scripts still run with repository-root cwd, so relative policy and dataset arguments retain their current meaning. No new passthrough arguments are added to bodies that currently consume only positional arguments or ignore extra arguments.
+The seven root shell names remain: `voice_agent.sh`, `teleop.sh`, `record.sh`, `rollout_act.sh`, `calibrate_follower.sh`, `calibrate_leader.sh`, `camera_settings.sh`. Each computes its own absolute root and uses `exec` to call `scripts/<same-name>` with `"$@"`. The scripts still run with repository-root cwd, so relative policy and dataset arguments retain their current meaning. No new passthrough arguments are added to bodies that currently consume only positional arguments or ignore extra arguments.
 
 Retain root Python forwarding stubs for exactly these command paths: `voice_agent.py`, `voice_latency_check.py`, `calib_capture.py`, `calib_intrinsics.py`, `calib_extrinsics.py`, `calib_targets.py`, `align_side.py`, `check_bus.py`, `read_pose.py`, `record_viz.py`, `teleop_viz.py`. The last two preserve the named LeRobot adapters as callable tools. All other voice helpers move without root copies. The visible root stubs are a compatibility cost; removing them requires a later decision.
 

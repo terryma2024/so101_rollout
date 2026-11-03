@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 # 真机 rollout：训练好的策略控制从臂（不接主臂），每条录成评估数据集。
-# 用法：./rollout.sh <策略目录 pretrained_model> <评估数据集名> [条数]
-# 例：./rollout.sh /data/work/so101-policies/real-act-001-20261027T1007Z/checkpoints/100000/pretrained_model eval-real-act-001-night1 3
+# 用法：./rollout_act.sh <策略目录 pretrained_model> <评估数据集名> [条数]
+# 例：./rollout_act.sh /data/work/so101-policies/real-act-001-20261027T1007Z/checkpoints/100000/pretrained_model eval-real-act-001-night1 3
 # 每条开始前摆好方块；键盘：n 或 → 结束当前这一段（策略运行中=本条结束；复位中=立刻开始下一条），
 # r 或 ← 作废并重录本条，q 或 Esc 结束并保存。复位阶段机械臂自动回到启动时的姿态（折叠位）。
 # 安全：每一步关节目标离当前位置最多 MAX_REL 度（默认 30，训练数据里遥操作的 p99 约 27 度）。
 # 时间集成（ACT temporal ensembling）：TE=1 时每步都推理，并把重叠的动作块按指数权重平均（系数 TE_COEFF，
 # 默认 0.01，ACT 论文的取值）。默认 TE=0：每 100 步推理一次、照着执行完，和训练评估时一样。
-# 例：TE=1 ./rollout.sh <策略目录> eval-real-act-002-te 10
-# 任务文本默认绿方块；红方块策略：TASK="Put the red cube into the paper bowl" ./rollout.sh <红色策略目录> eval-real-act-red-ctrl 10
+# 例：TE=1 ./rollout_act.sh <策略目录> eval-real-act-002-te 10
+# 任务文本默认绿方块；红方块策略：TASK="Put the red cube into the paper bowl" ./rollout_act.sh <红色策略目录> eval-real-act-red-ctrl 10
 set -e
 source "$(dirname -- "${BASH_SOURCE[0]}")/lib/common.sh"
 so101_init
 so101_source_defaults "$SO101_CONFIG_DIR/arms.env"
 
-policy=${1:?usage: ./rollout.sh <pretrained_model dir> <eval-dataset-name> [num-episodes]}
-name=${2:?usage: ./rollout.sh <pretrained_model dir> <eval-dataset-name> [num-episodes]}
+policy=${1:?usage: ./rollout_act.sh <pretrained_model dir> <eval-dataset-name> [num-episodes]}
+name=${2:?usage: ./rollout_act.sh <pretrained_model dir> <eval-dataset-name> [num-episodes]}
 episodes=${3:-3}
 MAX_REL=${MAX_REL:-30}
 TASK=${TASK:-"Put the green cube into the paper bowl"}
@@ -23,7 +23,7 @@ VENV=/data/work/venvs/so101-real-lerobot-061
 ROOT=/data/work/so101-datasets/$name
 test -f "$policy/model.safetensors" || { echo "找不到 $policy/model.safetensors" >&2; exit 1; }
 if [ -e "$ROOT" ] && [ "${RESUME:-0}" != 1 ]; then
-  echo "$ROOT 已存在；续录请用 RESUME=1 ./rollout.sh $policy $name $episodes" >&2; exit 1
+  echo "$ROOT 已存在；续录请用 RESUME=1 ./rollout_act.sh $policy $name $episodes" >&2; exit 1
 fi
 
 [ -n "${SSH_CONNECTION:-}" ] && unset DISPLAY

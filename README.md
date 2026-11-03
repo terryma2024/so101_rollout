@@ -97,10 +97,11 @@ The interpreters have separate roles:
 | Workflow | Environment |
 |---|---|
 | Calibration, teleoperation, project tools and tests | Project `.venv` |
-| Recording, rollout and camera snapshots | `/data/work/venvs/so101-real-lerobot-061` |
+| Recording, ACT rollout, camera snapshots and preflight | `/data/work/venvs/so101-real-lerobot-061` |
+| SmolVLA rollout | `/data/work/venvs/so101-smolvla-061` (separate runtime; dependency lock: [tools/locks/smolvla-cu130-py312.txt](tools/locks/smolvla-cu130-py312.txt)) |
 | Voice agent | `/data/work/venvs/so101-voice-lerobot-061`; `voice_agent.sh` retains its `VENV` override |
 
-The application must also be installed in each runtime environment. Build a wheel with `uv build --wheel --out-dir <wheel-directory>`, then install that exact wheel with `uv pip install --python <environment>/bin/python --no-deps <wheel>`. This installs the project without upgrading runtime dependencies. Keep runtime installations independent of temporary worktrees.
+The application must also be installed in each runtime environment. Build a wheel with `uv build --wheel --out-dir <wheel-directory>`, then install that exact wheel with `uv pip install --python <environment>/bin/python --no-deps <wheel>`. This installs the project without upgrading runtime dependencies. Keep runtime installations independent of temporary worktrees. The SmolVLA launcher additionally puts this checkout's `src/` on `PYTHONPATH` so it uses the repository's asynchronous backend; run it from the maintained checkout.
 
 ### 3.3 Verification
 
@@ -118,6 +119,7 @@ The `so101-rollout` command prints its greeting.
 | `src/so101_rollout/voice/` | Voice orchestration, intent, policy, ASR, verification and replay modules |
 | `src/so101_rollout/camera/` | Camera capture, calibration targets, intrinsics, extrinsics and alignment |
 | `src/so101_rollout/operations/` | Recording and teleoperation adapters, bus diagnostics and pose reading |
+| `src/so101_rollout/smolvla/` | SmolVLA asynchronous rollout backend with an episode reset barrier |
 | `src/so101_rollout/config.py` | Configuration selection and literal env-file parsing |
 | `config/arms.env` | Arm ports and IDs (`my_leader` / `my_follower`), wrist/side camera paths and frame rates |
 | `config/camera.env` | Exposure and white-balance defaults |
@@ -129,8 +131,9 @@ The `so101-rollout` command prints its greeting.
 | `read_pose.py` | Read-only comparison of both arms' joint angles, without enabling torque or moving the arms |
 | [docs/guides/so101-lerobot.html](docs/guides/so101-lerobot.html) | Interactive explanation of servos, the bus protocol, calibration conversion, position control, the main loop, cameras and rerun; open directly in a browser |
 | [docs/plans/voice-agent-plan.md](docs/plans/voice-agent-plan.md) | Historical voice-agent plan |
+| [docs/plans/smolvla-training-rollout-plan-20261030.md](docs/plans/smolvla-training-rollout-plan-20261030.md) | SmolVLA dual-color training, local latency smoke test and paired rollout evaluation plan |
 
-The seven root shell commands remain available: `voice_agent.sh`, `teleop.sh`, `record.sh`, `rollout.sh`, `calibrate_follower.sh`, `calibrate_leader.sh` and `camera_settings.sh`. They anchor cwd to the checkout root before running their implementations.
+The eight root shell commands are: `voice_agent.sh`, `teleop.sh`, `record.sh`, `rollout_act.sh`, `rollout_smolvla.sh`, `calibrate_follower.sh`, `calibrate_leader.sh` and `camera_settings.sh`. They anchor cwd to the checkout root before running their implementations.
 
 Root Python compatibility commands remain for `voice_agent.py`, `voice_latency_check.py`, `calib_capture.py`, `calib_intrinsics.py`, `calib_extrinsics.py`, `calib_targets.py`, `align_side.py`, `check_bus.py`, `read_pose.py`, `record_viz.py` and `teleop_viz.py`. Their implementation lives in the package. Internal voice helpers have no root copies. Package commands use `python -m so101_rollout.<group>.<module>`, for example:
 
@@ -256,6 +259,11 @@ Run `lock`, then `snap`. Adjust exposure and white balance in `config/camera.env
 ```bash
 ./record.sh real-cube-bowl-pilot-20261027 10          # Pilot: 10 episodes.
 RESUME=1 ./record.sh real-cube-bowl-pilot-20261027 50  # Resume the same dataset.
+
+# Keep instructions and raw collection datasets separate by target color.
+RUN=$(date +%Y%m%dT%H%M%S)
+TASK="Put the green cube into the paper bowl" ./record.sh "real-cube-bowl-green-$RUN" 20
+TASK="Put the red cube into the paper bowl" ./record.sh "real-cube-bowl-red-$RUN" 20
 ```
 
 Datasets stay at `/data/work/so101-datasets/<名字>` and are not uploaded to HF. Use the cube placement checklist at `/data/work/so101-evidence/real-robot/prep-20261026/layout/a4-placement-mat.pdf`.
@@ -296,10 +304,94 @@ Keep the side camera fixed after calibration. Recalibrate its extrinsics if it m
 /data/work/venvs/so101-real-lerobot-061/bin/python -m so101_rollout.camera.preflight --config "$PWD/config/preflight.json"
 ```
 
-`SO101_CONFIG_DIR` 选择配置目录，或用 CLI 的 `--config` 指定 JSON。默认配置是 `config/preflight.json`，两张基准图路径相对该 JSON 解析，分别验证 SHA256 与 640×480 尺寸，并保留来源。位置基准 `alignment_reference` 是原 `align_side` 使用的正式第41–61条首帧中值图，原始字节保存在 `config/preflight/side-training-reference.png`；光照基准 `lighting_reference` 保留今日人工确认的 `config/preflight/side-reference.png`，不会用历史训练图判断光照。
+`SO101_CONFIG_DIR` 选择配置目录，或用 CLI 的 `--config` 指定 JSON。默认配置是 `config/preflight.json`，两张基准图路径相对该 JSON 解析，分别验证 SHA256 与 640×480 尺寸，并保留来源。位置基准 `alignment_reference` 是原 `align_side` 使用的正式第41–61条首帧中值图，原始字节保存在 `config/preflight/side-training-reference.png`；光照基准 `lighting_reference` 保留 2026-10-30 人工确认的 `config/preflight/side-reference.png`，不会用历史训练图判断光照。
 
 位置判断直接复用 `camera.align_side` 的 ORB + CLAHE、RANSAC 和最近7帧偏差中值，只取 y≥170 的桌面和纸张特征，避免上部布料决定位置。图像中心平移严格要求 |dx|、|dy| <6 px，旋转绝对值 <2.5°，中值内点至少10个；匹配不足、无有效匹配或非有限结果拒绝通过。缩放仅作诊断显示，不另设门槛。终端和 JSON 都记录中心平移、旋转、缩放、内点、阈值与通过状态。上部背景及纸张文字独立匹配不再作为位置否决项；腕部仍只检查光照。
 
 默认每路预热 2 秒，随后采集 40 帧。侧面各固定区平均灰度与基准差 ≤15/255，灰度 ≥250 的比例 ≤1%，全图短序列平均灰度范围 ≤5；腕部全图平均灰度 80–220，灰度过曝比例 ≤3%，短序列范围 ≤8。以上为工程初值，可在 JSON 调整。单路读取期限 12 秒，CLI 采集阶段期限 27 秒，启动脚本另设 30 秒外层超时覆盖整次检查。两路顺序打开并在 finally 释放；仅侧面使用 MJPG，腕部保持默认格式。
 
 每次在 `/data/work/so101-evidence/real-robot/record-preflight-*` 创建唯一证据目录，保存 `result.json`（通过状态、原因、测量、配置/基准来源、时间、帧数）、每路首尾原图及标注训练位置基准/当前侧面图的 1280×480 对照预览；启动脚本另写 `decision.json` 记录是否继续与覆盖决定。CLI 可用 `--evidence-dir` 指定空目录，拒绝覆盖非空目录。基准只在人工确认光照、侧面构图合格后手动重建，并同步更新来源和 SHA256，程序不会自动更新基准。
+
+
+## 8. ACT rollout
+
+Use `rollout_act.sh` (renamed from `rollout.sh`). ACT uses a separate checkpoint for each color; set both the model path and matching `TASK`. The argument order is:
+
+```text
+./rollout_act.sh <pretrained_model-directory> <evaluation-dataset-name> [episodes=3]
+```
+
+The ACT launcher locks exposure and white balance, but does **not** run the full preflight automatically. Run the camera-only check before a test session:
+
+```bash
+./camera_settings.sh lock
+/data/work/venvs/so101-real-lerobot-061/bin/python -m so101_rollout.camera.preflight \
+  --config "$PWD/config/preflight.json"
+```
+
+Select the intended checkpoint explicitly. For the P2 models:
+
+```bash
+RUN=$(date +%Y%m%dT%H%M%S)
+TASK="Put the green cube into the paper bowl" \
+  ./rollout_act.sh /data/work/so101-policies/real-act-green-p2-20261030/checkpoints/100000/pretrained_model \
+  "eval-act-p2-green-$RUN" 1
+
+TASK="Put the red cube into the paper bowl" \
+  ./rollout_act.sh /data/work/so101-policies/real-act-red-p2-20261030/checkpoints/100000/pretrained_model \
+  "eval-act-p2-red-$RUN" 1
+```
+
+For the previous green baseline, replace the model path with `/data/work/so101-policies/real-act-002-20261028/checkpoints/100000/pretrained_model` and use a fresh dataset name containing `green-old`.
+
+ACT runs at a target 20 Hz, with 30 seconds per episode and 20 seconds for reset. The current ACT checkpoints use 100-step chunks. `TE=1` enables ACT temporal ensembling (`TE_COEFF=0.01` by default); leave it unset for the existing baseline. `MAX_REL=30` limits the per-joint target difference from the current state. These settings do not guarantee grasp success or smooth motion. `CHECK_ONLY` and `DRY_RUN` are **SmolVLA-only** options; do not use them to prevent ACT motion.
+
+## 9. SmolVLA rollout: one model, two instructions
+
+`rollout_smolvla.sh` uses the same model for both colors. Its argument order differs from ACT:
+
+```text
+./rollout_smolvla.sh <evaluation-dataset-name> [episodes=1] [pretrained_model-directory]
+```
+
+The default checkpoint is `/data/work/so101-policies/real-smolvla-red-green-v1-20261030/checkpoints/020000/pretrained_model`. The launcher uses the repository's `so101_async` backend: target 20 Hz, 50-step action chunks, and next-chunk inference starting with 10 actions left. Pending results from a previous episode are invalidated on reset. Asynchronous inference does not add action smoothing or guarantee correct color selection. Implementation and offline validation: [async rollout report](docs/experiments/smolvla-async-rollout-20261031.md).
+
+### 9.1 Check the command and cameras
+
+```bash
+RUN=$(date +%Y%m%dT%H%M%S)
+
+# Print the resolved command; no camera or robot access.
+DRY_RUN=1 TASK="Put the green cube into the paper bowl" \
+  ./rollout_smolvla.sh "eval-smolvla-dry-$RUN" 1
+
+# Lock camera settings and check lighting/side-camera alignment only.
+CHECK_ONLY=1 ./rollout_smolvla.sh "preflight-smolvla-$RUN" 1
+```
+
+Both modes still validate the environment, checkpoint and dataset name. `CHECK_ONLY=1` exits before connecting to the robot. Normal SmolVLA rollout automatically performs the same preflight; a failure or timeout stops the run.
+
+### 9.2 Evaluate each instruction
+
+Use the exact training instructions below. Keep the red and green evaluation datasets separate, even though they use the same model:
+
+```bash
+RUN=$(date +%Y%m%dT%H%M%S)
+TASK="Put the green cube into the paper bowl" \
+  ./rollout_smolvla.sh "eval-smolvla-20k-async-green-$RUN" 1
+
+TASK="Put the red cube into the paper bowl" \
+  ./rollout_smolvla.sh "eval-smolvla-20k-async-red-$RUN" 1
+```
+
+For a paired layout test, use **green C2 / red C3**, run each instruction after restoring that layout, then repeat with **red C2 / green C3**. This gives four trials. Use distinct dataset names containing the layout (for example `green-gC2-rC3` and `green-rC2-gC3`), restore an empty bowl and the same folded starting pose before each trial, and record selected color, grasp success, final placement and shaking separately. Changing the instruction does not change the physical setup automatically.
+
+To test another checkpoint, supply its `pretrained_model` directory as the third argument. Optional `N_ACTION_STEPS` must be 1–50 and `PREFETCH_STEPS` must be positive and smaller than `N_ACTION_STEPS`; defaults are 50 and 10. Keep these defaults when comparing checkpoints. `TE=1` is rejected because ACT temporal ensembling is not supported here. Camera names are mapped automatically: `wrist` → `camera1`, `side` → `camera2`.
+
+### 9.3 Episode controls and outputs
+
+Both ACT and SmolVLA rollout control the follower without the leader. Start from the intended folded pose; the reset phase returns to the starting pose. Use `n` / right arrow to end the current episode or finish the reset interval, `r` / left arrow to discard and re-record the episode, and `q` / Escape to finish and save. On SSH, use the terminal letter keys and start the remote Rerun viewer as described in section 5.4.
+
+Evaluation datasets are stored at `/data/work/so101-datasets/<evaluation-dataset-name>` and are not uploaded. Existing names are rejected unless `RESUME=1` is explicit; only resume a dataset with the same task, checkpoint and test conditions.
+
+Each SmolVLA run prints its evidence directory, `/data/work/so101-evidence/real-robot/smolvla-rollout-preflight-*`. It contains `result.json`, captured camera images and `comparison.jpg`; after normal rollout teardown it also contains `async-telemetry.json`. Record this directory alongside the dataset name when reporting timing or shaking. Dataset `timestamp` is derived from frame index / fps; use the async telemetry for action-availability timing, which still precedes serial transmission.
