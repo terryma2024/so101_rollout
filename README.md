@@ -348,6 +348,8 @@ ACT runs at a target 20 Hz, with 30 seconds per episode and 20 seconds for reset
 
 ## 9. SmolVLA rollout: one model, two instructions
 
+See the [end-to-end SmolVLA report](docs/reports/smolvla-so101-end-to-end-report-20261104.md) for collection and split design, v1/v2/v3 training, asynchronous control, rollout results, and lessons learned.
+
 `rollout_smolvla.sh` uses the same model for both colors. Its argument order differs from ACT:
 
 ```text
