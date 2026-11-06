@@ -1,0 +1,2443 @@
+{
+  "batch": "act-p0",
+  "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+  "model_sha256": null,
+  "plan_source": null,
+  "report": "history/act-p0-ledger.md",
+  "valid_trials": 60,
+  "target_in_bowl": 46,
+  "autonomous_success_count": 46,
+  "autonomy_caution": "null assistance means unknown; observed final outcome does not certify autonomous success",
+  "trials": [
+    {
+      "case_id": "act-p0:green-r1-recorded1",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 0,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "C3"
+      },
+      "actual_layout": {
+        "target": "A1",
+        "distractor": "C3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep1-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep1-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 1,
+      "round": 1,
+      "layout_row_1based": 1,
+      "layout_variant": false,
+      "duration_s": 16.25,
+      "frames": 325,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r1-recorded2",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 1,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "A2"
+      },
+      "actual_layout": {
+        "target": "A1",
+        "distractor": "A2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep2-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep2-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 2,
+      "round": 1,
+      "layout_row_1based": 2,
+      "layout_variant": false,
+      "duration_s": 15.8,
+      "frames": 316,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r1-recorded3",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 2,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "A3"
+      },
+      "actual_layout": {
+        "target": "A4",
+        "distractor": "A3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep3-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep3-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 3,
+      "round": 1,
+      "layout_row_1based": 3,
+      "layout_variant": false,
+      "duration_s": 14.1,
+      "frames": 282,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r1-recorded4",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 3,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "C2"
+      },
+      "actual_layout": {
+        "target": "A4",
+        "distractor": "C3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep4-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep4-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 4,
+      "round": 1,
+      "layout_row_1based": null,
+      "layout_variant": true,
+      "duration_s": 15.8,
+      "frames": 316,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r1-recorded5",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 4,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "B3"
+      },
+      "actual_layout": {
+        "target": "D1",
+        "distractor": "B3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep5-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep5-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 5,
+      "round": 1,
+      "layout_row_1based": 5,
+      "layout_variant": false,
+      "duration_s": 17.35,
+      "frames": 347,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r1-recorded6",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 5,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "C1"
+      },
+      "actual_layout": {
+        "target": "D1",
+        "distractor": "C1"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep6-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep6-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 6,
+      "round": 1,
+      "layout_row_1based": 6,
+      "layout_variant": false,
+      "duration_s": 30.0,
+      "frames": 600,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r1-recorded7",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 6,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "D3"
+      },
+      "actual_layout": {
+        "target": "D4",
+        "distractor": "D3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep7-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep7-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 7,
+      "round": 1,
+      "layout_row_1based": 7,
+      "layout_variant": false,
+      "duration_s": 16.3,
+      "frames": 326,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r1-recorded8",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 7,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "B2"
+      },
+      "actual_layout": {
+        "target": "D4",
+        "distractor": "B2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep8-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep8-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 8,
+      "round": 1,
+      "layout_row_1based": 8,
+      "layout_variant": false,
+      "duration_s": 13.35,
+      "frames": 267,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r1-recorded9",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 8,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "D4"
+      },
+      "actual_layout": {
+        "target": "B2",
+        "distractor": "D4"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep9-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep9-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 9,
+      "round": 1,
+      "layout_row_1based": 9,
+      "layout_variant": false,
+      "duration_s": 18.35,
+      "frames": 367,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r1-recorded10",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 9,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "B1"
+      },
+      "actual_layout": {
+        "target": "B2",
+        "distractor": "B1"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep10-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r1/ep10-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 10,
+      "round": 1,
+      "layout_row_1based": 10,
+      "layout_variant": false,
+      "duration_s": 30.0,
+      "frames": 600,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r2-recorded1",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 0,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r2",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "C3"
+      },
+      "actual_layout": {
+        "target": "A1",
+        "distractor": "C3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep1-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep1-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 1,
+      "round": 2,
+      "layout_row_1based": 1,
+      "layout_variant": false,
+      "duration_s": 15.65,
+      "frames": 313,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r2-recorded2",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 1,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r2",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "A2"
+      },
+      "actual_layout": {
+        "target": "A1",
+        "distractor": "A2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep2-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep2-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 2,
+      "round": 2,
+      "layout_row_1based": 2,
+      "layout_variant": false,
+      "duration_s": 17.45,
+      "frames": 349,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r2-recorded3",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 2,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r2",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "A3"
+      },
+      "actual_layout": {
+        "target": "A4",
+        "distractor": "A3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep3-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep3-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 3,
+      "round": 2,
+      "layout_row_1based": 3,
+      "layout_variant": false,
+      "duration_s": 14.75,
+      "frames": 295,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r2-recorded4",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 3,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r2",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "C2"
+      },
+      "actual_layout": {
+        "target": "A4",
+        "distractor": "C2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep4-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep4-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 4,
+      "round": 2,
+      "layout_row_1based": 4,
+      "layout_variant": false,
+      "duration_s": 14.05,
+      "frames": 281,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r2-recorded5",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 4,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r2",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "B3"
+      },
+      "actual_layout": {
+        "target": "D1",
+        "distractor": "B3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep5-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep5-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 5,
+      "round": 2,
+      "layout_row_1based": 5,
+      "layout_variant": false,
+      "duration_s": 21.45,
+      "frames": 429,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r2-recorded6",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 5,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r2",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "C1"
+      },
+      "actual_layout": {
+        "target": "D1",
+        "distractor": "C1"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep6-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep6-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 6,
+      "round": 2,
+      "layout_row_1based": 6,
+      "layout_variant": false,
+      "duration_s": 17.85,
+      "frames": 357,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r2-recorded8",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 7,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r2",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "D3"
+      },
+      "actual_layout": {
+        "target": "D4",
+        "distractor": "D3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep8-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep8-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 8,
+      "round": 2,
+      "layout_row_1based": 7,
+      "layout_variant": false,
+      "duration_s": 14.95,
+      "frames": 299,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r2-recorded9",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 8,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r2",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "B2"
+      },
+      "actual_layout": {
+        "target": "D4",
+        "distractor": "B2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep9-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep9-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 9,
+      "round": 2,
+      "layout_row_1based": 8,
+      "layout_variant": false,
+      "duration_s": 13.15,
+      "frames": 263,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r2-recorded10",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 9,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r2",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "D4"
+      },
+      "actual_layout": {
+        "target": "B2",
+        "distractor": "D4"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep10-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep10-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 10,
+      "round": 2,
+      "layout_row_1based": 9,
+      "layout_variant": false,
+      "duration_s": 15.85,
+      "frames": 317,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r2-recorded11",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 10,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r2",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "B1"
+      },
+      "actual_layout": {
+        "target": "B2",
+        "distractor": "B1"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep11-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r2/ep11-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 11,
+      "round": 2,
+      "layout_row_1based": 10,
+      "layout_variant": false,
+      "duration_s": 30.0,
+      "frames": 600,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r3-recorded1",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 0,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r3",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "C3"
+      },
+      "actual_layout": {
+        "target": "A1",
+        "distractor": "C3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep1-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep1-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 1,
+      "round": 3,
+      "layout_row_1based": 1,
+      "layout_variant": false,
+      "duration_s": 16.9,
+      "frames": 338,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r3-recorded2",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 1,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r3",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "A2"
+      },
+      "actual_layout": {
+        "target": "A1",
+        "distractor": "A2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep2-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep2-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 2,
+      "round": 3,
+      "layout_row_1based": 2,
+      "layout_variant": false,
+      "duration_s": 17.0,
+      "frames": 340,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r3-recorded3",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 2,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r3",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "A3"
+      },
+      "actual_layout": {
+        "target": "A4",
+        "distractor": "A3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep3-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep3-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 3,
+      "round": 3,
+      "layout_row_1based": 3,
+      "layout_variant": false,
+      "duration_s": 18.45,
+      "frames": 369,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r3-recorded4",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 3,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r3",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "C2"
+      },
+      "actual_layout": {
+        "target": "A4",
+        "distractor": "C2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep4-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep4-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 4,
+      "round": 3,
+      "layout_row_1based": 4,
+      "layout_variant": false,
+      "duration_s": 14.0,
+      "frames": 280,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r3-recorded5",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 4,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r3",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "B3"
+      },
+      "actual_layout": {
+        "target": "D1",
+        "distractor": "B3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep5-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep5-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 5,
+      "round": 3,
+      "layout_row_1based": 5,
+      "layout_variant": false,
+      "duration_s": 15.95,
+      "frames": 319,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r3-recorded6",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 5,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r3",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "D3"
+      },
+      "actual_layout": {
+        "target": "D4",
+        "distractor": "D3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep6-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep6-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 6,
+      "round": 3,
+      "layout_row_1based": 7,
+      "layout_variant": false,
+      "duration_s": 14.15,
+      "frames": 283,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r3-recorded7",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 6,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r3",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "B2"
+      },
+      "actual_layout": {
+        "target": "D4",
+        "distractor": "B2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep7-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep7-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 7,
+      "round": 3,
+      "layout_row_1based": 8,
+      "layout_variant": false,
+      "duration_s": 16.3,
+      "frames": 326,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r3-recorded8",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 7,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r3",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "C1"
+      },
+      "actual_layout": {
+        "target": "D1",
+        "distractor": "C1"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep8-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep8-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 8,
+      "round": 3,
+      "layout_row_1based": 6,
+      "layout_variant": false,
+      "duration_s": 30.0,
+      "frames": 600,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r3-recorded9",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 8,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r3",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "D4"
+      },
+      "actual_layout": {
+        "target": "B2",
+        "distractor": "D4"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。hand near bowl at start",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep9-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep9-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 9,
+      "round": 3,
+      "layout_row_1based": 9,
+      "layout_variant": false,
+      "duration_s": 17.2,
+      "frames": 344,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:green-r3-recorded10",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 9,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-green-r3",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "B1"
+      },
+      "actual_layout": {
+        "target": "B2",
+        "distractor": "B1"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep10-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/green-r3/ep10-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 10,
+      "round": 3,
+      "layout_row_1based": 10,
+      "layout_variant": false,
+      "duration_s": 30.0,
+      "frames": 600,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r1-recorded1",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 0,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r1",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "C3"
+      },
+      "actual_layout": {
+        "target": "A1",
+        "distractor": "C3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep1-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep1-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 1,
+      "round": 1,
+      "layout_row_1based": 1,
+      "layout_variant": false,
+      "duration_s": 13.35,
+      "frames": 267,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r1-recorded2",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 1,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r1",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "A2"
+      },
+      "actual_layout": {
+        "target": "A1",
+        "distractor": "A2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep2-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep2-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 2,
+      "round": 1,
+      "layout_row_1based": 2,
+      "layout_variant": false,
+      "duration_s": 26.2,
+      "frames": 524,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r1-recorded3",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 2,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r1",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "A3"
+      },
+      "actual_layout": {
+        "target": "A4",
+        "distractor": "A3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep3-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep3-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 3,
+      "round": 1,
+      "layout_row_1based": 3,
+      "layout_variant": false,
+      "duration_s": 13.0,
+      "frames": 260,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r1-recorded4",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 3,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r1",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "C2"
+      },
+      "actual_layout": {
+        "target": "A4",
+        "distractor": "C2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep4-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep4-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 4,
+      "round": 1,
+      "layout_row_1based": 4,
+      "layout_variant": false,
+      "duration_s": 30.0,
+      "frames": 600,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r1-recorded5",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 4,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r1",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "B3"
+      },
+      "actual_layout": {
+        "target": "D1",
+        "distractor": "B3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep5-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep5-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 5,
+      "round": 1,
+      "layout_row_1based": 5,
+      "layout_variant": false,
+      "duration_s": 30.0,
+      "frames": 600,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r1-recorded6",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 5,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r1",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "D3"
+      },
+      "actual_layout": {
+        "target": "D4",
+        "distractor": "D3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep6-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep6-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 6,
+      "round": 1,
+      "layout_row_1based": 7,
+      "layout_variant": false,
+      "duration_s": 15.55,
+      "frames": 311,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r1-recorded7",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 6,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r1",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "B2"
+      },
+      "actual_layout": {
+        "target": "D4",
+        "distractor": "B2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep7-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep7-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 7,
+      "round": 1,
+      "layout_row_1based": 8,
+      "layout_variant": false,
+      "duration_s": 10.85,
+      "frames": 217,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r1-recorded8",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 7,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r1",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "D4"
+      },
+      "actual_layout": {
+        "target": "B2",
+        "distractor": "D4"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep8-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep8-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 8,
+      "round": 1,
+      "layout_row_1based": 9,
+      "layout_variant": false,
+      "duration_s": 17.95,
+      "frames": 359,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r1-recorded9",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 8,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r1",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "B1"
+      },
+      "actual_layout": {
+        "target": "B2",
+        "distractor": "B1"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep9-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep9-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 9,
+      "round": 1,
+      "layout_row_1based": 10,
+      "layout_variant": false,
+      "duration_s": 11.05,
+      "frames": 221,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r1-recorded10",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 9,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r1",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "C1"
+      },
+      "actual_layout": {
+        "target": "D1",
+        "distractor": "C1"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep10-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r1/ep10-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 10,
+      "round": 1,
+      "layout_row_1based": 6,
+      "layout_variant": false,
+      "duration_s": 30.0,
+      "frames": 600,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded1",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 0,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r2",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "C3"
+      },
+      "actual_layout": {
+        "target": "A1",
+        "distractor": "C3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep1-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep1-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 1,
+      "round": 2,
+      "layout_row_1based": 1,
+      "layout_variant": false,
+      "duration_s": 29.25,
+      "frames": 585,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded2",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 1,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r2",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "A2"
+      },
+      "actual_layout": {
+        "target": "A1",
+        "distractor": "A2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep2-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep2-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 2,
+      "round": 2,
+      "layout_row_1based": 2,
+      "layout_variant": false,
+      "duration_s": 22.1,
+      "frames": 442,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded3",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 2,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r2",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "A3"
+      },
+      "actual_layout": {
+        "target": "A4",
+        "distractor": "A3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep3-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep3-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 3,
+      "round": 2,
+      "layout_row_1based": 3,
+      "layout_variant": false,
+      "duration_s": 12.3,
+      "frames": 246,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded4",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 3,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r2",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "C2"
+      },
+      "actual_layout": {
+        "target": "A4",
+        "distractor": "C2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep4-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep4-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 4,
+      "round": 2,
+      "layout_row_1based": 4,
+      "layout_variant": false,
+      "duration_s": 30.0,
+      "frames": 600,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded5",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 4,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r2",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "B3"
+      },
+      "actual_layout": {
+        "target": "D1",
+        "distractor": "B3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep5-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep5-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 5,
+      "round": 2,
+      "layout_row_1based": 5,
+      "layout_variant": false,
+      "duration_s": 13.0,
+      "frames": 260,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded6",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 5,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r2",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "C1"
+      },
+      "actual_layout": {
+        "target": "D1",
+        "distractor": "C1"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep6-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep6-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 6,
+      "round": 2,
+      "layout_row_1based": 6,
+      "layout_variant": false,
+      "duration_s": 30.0,
+      "frames": 600,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded7",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 6,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r2",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "D3"
+      },
+      "actual_layout": {
+        "target": "D4",
+        "distractor": "D3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep7-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep7-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 7,
+      "round": 2,
+      "layout_row_1based": 7,
+      "layout_variant": false,
+      "duration_s": 21.7,
+      "frames": 434,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded8",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 7,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r2",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "B2"
+      },
+      "actual_layout": {
+        "target": "D4",
+        "distractor": "B2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep8-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep8-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 8,
+      "round": 2,
+      "layout_row_1based": 8,
+      "layout_variant": false,
+      "duration_s": 11.1,
+      "frames": 222,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded9",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 8,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r2",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "D4"
+      },
+      "actual_layout": {
+        "target": "B2",
+        "distractor": "D4"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep9-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep9-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 9,
+      "round": 2,
+      "layout_row_1based": 9,
+      "layout_variant": false,
+      "duration_s": 11.8,
+      "frames": 236,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded10",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 9,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r2",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "B1"
+      },
+      "actual_layout": {
+        "target": "B2",
+        "distractor": "B1"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep10-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r2/ep10-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 10,
+      "round": 2,
+      "layout_row_1based": 10,
+      "layout_variant": false,
+      "duration_s": 18.4,
+      "frames": 368,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r3-recorded1",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 0,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r3",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "C3"
+      },
+      "actual_layout": {
+        "target": "A1",
+        "distractor": "C3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep1-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep1-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 1,
+      "round": 3,
+      "layout_row_1based": 1,
+      "layout_variant": false,
+      "duration_s": 24.4,
+      "frames": 488,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r3-recorded2",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 1,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r3",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "A2"
+      },
+      "actual_layout": {
+        "target": "A1",
+        "distractor": "A2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep2-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep2-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 2,
+      "round": 3,
+      "layout_row_1based": 2,
+      "layout_variant": false,
+      "duration_s": 15.65,
+      "frames": 313,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r3-recorded3",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 2,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r3",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "A3"
+      },
+      "actual_layout": {
+        "target": "A4",
+        "distractor": "A3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep3-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep3-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 3,
+      "round": 3,
+      "layout_row_1based": 3,
+      "layout_variant": false,
+      "duration_s": 13.5,
+      "frames": 270,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r3-recorded4",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 3,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r3",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "C2"
+      },
+      "actual_layout": {
+        "target": "A4",
+        "distractor": "C2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep4-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep4-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 4,
+      "round": 3,
+      "layout_row_1based": 4,
+      "layout_variant": false,
+      "duration_s": 22.1,
+      "frames": 442,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r3-recorded5",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 4,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r3",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "B3"
+      },
+      "actual_layout": {
+        "target": "D1",
+        "distractor": "B3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep5-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep5-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 5,
+      "round": 3,
+      "layout_row_1based": 5,
+      "layout_variant": false,
+      "duration_s": 15.05,
+      "frames": 301,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r3-recorded6",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 5,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r3",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "C1"
+      },
+      "actual_layout": {
+        "target": "D1",
+        "distractor": "C1"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep6-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep6-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 6,
+      "round": 3,
+      "layout_row_1based": 6,
+      "layout_variant": false,
+      "duration_s": 30.0,
+      "frames": 600,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r3-recorded7",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 6,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r3",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "D3"
+      },
+      "actual_layout": {
+        "target": "D4",
+        "distractor": "D3"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep7-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep7-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 7,
+      "round": 3,
+      "layout_row_1based": 7,
+      "layout_variant": false,
+      "duration_s": 29.9,
+      "frames": 598,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r3-recorded8",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 7,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r3",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "B2"
+      },
+      "actual_layout": {
+        "target": "D4",
+        "distractor": "B2"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep8-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep8-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 8,
+      "round": 3,
+      "layout_row_1based": 8,
+      "layout_variant": false,
+      "duration_s": 12.45,
+      "frames": 249,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r3-recorded9",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 8,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r3",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "D4"
+      },
+      "actual_layout": {
+        "target": "B2",
+        "distractor": "D4"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep9-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep9-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 9,
+      "round": 3,
+      "layout_row_1based": 9,
+      "layout_variant": false,
+      "duration_s": 12.5,
+      "frames": 250,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-p0:red-r3-recorded10",
+      "batch": "act-p0",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 9,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261029T215724-red-r3",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "B1"
+      },
+      "actual_layout": {
+        "target": "B2",
+        "distractor": "B1"
+      },
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": true,
+      "human_assistance": false,
+      "assistance_source": "user confirmation 2026-10-30",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "末态标签来自历史全量复核；首抓未知。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/all-results.json",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep10-side-12-preview.jpg",
+        "/data/work/so101-evidence/real-robot/p0-20261029T215724/red-r3/ep10-wrist-12-preview.jpg"
+      ],
+      "recorded_episode_1based": 10,
+      "round": 3,
+      "layout_row_1based": 10,
+      "layout_variant": false,
+      "duration_s": 13.15,
+      "frames": 263,
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null
+    }
+  ],
+  "confirmed_autonomous_success_count": 46,
+  "autonomy_unknown_trials": 0
+}

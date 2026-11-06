@@ -1,0 +1,9 @@
+[
+  {
+    "dataset": "green-r2",
+    "recorded_episode": 7,
+    "frames": 1,
+    "seconds": 0.05,
+    "reason": "single frame; target already in bowl; not a fresh task trial"
+  }
+]

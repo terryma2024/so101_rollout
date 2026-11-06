@@ -1,0 +1,538 @@
+{
+  "definition": "task failure or human-assisted completion; not only final physical bowl state",
+  "count": 66,
+  "cases": [
+    {
+      "case_id": "act-green-new:3",
+      "file": "trials/act-green-new.json",
+      "trial_array_index_0based": 2,
+      "categories": [
+        "grasp_or_recovery_failure"
+      ]
+    },
+    {
+      "case_id": "act-green-new:4",
+      "file": "trials/act-green-new.json",
+      "trial_array_index_0based": 3,
+      "categories": [
+        "grasp_or_recovery_failure"
+      ]
+    },
+    {
+      "case_id": "act-green-new:7",
+      "file": "trials/act-green-new.json",
+      "trial_array_index_0based": 6,
+      "categories": [
+        "grasp_or_recovery_failure"
+      ]
+    },
+    {
+      "case_id": "act-green-old:1",
+      "file": "trials/act-green-old.json",
+      "trial_array_index_0based": 0,
+      "categories": [
+        "wrong_color_deposit"
+      ]
+    },
+    {
+      "case_id": "act-green-old:4",
+      "file": "trials/act-green-old.json",
+      "trial_array_index_0based": 3,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-green-old:5",
+      "file": "trials/act-green-old.json",
+      "trial_array_index_0based": 4,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-green-old:10",
+      "file": "trials/act-green-old.json",
+      "trial_array_index_0based": 9,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:green-r1-recorded6",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 5,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:green-r1-recorded10",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 9,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:green-r2-recorded11",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 19,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:green-r3-recorded10",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 29,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:red-r1-recorded4",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 33,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:red-r1-recorded5",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 34,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:red-r1-recorded10",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 39,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded1",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 40,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded4",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 43,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded6",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 45,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:red-r2-recorded7",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 46,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:red-r3-recorded4",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 53,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:red-r3-recorded6",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 55,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "act-p0:red-r3-recorded7",
+      "file": "trials/act-p0.json",
+      "trial_array_index_0based": 56,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "smolvla-async4:green-ep0",
+      "file": "trials/smolvla-async4.json",
+      "trial_array_index_0based": 0,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-async4:green-ep1",
+      "file": "trials/smolvla-async4.json",
+      "trial_array_index_0based": 1,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-hard12:7",
+      "file": "trials/smolvla-hard12.json",
+      "trial_array_index_0based": 6,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-hard12:8",
+      "file": "trials/smolvla-hard12.json",
+      "trial_array_index_0based": 7,
+      "categories": [
+        "wrong_color_deposit"
+      ]
+    },
+    {
+      "case_id": "smolvla-hard12:9",
+      "file": "trials/smolvla-hard12.json",
+      "trial_array_index_0based": 8,
+      "categories": [
+        "wrong_color_deposit"
+      ]
+    },
+    {
+      "case_id": "smolvla-other16:1",
+      "file": "trials/smolvla-other16.json",
+      "trial_array_index_0based": 0,
+      "categories": [
+        "wrong_color_deposit",
+        "execution_cleanup_error"
+      ]
+    },
+    {
+      "case_id": "smolvla-other16:3",
+      "file": "trials/smolvla-other16.json",
+      "trial_array_index_0based": 2,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-other16:5",
+      "file": "trials/smolvla-other16.json",
+      "trial_array_index_0based": 4,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-other16:7",
+      "file": "trials/smolvla-other16.json",
+      "trial_array_index_0based": 6,
+      "categories": [
+        "wrong_color_deposit"
+      ]
+    },
+    {
+      "case_id": "smolvla-other16:8",
+      "file": "trials/smolvla-other16.json",
+      "trial_array_index_0based": 7,
+      "categories": [
+        "wrong_color_deposit"
+      ]
+    },
+    {
+      "case_id": "smolvla-other16:9",
+      "file": "trials/smolvla-other16.json",
+      "trial_array_index_0based": 8,
+      "categories": [
+        "no_stable_grasp_observed",
+        "control_timing_anomaly"
+      ]
+    },
+    {
+      "case_id": "smolvla-other16:10",
+      "file": "trials/smolvla-other16.json",
+      "trial_array_index_0based": 9,
+      "categories": [
+        "wrong_color_deposit"
+      ]
+    },
+    {
+      "case_id": "smolvla-other16:12",
+      "file": "trials/smolvla-other16.json",
+      "trial_array_index_0based": 11,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-other16:15",
+      "file": "trials/smolvla-other16.json",
+      "trial_array_index_0based": 14,
+      "categories": [
+        "wrong_color_grasp_and_no_release",
+        "gripper_overload"
+      ]
+    },
+    {
+      "case_id": "smolvla-sync5k:1",
+      "file": "trials/smolvla-sync5k.json",
+      "trial_array_index_0based": 0,
+      "categories": [
+        "wrong_color_deposit"
+      ]
+    },
+    {
+      "case_id": "smolvla-sync5k:2",
+      "file": "trials/smolvla-sync5k.json",
+      "trial_array_index_0based": 1,
+      "categories": [
+        "grasp_failure"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-adhoc20:G1-01",
+      "file": "trials/smolvla-v2-adhoc20.json",
+      "trial_array_index_0based": 1,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-adhoc20:G1-02",
+      "file": "trials/smolvla-v2-adhoc20.json",
+      "trial_array_index_0based": 2,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-adhoc20:G2-02",
+      "file": "trials/smolvla-v2-adhoc20.json",
+      "trial_array_index_0based": 7,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-adhoc20:R-00",
+      "file": "trials/smolvla-v2-adhoc20.json",
+      "trial_array_index_0based": 10,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-adhoc20:R-01",
+      "file": "trials/smolvla-v2-adhoc20.json",
+      "trial_array_index_0based": 11,
+      "categories": [
+        "assisted_completion"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-adhoc20:R-02",
+      "file": "trials/smolvla-v2-adhoc20.json",
+      "trial_array_index_0based": 12,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-adhoc20:R-03",
+      "file": "trials/smolvla-v2-adhoc20.json",
+      "trial_array_index_0based": 13,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-adhoc20:R-05",
+      "file": "trials/smolvla-v2-adhoc20.json",
+      "trial_array_index_0based": 15,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-adhoc20:R-07",
+      "file": "trials/smolvla-v2-adhoc20.json",
+      "trial_array_index_0based": 17,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-adhoc20:R-08",
+      "file": "trials/smolvla-v2-adhoc20.json",
+      "trial_array_index_0based": 18,
+      "categories": [
+        "target_not_in_bowl"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-generalization16:3",
+      "file": "trials/smolvla-v2-generalization16.json",
+      "trial_array_index_0based": 2,
+      "categories": [
+        "wrong_color_grasp_or_deposit"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-generalization16:5",
+      "file": "trials/smolvla-v2-generalization16.json",
+      "trial_array_index_0based": 4,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-generalization16:6",
+      "file": "trials/smolvla-v2-generalization16.json",
+      "trial_array_index_0based": 5,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-generalization16:8",
+      "file": "trials/smolvla-v2-generalization16.json",
+      "trial_array_index_0based": 7,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-generalization16:12",
+      "file": "trials/smolvla-v2-generalization16.json",
+      "trial_array_index_0based": 11,
+      "categories": [
+        "wrong_color_grasp_or_deposit"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-generalization16:14",
+      "file": "trials/smolvla-v2-generalization16.json",
+      "trial_array_index_0based": 13,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-generalization16:15",
+      "file": "trials/smolvla-v2-generalization16.json",
+      "trial_array_index_0based": 14,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-hard12:7",
+      "file": "trials/smolvla-v2-hard12.json",
+      "trial_array_index_0based": 6,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-random20:5",
+      "file": "trials/smolvla-v2-random20.json",
+      "trial_array_index_0based": 4,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-random20:11",
+      "file": "trials/smolvla-v2-random20.json",
+      "trial_array_index_0based": 10,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-random20:12",
+      "file": "trials/smolvla-v2-random20.json",
+      "trial_array_index_0based": 11,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-random20:14",
+      "file": "trials/smolvla-v2-random20.json",
+      "trial_array_index_0based": 13,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-random20:19",
+      "file": "trials/smolvla-v2-random20.json",
+      "trial_array_index_0based": 18,
+      "categories": [
+        "wrong_color_grasp_and_deposit"
+      ]
+    },
+    {
+      "case_id": "smolvla-v2-random20:20",
+      "file": "trials/smolvla-v2-random20.json",
+      "trial_array_index_0based": 19,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-v3-hard12:6",
+      "file": "trials/smolvla-v3-hard12.json",
+      "trial_array_index_0based": 5,
+      "categories": [
+        "wrong_color_grasp_or_deposit"
+      ]
+    },
+    {
+      "case_id": "smolvla-v3-hard12:7",
+      "file": "trials/smolvla-v3-hard12.json",
+      "trial_array_index_0based": 6,
+      "categories": [
+        "no_stable_grasp_observed"
+      ]
+    },
+    {
+      "case_id": "smolvla-v3-hard12:8",
+      "file": "trials/smolvla-v3-hard12.json",
+      "trial_array_index_0based": 7,
+      "categories": [
+        "wrong_color_grasp_or_deposit",
+        "gripper_overload_on_exit"
+      ]
+    },
+    {
+      "case_id": "smolvla-v3-hard12:9",
+      "file": "trials/smolvla-v3-hard12.json",
+      "trial_array_index_0based": 8,
+      "categories": [
+        "wrong_color_grasp_or_deposit"
+      ]
+    },
+    {
+      "case_id": "smolvla-v3-hard12:12",
+      "file": "trials/smolvla-v3-hard12.json",
+      "trial_array_index_0based": 11,
+      "categories": [
+        "wrong_color_grasp_or_deposit"
+      ]
+    }
+  ]
+}

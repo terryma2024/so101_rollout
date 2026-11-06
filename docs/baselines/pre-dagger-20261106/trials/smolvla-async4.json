@@ -1,0 +1,123 @@
+{
+  "batch": "smolvla-async4",
+  "model": "SmolVLA v1 intended20k; actual checkpoint SHA not frozen",
+  "model_sha256": null,
+  "plan_source": null,
+  "report": "../../experiments/smolvla-paired-rollout-20261102.md",
+  "valid_trials": 4,
+  "target_in_bowl": 2,
+  "autonomous_success_count": null,
+  "autonomy_caution": "null assistance means unknown; observed final outcome does not certify autonomous success",
+  "trials": [
+    {
+      "case_id": "smolvla-async4:green-ep0",
+      "batch": "smolvla-async4",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 0,
+      "dataset_path": "/data/work/so101-datasets/eval-smolvla-20k-async-green-r1-20261031",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": "G C2/R C3",
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": null,
+      "assistance_source": null,
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "no_stable_grasp_observed"
+      ],
+      "observation": "绿色碰推未稳定夹起；第二布局首次接近集中C2。",
+      "evidence_paths": [
+        "docs/experiments/smolvla-paired-rollout-20261102.md"
+      ],
+      "model": "SmolVLA v1 intended20k; actual checkpoint SHA not frozen",
+      "model_sha256": null
+    },
+    {
+      "case_id": "smolvla-async4:green-ep1",
+      "batch": "smolvla-async4",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 1,
+      "dataset_path": "/data/work/so101-datasets/eval-smolvla-20k-async-green-r1-20261031",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": "R C2/G C3",
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": null,
+      "assistance_source": null,
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "no_stable_grasp_observed"
+      ],
+      "observation": "绿色碰推未稳定夹起；第二布局首次接近集中C2。",
+      "evidence_paths": [
+        "docs/experiments/smolvla-paired-rollout-20261102.md"
+      ],
+      "model": "SmolVLA v1 intended20k; actual checkpoint SHA not frozen",
+      "model_sha256": null
+    },
+    {
+      "case_id": "smolvla-async4:red-ep0",
+      "batch": "smolvla-async4",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 0,
+      "dataset_path": "/data/work/so101-datasets/eval-smolvla-20k-async-red-r1-20261031",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": "G C2/R C3",
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": null,
+      "human_assistance": null,
+      "assistance_source": null,
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "红块入碗。",
+      "evidence_paths": [
+        "docs/experiments/smolvla-paired-rollout-20261102.md"
+      ],
+      "model": "SmolVLA v1 intended20k; actual checkpoint SHA not frozen",
+      "model_sha256": null
+    },
+    {
+      "case_id": "smolvla-async4:red-ep1",
+      "batch": "smolvla-async4",
+      "trial_id_1based": null,
+      "source_trial": null,
+      "episode_index_0based": 1,
+      "dataset_path": "/data/work/so101-datasets/eval-smolvla-20k-async-red-r1-20261031",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": "R C2/G C3",
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": null,
+      "human_assistance": null,
+      "assistance_source": null,
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "红块入碗。",
+      "evidence_paths": [
+        "docs/experiments/smolvla-paired-rollout-20261102.md"
+      ],
+      "model": "SmolVLA v1 intended20k; actual checkpoint SHA not frozen",
+      "model_sha256": null
+    }
+  ],
+  "confirmed_autonomous_success_count": 0,
+  "autonomy_unknown_trials": 2
+}

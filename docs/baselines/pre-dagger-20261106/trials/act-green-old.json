@@ -1,0 +1,365 @@
+{
+  "batch": "act-green-old",
+  "model": "/data/work/so101-policies/real-act-002-20261028/checkpoints/100000/pretrained_model",
+  "model_sha256": null,
+  "plan_source": null,
+  "report": "history/act-green-comparison.md",
+  "valid_trials": 10,
+  "target_in_bowl": 6,
+  "autonomous_success_count": null,
+  "autonomy_caution": "null assistance means unknown; observed final outcome does not certify autonomous success",
+  "trials": [
+    {
+      "case_id": "act-green-old:1",
+      "batch": "act-green-old",
+      "trial_id_1based": 1,
+      "source_trial": null,
+      "episode_index_0based": 0,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261030T220433-actp2-green-old-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "C3"
+      },
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": null,
+      "assistance_source": "抽样侧图中未见人手协助；未连续播放整段，不能由稀疏帧排除。",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "wrong_color_deposit"
+      ],
+      "observation": "明确抓错颜色：最终红色入碗，绿色在机械臂前方桌面上。已额外查看640x480末帧确认。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/scene-audit/visual-review.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/old-review/side-page1-preview.jpg",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/old-review/ep1-side-last.jpg",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/data-audit/audit.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/training-audit/audit.json"
+      ],
+      "recorded_episode_1based": 1,
+      "duration_s": 26.3,
+      "model": "/data/work/so101-policies/real-act-002-20261028/checkpoints/100000/pretrained_model",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-green-old:2",
+      "batch": "act-green-old",
+      "trial_id_1based": 2,
+      "source_trial": null,
+      "episode_index_0based": 1,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261030T220433-actp2-green-old-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A1",
+        "distractor": "A2"
+      },
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": null,
+      "human_assistance": null,
+      "assistance_source": "抽样侧图中未见人手协助；未连续播放整段，不能由稀疏帧排除。",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "最后两个抽样侧帧清楚可见绿色稳定在碗内，机械臂已离开。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/scene-audit/visual-review.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/old-review/side-page1-preview.jpg",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/data-audit/audit.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/training-audit/audit.json"
+      ],
+      "recorded_episode_1based": 2,
+      "duration_s": 12.75,
+      "model": "/data/work/so101-policies/real-act-002-20261028/checkpoints/100000/pretrained_model",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-green-old:3",
+      "batch": "act-green-old",
+      "trial_id_1based": 3,
+      "source_trial": null,
+      "episode_index_0based": 2,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261030T220433-actp2-green-old-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "A3"
+      },
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": null,
+      "human_assistance": null,
+      "assistance_source": "抽样侧图中未见人手协助；未连续播放整段，不能由稀疏帧排除。",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "最后两个抽样侧帧清楚可见绿色稳定在碗内，机械臂已离开。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/scene-audit/visual-review.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/old-review/side-page1-preview.jpg",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/data-audit/audit.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/training-audit/audit.json"
+      ],
+      "recorded_episode_1based": 3,
+      "duration_s": 14.8,
+      "model": "/data/work/so101-policies/real-act-002-20261028/checkpoints/100000/pretrained_model",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-green-old:4",
+      "batch": "act-green-old",
+      "trial_id_1based": 4,
+      "source_trial": null,
+      "episode_index_0based": 3,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261030T220433-actp2-green-old-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "A4",
+        "distractor": "C2"
+      },
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": null,
+      "assistance_source": "抽样侧图中未见人手协助；未连续播放整段，不能由稀疏帧排除。",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "绿色仍在纸面上，末帧碗为空，存在移动后未入碗。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/scene-audit/visual-review.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/old-review/side-page1-preview.jpg",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/data-audit/audit.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/training-audit/audit.json"
+      ],
+      "recorded_episode_1based": 4,
+      "duration_s": 30.0,
+      "model": "/data/work/so101-policies/real-act-002-20261028/checkpoints/100000/pretrained_model",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-green-old:5",
+      "batch": "act-green-old",
+      "trial_id_1based": 5,
+      "source_trial": null,
+      "episode_index_0based": 4,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261030T220433-actp2-green-old-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "B3"
+      },
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": null,
+      "assistance_source": "抽样侧图中未见人手协助；未连续播放整段，不能由稀疏帧排除。",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "绿色位于碗左侧纸面/桌面边缘，末帧碗为空。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/scene-audit/visual-review.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/old-review/side-page1-preview.jpg",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/data-audit/audit.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/training-audit/audit.json"
+      ],
+      "recorded_episode_1based": 5,
+      "duration_s": 30.0,
+      "model": "/data/work/so101-policies/real-act-002-20261028/checkpoints/100000/pretrained_model",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-green-old:6",
+      "batch": "act-green-old",
+      "trial_id_1based": 6,
+      "source_trial": null,
+      "episode_index_0based": 5,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261030T220433-actp2-green-old-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D1",
+        "distractor": "C1"
+      },
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": null,
+      "human_assistance": null,
+      "assistance_source": "抽样侧图中未见人手协助；未连续播放整段，不能由稀疏帧排除。",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "最后两个抽样侧帧清楚可见绿色稳定在碗内，机械臂已离开。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/scene-audit/visual-review.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/old-review/side-page2-preview.jpg",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/data-audit/audit.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/training-audit/audit.json"
+      ],
+      "recorded_episode_1based": 6,
+      "duration_s": 18.1,
+      "model": "/data/work/so101-policies/real-act-002-20261028/checkpoints/100000/pretrained_model",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-green-old:7",
+      "batch": "act-green-old",
+      "trial_id_1based": 7,
+      "source_trial": null,
+      "episode_index_0based": 6,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261030T220433-actp2-green-old-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "D3"
+      },
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": null,
+      "human_assistance": null,
+      "assistance_source": "抽样侧图中未见人手协助；未连续播放整段，不能由稀疏帧排除。",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "最后两个抽样侧帧清楚可见绿色稳定在碗内，机械臂已离开。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/scene-audit/visual-review.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/old-review/side-page2-preview.jpg",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/data-audit/audit.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/training-audit/audit.json"
+      ],
+      "recorded_episode_1based": 7,
+      "duration_s": 17.05,
+      "model": "/data/work/so101-policies/real-act-002-20261028/checkpoints/100000/pretrained_model",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-green-old:8",
+      "batch": "act-green-old",
+      "trial_id_1based": 8,
+      "source_trial": null,
+      "episode_index_0based": 7,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261030T220433-actp2-green-old-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "D4",
+        "distractor": "B2"
+      },
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": null,
+      "human_assistance": null,
+      "assistance_source": "抽样侧图中未见人手协助；未连续播放整段，不能由稀疏帧排除。",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "最后两个抽样侧帧清楚可见绿色稳定在碗内，机械臂已离开。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/scene-audit/visual-review.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/old-review/side-page2-preview.jpg",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/data-audit/audit.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/training-audit/audit.json"
+      ],
+      "recorded_episode_1based": 8,
+      "duration_s": 14.7,
+      "model": "/data/work/so101-policies/real-act-002-20261028/checkpoints/100000/pretrained_model",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-green-old:9",
+      "batch": "act-green-old",
+      "trial_id_1based": 9,
+      "source_trial": null,
+      "episode_index_0based": 8,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261030T220433-actp2-green-old-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "D4"
+      },
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": true,
+      "autonomous_success": null,
+      "human_assistance": null,
+      "assistance_source": "抽样侧图中未见人手协助；未连续播放整段，不能由稀疏帧排除。",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [],
+      "observation": "最后两个抽样侧帧清楚可见绿色稳定在碗内，机械臂已离开。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/scene-audit/visual-review.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/old-review/side-page2-preview.jpg",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/data-audit/audit.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/training-audit/audit.json"
+      ],
+      "recorded_episode_1based": 9,
+      "duration_s": 13.5,
+      "model": "/data/work/so101-policies/real-act-002-20261028/checkpoints/100000/pretrained_model",
+      "model_sha256": null
+    },
+    {
+      "case_id": "act-green-old:10",
+      "batch": "act-green-old",
+      "trial_id_1based": 10,
+      "source_trial": null,
+      "episode_index_0based": 9,
+      "dataset_path": "/data/work/so101-datasets/eval-p0-20261030T220433-actp2-green-old-r1",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": {
+        "target": "B2",
+        "distractor": "B1"
+      },
+      "actual_layout": null,
+      "layout_precision": "grid labels only; no millimetre/yaw certification",
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": null,
+      "assistance_source": "抽样侧图中未见人手协助；未连续播放整段，不能由稀疏帧排除。",
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "target_not_in_bowl"
+      ],
+      "observation": "绿色留在红色相邻位置，末帧碗为空。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/scene-audit/visual-review.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/old-review/side-page2-preview.jpg",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/data-audit/audit.json",
+        "/data/work/so101-evidence/real-robot/green-act-comparison-20261030/training-audit/audit.json"
+      ],
+      "recorded_episode_1based": 10,
+      "duration_s": 30.0,
+      "model": "/data/work/so101-policies/real-act-002-20261028/checkpoints/100000/pretrained_model",
+      "model_sha256": null
+    }
+  ],
+  "model_training_source": "/data/work/so101-datasets/real-cube-bowl-merged-20261028",
+  "confirmed_autonomous_success_count": 0,
+  "autonomy_unknown_trials": 6
+}

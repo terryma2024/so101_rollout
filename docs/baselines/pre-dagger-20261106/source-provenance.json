@@ -1,0 +1,102 @@
+{
+  "evidence_root": "/data/work/so101-evidence/real-robot",
+  "method": "read-only existing reports/JSON; no new visual audit; SHA records archive inputs, not a new full raw-data integrity audit",
+  "sources": {
+    "p0-20261029T215724/ledger.md": {
+      "sha256": "f55147e26eee4ff22a0a503df8cc3bd40b9583a24791c037bf2f342d42ae353a",
+      "bytes": 16469
+    },
+    "green-act-comparison-20261030/REPORT.md": {
+      "sha256": "479b448c1f42ad7b01f18911093473e24f9bc4ff56f519d80a3a1f223e05067c",
+      "bytes": 6415
+    },
+    "smolvla-rollout-diagnosis-20261031/REPORT.md": {
+      "sha256": "d23be9ec97a971742d68abd7f471ab2cbd4331e987faa484a8c668428b93d95a",
+      "bytes": 2388
+    },
+    "smolvla-12trial-visual-20261102/visual-report.md": {
+      "sha256": "77031f7d3ea46d0ec9752f6564eb0891663a12db8a3b408864473bea9be8c639",
+      "bytes": 3470
+    },
+    "smolvla-other-positions-analysis-20261102/visual/report.md": {
+      "sha256": "052193dc1d814a86c5ae724f5ee18c1b9838461a30ebfafbd777afa89a465496",
+      "bytes": 6940
+    },
+    "p0-20261029T215724/all-results.json": {
+      "sha256": "613ae228a6f2de87fe0ac9bcc2c0acb14192698c08de7e1e5c7a4f36df1ca233",
+      "bytes": 42960
+    },
+    "p0-20261029T215724/excluded-records.json": {
+      "sha256": "434dbc20814fff4fa59a6ef24e18ffbe6b3f20f51d4d84a05955f9c8722a8830",
+      "bytes": 180
+    },
+    "p0-20261029T215724/all-summary.json": {
+      "sha256": "355e97c4728f65b3324e278cd719045190d397eb99b6327b59543667366d4a3d",
+      "bytes": 2784
+    },
+    "green-act-comparison-20261030/scene-audit/visual-review.json": {
+      "sha256": "d7672a5e9441071af50e17b4840ec9552539ed24cadaa0131ca9459a05e87683",
+      "bytes": 12846
+    },
+    "smolvla-hard-recording-20261102/collection-package/plan.json": {
+      "sha256": "3711ef915618a09e109e70db949c676acdf9dc0d380aaf24391f0cf6fb2522bb",
+      "bytes": 26074
+    },
+    "smolvla-other-positions-regression-20261102/collection-package/plan.json": {
+      "sha256": "f98b45cc3ca2162aa729a86fd0ead295aa21de8dc2e41a72755a527c615c8199",
+      "bytes": 34561
+    },
+    "smolvla-v2-v3-comparison-20261104/v2-visual-analysis/visual_results.json": {
+      "sha256": "004740ca58911f083814b9c2906a9342d19d3af5c74d1cfaf4bb804287982957",
+      "bytes": 4010
+    },
+    "smolvla-v2-v3-comparison-20261104/v2/plan.json": {
+      "sha256": "5e354bac9aa9dcbb68a85ce5f3281099a3d5f004535295ee7486a7fbfac5b79c",
+      "bytes": 26245
+    },
+    "smolvla-v2-v3-comparison-20261104/v3-visual-analysis/visual_results.json": {
+      "sha256": "d2d1e31c8b624b623e3807831f5472d7d4c5f9adeffecd5da699b0e4a390e895",
+      "bytes": 10996
+    },
+    "smolvla-v2-v3-comparison-20261104/v3/plan.json": {
+      "sha256": "54e21110877bac260bd48e9e91d7dca91005b5d85cf2d0f980577f964b8440ae",
+      "bytes": 26533
+    },
+    "smolvla-v2-v3-comparison-20261104/v3-continuation-original09-12/plan.json": {
+      "sha256": "266ad01d95e00fd024d2017e8cf22ba3cac8d40115bcb35e194bd0ee88c1d254",
+      "bytes": 13160
+    },
+    "smolvla-v2-generalization16-20261104/visual-analysis/visual_results.json": {
+      "sha256": "db9c29aa1771ff4c7a8ef207ac52e13b67ef70f21c0d161936b967a5eb9abb26",
+      "bytes": 16223
+    },
+    "smolvla-v2-generalization16-20261104/collection-package/plan.json": {
+      "sha256": "13b91655818ecef4d5addf4e213a15177d58d9cc87e1fd4a2d7b0f4e8ef14727",
+      "bytes": 77784
+    },
+    "smolvla-v2-random20-20261104/visual-analysis/visual_results.json": {
+      "sha256": "7918a555563a5f9eb67a79e5397506ab3b817131e11662643dde08423a477129",
+      "bytes": 17707
+    },
+    "smolvla-v2-random20-20261104/collection-package/plan.json": {
+      "sha256": "a776558a8fb33398ff08e0dc47df8903e3220771ef26db736afc5031dd6aed64",
+      "bytes": 60842
+    },
+    "smolvla-v2-adhoc-analysis-20261104/visual_results.json": {
+      "sha256": "7b307959cd433fa7dd0c76c102577f28a970480184df075c1325ebe855114dd7",
+      "bytes": 12917
+    },
+    "green-act-comparison-20261030/data-audit/audit.json": {
+      "sha256": "4114e9b7b4e75b3436b3ef42672e4d129ac7d397756c3ed8c2682fd40f3b4946",
+      "bytes": 135109
+    },
+    "green-act-comparison-20261030/training-audit/audit.json": {
+      "sha256": "d6d9ecdc7b26033601822003dd26e21b9c0a079b6447395931e586ca100f0676",
+      "bytes": 28331
+    },
+    "smolvla-rollout-diagnosis-20261031/audit/report.md": {
+      "sha256": "da866da60f4fb62e9db691714ad15aa2bc247b3f9a1841b0f39c6c62888c7f4f",
+      "bytes": 5655
+    }
+  }
+}

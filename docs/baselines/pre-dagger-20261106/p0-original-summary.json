@@ -1,0 +1,162 @@
+{
+  "green": {
+    "success": 26,
+    "trials": 30,
+    "rounds": {
+      "1": [
+        8,
+        10
+      ],
+      "2": [
+        9,
+        10
+      ],
+      "3": [
+        9,
+        10
+      ]
+    },
+    "layouts": {
+      "1": {
+        "target": "A1",
+        "distractor": "C3",
+        "success": 3,
+        "trials": 3
+      },
+      "2": {
+        "target": "A1",
+        "distractor": "A2",
+        "success": 3,
+        "trials": 3
+      },
+      "3": {
+        "target": "A4",
+        "distractor": "A3",
+        "success": 3,
+        "trials": 3
+      },
+      "4": {
+        "target": "A4",
+        "distractor": "C2",
+        "success": 2,
+        "trials": 2
+      },
+      "5": {
+        "target": "D1",
+        "distractor": "B3",
+        "success": 3,
+        "trials": 3
+      },
+      "6": {
+        "target": "D1",
+        "distractor": "C1",
+        "success": 2,
+        "trials": 3
+      },
+      "7": {
+        "target": "D4",
+        "distractor": "D3",
+        "success": 3,
+        "trials": 3
+      },
+      "8": {
+        "target": "D4",
+        "distractor": "B2",
+        "success": 3,
+        "trials": 3
+      },
+      "9": {
+        "target": "B2",
+        "distractor": "D4",
+        "success": 3,
+        "trials": 3
+      },
+      "10": {
+        "target": "B2",
+        "distractor": "B1",
+        "success": 0,
+        "trials": 3
+      }
+    }
+  },
+  "red": {
+    "success": 20,
+    "trials": 30,
+    "rounds": {
+      "1": [
+        7,
+        10
+      ],
+      "2": [
+        6,
+        10
+      ],
+      "3": [
+        7,
+        10
+      ]
+    },
+    "layouts": {
+      "1": {
+        "target": "A1",
+        "distractor": "C3",
+        "success": 2,
+        "trials": 3
+      },
+      "2": {
+        "target": "A1",
+        "distractor": "A2",
+        "success": 3,
+        "trials": 3
+      },
+      "3": {
+        "target": "A4",
+        "distractor": "A3",
+        "success": 3,
+        "trials": 3
+      },
+      "4": {
+        "target": "A4",
+        "distractor": "C2",
+        "success": 0,
+        "trials": 3
+      },
+      "5": {
+        "target": "D1",
+        "distractor": "B3",
+        "success": 2,
+        "trials": 3
+      },
+      "6": {
+        "target": "D1",
+        "distractor": "C1",
+        "success": 0,
+        "trials": 3
+      },
+      "7": {
+        "target": "D4",
+        "distractor": "D3",
+        "success": 1,
+        "trials": 3
+      },
+      "8": {
+        "target": "D4",
+        "distractor": "B2",
+        "success": 3,
+        "trials": 3
+      },
+      "9": {
+        "target": "B2",
+        "distractor": "D4",
+        "success": 3,
+        "trials": 3
+      },
+      "10": {
+        "target": "B2",
+        "distractor": "B1",
+        "success": 3,
+        "trials": 3
+      }
+    }
+  }
+}

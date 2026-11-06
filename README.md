@@ -128,6 +128,7 @@ The `so101-rollout` command prints its greeting.
 | `teleop.sh` | Leader/follower teleoperation with wrist/side images and joint data in rerun |
 | `teleop_viz.py` | Compatibility entry for the teleoperation adapter: sends images at camera rate (20 Hz), removing duplicates without changing control frequency; about 4 MB/s for both cameras instead of about 12 MB/s |
 | `check_bus.py` | Read-only servo communication diagnostics, for example `uv run --no-sync check_bus.py leader 30` while moving the arm by hand |
+| `tools/probe_leader_push_to_teach.py` | Leader-only gripper-to-teach feasibility probe; read-only by default, with explicit holding and gripper-triggered release. See the [test procedure](tools/leader_push_to_teach.md). |
 | `read_pose.py` | Read-only comparison of both arms' joint angles, without enabling torque or moving the arms |
 | [docs/guides/so101-lerobot.html](docs/guides/so101-lerobot.html) | Interactive explanation of servos, the bus protocol, calibration conversion, position control, the main loop, cameras and rerun; open directly in a browser |
 | [docs/plans/voice-agent-plan.md](docs/plans/voice-agent-plan.md) | Historical voice-agent plan |

@@ -1,0 +1,138 @@
+{
+  "archive_date": "2026-11-06",
+  "scope": "historical pre-DAgger rollouts; no new hardware execution or image review",
+  "batches": [
+    {
+      "batch": "act-p0",
+      "model": "Separate ACT green/red P0 baseline; exact launched checkpoint/hash not independently recovered",
+      "model_sha256": null,
+      "valid_trials": 60,
+      "target_in_bowl": 46,
+      "autonomous_success_count": 46,
+      "report": "history/act-p0-ledger.md",
+      "confirmed_autonomous_success_count": 46,
+      "autonomy_unknown_trials": 0
+    },
+    {
+      "batch": "act-green-new",
+      "model": "/data/work/so101-policies/real-act-green-p2-20261030/checkpoints/100000/pretrained_model",
+      "model_sha256": null,
+      "valid_trials": 10,
+      "target_in_bowl": 7,
+      "autonomous_success_count": null,
+      "report": "history/act-green-comparison.md",
+      "confirmed_autonomous_success_count": 0,
+      "autonomy_unknown_trials": 7
+    },
+    {
+      "batch": "act-green-old",
+      "model": "/data/work/so101-policies/real-act-002-20261028/checkpoints/100000/pretrained_model",
+      "model_sha256": null,
+      "valid_trials": 10,
+      "target_in_bowl": 6,
+      "autonomous_success_count": null,
+      "report": "history/act-green-comparison.md",
+      "confirmed_autonomous_success_count": 0,
+      "autonomy_unknown_trials": 6
+    },
+    {
+      "batch": "smolvla-sync5k",
+      "model": "SmolVLA v1 5000-step synchronous",
+      "model_sha256": null,
+      "valid_trials": 2,
+      "target_in_bowl": 0,
+      "autonomous_success_count": 0,
+      "report": "history/smolvla-sync-first-rollout.md",
+      "confirmed_autonomous_success_count": 0,
+      "autonomy_unknown_trials": 0
+    },
+    {
+      "batch": "smolvla-async4",
+      "model": "SmolVLA v1 intended20k; actual checkpoint SHA not frozen",
+      "model_sha256": null,
+      "valid_trials": 4,
+      "target_in_bowl": 2,
+      "autonomous_success_count": null,
+      "report": "../../experiments/smolvla-paired-rollout-20261102.md",
+      "confirmed_autonomous_success_count": 0,
+      "autonomy_unknown_trials": 2
+    },
+    {
+      "batch": "smolvla-hard12",
+      "model": "/data/work/so101-policies/real-smolvla-red-green-v1-20261030/checkpoints/020000/pretrained_model",
+      "model_sha256": "e96afce7f7bcb27237714421aa4f2e4360bc816ad3e89047363a0871ab0126bc",
+      "valid_trials": 12,
+      "target_in_bowl": 9,
+      "autonomous_success_count": null,
+      "report": "history/smolvla-hard12-visual.md",
+      "confirmed_autonomous_success_count": 0,
+      "autonomy_unknown_trials": 9
+    },
+    {
+      "batch": "smolvla-other16",
+      "model": "/data/work/so101-policies/real-smolvla-red-green-v1-20261030/checkpoints/020000/pretrained_model",
+      "model_sha256": "e96afce7f7bcb27237714421aa4f2e4360bc816ad3e89047363a0871ab0126bc",
+      "valid_trials": 16,
+      "target_in_bowl": 7,
+      "autonomous_success_count": null,
+      "report": "history/smolvla-other16-visual.md",
+      "confirmed_autonomous_success_count": 0,
+      "autonomy_unknown_trials": 7
+    },
+    {
+      "batch": "smolvla-v2-hard12",
+      "model": "/data/work/so101-policies/real-smolvla-red-green-v2-local-20261103/checkpoints/020000/pretrained_model",
+      "model_sha256": "16d9116230bf5bb8eba4f6a9c9bbf635df9f3d93869b04da3f66252ce3e44b85",
+      "valid_trials": 12,
+      "target_in_bowl": 11,
+      "autonomous_success_count": null,
+      "report": "../../experiments/smolvla-v2-v3-real-comparison-20261104.md",
+      "confirmed_autonomous_success_count": 0,
+      "autonomy_unknown_trials": 11
+    },
+    {
+      "batch": "smolvla-v3-hard12",
+      "model": "/data/work/so101-policies/real-smolvla-red-green-v3-balanced-local-20261103/checkpoints/008400/pretrained_model",
+      "model_sha256": "8bd1f67aef81e25728d571ab38e4274d62fd4df9e38922e95149a4d6e7d96cc5",
+      "valid_trials": 12,
+      "target_in_bowl": 7,
+      "autonomous_success_count": null,
+      "report": "../../experiments/smolvla-v2-v3-real-comparison-20261104.md",
+      "confirmed_autonomous_success_count": 0,
+      "autonomy_unknown_trials": 7
+    },
+    {
+      "batch": "smolvla-v2-generalization16",
+      "model": "/data/work/so101-policies/real-smolvla-red-green-v2-local-20261103/checkpoints/020000/pretrained_model",
+      "model_sha256": "16d9116230bf5bb8eba4f6a9c9bbf635df9f3d93869b04da3f66252ce3e44b85",
+      "valid_trials": 16,
+      "target_in_bowl": 9,
+      "autonomous_success_count": null,
+      "report": "../../experiments/smolvla-v2-generalization16-results-20261104.md",
+      "confirmed_autonomous_success_count": 0,
+      "autonomy_unknown_trials": 9
+    },
+    {
+      "batch": "smolvla-v2-random20",
+      "model": "/data/work/so101-policies/real-smolvla-red-green-v2-local-20261103/checkpoints/020000/pretrained_model",
+      "model_sha256": "16d9116230bf5bb8eba4f6a9c9bbf635df9f3d93869b04da3f66252ce3e44b85",
+      "valid_trials": 20,
+      "target_in_bowl": 14,
+      "autonomous_success_count": null,
+      "report": "../../experiments/smolvla-v2-random20-results-20261104.md",
+      "confirmed_autonomous_success_count": 0,
+      "autonomy_unknown_trials": 14
+    },
+    {
+      "batch": "smolvla-v2-adhoc20",
+      "model": "SmolVLA v2 20000-step; adhoc hash not independently frozen",
+      "model_sha256": null,
+      "valid_trials": 20,
+      "target_in_bowl": 11,
+      "autonomous_success_count": 10,
+      "report": "../../experiments/smolvla-v2-adhoc-results-20261104.md",
+      "confirmed_autonomous_success_count": 10,
+      "autonomy_unknown_trials": 0
+    }
+  ]
+}

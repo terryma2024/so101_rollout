@@ -1,0 +1,73 @@
+{
+  "batch": "smolvla-sync5k",
+  "model": "SmolVLA v1 5000-step synchronous",
+  "model_sha256": null,
+  "plan_source": null,
+  "report": "history/smolvla-sync-first-rollout.md",
+  "valid_trials": 2,
+  "target_in_bowl": 0,
+  "autonomous_success_count": 0,
+  "autonomy_caution": "null assistance means unknown; observed final outcome does not certify autonomous success",
+  "trials": [
+    {
+      "case_id": "smolvla-sync5k:1",
+      "batch": "smolvla-sync5k",
+      "trial_id_1based": 1,
+      "source_trial": null,
+      "episode_index_0based": 0,
+      "dataset_path": "/data/work/so101-datasets/eval-smolvla-5k-green-smoke-20261031",
+      "task": "Put the green cube into the paper bowl",
+      "instruction_color": "green",
+      "planned_layout": null,
+      "actual_layout": null,
+      "layout_precision": null,
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": null,
+      "assistance_source": null,
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "wrong_color_deposit"
+      ],
+      "observation": "绿指令抓红入碗；红抓取失败；两条严重抖动。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/smolvla-rollout-diagnosis-20261031/REPORT.md",
+        "/data/work/so101-evidence/real-robot/smolvla-rollout-diagnosis-20261031/audit/report.md"
+      ],
+      "model": "SmolVLA v1 5000-step synchronous",
+      "model_sha256": null
+    },
+    {
+      "case_id": "smolvla-sync5k:2",
+      "batch": "smolvla-sync5k",
+      "trial_id_1based": 2,
+      "source_trial": null,
+      "episode_index_0based": 0,
+      "dataset_path": "/data/work/so101-datasets/eval-smolvla-5k-red-smoke-20261031",
+      "task": "Put the red cube into the paper bowl",
+      "instruction_color": "red",
+      "planned_layout": null,
+      "actual_layout": null,
+      "layout_precision": null,
+      "target_final_in_bowl": false,
+      "autonomous_success": false,
+      "human_assistance": null,
+      "assistance_source": null,
+      "recovery_takeover_time_s": null,
+      "first_grasp_success": null,
+      "failure_categories": [
+        "grasp_failure"
+      ],
+      "observation": "红指令抓取失败，严重抖动。",
+      "evidence_paths": [
+        "/data/work/so101-evidence/real-robot/smolvla-rollout-diagnosis-20261031/REPORT.md",
+        "/data/work/so101-evidence/real-robot/smolvla-rollout-diagnosis-20261031/audit/report.md"
+      ],
+      "model": "SmolVLA v1 5000-step synchronous",
+      "model_sha256": null
+    }
+  ],
+  "confirmed_autonomous_success_count": 0,
+  "autonomy_unknown_trials": 0
+}
