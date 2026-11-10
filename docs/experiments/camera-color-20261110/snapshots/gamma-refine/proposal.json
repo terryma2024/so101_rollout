@@ -1,0 +1,40 @@
+{
+  "status": "executed_and_original_controls_restored",
+  "purpose": "Refine bracket after gamma90 preserved sampled highlights and gamma120 clipped a pink channel.",
+  "device": "/dev/v4l/by-id/usb-icSpring_icspring_camera-video-index0",
+  "control": "gamma",
+  "observed_original": 67,
+  "reported_range": [
+    1,
+    500
+  ],
+  "sequence": [
+    67,
+    100,
+    110,
+    67
+  ],
+  "startup_seconds": 30,
+  "settle_seconds_per_condition": 5,
+  "record_seconds_per_condition": 15,
+  "restore": 67,
+  "unchanged": {
+    "wrist_exposure_time_absolute": 40,
+    "wrist_white_balance_automatic": 1,
+    "wrist_saturation": 25,
+    "side_all_controls": "keep original values"
+  },
+  "recovery": "Restore original gamma on normal exit, exceptions and Ctrl+C; read back all controls and formats, and repeat original condition. Requery before execution.",
+  "limitations": "Control value is not a known mathematical exponent; AWB remains enabled; single position A and no adoption decision.",
+  "authorization": {
+    "user_message": "按这个细测表执行",
+    "sequence": [
+      67,
+      100,
+      110,
+      67
+    ]
+  },
+  "result_manifest": "manifest.json",
+  "final_live_verified_at": "2026-11-10T22:10:54.822174+08:00"
+}

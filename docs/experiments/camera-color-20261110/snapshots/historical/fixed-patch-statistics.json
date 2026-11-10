@@ -1,0 +1,1106 @@
+[
+  {
+    "trial": 1,
+    "camera": "wrist",
+    "color": "red",
+    "box": [
+      515,
+      327,
+      527,
+      339
+    ],
+    "pixels": 144,
+    "rgb_median": [
+      50.0,
+      0.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.9027777777777778,
+      0.875
+    ],
+    "fraction_max_channel_below32": 0.020833333333333332
+  },
+  {
+    "trial": 1,
+    "camera": "wrist",
+    "color": "green",
+    "box": [
+      545,
+      248,
+      553,
+      256
+    ],
+    "pixels": 64,
+    "rgb_median": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      1.0,
+      0.0,
+      1.0
+    ],
+    "fraction_max_channel_below32": 1.0
+  },
+  {
+    "trial": 1,
+    "camera": "side",
+    "color": "red",
+    "box": [
+      311,
+      226,
+      317,
+      232
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      189.5,
+      31.0,
+      43.5
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 1,
+    "camera": "side",
+    "color": "green",
+    "box": [
+      318,
+      254,
+      324,
+      260
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      55.5,
+      76.0,
+      55.5
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 2,
+    "camera": "wrist",
+    "color": "red",
+    "box": [
+      515,
+      327,
+      527,
+      339
+    ],
+    "pixels": 144,
+    "rgb_median": [
+      34.0,
+      0.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.8263888888888888,
+      0.9652777777777778
+    ],
+    "fraction_max_channel_below32": 0.375
+  },
+  {
+    "trial": 2,
+    "camera": "wrist",
+    "color": "green",
+    "box": [
+      545,
+      248,
+      553,
+      256
+    ],
+    "pixels": 64,
+    "rgb_median": [
+      0.0,
+      8.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.953125,
+      0.0,
+      1.0
+    ],
+    "fraction_max_channel_below32": 1.0
+  },
+  {
+    "trial": 2,
+    "camera": "side",
+    "color": "red",
+    "box": [
+      311,
+      226,
+      317,
+      232
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      191.0,
+      31.5,
+      42.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 2,
+    "camera": "side",
+    "color": "green",
+    "box": [
+      318,
+      254,
+      324,
+      260
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      58.5,
+      75.5,
+      57.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 3,
+    "camera": "wrist",
+    "color": "red",
+    "box": [
+      515,
+      327,
+      527,
+      339
+    ],
+    "pixels": 144,
+    "rgb_median": [
+      36.5,
+      0.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.9652777777777778,
+      0.7777777777777778
+    ],
+    "fraction_max_channel_below32": 0.3402777777777778
+  },
+  {
+    "trial": 3,
+    "camera": "wrist",
+    "color": "green",
+    "box": [
+      545,
+      248,
+      553,
+      256
+    ],
+    "pixels": 64,
+    "rgb_median": [
+      0.0,
+      7.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      1.0,
+      0.0,
+      1.0
+    ],
+    "fraction_max_channel_below32": 1.0
+  },
+  {
+    "trial": 3,
+    "camera": "side",
+    "color": "red",
+    "box": [
+      311,
+      226,
+      317,
+      232
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      196.0,
+      31.0,
+      40.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 3,
+    "camera": "side",
+    "color": "green",
+    "box": [
+      318,
+      254,
+      324,
+      260
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      59.0,
+      78.0,
+      57.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 4,
+    "camera": "wrist",
+    "color": "red",
+    "box": [
+      515,
+      327,
+      527,
+      339
+    ],
+    "pixels": 144,
+    "rgb_median": [
+      36.0,
+      0.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.9097222222222222,
+      0.9930555555555556
+    ],
+    "fraction_max_channel_below32": 0.0763888888888889
+  },
+  {
+    "trial": 4,
+    "camera": "wrist",
+    "color": "green",
+    "box": [
+      545,
+      248,
+      553,
+      256
+    ],
+    "pixels": 64,
+    "rgb_median": [
+      0.0,
+      6.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.8125,
+      0.015625,
+      0.953125
+    ],
+    "fraction_max_channel_below32": 0.984375
+  },
+  {
+    "trial": 4,
+    "camera": "side",
+    "color": "red",
+    "box": [
+      311,
+      226,
+      317,
+      232
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      190.5,
+      31.0,
+      36.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 4,
+    "camera": "side",
+    "color": "green",
+    "box": [
+      318,
+      254,
+      324,
+      260
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      55.5,
+      76.5,
+      56.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 5,
+    "camera": "wrist",
+    "color": "red",
+    "box": [
+      515,
+      327,
+      527,
+      339
+    ],
+    "pixels": 144,
+    "rgb_median": [
+      41.0,
+      0.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      1.0,
+      0.8055555555555556
+    ],
+    "fraction_max_channel_below32": 0.0763888888888889
+  },
+  {
+    "trial": 5,
+    "camera": "wrist",
+    "color": "green",
+    "box": [
+      545,
+      248,
+      553,
+      256
+    ],
+    "pixels": 64,
+    "rgb_median": [
+      0.0,
+      7.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.671875,
+      0.015625,
+      0.765625
+    ],
+    "fraction_max_channel_below32": 0.90625
+  },
+  {
+    "trial": 5,
+    "camera": "side",
+    "color": "red",
+    "box": [
+      311,
+      226,
+      317,
+      232
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      179.0,
+      31.0,
+      41.5
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 5,
+    "camera": "side",
+    "color": "green",
+    "box": [
+      318,
+      254,
+      324,
+      260
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      51.0,
+      78.0,
+      58.5
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 6,
+    "camera": "wrist",
+    "color": "red",
+    "box": [
+      515,
+      327,
+      527,
+      339
+    ],
+    "pixels": 144,
+    "rgb_median": [
+      43.0,
+      0.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.7986111111111112,
+      0.9930555555555556
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 6,
+    "camera": "wrist",
+    "color": "green",
+    "box": [
+      545,
+      248,
+      553,
+      256
+    ],
+    "pixels": 64,
+    "rgb_median": [
+      5.0,
+      5.0,
+      2.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.3125,
+      0.03125,
+      0.375
+    ],
+    "fraction_max_channel_below32": 0.640625
+  },
+  {
+    "trial": 6,
+    "camera": "side",
+    "color": "red",
+    "box": [
+      311,
+      226,
+      317,
+      232
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      181.0,
+      27.0,
+      40.5
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 6,
+    "camera": "side",
+    "color": "green",
+    "box": [
+      318,
+      254,
+      324,
+      260
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      55.5,
+      74.5,
+      53.5
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 7,
+    "camera": "wrist",
+    "color": "red",
+    "box": [
+      530,
+      220,
+      542,
+      232
+    ],
+    "pixels": 144,
+    "rgb_median": [
+      21.0,
+      0.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.9930555555555556,
+      0.9236111111111112
+    ],
+    "fraction_max_channel_below32": 1.0
+  },
+  {
+    "trial": 7,
+    "camera": "wrist",
+    "color": "green",
+    "box": [
+      516,
+      315,
+      524,
+      323
+    ],
+    "pixels": 64,
+    "rgb_median": [
+      0.0,
+      6.0,
+      1.0
+    ],
+    "zero_fraction_per_rgb": [
+      1.0,
+      0.0,
+      0.328125
+    ],
+    "fraction_max_channel_below32": 1.0
+  },
+  {
+    "trial": 7,
+    "camera": "side",
+    "color": "red",
+    "box": [
+      318,
+      254,
+      324,
+      260
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      181.0,
+      31.0,
+      45.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 7,
+    "camera": "side",
+    "color": "green",
+    "box": [
+      310,
+      227,
+      316,
+      233
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      49.0,
+      76.5,
+      52.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 8,
+    "camera": "wrist",
+    "color": "red",
+    "box": [
+      530,
+      220,
+      542,
+      232
+    ],
+    "pixels": 144,
+    "rgb_median": [
+      25.0,
+      0.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.9444444444444444,
+      1.0
+    ],
+    "fraction_max_channel_below32": 1.0
+  },
+  {
+    "trial": 8,
+    "camera": "wrist",
+    "color": "green",
+    "box": [
+      516,
+      315,
+      524,
+      323
+    ],
+    "pixels": 64,
+    "rgb_median": [
+      0.0,
+      4.0,
+      1.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.875,
+      0.0,
+      0.328125
+    ],
+    "fraction_max_channel_below32": 1.0
+  },
+  {
+    "trial": 8,
+    "camera": "side",
+    "color": "red",
+    "box": [
+      318,
+      254,
+      324,
+      260
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      189.5,
+      27.0,
+      55.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 8,
+    "camera": "side",
+    "color": "green",
+    "box": [
+      310,
+      227,
+      316,
+      233
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      50.5,
+      70.5,
+      48.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 9,
+    "camera": "wrist",
+    "color": "red",
+    "box": [
+      530,
+      220,
+      542,
+      232
+    ],
+    "pixels": 144,
+    "rgb_median": [
+      21.0,
+      0.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      1.0,
+      0.8958333333333334
+    ],
+    "fraction_max_channel_below32": 1.0
+  },
+  {
+    "trial": 9,
+    "camera": "wrist",
+    "color": "green",
+    "box": [
+      516,
+      315,
+      524,
+      323
+    ],
+    "pixels": 64,
+    "rgb_median": [
+      0.0,
+      5.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      1.0,
+      0.0,
+      0.75
+    ],
+    "fraction_max_channel_below32": 1.0
+  },
+  {
+    "trial": 9,
+    "camera": "side",
+    "color": "red",
+    "box": [
+      318,
+      254,
+      324,
+      260
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      178.5,
+      32.0,
+      50.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 9,
+    "camera": "side",
+    "color": "green",
+    "box": [
+      310,
+      227,
+      316,
+      233
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      50.0,
+      71.0,
+      52.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 10,
+    "camera": "wrist",
+    "color": "red",
+    "box": [
+      530,
+      220,
+      542,
+      232
+    ],
+    "pixels": 144,
+    "rgb_median": [
+      20.0,
+      0.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.8472222222222222,
+      0.8333333333333334
+    ],
+    "fraction_max_channel_below32": 1.0
+  },
+  {
+    "trial": 10,
+    "camera": "wrist",
+    "color": "green",
+    "box": [
+      516,
+      315,
+      524,
+      323
+    ],
+    "pixels": 64,
+    "rgb_median": [
+      0.0,
+      6.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.53125,
+      0.0,
+      0.734375
+    ],
+    "fraction_max_channel_below32": 1.0
+  },
+  {
+    "trial": 10,
+    "camera": "side",
+    "color": "red",
+    "box": [
+      318,
+      254,
+      324,
+      260
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      182.5,
+      29.0,
+      51.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 10,
+    "camera": "side",
+    "color": "green",
+    "box": [
+      310,
+      227,
+      316,
+      233
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      52.0,
+      71.5,
+      56.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 11,
+    "camera": "wrist",
+    "color": "red",
+    "box": [
+      530,
+      220,
+      542,
+      232
+    ],
+    "pixels": 144,
+    "rgb_median": [
+      25.0,
+      0.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.9652777777777778,
+      0.875
+    ],
+    "fraction_max_channel_below32": 0.9930555555555556
+  },
+  {
+    "trial": 11,
+    "camera": "wrist",
+    "color": "green",
+    "box": [
+      516,
+      315,
+      524,
+      323
+    ],
+    "pixels": 64,
+    "rgb_median": [
+      0.0,
+      5.0,
+      1.0
+    ],
+    "zero_fraction_per_rgb": [
+      1.0,
+      0.0,
+      0.484375
+    ],
+    "fraction_max_channel_below32": 1.0
+  },
+  {
+    "trial": 11,
+    "camera": "side",
+    "color": "red",
+    "box": [
+      318,
+      254,
+      324,
+      260
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      181.0,
+      31.5,
+      48.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 11,
+    "camera": "side",
+    "color": "green",
+    "box": [
+      310,
+      227,
+      316,
+      233
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      56.5,
+      73.0,
+      48.5
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 12,
+    "camera": "wrist",
+    "color": "red",
+    "box": [
+      530,
+      220,
+      542,
+      232
+    ],
+    "pixels": 144,
+    "rgb_median": [
+      27.0,
+      0.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.9930555555555556,
+      0.7708333333333334
+    ],
+    "fraction_max_channel_below32": 0.7847222222222222
+  },
+  {
+    "trial": 12,
+    "camera": "wrist",
+    "color": "green",
+    "box": [
+      516,
+      315,
+      524,
+      323
+    ],
+    "pixels": 64,
+    "rgb_median": [
+      0.0,
+      4.0,
+      0.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.875,
+      0.0,
+      0.984375
+    ],
+    "fraction_max_channel_below32": 1.0
+  },
+  {
+    "trial": 12,
+    "camera": "side",
+    "color": "red",
+    "box": [
+      318,
+      254,
+      324,
+      260
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      182.0,
+      34.0,
+      48.0
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  },
+  {
+    "trial": 12,
+    "camera": "side",
+    "color": "green",
+    "box": [
+      310,
+      227,
+      316,
+      233
+    ],
+    "pixels": 36,
+    "rgb_median": [
+      57.0,
+      71.5,
+      48.5
+    ],
+    "zero_fraction_per_rgb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "fraction_max_channel_below32": 0.0
+  }
+]

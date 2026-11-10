@@ -1,0 +1,3045 @@
+{
+  "wrist": {
+    "frames": 927,
+    "analysis_frames": 310,
+    "first_elapsed": 0.14954028301872313,
+    "last_elapsed": 44.99107411899604,
+    "measured_host_reception_fps": 20.65049789302815,
+    "host_interval_p05_p50_p95": [
+      0.04382024524966255,
+      0.044011736987158656,
+      0.08804833728936501
+    ],
+    "rois": {
+      "chart_r0_c0": {
+        "pixels": 618,
+        "median_rgb": [
+          172.0,
+          170.0,
+          185.0
+        ],
+        "temporal_p05_rgb": [
+          171.0,
+          169.0,
+          184.0
+        ],
+        "temporal_p95_rgb": [
+          172.0,
+          170.0,
+          186.0
+        ],
+        "temporal_std_rgb": [
+          0.37532157561172363,
+          0.48011715965242713,
+          0.6039757284370807
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          -0.25
+        ],
+        "drift_norm": 0.25,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          1.0,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r0_c1": {
+        "pixels": 555,
+        "median_rgb": [
+          7.0,
+          0.0,
+          76.0
+        ],
+        "temporal_p05_rgb": [
+          3.0,
+          0.0,
+          72.0
+        ],
+        "temporal_p95_rgb": [
+          7.0,
+          0.0,
+          78.0
+        ],
+        "temporal_std_rgb": [
+          1.6702732396554918,
+          0.0,
+          2.076317078835183
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          4.0,
+          0.0,
+          2.0
+        ],
+        "drift_norm": 4.47213595499958,
+        "startup_first5s_to_analysis_rgb": [
+          4.0,
+          0.0,
+          2.0
+        ],
+        "zero_fraction": [
+          0.08099970938680619,
+          0.9996105783202557,
+          0.0
+        ],
+        "le2_fraction": [
+          0.1653065969194999,
+          0.9999302528334786,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r0_c2": {
+        "pixels": 529,
+        "median_rgb": [
+          168.0,
+          54.0,
+          40.0
+        ],
+        "temporal_p05_rgb": [
+          166.0,
+          53.0,
+          38.0
+        ],
+        "temporal_p95_rgb": [
+          168.0,
+          55.0,
+          42.0
+        ],
+        "temporal_std_rgb": [
+          0.9359064673955402,
+          0.3359952677928502,
+          0.9357952763118287
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r0_c3": {
+        "pixels": 492,
+        "median_rgb": [
+          58.5,
+          27.0,
+          38.0
+        ],
+        "temporal_p05_rgb": [
+          55.0,
+          20.5,
+          33.725
+        ],
+        "temporal_p95_rgb": [
+          61.0,
+          28.0,
+          41.0
+        ],
+        "temporal_std_rgb": [
+          1.88143346506188,
+          2.6930292140180456,
+          2.4087271952947993
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          3.0,
+          6.0,
+          3.0
+        ],
+        "drift_norm": 7.3484692283495345,
+        "startup_first5s_to_analysis_rgb": [
+          2.5,
+          5.0,
+          2.5
+        ],
+        "zero_fraction": [
+          0.0,
+          1.3113034356150015e-05,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          4.589562024652505e-05,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 1.966955153422502e-05
+      },
+      "chart_r1_c0": {
+        "pixels": 592,
+        "median_rgb": [
+          145.0,
+          142.0,
+          164.0
+        ],
+        "temporal_p05_rgb": [
+          145.0,
+          141.0,
+          163.0
+        ],
+        "temporal_p95_rgb": [
+          147.0,
+          143.0,
+          165.0
+        ],
+        "temporal_std_rgb": [
+          0.7817574054647405,
+          0.6181881652865173,
+          0.8854956224615333
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "drift_norm": 1.0,
+        "startup_first5s_to_analysis_rgb": [
+          -2.0,
+          0.0,
+          0.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r1_c1": {
+        "pixels": 531,
+        "median_rgb": [
+          0.0,
+          83.0,
+          37.0
+        ],
+        "temporal_p05_rgb": [
+          0.0,
+          76.0,
+          31.0
+        ],
+        "temporal_p95_rgb": [
+          0.0,
+          84.0,
+          38.0
+        ],
+        "temporal_std_rgb": [
+          0.0,
+          2.7282390367075995,
+          2.2779790046164723
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          6.0,
+          3.0
+        ],
+        "drift_norm": 6.708203932499369,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          5.0,
+          3.0
+        ],
+        "zero_fraction": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r1_c2": {
+        "pixels": 496,
+        "median_rgb": [
+          75.0,
+          50.0,
+          123.75
+        ],
+        "temporal_p05_rgb": [
+          71.225,
+          44.0,
+          119.0
+        ],
+        "temporal_p95_rgb": [
+          77.0,
+          51.0,
+          125.0
+        ],
+        "temporal_std_rgb": [
+          1.8242705554037806,
+          2.3691242558916894,
+          2.1257330253117632
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          4.0,
+          5.0,
+          4.0
+        ],
+        "drift_norm": 7.54983443527075,
+        "startup_first5s_to_analysis_rgb": [
+          3.0,
+          4.0,
+          2.75
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r1_c3": {
+        "pixels": 459,
+        "median_rgb": [
+          204.0,
+          137.0,
+          151.0
+        ],
+        "temporal_p05_rgb": [
+          203.0,
+          136.0,
+          149.0
+        ],
+        "temporal_p95_rgb": [
+          205.0,
+          137.0,
+          152.0
+        ],
+        "temporal_std_rgb": [
+          0.6492531529439817,
+          0.5345892254417184,
+          0.8437565277043533
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          -1.0,
+          1.0,
+          0.0
+        ],
+        "drift_norm": 1.4142135623730951,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r2_c0": {
+        "pixels": 536,
+        "median_rgb": [
+          111.0,
+          108.0,
+          125.0
+        ],
+        "temporal_p05_rgb": [
+          109.0,
+          106.0,
+          122.0
+        ],
+        "temporal_p95_rgb": [
+          112.0,
+          109.0,
+          126.0
+        ],
+        "temporal_std_rgb": [
+          1.0088693561267172,
+          1.0569193744065049,
+          1.1311282388004764
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          2.0,
+          2.0,
+          2.0
+        ],
+        "drift_norm": 3.4641016151377544,
+        "startup_first5s_to_analysis_rgb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r2_c1": {
+        "pixels": 512,
+        "median_rgb": [
+          160.0,
+          0.0,
+          3.0
+        ],
+        "temporal_p05_rgb": [
+          155.0,
+          0.0,
+          0.0
+        ],
+        "temporal_p95_rgb": [
+          161.0,
+          0.0,
+          5.0
+        ],
+        "temporal_std_rgb": [
+          2.0968269224139173,
+          0.0,
+          1.8443186943719878
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          4.0,
+          0.0,
+          3.0
+        ],
+        "drift_norm": 5.0,
+        "startup_first5s_to_analysis_rgb": [
+          5.0,
+          0.0,
+          3.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.9966166834677419,
+          0.2945879536290323
+        ],
+        "le2_fraction": [
+          0.0,
+          0.9994518649193549,
+          0.4757938508064516
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r2_c2": {
+        "pixels": 477,
+        "median_rgb": [
+          182.0,
+          42.0,
+          66.0
+        ],
+        "temporal_p05_rgb": [
+          181.0,
+          41.0,
+          66.0
+        ],
+        "temporal_p95_rgb": [
+          182.0,
+          42.0,
+          66.0
+        ],
+        "temporal_std_rgb": [
+          0.45097881752978486,
+          0.4357227540745566,
+          0.29607210078925816
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "drift_norm": 1.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r2_c3": {
+        "pixels": 441,
+        "median_rgb": [
+          94.0,
+          86.0,
+          151.0
+        ],
+        "temporal_p05_rgb": [
+          92.0,
+          82.0,
+          148.0
+        ],
+        "temporal_p95_rgb": [
+          96.0,
+          86.0,
+          152.0
+        ],
+        "temporal_std_rgb": [
+          1.1427780744166032,
+          1.4179648619185863,
+          1.2126672728626782
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          1.0,
+          3.0,
+          2.0
+        ],
+        "drift_norm": 3.7416573867739413,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          2.0,
+          1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r3_c0": {
+        "pixels": 519,
+        "median_rgb": [
+          29.0,
+          23.0,
+          36.0
+        ],
+        "temporal_p05_rgb": [
+          25.0,
+          16.0,
+          31.0
+        ],
+        "temporal_p95_rgb": [
+          31.0,
+          24.0,
+          39.0
+        ],
+        "temporal_std_rgb": [
+          1.9995030600108377,
+          2.820543043336382,
+          2.4718687820663967
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          3.0,
+          6.0,
+          3.0
+        ],
+        "drift_norm": 7.3484692283495345,
+        "startup_first5s_to_analysis_rgb": [
+          3.0,
+          6.0,
+          3.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.13020075828205604
+      },
+      "chart_r3_c1": {
+        "pixels": 468,
+        "median_rgb": [
+          166.0,
+          153.0,
+          42.0
+        ],
+        "temporal_p05_rgb": [
+          164.0,
+          152.0,
+          41.0
+        ],
+        "temporal_p95_rgb": [
+          167.0,
+          154.0,
+          43.0
+        ],
+        "temporal_std_rgb": [
+          0.9588082266024961,
+          0.7199061246467128,
+          0.9113131598622888
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "drift_norm": 1.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r3_c2": {
+        "pixels": 455,
+        "median_rgb": [
+          68.0,
+          2.0,
+          93.0
+        ],
+        "temporal_p05_rgb": [
+          65.0,
+          0.0,
+          87.0
+        ],
+        "temporal_p95_rgb": [
+          70.0,
+          4.0,
+          94.0
+        ],
+        "temporal_std_rgb": [
+          1.8521748051533766,
+          1.3196821109985122,
+          2.4274466829455164
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          2.0,
+          3.0,
+          5.0
+        ],
+        "drift_norm": 6.164414002968976,
+        "startup_first5s_to_analysis_rgb": [
+          2.0,
+          2.0,
+          4.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.38863523573201053,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.5864870613257707,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r3_c3": {
+        "pixels": 413,
+        "median_rgb": [
+          0.0,
+          29.0,
+          7.0
+        ],
+        "temporal_p05_rgb": [
+          0.0,
+          23.0,
+          2.0
+        ],
+        "temporal_p95_rgb": [
+          2.0,
+          30.0,
+          9.0
+        ],
+        "temporal_std_rgb": [
+          0.7467515498552643,
+          2.6902316840837086,
+          2.430565424554232
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          5.0,
+          4.0
+        ],
+        "drift_norm": 6.4031242374328485,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          5.0,
+          3.0
+        ],
+        "zero_fraction": [
+          0.5694368507381081,
+          0.0,
+          0.14776224322424428
+        ],
+        "le2_fraction": [
+          0.6837694290400692,
+          0.0,
+          0.24932437709911728
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0012418964305240963,
+        "max_channel_lt32_fraction": 0.7476528938530032
+      },
+      "chart_r4_c0": {
+        "pixels": 482,
+        "median_rgb": [
+          0.0,
+          0.0,
+          6.0
+        ],
+        "temporal_p05_rgb": [
+          0.0,
+          0.0,
+          6.0
+        ],
+        "temporal_p95_rgb": [
+          2.0,
+          0.0,
+          6.0
+        ],
+        "temporal_std_rgb": [
+          0.7043864349487787,
+          0.0,
+          0.5302896151750831
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_fraction": [
+          0.6545777004417084,
+          0.9080912863070544,
+          0.03656806317762004
+        ],
+        "le2_fraction": [
+          0.7512849685450406,
+          0.9884888234506735,
+          0.09645295141212687
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.999156739392317,
+        "max_channel_lt32_fraction": 1.0
+      },
+      "chart_r4_c1": {
+        "pixels": 435,
+        "median_rgb": [
+          153.0,
+          23.0,
+          84.0
+        ],
+        "temporal_p05_rgb": [
+          150.0,
+          18.0,
+          80.0
+        ],
+        "temporal_p95_rgb": [
+          155.0,
+          24.0,
+          85.0
+        ],
+        "temporal_std_rgb": [
+          1.651146607563074,
+          2.1217593273225335,
+          2.077990304230142
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          2.0,
+          4.0,
+          4.0
+        ],
+        "drift_norm": 6.0,
+        "startup_first5s_to_analysis_rgb": [
+          2.0,
+          4.0,
+          3.0
+        ],
+        "zero_fraction": [
+          0.0,
+          7.415647015202076e-06,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          1.4831294030404153e-05,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r4_c2": {
+        "pixels": 419,
+        "median_rgb": [
+          76.0,
+          145.0,
+          49.0
+        ],
+        "temporal_p05_rgb": [
+          75.0,
+          143.0,
+          48.0
+        ],
+        "temporal_p95_rgb": [
+          79.0,
+          146.0,
+          50.55000000000001
+        ],
+        "temporal_std_rgb": [
+          1.171354241732786,
+          0.9238205068216098,
+          0.8730917947145775
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          2.0,
+          1.0
+        ],
+        "drift_norm": 2.23606797749979,
+        "startup_first5s_to_analysis_rgb": [
+          -2.0,
+          1.0,
+          0.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r4_c3": {
+        "pixels": 383,
+        "median_rgb": [
+          105.0,
+          78.0,
+          145.0
+        ],
+        "temporal_p05_rgb": [
+          104.0,
+          75.0,
+          142.0
+        ],
+        "temporal_p95_rgb": [
+          108.0,
+          79.0,
+          146.0
+        ],
+        "temporal_std_rgb": [
+          1.3214353814022233,
+          1.4632508389506946,
+          1.2969828110159127
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          3.0,
+          2.0
+        ],
+        "drift_norm": 3.605551275463989,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          2.0,
+          1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r5_c0": {
+        "pixels": 450,
+        "median_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "temporal_p05_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "temporal_p95_rgb": [
+          0.0,
+          0.0,
+          2.0
+        ],
+        "temporal_std_rgb": [
+          0.0,
+          0.0,
+          0.9508690367648145
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_fraction": [
+          0.9046451612903228,
+          0.9251684587813611,
+          0.5765304659498205
+        ],
+        "le2_fraction": [
+          0.9659641577060938,
+          0.9997562724014336,
+          0.8840645161290323
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 1.0,
+        "max_channel_lt32_fraction": 1.0
+      },
+      "chart_r5_c1": {
+        "pixels": 450,
+        "median_rgb": [
+          0.0,
+          94.0,
+          135.0
+        ],
+        "temporal_p05_rgb": [
+          0.0,
+          89.0,
+          131.0
+        ],
+        "temporal_p95_rgb": [
+          0.0,
+          95.0,
+          137.0
+        ],
+        "temporal_std_rgb": [
+          0.0,
+          2.305458843412312,
+          2.0707190082766633
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          5.5,
+          4.0
+        ],
+        "drift_norm": 6.800735254367722,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          3.0,
+          2.0
+        ],
+        "zero_fraction": [
+          0.974623655913979,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.9889677419354854,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r5_c2": {
+        "pixels": 397,
+        "median_rgb": [
+          183.0,
+          88.0,
+          35.0
+        ],
+        "temporal_p05_rgb": [
+          181.45,
+          85.0,
+          34.0
+        ],
+        "temporal_p95_rgb": [
+          184.0,
+          89.0,
+          37.0
+        ],
+        "temporal_std_rgb": [
+          0.9044289222145624,
+          1.141242727722546,
+          1.2030528285244186
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          1.0,
+          2.0,
+          1.0
+        ],
+        "drift_norm": 2.449489742783178,
+        "startup_first5s_to_analysis_rgb": [
+          1.0,
+          2.0,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r5_c3": {
+        "pixels": 374,
+        "median_rgb": [
+          60.0,
+          130.0,
+          141.0
+        ],
+        "temporal_p05_rgb": [
+          58.0,
+          127.0,
+          139.0
+        ],
+        "temporal_p95_rgb": [
+          62.0,
+          130.0,
+          142.0
+        ],
+        "temporal_std_rgb": [
+          1.1678978687547243,
+          1.1941367338047435,
+          1.1082523200944812
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          3.0,
+          2.0
+        ],
+        "drift_norm": 3.605551275463989,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          2.0,
+          1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "cube_red": {
+        "pixels": 144,
+        "median_rgb": [
+          84.0,
+          0.0,
+          0.0
+        ],
+        "temporal_p05_rgb": [
+          79.5,
+          0.0,
+          0.0
+        ],
+        "temporal_p95_rgb": [
+          90.5,
+          0.0,
+          0.0
+        ],
+        "temporal_std_rgb": [
+          3.6166775360244334,
+          0.0,
+          0.0
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          3.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 3.0,
+        "startup_first5s_to_analysis_rgb": [
+          1.5,
+          0.0,
+          0.0
+        ],
+        "zero_fraction": [
+          0.0,
+          1.0,
+          0.9882616487455175
+        ],
+        "le2_fraction": [
+          0.0,
+          1.0,
+          0.9952956989247298
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 4.4802867383512545e-05,
+        "max_channel_lt32_fraction": 0.07759856630824372
+      },
+      "cube_green": {
+        "pixels": 152,
+        "median_rgb": [
+          0.0,
+          24.0,
+          0.0
+        ],
+        "temporal_p05_rgb": [
+          0.0,
+          18.5,
+          0.0
+        ],
+        "temporal_p95_rgb": [
+          0.0,
+          26.0,
+          2.0
+        ],
+        "temporal_std_rgb": [
+          0.0,
+          2.502300710337024,
+          0.5951263212036488
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          4.0,
+          0.0
+        ],
+        "drift_norm": 4.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          3.0,
+          0.0
+        ],
+        "zero_fraction": [
+          1.0,
+          0.001146010186757215,
+          0.6638370118845508
+        ],
+        "le2_fraction": [
+          1.0,
+          0.013773344651952438,
+          0.8117572156196945
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.3620118845500849,
+        "max_channel_lt32_fraction": 0.835653650254669
+      }
+    },
+    "cube_separation": {
+      "rgb_centroid_distance": 87.36131867136622,
+      "red_R_minus_G_median": 84.0,
+      "green_G_minus_R_median": 24.0,
+      "red_frames_without_R_over_G": 0,
+      "green_frames_without_G_over_R": 0,
+      "caveat": "Temporal fixed-ROI diagnostic only; not a spatial/background classifier or model accuracy evaluation."
+    }
+  },
+  "side": {
+    "frames": 890,
+    "analysis_frames": 300,
+    "first_elapsed": 0.42880276404321194,
+    "last_elapsed": 44.99880552501418,
+    "measured_host_reception_fps": 19.94615088465911,
+    "host_interval_p05_p50_p95": [
+      0.04797586123459041,
+      0.051973136025480926,
+      0.05202805700246245
+    ],
+    "rois": {
+      "chart_r5_c3": {
+        "pixels": 122,
+        "median_rgb": [
+          41.0,
+          162.0,
+          178.0
+        ],
+        "temporal_p05_rgb": [
+          39.0,
+          161.0,
+          175.0
+        ],
+        "temporal_p95_rgb": [
+          44.0,
+          164.0,
+          180.0
+        ],
+        "temporal_std_rgb": [
+          1.3921795462112234,
+          0.8865836427295275,
+          1.4875137721117802
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "drift_norm": 1.0,
+        "startup_first5s_to_analysis_rgb": [
+          -1.0,
+          0.0,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r5_c2": {
+        "pixels": 125,
+        "median_rgb": [
+          245.0,
+          107.0,
+          0.0
+        ],
+        "temporal_p05_rgb": [
+          244.0,
+          106.0,
+          0.0
+        ],
+        "temporal_p95_rgb": [
+          248.0,
+          108.0,
+          0.0
+        ],
+        "temporal_std_rgb": [
+          1.0975680186464798,
+          0.780142437137108,
+          0.0
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.9187999999999991
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.9475733333333326
+        ],
+        "ge253_fraction": [
+          0.04957333333333315,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r5_c1": {
+        "pixels": 120,
+        "median_rgb": [
+          0.0,
+          127.0,
+          202.0
+        ],
+        "temporal_p05_rgb": [
+          0.0,
+          126.0,
+          198.0
+        ],
+        "temporal_p95_rgb": [
+          0.0,
+          128.0,
+          206.0
+        ],
+        "temporal_std_rgb": [
+          0.0,
+          0.7702741214802846,
+          2.1391093681457445
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          -0.5
+        ],
+        "drift_norm": 0.5,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          -2.0
+        ],
+        "zero_fraction": [
+          0.9965833333333333,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.9988888888888894,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r5_c0": {
+        "pixels": 114,
+        "median_rgb": [
+          45.0,
+          39.0,
+          46.0
+        ],
+        "temporal_p05_rgb": [
+          43.95,
+          37.0,
+          44.0
+        ],
+        "temporal_p95_rgb": [
+          47.0,
+          40.0,
+          47.0
+        ],
+        "temporal_std_rgb": [
+          1.0875801375326575,
+          1.0363866181219346,
+          0.9910418199495371
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r4_c3": {
+        "pixels": 135,
+        "median_rgb": [
+          100.0,
+          94.0,
+          213.0
+        ],
+        "temporal_p05_rgb": [
+          98.0,
+          93.0,
+          210.0
+        ],
+        "temporal_p95_rgb": [
+          102.0,
+          95.0,
+          216.0
+        ],
+        "temporal_std_rgb": [
+          1.2727747465893409,
+          0.6935896961941297,
+          1.622015207491387
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          1.0,
+          0.0,
+          -1.0
+        ],
+        "drift_norm": 1.4142135623730951,
+        "startup_first5s_to_analysis_rgb": [
+          -0.5,
+          0.0,
+          -3.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r4_c2": {
+        "pixels": 135,
+        "median_rgb": [
+          103.0,
+          184.0,
+          0.0
+        ],
+        "temporal_p05_rgb": [
+          102.0,
+          183.0,
+          0.0
+        ],
+        "temporal_p95_rgb": [
+          106.0,
+          186.0,
+          0.0
+        ],
+        "temporal_std_rgb": [
+          1.2827531155898844,
+          0.8338598336784343,
+          0.0
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.9921234567901209
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.9952839506172825
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r4_c1": {
+        "pixels": 125,
+        "median_rgb": [
+          206.0,
+          24.0,
+          125.0
+        ],
+        "temporal_p05_rgb": [
+          204.0,
+          22.0,
+          123.0
+        ],
+        "temporal_p95_rgb": [
+          208.0,
+          26.0,
+          128.0
+        ],
+        "temporal_std_rgb": [
+          1.3555277774931596,
+          1.0148398888494676,
+          1.5905414871112966
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "drift_norm": 1.0,
+        "startup_first5s_to_analysis_rgb": [
+          1.0,
+          0.0,
+          -2.5
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          5.333333333333333e-05,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r4_c0": {
+        "pixels": 123,
+        "median_rgb": [
+          47.0,
+          45.0,
+          51.0
+        ],
+        "temporal_p05_rgb": [
+          46.0,
+          44.0,
+          51.0
+        ],
+        "temporal_p95_rgb": [
+          49.05000000000001,
+          46.0,
+          54.0
+        ],
+        "temporal_std_rgb": [
+          1.4293899242528474,
+          0.6422529788867372,
+          1.047409502852953
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 1.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r3_c3": {
+        "pixels": 161,
+        "median_rgb": [
+          48.0,
+          76.0,
+          42.0
+        ],
+        "temporal_p05_rgb": [
+          45.0,
+          75.0,
+          39.0
+        ],
+        "temporal_p95_rgb": [
+          50.0,
+          77.0,
+          45.0
+        ],
+        "temporal_std_rgb": [
+          1.6710741721685742,
+          0.781814129658281,
+          1.953967473856431
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          1.0,
+          0.0,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r3_c2": {
+        "pixels": 142,
+        "median_rgb": [
+          88.0,
+          31.0,
+          156.0
+        ],
+        "temporal_p05_rgb": [
+          86.0,
+          29.0,
+          154.0
+        ],
+        "temporal_p95_rgb": [
+          91.0,
+          32.0,
+          159.0
+        ],
+        "temporal_std_rgb": [
+          1.5836105020560525,
+          0.7134637731206503,
+          1.505038759190826
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          -0.75
+        ],
+        "drift_norm": 0.75,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.5,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r3_c1": {
+        "pixels": 137,
+        "median_rgb": [
+          201.0,
+          171.0,
+          0.0
+        ],
+        "temporal_p05_rgb": [
+          198.0,
+          171.0,
+          0.0
+        ],
+        "temporal_p95_rgb": [
+          202.0,
+          173.0,
+          0.0
+        ],
+        "temporal_std_rgb": [
+          0.8735305120919087,
+          0.5765414122159848,
+          0.0
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r3_c0": {
+        "pixels": 137,
+        "median_rgb": [
+          74.0,
+          64.0,
+          91.0
+        ],
+        "temporal_p05_rgb": [
+          72.0,
+          63.0,
+          88.0
+        ],
+        "temporal_p95_rgb": [
+          77.0,
+          66.0,
+          93.0
+        ],
+        "temporal_std_rgb": [
+          1.368742326208828,
+          0.8168775237995539,
+          1.5637952409300755
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          -1.0,
+          -1.0,
+          0.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r2_c3": {
+        "pixels": 182,
+        "median_rgb": [
+          54.0,
+          85.0,
+          221.0
+        ],
+        "temporal_p05_rgb": [
+          53.0,
+          84.0,
+          219.0
+        ],
+        "temporal_p95_rgb": [
+          57.0,
+          86.0,
+          224.0
+        ],
+        "temporal_std_rgb": [
+          1.3381693548360118,
+          0.7747024518412768,
+          1.350986265248054
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 1.0,
+        "startup_first5s_to_analysis_rgb": [
+          -1.0,
+          0.0,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r2_c2": {
+        "pixels": 157,
+        "median_rgb": [
+          255.0,
+          29.0,
+          68.0
+        ],
+        "temporal_p05_rgb": [
+          254.0,
+          28.0,
+          66.0
+        ],
+        "temporal_p95_rgb": [
+          255.0,
+          29.0,
+          71.0
+        ],
+        "temporal_std_rgb": [
+          0.26068286394689555,
+          0.5346234396490872,
+          1.8200457869698417
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "drift_norm": 1.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          1.0,
+          -2.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.8813375796178347,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r2_c1": {
+        "pixels": 150,
+        "median_rgb": [
+          240.0,
+          16.0,
+          29.0
+        ],
+        "temporal_p05_rgb": [
+          239.0,
+          15.0,
+          26.0
+        ],
+        "temporal_p95_rgb": [
+          240.025,
+          17.0,
+          31.0
+        ],
+        "temporal_std_rgb": [
+          0.3649162765469483,
+          0.5873102530463213,
+          1.6431879584109266
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.75,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          2.2222222222222223e-05,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.004266666666666669,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r2_c0": {
+        "pixels": 147,
+        "median_rgb": [
+          122.0,
+          126.0,
+          155.0
+        ],
+        "temporal_p05_rgb": [
+          120.0,
+          125.0,
+          153.0
+        ],
+        "temporal_p95_rgb": [
+          124.0,
+          127.0,
+          157.0
+        ],
+        "temporal_std_rgb": [
+          1.1396880664852493,
+          0.732385751423994,
+          1.252996408614165
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "drift_norm": 1.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r1_c3": {
+        "pixels": 195,
+        "median_rgb": [
+          223.0,
+          108.0,
+          111.0
+        ],
+        "temporal_p05_rgb": [
+          222.0,
+          107.0,
+          109.0
+        ],
+        "temporal_p95_rgb": [
+          225.0,
+          109.0,
+          113.0
+        ],
+        "temporal_std_rgb": [
+          0.899993827139322,
+          0.6977025791043704,
+          1.4266160427155354
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          1.0,
+          0.0,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r1_c2": {
+        "pixels": 183,
+        "median_rgb": [
+          58.0,
+          46.0,
+          195.0
+        ],
+        "temporal_p05_rgb": [
+          56.0,
+          45.0,
+          194.0
+        ],
+        "temporal_p95_rgb": [
+          58.0,
+          47.0,
+          197.0
+        ],
+        "temporal_std_rgb": [
+          1.0111819267020623,
+          0.6314973387821116,
+          1.2774801585760736
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          1.0,
+          0.0,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r1_c1": {
+        "pixels": 171,
+        "median_rgb": [
+          0.0,
+          132.0,
+          61.0
+        ],
+        "temporal_p05_rgb": [
+          0.0,
+          131.0,
+          59.0
+        ],
+        "temporal_p95_rgb": [
+          0.0,
+          133.0,
+          64.0
+        ],
+        "temporal_std_rgb": [
+          0.0,
+          0.8158158833680262,
+          1.6476616427194257
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "drift_norm": 1.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          -2.0
+        ],
+        "zero_fraction": [
+          0.8373099415204646,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.8814424951267035,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r1_c0": {
+        "pixels": 158,
+        "median_rgb": [
+          141.75,
+          157.0,
+          176.0
+        ],
+        "temporal_p05_rgb": [
+          140.975,
+          156.0,
+          176.0
+        ],
+        "temporal_p95_rgb": [
+          144.0,
+          158.0,
+          180.0
+        ],
+        "temporal_std_rgb": [
+          0.9776317757156268,
+          0.6565291734230511,
+          1.7109321695756652
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          -0.25,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.25,
+        "startup_first5s_to_analysis_rgb": [
+          -0.25,
+          0.0,
+          -4.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r0_c3": {
+        "pixels": 211,
+        "median_rgb": [
+          83.0,
+          34.0,
+          36.0
+        ],
+        "temporal_p05_rgb": [
+          80.0,
+          33.0,
+          34.0
+        ],
+        "temporal_p95_rgb": [
+          85.0,
+          36.0,
+          37.0
+        ],
+        "temporal_std_rgb": [
+          1.6270081608755242,
+          0.8690927581232194,
+          0.9675340935709836
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r0_c2": {
+        "pixels": 198,
+        "median_rgb": [
+          255.0,
+          68.0,
+          2.5
+        ],
+        "temporal_p05_rgb": [
+          255.0,
+          67.0,
+          0.0
+        ],
+        "temporal_p95_rgb": [
+          255.0,
+          69.0,
+          5.0
+        ],
+        "temporal_std_rgb": [
+          0.0,
+          0.7155009899830105,
+          1.6691781077990324
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "drift_norm": 1.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          -2.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.265808080808081
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.4589057239057231
+        ],
+        "ge253_fraction": [
+          0.9668013468013489,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r0_c1": {
+        "pixels": 194,
+        "median_rgb": [
+          34.0,
+          35.0,
+          168.0
+        ],
+        "temporal_p05_rgb": [
+          33.0,
+          34.0,
+          165.0
+        ],
+        "temporal_p95_rgb": [
+          37.0,
+          36.0,
+          170.0
+        ],
+        "temporal_std_rgb": [
+          1.1646697195151727,
+          0.7616849013134553,
+          1.5479341071247212
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.75
+        ],
+        "drift_norm": 0.75,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "chart_r0_c0": {
+        "pixels": 179,
+        "median_rgb": [
+          161.0,
+          176.0,
+          195.0
+        ],
+        "temporal_p05_rgb": [
+          160.0,
+          175.0,
+          195.0
+        ],
+        "temporal_p95_rgb": [
+          163.0,
+          177.0,
+          199.0
+        ],
+        "temporal_std_rgb": [
+          0.8187795796183492,
+          0.6167657578043716,
+          1.392116693703832
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "drift_norm": 1.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          -4.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "cube_red": {
+        "pixels": 70,
+        "median_rgb": [
+          172.0,
+          10.0,
+          19.0
+        ],
+        "temporal_p05_rgb": [
+          167.0,
+          8.0,
+          16.0
+        ],
+        "temporal_p95_rgb": [
+          176.0,
+          12.0,
+          22.0
+        ],
+        "temporal_std_rgb": [
+          2.720251213889386,
+          1.153092460396049,
+          1.8835685693798239
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drift_norm": 0.0,
+        "startup_first5s_to_analysis_rgb": [
+          0.0,
+          0.0,
+          -0.75
+        ],
+        "zero_fraction": [
+          0.0,
+          0.05814285714285705,
+          0.0002380952380952381
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0904761904761906,
+          0.0008571428571428572
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      },
+      "cube_green": {
+        "pixels": 60,
+        "median_rgb": [
+          27.0,
+          65.5,
+          36.5
+        ],
+        "temporal_p05_rgb": [
+          25.0,
+          63.5,
+          33.475
+        ],
+        "temporal_p95_rgb": [
+          30.025000000000006,
+          67.5,
+          40.0
+        ],
+        "temporal_std_rgb": [
+          1.6923446917089786,
+          1.2315302134607446,
+          1.9982346375405136
+        ],
+        "drift_30_35_to_40_45_rgb": [
+          0.5,
+          0.0,
+          -0.5
+        ],
+        "drift_norm": 0.7071067811865476,
+        "startup_first5s_to_analysis_rgb": [
+          -0.5,
+          -0.25,
+          -1.0
+        ],
+        "zero_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "le2_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ge253_fraction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_channel_lt16_fraction": 0.0,
+        "max_channel_lt32_fraction": 0.0
+      }
+    },
+    "cube_separation": {
+      "rgb_centroid_distance": 156.2417997848207,
+      "red_R_minus_G_median": 162.0,
+      "green_G_minus_R_median": 38.0,
+      "red_frames_without_R_over_G": 0,
+      "green_frames_without_G_over_R": 0,
+      "caveat": "Temporal fixed-ROI diagnostic only; not a spatial/background classifier or model accuracy evaluation."
+    }
+  },
+  "paired_observation": {
+    "chart_r0_c0": {
+      "wrist_rgb": [
+        172.0,
+        170.0,
+        185.0
+      ],
+      "side_rgb": [
+        161.0,
+        176.0,
+        195.0
+      ],
+      "rgb_distance": 16.0312195418814
+    },
+    "chart_r0_c1": {
+      "wrist_rgb": [
+        7.0,
+        0.0,
+        76.0
+      ],
+      "side_rgb": [
+        34.0,
+        35.0,
+        168.0
+      ],
+      "rgb_distance": 102.06860437960343
+    },
+    "chart_r0_c2": {
+      "wrist_rgb": [
+        168.0,
+        54.0,
+        40.0
+      ],
+      "side_rgb": [
+        255.0,
+        68.0,
+        2.5
+      ],
+      "rgb_distance": 95.76664346211577
+    },
+    "chart_r0_c3": {
+      "wrist_rgb": [
+        58.5,
+        27.0,
+        38.0
+      ],
+      "side_rgb": [
+        83.0,
+        34.0,
+        36.0
+      ],
+      "rgb_distance": 25.558755838264116
+    },
+    "chart_r1_c0": {
+      "wrist_rgb": [
+        145.0,
+        142.0,
+        164.0
+      ],
+      "side_rgb": [
+        141.75,
+        157.0,
+        176.0
+      ],
+      "rgb_distance": 19.482363819619014
+    },
+    "chart_r1_c1": {
+      "wrist_rgb": [
+        0.0,
+        83.0,
+        37.0
+      ],
+      "side_rgb": [
+        0.0,
+        132.0,
+        61.0
+      ],
+      "rgb_distance": 54.56189146281496
+    },
+    "chart_r1_c2": {
+      "wrist_rgb": [
+        75.0,
+        50.0,
+        123.75
+      ],
+      "side_rgb": [
+        58.0,
+        46.0,
+        195.0
+      ],
+      "rgb_distance": 73.35913371898553
+    },
+    "chart_r1_c3": {
+      "wrist_rgb": [
+        204.0,
+        137.0,
+        151.0
+      ],
+      "side_rgb": [
+        223.0,
+        108.0,
+        111.0
+      ],
+      "rgb_distance": 52.933921071464184
+    },
+    "chart_r2_c0": {
+      "wrist_rgb": [
+        111.0,
+        108.0,
+        125.0
+      ],
+      "side_rgb": [
+        122.0,
+        126.0,
+        155.0
+      ],
+      "rgb_distance": 36.6742416417845
+    },
+    "chart_r2_c1": {
+      "wrist_rgb": [
+        160.0,
+        0.0,
+        3.0
+      ],
+      "side_rgb": [
+        240.0,
+        16.0,
+        29.0
+      ],
+      "rgb_distance": 85.62709851443059
+    },
+    "chart_r2_c2": {
+      "wrist_rgb": [
+        182.0,
+        42.0,
+        66.0
+      ],
+      "side_rgb": [
+        255.0,
+        29.0,
+        68.0
+      ],
+      "rgb_distance": 74.17546764261078
+    },
+    "chart_r2_c3": {
+      "wrist_rgb": [
+        94.0,
+        86.0,
+        151.0
+      ],
+      "side_rgb": [
+        54.0,
+        85.0,
+        221.0
+      ],
+      "rgb_distance": 80.62877898120497
+    },
+    "chart_r3_c0": {
+      "wrist_rgb": [
+        29.0,
+        23.0,
+        36.0
+      ],
+      "side_rgb": [
+        74.0,
+        64.0,
+        91.0
+      ],
+      "rgb_distance": 82.04267182387468
+    },
+    "chart_r3_c1": {
+      "wrist_rgb": [
+        166.0,
+        153.0,
+        42.0
+      ],
+      "side_rgb": [
+        201.0,
+        171.0,
+        0.0
+      ],
+      "rgb_distance": 57.55866572463264
+    },
+    "chart_r3_c2": {
+      "wrist_rgb": [
+        68.0,
+        2.0,
+        93.0
+      ],
+      "side_rgb": [
+        88.0,
+        31.0,
+        156.0
+      ],
+      "rgb_distance": 72.18032973047436
+    },
+    "chart_r3_c3": {
+      "wrist_rgb": [
+        0.0,
+        29.0,
+        7.0
+      ],
+      "side_rgb": [
+        48.0,
+        76.0,
+        42.0
+      ],
+      "rgb_distance": 75.7495874576225
+    },
+    "chart_r4_c0": {
+      "wrist_rgb": [
+        0.0,
+        0.0,
+        6.0
+      ],
+      "side_rgb": [
+        47.0,
+        45.0,
+        51.0
+      ],
+      "rgb_distance": 79.11384202527394
+    },
+    "chart_r4_c1": {
+      "wrist_rgb": [
+        153.0,
+        23.0,
+        84.0
+      ],
+      "side_rgb": [
+        206.0,
+        24.0,
+        125.0
+      ],
+      "rgb_distance": 67.01492371106603
+    },
+    "chart_r4_c2": {
+      "wrist_rgb": [
+        76.0,
+        145.0,
+        49.0
+      ],
+      "side_rgb": [
+        103.0,
+        184.0,
+        0.0
+      ],
+      "rgb_distance": 68.19824044651006
+    },
+    "chart_r4_c3": {
+      "wrist_rgb": [
+        105.0,
+        78.0,
+        145.0
+      ],
+      "side_rgb": [
+        100.0,
+        94.0,
+        213.0
+      ],
+      "rgb_distance": 70.03570517957252
+    },
+    "chart_r5_c0": {
+      "wrist_rgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "side_rgb": [
+        45.0,
+        39.0,
+        46.0
+      ],
+      "rgb_distance": 75.24626236564843
+    },
+    "chart_r5_c1": {
+      "wrist_rgb": [
+        0.0,
+        94.0,
+        135.0
+      ],
+      "side_rgb": [
+        0.0,
+        127.0,
+        202.0
+      ],
+      "rgb_distance": 74.68600939935136
+    },
+    "chart_r5_c2": {
+      "wrist_rgb": [
+        183.0,
+        88.0,
+        35.0
+      ],
+      "side_rgb": [
+        245.0,
+        107.0,
+        0.0
+      ],
+      "rgb_distance": 73.68853370776216
+    },
+    "chart_r5_c3": {
+      "wrist_rgb": [
+        60.0,
+        130.0,
+        141.0
+      ],
+      "side_rgb": [
+        41.0,
+        162.0,
+        178.0
+      ],
+      "rgb_distance": 52.478567053607705
+    },
+    "cube_red": {
+      "wrist_rgb": [
+        84.0,
+        0.0,
+        0.0
+      ],
+      "side_rgb": [
+        172.0,
+        10.0,
+        19.0
+      ],
+      "rgb_distance": 90.58145505565695
+    },
+    "cube_green": {
+      "wrist_rgb": [
+        0.0,
+        24.0,
+        0.0
+      ],
+      "side_rgb": [
+        27.0,
+        65.5,
+        36.5
+      ],
+      "rgb_distance": 61.51016176210236
+    }
+  },
+  "limitations": [
+    "Small manually selected apparent upper-face patches. Faces are not physically marked; translucent material, viewing angle and illumination remain confounders. Cube RGB differences are observational, not isolated camera error.",
+    "Single position A only; no independent position holdout yet.",
+    "Host reception timestamps only; no V4L2 sequence counters, driver exposure times or certified drop-frame counts.",
+    "Lab/DeltaE and absolute color accuracy are not reported; unknown printed reference values.",
+    "A 45-second stream restart is not a power-on/cold-AWB test; no stability beyond this interval is established."
+  ]
+}

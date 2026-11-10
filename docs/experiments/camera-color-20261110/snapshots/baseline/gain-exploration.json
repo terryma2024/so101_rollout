@@ -1,0 +1,60 @@
+{
+  "candidate": "Constrained diagonal gain in decoded display RGB; chart-only fit at single position A; exploratory, no independent position holdout.",
+  "gain": [
+    1.2137319827832227,
+    1.1400859311697726,
+    1.2478762654132973
+  ],
+  "chart_mean_rgb_distance_before": 65.202560779174,
+  "chart_mean_rgb_distance_after": 54.36743909660779,
+  "cube": {
+    "cube_red": {
+      "before_rgb": [
+        84.0,
+        0.0,
+        0.0
+      ],
+      "after_rgb": [
+        101.95348655379071,
+        0.0,
+        0.0
+      ],
+      "side_rgb": [
+        172.0,
+        10.0,
+        19.0
+      ],
+      "rgb_distance_before": 90.58145505565695,
+      "rgb_distance_after": 73.26331992184069
+    },
+    "cube_green": {
+      "before_rgb": [
+        0.0,
+        24.0,
+        0.0
+      ],
+      "after_rgb": [
+        0.0,
+        27.362062348074545,
+        0.0
+      ],
+      "side_rgb": [
+        27.0,
+        65.5,
+        36.5
+      ],
+      "rgb_distance_before": 61.51016176210236,
+      "rgb_distance_after": 59.29377950799016
+    }
+  },
+  "maximum_ge253_fraction_across_sampled_roi_channels": {
+    "wrist": [
+      0.0,
+      "cube_red"
+    ],
+    "side": [
+      0.9668013468013489,
+      "chart_r0_c2"
+    ]
+  }
+}

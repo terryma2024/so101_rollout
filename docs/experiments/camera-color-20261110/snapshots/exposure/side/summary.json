@@ -1,0 +1,27 @@
+{
+  "camera": "side",
+  "device": "/dev/v4l/by-id/usb-icSpring_icspring_camera_202404160005-video-index0",
+  "resolved_device": "/dev/video2",
+  "format": "MJPG",
+  "width": 640,
+  "height": 480,
+  "frames": 2187,
+  "saved_png": 517,
+  "duration_requested": 180.0,
+  "first_frame_delay": 0.41257168108131737,
+  "full_frame_bytes": 79270534,
+  "trailing_incomplete_bytes": 36218,
+  "controls_format_and_device_unchanged": true,
+  "command": [
+    "v4l2-ctl",
+    "-d",
+    "/dev/v4l/by-id/usb-icSpring_icspring_camera_202404160005-video-index0",
+    "--stream-mmap=3",
+    "--stream-poll",
+    "--stream-no-query",
+    "--stream-to=-"
+  ],
+  "error": null,
+  "process_returncode": -2,
+  "timestamp_definition": "Host reception of a complete frame; not exposure time or hardware synchronization."
+}

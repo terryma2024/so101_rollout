@@ -1,0 +1,71 @@
+{
+  "created": "2026-11-10T17:37:25.139231+08:00",
+  "duration_seconds": 45.0,
+  "phases": {
+    "startup": [
+      0,
+      30
+    ],
+    "analysis": [
+      30,
+      45
+    ]
+  },
+  "results": [
+    {
+      "camera": "wrist",
+      "device": "/dev/v4l/by-id/usb-icSpring_icspring_camera-video-index0",
+      "resolved_device": "/dev/video0",
+      "format": "YUYV",
+      "width": 640,
+      "height": 480,
+      "frames": 0,
+      "saved_png": 0,
+      "duration_requested": 45.0,
+      "first_frame_delay": null,
+      "full_frame_bytes": 0,
+      "trailing_incomplete_bytes": 0,
+      "controls_format_and_device_unchanged": true,
+      "command": [
+        "v4l2-ctl",
+        "-d",
+        "/dev/v4l/by-id/usb-icSpring_icspring_camera-video-index0",
+        "--stream-mmap=3",
+        "--stream-poll",
+        "--stream-no-query",
+        "--stream-to=-"
+      ],
+      "error": "RuntimeError('wrist: early end of stream')",
+      "process_returncode": 0,
+      "timestamp_definition": "Host reception of a complete frame; not exposure time or hardware synchronization."
+    },
+    {
+      "camera": "side",
+      "device": "/dev/v4l/by-id/usb-icSpring_icspring_camera_202404160005-video-index0",
+      "resolved_device": "/dev/video2",
+      "format": "MJPG",
+      "width": 640,
+      "height": 480,
+      "frames": 890,
+      "saved_png": 206,
+      "duration_requested": 45.0,
+      "first_frame_delay": 0.42864569392986596,
+      "full_frame_bytes": 32288850,
+      "trailing_incomplete_bytes": 32686,
+      "controls_format_and_device_unchanged": true,
+      "command": [
+        "v4l2-ctl",
+        "-d",
+        "/dev/v4l/by-id/usb-icSpring_icspring_camera_202404160005-video-index0",
+        "--stream-mmap=3",
+        "--stream-poll",
+        "--stream-no-query",
+        "--stream-to=-"
+      ],
+      "error": null,
+      "process_returncode": -2,
+      "timestamp_definition": "Host reception of a complete frame; not exposure time or hardware synchronization."
+    }
+  ],
+  "constraints": "No control setters, no format setters, no robot connection. Raw stream retained for all-frame ROI analysis; decoded PNG about 5 Hz. Not sensor RAW."
+}

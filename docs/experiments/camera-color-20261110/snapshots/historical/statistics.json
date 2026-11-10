@@ -1,0 +1,1678 @@
+{
+  "roi_rectangles": {
+    "wrist": {
+      "paper": [
+        285,
+        195,
+        315,
+        225
+      ],
+      "wood": [
+        65,
+        75,
+        95,
+        110
+      ]
+    },
+    "side": {
+      "paper": [
+        273,
+        316,
+        289,
+        339
+      ],
+      "wood": [
+        204,
+        280,
+        221,
+        312
+      ]
+    }
+  },
+  "statistics": [
+    {
+      "trial": 1,
+      "camera": "wrist",
+      "roi": "paper",
+      "pixels": 900,
+      "rgb_median": [
+        220.0,
+        206.0,
+        220.0
+      ],
+      "hsv_median": [
+        152.0,
+        18.0,
+        221.0
+      ]
+    },
+    {
+      "trial": 1,
+      "camera": "wrist",
+      "roi": "wood",
+      "pixels": 1050,
+      "rgb_median": [
+        138.0,
+        113.0,
+        107.0
+      ],
+      "hsv_median": [
+        6.0,
+        59.0,
+        138.0
+      ]
+    },
+    {
+      "trial": 1,
+      "camera": "wrist",
+      "roi": "green",
+      "pixels": 360,
+      "rgb_median": [
+        0.0,
+        20.0,
+        0.0
+      ],
+      "hsv_median": [
+        60.0,
+        255.0,
+        20.0
+      ]
+    },
+    {
+      "trial": 1,
+      "camera": "wrist",
+      "roi": "red",
+      "pixels": 3607,
+      "rgb_median": [
+        60.0,
+        0.0,
+        0.0
+      ],
+      "hsv_median": [
+        0.0,
+        255.0,
+        60.0
+      ]
+    },
+    {
+      "trial": 1,
+      "camera": "side",
+      "roi": "paper",
+      "pixels": 368,
+      "rgb_median": [
+        197.0,
+        191.0,
+        197.0
+      ],
+      "hsv_median": [
+        146.0,
+        9.0,
+        198.0
+      ]
+    },
+    {
+      "trial": 1,
+      "camera": "side",
+      "roi": "wood",
+      "pixels": 544,
+      "rgb_median": [
+        208.0,
+        166.0,
+        119.0
+      ],
+      "hsv_median": [
+        16.0,
+        109.0,
+        208.0
+      ]
+    },
+    {
+      "trial": 1,
+      "camera": "side",
+      "roi": "green",
+      "pixels": 245,
+      "rgb_median": [
+        56.0,
+        78.0,
+        51.0
+      ],
+      "hsv_median": [
+        56.0,
+        94.0,
+        78.0
+      ]
+    },
+    {
+      "trial": 1,
+      "camera": "side",
+      "roi": "red",
+      "pixels": 364,
+      "rgb_median": [
+        156.0,
+        32.0,
+        48.0
+      ],
+      "hsv_median": [
+        176.0,
+        202.0,
+        156.0
+      ]
+    },
+    {
+      "trial": 2,
+      "camera": "wrist",
+      "roi": "paper",
+      "pixels": 900,
+      "rgb_median": [
+        221.0,
+        207.0,
+        220.0
+      ],
+      "hsv_median": [
+        152.0,
+        16.0,
+        221.0
+      ]
+    },
+    {
+      "trial": 2,
+      "camera": "wrist",
+      "roi": "wood",
+      "pixels": 1050,
+      "rgb_median": [
+        140.0,
+        116.0,
+        108.0
+      ],
+      "hsv_median": [
+        7.0,
+        61.0,
+        140.0
+      ]
+    },
+    {
+      "trial": 2,
+      "camera": "wrist",
+      "roi": "green",
+      "pixels": 457,
+      "rgb_median": [
+        0.0,
+        21.0,
+        0.0
+      ],
+      "hsv_median": [
+        60.0,
+        255.0,
+        21.0
+      ]
+    },
+    {
+      "trial": 2,
+      "camera": "wrist",
+      "roi": "red",
+      "pixels": 3551,
+      "rgb_median": [
+        61.0,
+        0.0,
+        0.0
+      ],
+      "hsv_median": [
+        0.0,
+        255.0,
+        61.0
+      ]
+    },
+    {
+      "trial": 2,
+      "camera": "side",
+      "roi": "paper",
+      "pixels": 368,
+      "rgb_median": [
+        197.0,
+        192.0,
+        195.0
+      ],
+      "hsv_median": [
+        167.0,
+        8.0,
+        197.0
+      ]
+    },
+    {
+      "trial": 2,
+      "camera": "side",
+      "roi": "wood",
+      "pixels": 544,
+      "rgb_median": [
+        208.0,
+        166.0,
+        118.0
+      ],
+      "hsv_median": [
+        16.0,
+        111.0,
+        208.0
+      ]
+    },
+    {
+      "trial": 2,
+      "camera": "side",
+      "roi": "green",
+      "pixels": 273,
+      "rgb_median": [
+        55.0,
+        76.0,
+        51.0
+      ],
+      "hsv_median": [
+        55.0,
+        88.0,
+        76.0
+      ]
+    },
+    {
+      "trial": 2,
+      "camera": "side",
+      "roi": "red",
+      "pixels": 365,
+      "rgb_median": [
+        161.0,
+        33.0,
+        44.0
+      ],
+      "hsv_median": [
+        177.0,
+        203.0,
+        161.0
+      ]
+    },
+    {
+      "trial": 3,
+      "camera": "wrist",
+      "roi": "paper",
+      "pixels": 900,
+      "rgb_median": [
+        221.0,
+        207.0,
+        220.0
+      ],
+      "hsv_median": [
+        152.0,
+        17.0,
+        221.0
+      ]
+    },
+    {
+      "trial": 3,
+      "camera": "wrist",
+      "roi": "wood",
+      "pixels": 1050,
+      "rgb_median": [
+        141.0,
+        116.0,
+        108.0
+      ],
+      "hsv_median": [
+        8.0,
+        59.0,
+        141.0
+      ]
+    },
+    {
+      "trial": 3,
+      "camera": "wrist",
+      "roi": "green",
+      "pixels": 455,
+      "rgb_median": [
+        0.0,
+        20.0,
+        1.0
+      ],
+      "hsv_median": [
+        60.0,
+        255.0,
+        20.0
+      ]
+    },
+    {
+      "trial": 3,
+      "camera": "wrist",
+      "roi": "red",
+      "pixels": 3439,
+      "rgb_median": [
+        61.0,
+        0.0,
+        0.0
+      ],
+      "hsv_median": [
+        0.0,
+        255.0,
+        61.0
+      ]
+    },
+    {
+      "trial": 3,
+      "camera": "side",
+      "roi": "paper",
+      "pixels": 368,
+      "rgb_median": [
+        197.5,
+        192.0,
+        196.0
+      ],
+      "hsv_median": [
+        158.0,
+        8.0,
+        198.0
+      ]
+    },
+    {
+      "trial": 3,
+      "camera": "side",
+      "roi": "wood",
+      "pixels": 544,
+      "rgb_median": [
+        209.0,
+        168.0,
+        116.0
+      ],
+      "hsv_median": [
+        17.0,
+        113.0,
+        209.0
+      ]
+    },
+    {
+      "trial": 3,
+      "camera": "side",
+      "roi": "green",
+      "pixels": 237,
+      "rgb_median": [
+        56.0,
+        79.0,
+        51.0
+      ],
+      "hsv_median": [
+        54.0,
+        103.0,
+        79.0
+      ]
+    },
+    {
+      "trial": 3,
+      "camera": "side",
+      "roi": "red",
+      "pixels": 380,
+      "rgb_median": [
+        160.5,
+        32.0,
+        43.0
+      ],
+      "hsv_median": [
+        177.0,
+        203.0,
+        160.5
+      ]
+    },
+    {
+      "trial": 4,
+      "camera": "wrist",
+      "roi": "paper",
+      "pixels": 900,
+      "rgb_median": [
+        221.0,
+        206.0,
+        219.0
+      ],
+      "hsv_median": [
+        154.0,
+        17.0,
+        221.0
+      ]
+    },
+    {
+      "trial": 4,
+      "camera": "wrist",
+      "roi": "wood",
+      "pixels": 1050,
+      "rgb_median": [
+        142.0,
+        116.0,
+        105.0
+      ],
+      "hsv_median": [
+        9.0,
+        67.0,
+        142.0
+      ]
+    },
+    {
+      "trial": 4,
+      "camera": "wrist",
+      "roi": "green",
+      "pixels": 123,
+      "rgb_median": [
+        1.0,
+        14.0,
+        0.0
+      ],
+      "hsv_median": [
+        58.0,
+        255.0,
+        14.0
+      ]
+    },
+    {
+      "trial": 4,
+      "camera": "wrist",
+      "roi": "red",
+      "pixels": 3193,
+      "rgb_median": [
+        65.0,
+        0.0,
+        0.0
+      ],
+      "hsv_median": [
+        0.0,
+        255.0,
+        65.0
+      ]
+    },
+    {
+      "trial": 4,
+      "camera": "side",
+      "roi": "paper",
+      "pixels": 368,
+      "rgb_median": [
+        197.0,
+        192.0,
+        194.0
+      ],
+      "hsv_median": [
+        168.0,
+        7.0,
+        197.0
+      ]
+    },
+    {
+      "trial": 4,
+      "camera": "side",
+      "roi": "wood",
+      "pixels": 544,
+      "rgb_median": [
+        208.0,
+        167.0,
+        118.0
+      ],
+      "hsv_median": [
+        16.0,
+        110.0,
+        208.0
+      ]
+    },
+    {
+      "trial": 4,
+      "camera": "side",
+      "roi": "green",
+      "pixels": 279,
+      "rgb_median": [
+        54.0,
+        77.0,
+        53.0
+      ],
+      "hsv_median": [
+        61.0,
+        80.0,
+        77.0
+      ]
+    },
+    {
+      "trial": 4,
+      "camera": "side",
+      "roi": "red",
+      "pixels": 365,
+      "rgb_median": [
+        161.0,
+        32.0,
+        44.0
+      ],
+      "hsv_median": [
+        176.0,
+        206.0,
+        161.0
+      ]
+    },
+    {
+      "trial": 5,
+      "camera": "wrist",
+      "roi": "paper",
+      "pixels": 900,
+      "rgb_median": [
+        219.0,
+        202.0,
+        216.0
+      ],
+      "hsv_median": [
+        156.0,
+        19.0,
+        219.0
+      ]
+    },
+    {
+      "trial": 5,
+      "camera": "wrist",
+      "roi": "wood",
+      "pixels": 1050,
+      "rgb_median": [
+        140.0,
+        113.0,
+        103.0
+      ],
+      "hsv_median": [
+        8.0,
+        68.0,
+        140.0
+      ]
+    },
+    {
+      "trial": 5,
+      "camera": "wrist",
+      "roi": "green",
+      "pixels": 63,
+      "rgb_median": [
+        0.0,
+        13.0,
+        0.0
+      ],
+      "hsv_median": [
+        60.0,
+        255.0,
+        13.0
+      ]
+    },
+    {
+      "trial": 5,
+      "camera": "wrist",
+      "roi": "red",
+      "pixels": 3138,
+      "rgb_median": [
+        62.0,
+        0.0,
+        0.0
+      ],
+      "hsv_median": [
+        0.0,
+        255.0,
+        62.0
+      ]
+    },
+    {
+      "trial": 5,
+      "camera": "side",
+      "roi": "paper",
+      "pixels": 368,
+      "rgb_median": [
+        196.0,
+        190.0,
+        195.0
+      ],
+      "hsv_median": [
+        155.0,
+        8.0,
+        196.0
+      ]
+    },
+    {
+      "trial": 5,
+      "camera": "side",
+      "roi": "wood",
+      "pixels": 544,
+      "rgb_median": [
+        207.0,
+        166.0,
+        116.0
+      ],
+      "hsv_median": [
+        16.0,
+        111.0,
+        207.0
+      ]
+    },
+    {
+      "trial": 5,
+      "camera": "side",
+      "roi": "green",
+      "pixels": 302,
+      "rgb_median": [
+        49.0,
+        75.0,
+        53.0
+      ],
+      "hsv_median": [
+        65.0,
+        88.0,
+        75.0
+      ]
+    },
+    {
+      "trial": 5,
+      "camera": "side",
+      "roi": "red",
+      "pixels": 361,
+      "rgb_median": [
+        154.0,
+        32.0,
+        45.0
+      ],
+      "hsv_median": [
+        176.0,
+        203.0,
+        154.0
+      ]
+    },
+    {
+      "trial": 6,
+      "camera": "wrist",
+      "roi": "paper",
+      "pixels": 900,
+      "rgb_median": [
+        220.0,
+        201.0,
+        217.0
+      ],
+      "hsv_median": [
+        155.0,
+        22.0,
+        220.0
+      ]
+    },
+    {
+      "trial": 6,
+      "camera": "wrist",
+      "roi": "wood",
+      "pixels": 1050,
+      "rgb_median": [
+        138.0,
+        112.0,
+        101.0
+      ],
+      "hsv_median": [
+        8.0,
+        68.0,
+        138.0
+      ]
+    },
+    {
+      "trial": 6,
+      "camera": "wrist",
+      "roi": "green",
+      "pixels": 126,
+      "rgb_median": [
+        0.0,
+        13.0,
+        0.0
+      ],
+      "hsv_median": [
+        60.0,
+        255.0,
+        13.0
+      ]
+    },
+    {
+      "trial": 6,
+      "camera": "wrist",
+      "roi": "red",
+      "pixels": 2923,
+      "rgb_median": [
+        64.0,
+        0.0,
+        0.0
+      ],
+      "hsv_median": [
+        0.0,
+        255.0,
+        64.0
+      ]
+    },
+    {
+      "trial": 6,
+      "camera": "side",
+      "roi": "paper",
+      "pixels": 368,
+      "rgb_median": [
+        196.0,
+        191.0,
+        194.0
+      ],
+      "hsv_median": [
+        158.0,
+        8.0,
+        196.0
+      ]
+    },
+    {
+      "trial": 6,
+      "camera": "side",
+      "roi": "wood",
+      "pixels": 544,
+      "rgb_median": [
+        206.0,
+        166.0,
+        117.0
+      ],
+      "hsv_median": [
+        17.0,
+        110.0,
+        206.0
+      ]
+    },
+    {
+      "trial": 6,
+      "camera": "side",
+      "roi": "green",
+      "pixels": 299,
+      "rgb_median": [
+        54.0,
+        74.0,
+        51.0
+      ],
+      "hsv_median": [
+        58.0,
+        76.0,
+        74.0
+      ]
+    },
+    {
+      "trial": 6,
+      "camera": "side",
+      "roi": "red",
+      "pixels": 359,
+      "rgb_median": [
+        156.0,
+        30.0,
+        46.0
+      ],
+      "hsv_median": [
+        176.0,
+        207.0,
+        156.0
+      ]
+    },
+    {
+      "trial": 7,
+      "camera": "wrist",
+      "roi": "paper",
+      "pixels": 900,
+      "rgb_median": [
+        218.0,
+        202.0,
+        215.0
+      ],
+      "hsv_median": [
+        156.0,
+        19.0,
+        218.0
+      ]
+    },
+    {
+      "trial": 7,
+      "camera": "wrist",
+      "roi": "wood",
+      "pixels": 1050,
+      "rgb_median": [
+        137.0,
+        113.0,
+        102.0
+      ],
+      "hsv_median": [
+        10.0,
+        68.0,
+        137.0
+      ]
+    },
+    {
+      "trial": 7,
+      "camera": "wrist",
+      "roi": "green",
+      "pixels": 450,
+      "rgb_median": [
+        0.0,
+        20.0,
+        5.0
+      ],
+      "hsv_median": [
+        66.0,
+        255.0,
+        20.0
+      ]
+    },
+    {
+      "trial": 7,
+      "camera": "wrist",
+      "roi": "red",
+      "pixels": 3817,
+      "rgb_median": [
+        64.0,
+        0.0,
+        0.0
+      ],
+      "hsv_median": [
+        0.0,
+        255.0,
+        64.0
+      ]
+    },
+    {
+      "trial": 7,
+      "camera": "side",
+      "roi": "paper",
+      "pixels": 368,
+      "rgb_median": [
+        196.0,
+        190.0,
+        195.0
+      ],
+      "hsv_median": [
+        155.0,
+        8.0,
+        196.0
+      ]
+    },
+    {
+      "trial": 7,
+      "camera": "side",
+      "roi": "wood",
+      "pixels": 544,
+      "rgb_median": [
+        206.0,
+        165.0,
+        117.0
+      ],
+      "hsv_median": [
+        16.0,
+        110.0,
+        206.0
+      ]
+    },
+    {
+      "trial": 7,
+      "camera": "side",
+      "roi": "green",
+      "pixels": 167,
+      "rgb_median": [
+        51.0,
+        72.0,
+        49.0
+      ],
+      "hsv_median": [
+        57.0,
+        88.0,
+        72.0
+      ]
+    },
+    {
+      "trial": 7,
+      "camera": "side",
+      "roi": "red",
+      "pixels": 466,
+      "rgb_median": [
+        163.5,
+        36.0,
+        48.0
+      ],
+      "hsv_median": [
+        177.0,
+        201.0,
+        163.5
+      ]
+    },
+    {
+      "trial": 8,
+      "camera": "wrist",
+      "roi": "paper",
+      "pixels": 900,
+      "rgb_median": [
+        219.0,
+        201.0,
+        215.0
+      ],
+      "hsv_median": [
+        158.0,
+        22.0,
+        219.0
+      ]
+    },
+    {
+      "trial": 8,
+      "camera": "wrist",
+      "roi": "wood",
+      "pixels": 1050,
+      "rgb_median": [
+        136.0,
+        111.0,
+        100.0
+      ],
+      "hsv_median": [
+        8.0,
+        70.0,
+        136.0
+      ]
+    },
+    {
+      "trial": 8,
+      "camera": "wrist",
+      "roi": "green",
+      "pixels": 520,
+      "rgb_median": [
+        0.0,
+        19.0,
+        6.0
+      ],
+      "hsv_median": [
+        68.0,
+        255.0,
+        19.0
+      ]
+    },
+    {
+      "trial": 8,
+      "camera": "wrist",
+      "roi": "red",
+      "pixels": 4147,
+      "rgb_median": [
+        66.0,
+        0.0,
+        0.0
+      ],
+      "hsv_median": [
+        0.0,
+        255.0,
+        66.0
+      ]
+    },
+    {
+      "trial": 8,
+      "camera": "side",
+      "roi": "paper",
+      "pixels": 368,
+      "rgb_median": [
+        196.0,
+        190.0,
+        194.0
+      ],
+      "hsv_median": [
+        155.0,
+        8.0,
+        196.0
+      ]
+    },
+    {
+      "trial": 8,
+      "camera": "side",
+      "roi": "wood",
+      "pixels": 544,
+      "rgb_median": [
+        207.5,
+        165.0,
+        117.0
+      ],
+      "hsv_median": [
+        16.0,
+        111.0,
+        207.5
+      ]
+    },
+    {
+      "trial": 8,
+      "camera": "side",
+      "roi": "green",
+      "pixels": 214,
+      "rgb_median": [
+        52.0,
+        68.0,
+        49.0
+      ],
+      "hsv_median": [
+        57.5,
+        73.0,
+        68.0
+      ]
+    },
+    {
+      "trial": 8,
+      "camera": "side",
+      "roi": "red",
+      "pixels": 454,
+      "rgb_median": [
+        165.0,
+        34.0,
+        48.0
+      ],
+      "hsv_median": [
+        176.0,
+        203.0,
+        165.0
+      ]
+    },
+    {
+      "trial": 9,
+      "camera": "wrist",
+      "roi": "paper",
+      "pixels": 900,
+      "rgb_median": [
+        218.0,
+        202.0,
+        215.0
+      ],
+      "hsv_median": [
+        156.0,
+        19.0,
+        218.0
+      ]
+    },
+    {
+      "trial": 9,
+      "camera": "wrist",
+      "roi": "wood",
+      "pixels": 1050,
+      "rgb_median": [
+        136.0,
+        113.0,
+        102.0
+      ],
+      "hsv_median": [
+        10.0,
+        67.0,
+        136.0
+      ]
+    },
+    {
+      "trial": 9,
+      "camera": "wrist",
+      "roi": "green",
+      "pixels": 580,
+      "rgb_median": [
+        0.0,
+        18.0,
+        5.0
+      ],
+      "hsv_median": [
+        66.0,
+        255.0,
+        18.0
+      ]
+    },
+    {
+      "trial": 9,
+      "camera": "wrist",
+      "roi": "red",
+      "pixels": 3577,
+      "rgb_median": [
+        62.0,
+        0.0,
+        0.0
+      ],
+      "hsv_median": [
+        0.0,
+        255.0,
+        62.0
+      ]
+    },
+    {
+      "trial": 9,
+      "camera": "side",
+      "roi": "paper",
+      "pixels": 368,
+      "rgb_median": [
+        196.0,
+        190.0,
+        196.0
+      ],
+      "hsv_median": [
+        146.0,
+        8.5,
+        196.0
+      ]
+    },
+    {
+      "trial": 9,
+      "camera": "side",
+      "roi": "wood",
+      "pixels": 544,
+      "rgb_median": [
+        206.0,
+        165.0,
+        117.0
+      ],
+      "hsv_median": [
+        16.0,
+        110.0,
+        206.0
+      ]
+    },
+    {
+      "trial": 9,
+      "camera": "side",
+      "roi": "green",
+      "pixels": 206,
+      "rgb_median": [
+        52.0,
+        71.0,
+        51.0
+      ],
+      "hsv_median": [
+        58.0,
+        78.0,
+        71.0
+      ]
+    },
+    {
+      "trial": 9,
+      "camera": "side",
+      "roi": "red",
+      "pixels": 455,
+      "rgb_median": [
+        169.0,
+        34.0,
+        47.0
+      ],
+      "hsv_median": [
+        177.0,
+        204.0,
+        169.0
+      ]
+    },
+    {
+      "trial": 10,
+      "camera": "wrist",
+      "roi": "paper",
+      "pixels": 900,
+      "rgb_median": [
+        219.0,
+        203.0,
+        216.0
+      ],
+      "hsv_median": [
+        156.0,
+        19.0,
+        219.0
+      ]
+    },
+    {
+      "trial": 10,
+      "camera": "wrist",
+      "roi": "wood",
+      "pixels": 1050,
+      "rgb_median": [
+        138.0,
+        115.0,
+        104.5
+      ],
+      "hsv_median": [
+        9.0,
+        64.0,
+        138.0
+      ]
+    },
+    {
+      "trial": 10,
+      "camera": "wrist",
+      "roi": "green",
+      "pixels": 583,
+      "rgb_median": [
+        0.0,
+        20.0,
+        4.0
+      ],
+      "hsv_median": [
+        65.0,
+        255.0,
+        20.0
+      ]
+    },
+    {
+      "trial": 10,
+      "camera": "wrist",
+      "roi": "red",
+      "pixels": 3882,
+      "rgb_median": [
+        66.0,
+        0.0,
+        0.0
+      ],
+      "hsv_median": [
+        0.0,
+        255.0,
+        66.0
+      ]
+    },
+    {
+      "trial": 10,
+      "camera": "side",
+      "roi": "paper",
+      "pixels": 368,
+      "rgb_median": [
+        196.0,
+        190.0,
+        195.0
+      ],
+      "hsv_median": [
+        155.0,
+        8.0,
+        196.0
+      ]
+    },
+    {
+      "trial": 10,
+      "camera": "side",
+      "roi": "wood",
+      "pixels": 544,
+      "rgb_median": [
+        206.0,
+        165.0,
+        117.0
+      ],
+      "hsv_median": [
+        16.0,
+        111.0,
+        206.0
+      ]
+    },
+    {
+      "trial": 10,
+      "camera": "side",
+      "roi": "green",
+      "pixels": 169,
+      "rgb_median": [
+        52.0,
+        75.0,
+        52.0
+      ],
+      "hsv_median": [
+        61.0,
+        82.0,
+        75.0
+      ]
+    },
+    {
+      "trial": 10,
+      "camera": "side",
+      "roi": "red",
+      "pixels": 466,
+      "rgb_median": [
+        167.0,
+        34.0,
+        48.0
+      ],
+      "hsv_median": [
+        177.0,
+        203.5,
+        167.0
+      ]
+    },
+    {
+      "trial": 11,
+      "camera": "wrist",
+      "roi": "paper",
+      "pixels": 900,
+      "rgb_median": [
+        222.0,
+        206.0,
+        219.0
+      ],
+      "hsv_median": [
+        156.0,
+        18.0,
+        222.0
+      ]
+    },
+    {
+      "trial": 11,
+      "camera": "wrist",
+      "roi": "wood",
+      "pixels": 1050,
+      "rgb_median": [
+        142.0,
+        117.0,
+        106.0
+      ],
+      "hsv_median": [
+        8.0,
+        65.0,
+        142.0
+      ]
+    },
+    {
+      "trial": 11,
+      "camera": "wrist",
+      "roi": "green",
+      "pixels": 627,
+      "rgb_median": [
+        1.0,
+        20.0,
+        5.0
+      ],
+      "hsv_median": [
+        66.0,
+        242.0,
+        20.0
+      ]
+    },
+    {
+      "trial": 11,
+      "camera": "wrist",
+      "roi": "red",
+      "pixels": 3872,
+      "rgb_median": [
+        63.0,
+        0.0,
+        0.0
+      ],
+      "hsv_median": [
+        0.0,
+        255.0,
+        63.0
+      ]
+    },
+    {
+      "trial": 11,
+      "camera": "side",
+      "roi": "paper",
+      "pixels": 368,
+      "rgb_median": [
+        197.0,
+        192.0,
+        194.0
+      ],
+      "hsv_median": [
+        168.0,
+        6.0,
+        197.0
+      ]
+    },
+    {
+      "trial": 11,
+      "camera": "side",
+      "roi": "wood",
+      "pixels": 544,
+      "rgb_median": [
+        209.0,
+        167.0,
+        116.0
+      ],
+      "hsv_median": [
+        17.0,
+        113.0,
+        209.0
+      ]
+    },
+    {
+      "trial": 11,
+      "camera": "side",
+      "roi": "green",
+      "pixels": 146,
+      "rgb_median": [
+        55.5,
+        73.0,
+        47.5
+      ],
+      "hsv_median": [
+        52.0,
+        86.0,
+        73.0
+      ]
+    },
+    {
+      "trial": 11,
+      "camera": "side",
+      "roi": "red",
+      "pixels": 458,
+      "rgb_median": [
+        171.0,
+        35.0,
+        47.0
+      ],
+      "hsv_median": [
+        177.0,
+        204.0,
+        171.0
+      ]
+    },
+    {
+      "trial": 12,
+      "camera": "wrist",
+      "roi": "paper",
+      "pixels": 900,
+      "rgb_median": [
+        220.0,
+        204.0,
+        217.0
+      ],
+      "hsv_median": [
+        156.0,
+        19.0,
+        220.0
+      ]
+    },
+    {
+      "trial": 12,
+      "camera": "wrist",
+      "roi": "wood",
+      "pixels": 1050,
+      "rgb_median": [
+        142.0,
+        116.0,
+        106.0
+      ],
+      "hsv_median": [
+        8.0,
+        65.5,
+        142.0
+      ]
+    },
+    {
+      "trial": 12,
+      "camera": "wrist",
+      "roi": "green",
+      "pixels": 658,
+      "rgb_median": [
+        0.0,
+        21.0,
+        7.0
+      ],
+      "hsv_median": [
+        68.0,
+        255.0,
+        21.0
+      ]
+    },
+    {
+      "trial": 12,
+      "camera": "wrist",
+      "roi": "red",
+      "pixels": 4069,
+      "rgb_median": [
+        67.0,
+        0.0,
+        0.0
+      ],
+      "hsv_median": [
+        0.0,
+        255.0,
+        67.0
+      ]
+    },
+    {
+      "trial": 12,
+      "camera": "side",
+      "roi": "paper",
+      "pixels": 368,
+      "rgb_median": [
+        197.0,
+        192.0,
+        194.0
+      ],
+      "hsv_median": [
+        168.0,
+        6.0,
+        197.0
+      ]
+    },
+    {
+      "trial": 12,
+      "camera": "side",
+      "roi": "wood",
+      "pixels": 544,
+      "rgb_median": [
+        209.0,
+        167.0,
+        118.0
+      ],
+      "hsv_median": [
+        16.0,
+        111.0,
+        209.0
+      ]
+    },
+    {
+      "trial": 12,
+      "camera": "side",
+      "roi": "green",
+      "pixels": 88,
+      "rgb_median": [
+        54.0,
+        74.0,
+        48.0
+      ],
+      "hsv_median": [
+        57.0,
+        81.0,
+        74.0
+      ]
+    },
+    {
+      "trial": 12,
+      "camera": "side",
+      "roi": "red",
+      "pixels": 461,
+      "rgb_median": [
+        170.0,
+        35.0,
+        50.0
+      ],
+      "hsv_median": [
+        176.0,
+        204.0,
+        170.0
+      ]
+    }
+  ],
+  "paper_gain_fit_trial": 1,
+  "paper_rgb_gain": [
+    0.8954545454545455,
+    0.9271844660194175,
+    0.8954545454545455
+  ],
+  "validation": [
+    {
+      "trial": 1,
+      "roi": "paper",
+      "rgb_distance_before": 35.81898937714463,
+      "rgb_distance_after": 0.0,
+      "corrected_wrist_rgb": [
+        197.0,
+        191.0,
+        197.0
+      ]
+    },
+    {
+      "trial": 1,
+      "roi": "red",
+      "rgb_distance_before": 112.0,
+      "rgb_distance_after": 117.42108304645147,
+      "corrected_wrist_rgb": [
+        53.727272727272734,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "trial": 1,
+      "roi": "green",
+      "rgb_distance_before": 95.39916142189091,
+      "rgb_distance_after": 96.29149951906712,
+      "corrected_wrist_rgb": [
+        0.0,
+        18.54368932038835,
+        0.0
+      ]
+    },
+    {
+      "trial": 7,
+      "roi": "paper",
+      "rgb_distance_before": 32.0624390837628,
+      "rgb_distance_after": 3.7549538175135977,
+      "corrected_wrist_rgb": [
+        195.20909090909092,
+        187.29126213592232,
+        192.52272727272728
+      ]
+    },
+    {
+      "trial": 7,
+      "roi": "red",
+      "rgb_distance_before": 116.19057620994914,
+      "rgb_distance_after": 121.96929602795008,
+      "corrected_wrist_rgb": [
+        57.30909090909091,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "trial": 7,
+      "roi": "green",
+      "rgb_distance_before": 85.09406559801923,
+      "rgb_distance_after": 86.26036398762074,
+      "corrected_wrist_rgb": [
+        0.0,
+        18.54368932038835,
+        4.4772727272727275
+      ]
+    },
+    {
+      "trial": 12,
+      "roi": "paper",
+      "rgb_distance_before": 34.66987164671943,
+      "rgb_distance_after": 2.871548322557623,
+      "corrected_wrist_rgb": [
+        197.0,
+        189.14563106796118,
+        194.31363636363636
+      ]
+    },
+    {
+      "trial": 12,
+      "roi": "red",
+      "rgb_distance_before": 119.7246841716444,
+      "rgb_distance_after": 125.80143091658837,
+      "corrected_wrist_rgb": [
+        59.99545454545455,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "trial": 12,
+      "roi": "green",
+      "rgb_distance_before": 86.05811989580066,
+      "rgb_distance_after": 87.35542487091573,
+      "corrected_wrist_rgb": [
+        0.0,
+        19.47087378640777,
+        6.2681818181818185
+      ]
+    }
+  ],
+  "note": "RGB/HSV are display-space descriptive measurements, not colorimetric accuracy. Different views sample different faces and lighting. Object masks are color-conditioned and not a complete detection benchmark."
+}

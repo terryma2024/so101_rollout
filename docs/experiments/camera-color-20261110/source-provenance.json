@@ -1,0 +1,1210 @@
+{
+  "schema_version": 1,
+  "original_evidence_root": "/data/work/so101-evidence/real-robot",
+  "phases": {
+    "historical": "camera-color-research-20261102",
+    "baseline": "camera-color-baseline-20261110-A-retry2",
+    "exposure": "camera-exposure-trial-20261110",
+    "gamma-coarse": "camera-gamma-trial-20261110",
+    "gamma-refine": "camera-gamma-refine-20261110"
+  },
+  "copied_files": [
+    {
+      "path": "tools/camera_color_20261110/originals/historical/analyze.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-research-20261102/analyze.py",
+      "bytes": 3691,
+      "sha256": "067eae3588aeb73dc3770de63e881e2635dff0a51c23b2a8dcb0884c2347b5b4"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/historical/fixed-patch-statistics.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-research-20261102/fixed-patch-statistics.json",
+      "bytes": 15883,
+      "sha256": "920b8f8e1c9f01b6cc4a3253901418abd19b1064ef7f0f15d5d75177e55779de"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/historical/fixed_patches.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-research-20261102/fixed_patches.py",
+      "bytes": 1749,
+      "sha256": "dd4f25e4a186b7ea18d15fec3402cdb2d7f3be87af59e0479727b98c2f38e457"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/historical/report-zh.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-research-20261102/report-zh.txt",
+      "bytes": 9393,
+      "sha256": "cd0b36ef77d858c75458987a9cf2b0856237e322609e4ded8444862339492a15"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/historical/side-controls-readonly.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-research-20261102/side-controls-readonly.txt",
+      "bytes": 2411,
+      "sha256": "e5ba24f3e0a7aa7a11057e1a9b553671ebfcfa680f9935177682a0762530e618"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/historical/statistics.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-research-20261102/statistics.json",
+      "bytes": 26338,
+      "sha256": "5436f21d98f422e117c48328fa5ba6a0fcf9e53aabcdf3521d9a5db5296cf069"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/historical/video-metadata.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-research-20261102/video-metadata.json",
+      "bytes": 9968,
+      "sha256": "ad34a95052c2a362b017db654fa86e0d576f9b1ccd64a61da2f4bb0755032b73"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/historical/wrist-controls-readonly.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-research-20261102/wrist-controls-readonly.txt",
+      "bytes": 2408,
+      "sha256": "9d3736e4a50bab1ff8fed443cd6774f9578874c262fcfe67cb8dd8ee79678c51"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/figures/historical/all-trials-contact-sheet.jpg",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-research-20261102/all-trials-contact-sheet.jpg",
+      "bytes": 260067,
+      "sha256": "44ef52822a20a9dc6b8be08bb14f89419eef5d2f05dae39263a0ae405897b2f9",
+      "image_dimensions": [
+        1280,
+        1530
+      ]
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/figures/historical/fixed-patches-verification.jpg",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-research-20261102/fixed-patches-verification.jpg",
+      "bytes": 195342,
+      "sha256": "9a89179613af22c32ef6f42905c3ff5a09e65156d45e7243312f3f782bc55ea7",
+      "image_dimensions": [
+        1280,
+        1470
+      ]
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/baseline/analyze.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/analyze.py",
+      "bytes": 8721,
+      "sha256": "a1d799842969fcfe95f5c4f27ac56c4aaa3c755b5a13dbcef2008b764e4fabb0"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/artifact-sha256.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/artifact-sha256.json",
+      "bytes": 803,
+      "sha256": "203d1b3ce9acad12a1712e983bb6a5f7908bbe6b713c8528823289e9b6347a41"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/baseline/capture.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/capture.py",
+      "bytes": 7117,
+      "sha256": "fe51c8c3b6d1316f4204c6ff944cf475917d22eebfd3fbc8d0dd70d1673f37e9"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/exposure-trial-proposal.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/exposure-trial-proposal.json",
+      "bytes": 820,
+      "sha256": "4ca8807945e3e41fc9756b72fd7454da5e596fc1d8129657f9d3dd90f4f21aa8"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/gain-exploration.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/gain-exploration.json",
+      "bytes": 1230,
+      "sha256": "97b37f2edc850a1eaffdb80ac315b5fc21daa3d9215e1181474ba4e4b4ca29bf"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/manifest.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/manifest.json",
+      "bytes": 2150,
+      "sha256": "ec4db390d8203a9f58ca2e63a7a5da15ac4353f4036afbb3f74049fe3950ed54"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/report-zh.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/report-zh.txt",
+      "bytes": 7930,
+      "sha256": "ed8d37dc8dc2f89043d694d8334c0dd8d2f68f6a05483306e07d7ffdbc6bb0fd"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/roi.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/roi.json",
+      "bytes": 18373,
+      "sha256": "a02546b0c262e92b87ce13b070342225edd6c8a7dfb001a7a273e9c95dc5a8c5"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/statistics.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/statistics.json",
+      "bytes": 60395,
+      "sha256": "808c9b845d02e1b0393e7005b97fcd65e968138738ca6ad651aef31617a74bfb"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/verification.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/verification.json",
+      "bytes": 772,
+      "sha256": "93108cacf70193924c54181e46ce44b51995aa602428a9fc132c55942a801422"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/wrist/after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/wrist/after.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/wrist/before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/wrist/before.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/wrist/summary.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/wrist/summary.json",
+      "bytes": 766,
+      "sha256": "62d7878e48b924000ac00b49c65bb467e96fa98bc49bbb9e99e6a10132c5cd2f"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/side/after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/side/after.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/side/before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/side/before.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/baseline/side/summary.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/side/summary.json",
+      "bytes": 794,
+      "sha256": "6c25ddd3da9f858f358b0468df8bf5f576dddc1dfac9ae35096115ccfffe4bef"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/figures/baseline/roi-verification.png",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/roi-verification.png",
+      "bytes": 1021749,
+      "sha256": "2fb11b24bddd7bea48f0f240b21997638a988adddd97e291e050b77d44356a75",
+      "image_dimensions": [
+        1280,
+        480
+      ]
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/exposure/analyze_trial.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/analyze_trial.py",
+      "bytes": 6865,
+      "sha256": "3158e9f204d3e09b165bec8e0006278fc8759c9f99cbbb168e41ac543a2d4c19"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/artifact-sha256.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/artifact-sha256.json",
+      "bytes": 1286,
+      "sha256": "2c2048c92b69df309e4373a69517d64cf1325672d440db100948911a97c2ce7d"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/exposure/baseline_roi_definitions.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/baseline_roi_definitions.py",
+      "bytes": 8721,
+      "sha256": "a1d799842969fcfe95f5c4f27ac56c4aaa3c755b5a13dbcef2008b764e4fabb0"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/decoded-white-plateau-check.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/decoded-white-plateau-check.json",
+      "bytes": 6027,
+      "sha256": "be162253e05e3e346a88bd4b92b3e31782b174a26b6f63cdd50c151fe4c97c7e"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/e40_initial-side-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/e40_initial-side-readback.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/e40_initial-wrist-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/e40_initial-wrist-readback.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/e40_repeat-side-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/e40_repeat-side-readback.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/e40_repeat-wrist-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/e40_repeat-wrist-readback.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/e60-side-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/e60-side-readback.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/e60-wrist-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/e60-wrist-readback.txt",
+      "bytes": 2867,
+      "sha256": "2eff87aeb94d84fcb2dcb75b7d59d942d1944399235dc14fc58a9322db57b4fb"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/e80-side-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/e80-side-readback.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/e80-wrist-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/e80-wrist-readback.txt",
+      "bytes": 2867,
+      "sha256": "26f5ae75d3022711dc0335d81270eb6225a8353d4e5b6d8e0b07211f4f201e3d"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/exposure/finalize.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/finalize.py",
+      "bytes": 4723,
+      "sha256": "8f8a39b2cd95cdb5944cde5b8cdb2cef40860c499ed8357dd3d0ef8393cb2433"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/jpeg-warning-frames.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/jpeg-warning-frames.json",
+      "bytes": 120,
+      "sha256": "fd6656da42e456442d15672b68ed0c0cc8aa9718ca2d74c6449d00860394c525"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/manifest.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/manifest.json",
+      "bytes": 2907,
+      "sha256": "1f575957278ecd326714453698a62accd4596476fe6fcf16c85649f02cb3eb60"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/report-zh.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/report-zh.txt",
+      "bytes": 7219,
+      "sha256": "06d87c8bf7c2fd6fed2567410e011729e4762e42576e2050eab230ab383d877c"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/exposure/restore-exposure.sh",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/restore-exposure.sh",
+      "bytes": 227,
+      "sha256": "19a33304534960901ed9258445b0e92d8e486faa80d8e2ef678a405acee1c91b"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/roi-placement-check.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/roi-placement-check.json",
+      "bytes": 1414,
+      "sha256": "6aba6fde57d7264e442fa96a81d59f7c6309ec2e8a9b8d5c8156a8f4251d53bd"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/roi.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/roi.json",
+      "bytes": 16150,
+      "sha256": "a994d39589c6e5158a9c877131d25e77006f2b6ccb9b82ca693147a8ce3be06d"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/exposure/run_trial.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/run_trial.py",
+      "bytes": 6989,
+      "sha256": "e0b9500fc67b40c653555d60f8a09555dff9e9fd0f6b2d8f452653ae5936143d"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/side-after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/side-after.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/side-before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/side-before.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/side-final-live-verification.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/side-final-live-verification.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/statistics.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/statistics.json",
+      "bytes": 261434,
+      "sha256": "9f8792c1c43979a954fcc52f794380887f273abd63889d5c988a2a973483ac7e"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/exposure/stream_capture.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/stream_capture.py",
+      "bytes": 7220,
+      "sha256": "37b1ed964f05d9fa125f99f1352ab77e4920d816a701653b99f2cd34f4d67606"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/verification.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/verification.json",
+      "bytes": 945,
+      "sha256": "2651b3e084a7a45ff2b88b88af49ec642f6569d749e48b7e05f6c6d43a849385"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/wrist-after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/wrist-after.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/wrist-before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/wrist-before.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/wrist-final-live-verification.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/wrist-final-live-verification.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/wrist-restored-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/wrist-restored-readback.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/followup/artifact-sha256.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/followup/artifact-sha256.json",
+      "bytes": 567,
+      "sha256": "01521e927a58810f8c84ebc5179dae44d97b52dfd9c9c146e4bf3e8074e8151e"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/exposure/followup/audit_yuyv.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/followup/audit_yuyv.py",
+      "bytes": 3935,
+      "sha256": "5f6019cc112c3f94d57fb43fbe78a81706c8bf5e7f615ceaae58f50d98669284"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/followup/conclusion-zh.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/followup/conclusion-zh.txt",
+      "bytes": 5055,
+      "sha256": "60a7da0a6948daa10a0640edd80b2185561889eddd3cb7174cbcb18ce1b7831a"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/followup/current-controls-readonly.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/followup/current-controls-readonly.txt",
+      "bytes": 79,
+      "sha256": "1368351b8281784f0c3adf0aa6383911dfa08d8f84fea4ae0e68494e7b51573c"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/followup/gamma-trial-proposal.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/followup/gamma-trial-proposal.json",
+      "bytes": 940,
+      "sha256": "1be554f77e58cf4b639ab7389376e604c4dd99396038a8e57ce97904c5439666"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/followup/gray-y-codes.csv",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/followup/gray-y-codes.csv",
+      "bytes": 1471,
+      "sha256": "0f667e37e920accd5bd64de98a28f44cc3fd7c2491fd60944a7d2b30b713c3dc"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/followup/yuyv-diagnostics.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/followup/yuyv-diagnostics.json",
+      "bytes": 13582,
+      "sha256": "8345e2f1128afcb3115e2fda24cf9127b245d1d7c99e276f1f468050d03f6ddd"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/wrist/after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/wrist/after.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/wrist/before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/wrist/before.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/wrist/summary.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/wrist/summary.json",
+      "bytes": 771,
+      "sha256": "1a0dd26069c34038a6d05f163bc9416f270052b4c4b8b5922d02b1fdeee58289"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/side/after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/side/after.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/side/before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/side/before.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/exposure/side/summary.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/side/summary.json",
+      "bytes": 796,
+      "sha256": "8b36a6d62626f616df3632d69426659d766047ba7c0eab6476305eb64a6e4f51"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/figures/exposure/exposure-comparison-preview.png",
+      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/exposure-comparison-preview.png",
+      "bytes": 2473275,
+      "sha256": "cbbe19116d45664df85b981290b109bb12069b72a79785dbfb47d0dbbfa1f72e",
+      "image_dimensions": [
+        1000,
+        1588
+      ]
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-coarse/analyze_trial.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/analyze_trial.py",
+      "bytes": 6850,
+      "sha256": "1e48f55cdd750fda24ba8faad015262250243a1d781c3c5c816b928fdfd50b05"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/artifact-sha256.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/artifact-sha256.json",
+      "bytes": 1648,
+      "sha256": "ffb9d4330016adad003a80aa0dae983ab932ee0a624b8ebcf649cdb57bd04e1c"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-coarse/audit_jpeg.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/audit_jpeg.py",
+      "bytes": 1601,
+      "sha256": "302b0d74d48e6ac9efd2595a45ef07a0ef8a0379fd0e50eb4f868af7e3a036b1"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/authorized-proposal.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/authorized-proposal.json",
+      "bytes": 1072,
+      "sha256": "130ed328e67da462cee435efcc8431e28f2fcc49a2ef39a4c1c4668bd11db50d"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-coarse/baseline_roi_definitions.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/baseline_roi_definitions.py",
+      "bytes": 8721,
+      "sha256": "a1d799842969fcfe95f5c4f27ac56c4aaa3c755b5a13dbcef2008b764e4fabb0"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-coarse/finalize.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/finalize.py",
+      "bytes": 4720,
+      "sha256": "0d2c08607fec30163e14fca96e89be35511c13a642f79d7bd844e50e7037d003"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/g120-side-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/g120-side-readback.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/g120-wrist-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/g120-wrist-readback.txt",
+      "bytes": 2868,
+      "sha256": "4c039713faf9e1c1a8556b3416d677cea93e91174b376f5f7678e8cbccc1a08a"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/g67_initial-side-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/g67_initial-side-readback.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/g67_initial-wrist-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/g67_initial-wrist-readback.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/g67_repeat-side-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/g67_repeat-side-readback.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/g67_repeat-wrist-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/g67_repeat-wrist-readback.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/g90-side-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/g90-side-readback.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/g90-wrist-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/g90-wrist-readback.txt",
+      "bytes": 2867,
+      "sha256": "9f4b163a9255814d860985ab5dce31a353a478d61b3b11f7efb8ccb65eeccc2e"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/jpeg-warning-frames.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/jpeg-warning-frames.json",
+      "bytes": 121,
+      "sha256": "cee70a3f05bcf40261531da1b9f8fcd82974e7a3b34db5aed8c74f63536b8d46"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/manifest.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/manifest.json",
+      "bytes": 2897,
+      "sha256": "5002d200db62be7e654d383bb427df312795c4ab76351c1a02a0d6182c01605c"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/report-zh.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/report-zh.txt",
+      "bytes": 7004,
+      "sha256": "aa3a35baebb2e1e23a571c022fb0913bc2803d37d777fcb0b86d8f356b1164f4"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-coarse/restore-gamma.sh",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/restore-gamma.sh",
+      "bytes": 193,
+      "sha256": "b749883b12b5f48110d3daa2bb13c29d9559c3c048fb072d0afea901dd743c97"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/roi-placement-check.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/roi-placement-check.json",
+      "bytes": 1362,
+      "sha256": "51b0d42079c394ac861eb251bd47d743045767c970934888035bec70865dedf6"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/roi.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/roi.json",
+      "bytes": 16150,
+      "sha256": "a994d39589c6e5158a9c877131d25e77006f2b6ccb9b82ca693147a8ce3be06d"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-coarse/run_trial.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/run_trial.py",
+      "bytes": 6796,
+      "sha256": "89933afd20d56f06b54616fbeb4eb4b2ef1a654553971e30e011d4a499f9c645"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/side-after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/side-after.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/side-before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/side-before.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/side-final-live-verification.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/side-final-live-verification.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/statistics.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/statistics.json",
+      "bytes": 261143,
+      "sha256": "7ec851865e2f6e3f80f8c4029906a99082e48d8f245ef0c809e955cdfe22a729"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-coarse/stream_capture.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/stream_capture.py",
+      "bytes": 7220,
+      "sha256": "37b1ed964f05d9fa125f99f1352ab77e4920d816a701653b99f2cd34f4d67606"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/verification.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/verification.json",
+      "bytes": 971,
+      "sha256": "2328aca3245879f43b61e7de084e34ebb94e7d3b764da3070cd44e39141748d6"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-coarse/verify_trial.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/verify_trial.py",
+      "bytes": 2471,
+      "sha256": "93dcb062f700be0ca617d19bbd5b103098e30f6b8f9925dc1cb52165b76b7439"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/wrist-after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/wrist-after.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/wrist-before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/wrist-before.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/wrist-final-live-verification.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/wrist-final-live-verification.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/wrist-restored-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/wrist-restored-readback.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/followup/audit-output.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/followup/audit-output.txt",
+      "bytes": 3187,
+      "sha256": "7da20225396b35e05104783a2b679059286cc0c7129b0a685e1121ac4d842212"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-coarse/followup/audit_yuyv.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/followup/audit_yuyv.py",
+      "bytes": 3944,
+      "sha256": "d5390eaa14baeed14b4ab3abee19156293122d45a129e07710d63325a0140b2f"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/followup/gray-y-codes.csv",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/followup/gray-y-codes.csv",
+      "bytes": 1388,
+      "sha256": "7b8f65450c7e62dd7bbe640b7e1f05bf938a560e9037ede91ea8d521e9df88bc"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/followup/reference-roi.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/followup/reference-roi.json",
+      "bytes": 16150,
+      "sha256": "a994d39589c6e5158a9c877131d25e77006f2b6ccb9b82ca693147a8ce3be06d"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/followup/yuyv-diagnostics.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/followup/yuyv-diagnostics.json",
+      "bytes": 13356,
+      "sha256": "69a673f2a22619a846830572fb3bc9c8da945c56755b8dd764d368cec4e60a9e"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/wrist/after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/wrist/after.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/wrist/before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/wrist/before.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/wrist/summary.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/wrist/summary.json",
+      "bytes": 772,
+      "sha256": "2f665f50eebf51c49c80ffbf6107c47eb5183770eb0fcac142ed06f44bedeae6"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/side/after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/side/after.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/side/before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/side/before.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-coarse/side/summary.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/side/summary.json",
+      "bytes": 796,
+      "sha256": "2488a5fc06ed0c5df06f314cfedd9655cef073944084b8595e1f6e46329c10b5"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/figures/gamma-coarse/gamma-comparison-preview.png",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/gamma-comparison-preview.png",
+      "bytes": 2533006,
+      "sha256": "6d08ac486c1fd03be72a8fddf5d9edf54aebf6acdc34a39ca47623d04f356f7f",
+      "image_dimensions": [
+        1000,
+        1588
+      ]
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-refine/analyze_trial.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/analyze_trial.py",
+      "bytes": 6850,
+      "sha256": "1e48f55cdd750fda24ba8faad015262250243a1d781c3c5c816b928fdfd50b05"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/artifact-sha256.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/artifact-sha256.json",
+      "bytes": 106056,
+      "sha256": "a32f2eea97e3603456ba4e1cba28bf3b2e53d4a71a1831345abcea91f734f252"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-refine/audit_jpeg.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/audit_jpeg.py",
+      "bytes": 1601,
+      "sha256": "302b0d74d48e6ac9efd2595a45ef07a0ef8a0379fd0e50eb4f868af7e3a036b1"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-refine/baseline_roi_definitions.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/baseline_roi_definitions.py",
+      "bytes": 8721,
+      "sha256": "a1d799842969fcfe95f5c4f27ac56c4aaa3c755b5a13dbcef2008b764e4fabb0"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-refine/complete_report.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/complete_report.py",
+      "bytes": 10755,
+      "sha256": "1b5c3ce5ced1c5a7463d1769e9d42a535b29cb59b289148d2b008e04c342cabf"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-refine/finalize.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/finalize.py",
+      "bytes": 4736,
+      "sha256": "44a9f231bbc8819130d03246d918b0c7685c983a174467ec488bb76eec296880"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/g100-side-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/g100-side-readback.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/g100-wrist-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/g100-wrist-readback.txt",
+      "bytes": 2868,
+      "sha256": "1199e76e6b4ff74e6ce5fcbb2fd757b1966e1175188a3e109971d02035483fdb"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/g110-side-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/g110-side-readback.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/g110-wrist-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/g110-wrist-readback.txt",
+      "bytes": 2868,
+      "sha256": "263546942d1d14cc3174ae91047c22c08edf2e191d716957aaac4daff80f7e8b"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/g67_initial-side-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/g67_initial-side-readback.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/g67_initial-wrist-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/g67_initial-wrist-readback.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/g67_repeat-side-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/g67_repeat-side-readback.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/g67_repeat-wrist-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/g67_repeat-wrist-readback.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/jpeg-warning-frames.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/jpeg-warning-frames.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/manifest.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/manifest.json",
+      "bytes": 2899,
+      "sha256": "698ca0117791bbcaad48902205a5cd4f54676a24a8536069b71a17d494294de3"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-refine/placement_check.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/placement_check.py",
+      "bytes": 1318,
+      "sha256": "137a848d8fad6a1ab425ab0c7d1c06d67bbffa1c40c9370c2f4d8d1e9d6f458f"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/proposal.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/proposal.json",
+      "bytes": 1230,
+      "sha256": "888d29e01d6fe0b8a3af424bb85f167f2f0b24a423bc152c6717e998f6ec10fd"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/report-zh.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/report-zh.txt",
+      "bytes": 7193,
+      "sha256": "527b57d3703aeac5cd255c7d8551fbc66b186241450e2cdccb4c75e382737aa6"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-refine/restore-gamma.sh",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/restore-gamma.sh",
+      "bytes": 193,
+      "sha256": "b749883b12b5f48110d3daa2bb13c29d9559c3c048fb072d0afea901dd743c97"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/roi-placement-check.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/roi-placement-check.json",
+      "bytes": 2402,
+      "sha256": "96c137d91724f0bd7e1f81741a297b25cbb13706def72a5474aabcad67ab766a"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/roi.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/roi.json",
+      "bytes": 16150,
+      "sha256": "a994d39589c6e5158a9c877131d25e77006f2b6ccb9b82ca693147a8ce3be06d"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-refine/run_trial.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/run_trial.py",
+      "bytes": 7019,
+      "sha256": "d2ab154e656f27d2328efbd0f3db777d6888891c6ae65a5e1cd759a5d69526d7"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/side-after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/side-after.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/side-before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/side-before.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/side-final-live-verification.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/side-final-live-verification.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/statistics.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/statistics.json",
+      "bytes": 261072,
+      "sha256": "d9e2e8b45ffa004f0a5927775e32575c11b65c259e6818662240860a5e920492"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-refine/stream_capture.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/stream_capture.py",
+      "bytes": 7220,
+      "sha256": "37b1ed964f05d9fa125f99f1352ab77e4920d816a701653b99f2cd34f4d67606"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/verification.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/verification.json",
+      "bytes": 1125,
+      "sha256": "5566e7bf3932c26b8b8cbef71c577f99287c87667db4a563ce9ec6f1a1a3cac9"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-refine/verify_trial.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/verify_trial.py",
+      "bytes": 2473,
+      "sha256": "5943dc7f6772dc6b77b1396ff3909c1829590eda50d5dfe4d45a02d84d150ec7"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/wrist-after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/wrist-after.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/wrist-before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/wrist-before.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/wrist-final-live-verification.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/wrist-final-live-verification.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/wrist-restored-readback.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/wrist-restored-readback.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/followup/audit-output.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/followup/audit-output.txt",
+      "bytes": 3189,
+      "sha256": "3d1b12ca425197ec6eca5f1bfb80b6dff2d63df63e08b2e02296bd7c8b0de47d"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-refine/followup/audit_yuyv.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/followup/audit_yuyv.py",
+      "bytes": 3944,
+      "sha256": "d5390eaa14baeed14b4ab3abee19156293122d45a129e07710d63325a0140b2f"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/followup/gray-y-codes.csv",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/followup/gray-y-codes.csv",
+      "bytes": 1427,
+      "sha256": "4a6d86970ceb217e6e254fcfb6f50d5f11ceb9823de2f62264f0d7946617493f"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/followup/pink-highlight-audit.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/followup/pink-highlight-audit.json",
+      "bytes": 891,
+      "sha256": "74bf762f96af4b11d8d06b6e1410b3d8761940d7422cf4c27ae2ea4469837ea6"
+    },
+    {
+      "path": "tools/camera_color_20261110/originals/gamma-refine/followup/pink-highlight-audit.py",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/followup/pink-highlight-audit.py",
+      "bytes": 1702,
+      "sha256": "07e44e9ccca8bc97e6d90c70192aa6a6196afb5aa0dfc4c33180c57c2c118312"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/followup/reference-roi.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/followup/reference-roi.json",
+      "bytes": 16150,
+      "sha256": "a994d39589c6e5158a9c877131d25e77006f2b6ccb9b82ca693147a8ce3be06d"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/followup/yuyv-diagnostics.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/followup/yuyv-diagnostics.json",
+      "bytes": 13437,
+      "sha256": "4f1c83a10c7df27c648d24a7d512cbb92f8b7290f18e614d3977261dd46d967f"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/wrist/after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/wrist/after.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/wrist/before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/wrist/before.txt",
+      "bytes": 2867,
+      "sha256": "726f58aa47fff6492fd575dd9aa6c31fe0d41c8e81d3363e947d0b1587188a36"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/wrist/summary.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/wrist/summary.json",
+      "bytes": 773,
+      "sha256": "3b0b33275c8125be4bb769e547f54cb9d8b5eb99326ceb3fa85fa08303eb5b8d"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/side/after.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/side/after.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/side/before.txt",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/side/before.txt",
+      "bytes": 2865,
+      "sha256": "a7b49e975ca2fa0076d3ade84955ff158c4cc58aafc9a634d3be1d534d215983"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/gamma-refine/side/summary.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/side/summary.json",
+      "bytes": 795,
+      "sha256": "5fe6dc7c25ff1342eb6665e655cdd1f20e78c42710ab9a5b932356fb4c1e4950"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/figures/gamma-refine/gamma-comparison-preview.png",
+      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/gamma-comparison-preview.png",
+      "bytes": 2541763,
+      "sha256": "7e134d09f9ea2f7af9b43b830f0bfa8f90098d07c6b53bf2ee6fcb34ac6d56c0",
+      "image_dimensions": [
+        1000,
+        1588
+      ]
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/history/camera-placement-20261110-171441/manifest.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-placement-20261110-171441/manifest.json",
+      "bytes": 675,
+      "sha256": "123da9b5797a5aeff1f58d16dd2dffce7059ca83b6853535e365b01f2fae06db"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/figures/history/camera-placement-20261110-171441/wrist.png",
+      "source": "/data/work/so101-evidence/real-robot/camera-placement-20261110-171441/wrist.png",
+      "bytes": 499652,
+      "sha256": "94db7a11e2cbd4e26505b99a799a18ca49303cd681aea6134fcb4b1beade7f40"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/figures/history/camera-placement-20261110-171441/side.png",
+      "source": "/data/work/so101-evidence/real-robot/camera-placement-20261110-171441/side.png",
+      "bytes": 427813,
+      "sha256": "b3843d2e351b2eb6222bd424d7883f5849eaa521b332bf7ee03f405f2b7989fc"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/history/camera-placement-20261110-173010/manifest.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-placement-20261110-173010/manifest.json",
+      "bytes": 656,
+      "sha256": "874330b4a004551d468643af7b9fde9456bf70234c674eec5762ba891b6a847e"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/figures/history/camera-placement-20261110-173010/wrist.png",
+      "source": "/data/work/so101-evidence/real-robot/camera-placement-20261110-173010/wrist.png",
+      "bytes": 519704,
+      "sha256": "fa44d35fb7a5e1ff9362079d7166b10fb0ea5e75c3d5c4d5be8bc75f0c3faeca"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/figures/history/camera-placement-20261110-173010/side.png",
+      "source": "/data/work/so101-evidence/real-robot/camera-placement-20261110-173010/side.png",
+      "bytes": 478750,
+      "sha256": "9fbf56cdf24071910f195fee0d210620fc5ec5c9071d2fa1f33194220c1119c5"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/history/camera-color-baseline-20261110-A/manifest.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A/manifest.json",
+      "bytes": 2186,
+      "sha256": "0cde9f69d918c8d7299309f6f7e38ef5a0e2c319a73edd1404e2c207ca05e5c3"
+    },
+    {
+      "path": "docs/experiments/camera-color-20261110/snapshots/history/camera-color-baseline-20261110-A-retry1/manifest.json",
+      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry1/manifest.json",
+      "bytes": 2162,
+      "sha256": "e4d475e8e7ec4e597a6740330eb5cf75156b9f21528f0afbef9653ecbc818858"
+    }
+  ],
+  "external_raw_files": [
+    {
+      "phase": "baseline",
+      "path": "camera-color-baseline-20261110-A-retry2/wrist/stream.bin",
+      "bytes": 569548800,
+      "sha256": "529bdd401edd652fdeb55e7952c2bea611b387090e213f4d0c154f1ab547c165"
+    },
+    {
+      "phase": "baseline",
+      "path": "camera-color-baseline-20261110-A-retry2/wrist/frames.jsonl",
+      "bytes": 165805,
+      "sha256": "7a8692734555bc8b78173581e47d15752219df08f069a660d5548b161f065faf"
+    },
+    {
+      "phase": "baseline",
+      "path": "camera-color-baseline-20261110-A-retry2/wrist/roi-frame-statistics.jsonl",
+      "bytes": 5318311,
+      "sha256": "27561fdf38f08df2cad73bbddc9d7384bdf7e880818b183d63bf2f7fe071143a"
+    },
+    {
+      "phase": "baseline",
+      "path": "camera-color-baseline-20261110-A-retry2/side/stream.bin",
+      "bytes": 32325632,
+      "sha256": "1ac8a1936f255cdb0bf6ccce5378e12b436a4998328d9b855d7a16083e0a5f9c"
+    },
+    {
+      "phase": "baseline",
+      "path": "camera-color-baseline-20261110-A-retry2/side/frames.jsonl",
+      "bytes": 157607,
+      "sha256": "df3b2d50ae23193bd961df562573a3b1cd57d71d1b7c25ab4cada0d9e6d2433e"
+    },
+    {
+      "phase": "baseline",
+      "path": "camera-color-baseline-20261110-A-retry2/side/roi-frame-statistics.jsonl",
+      "bytes": 4855428,
+      "sha256": "c4edb553d164d5f2507ff1e0350de5575700f68c6266d4d20870a65cc5251fc6"
+    },
+    {
+      "phase": "exposure",
+      "path": "camera-exposure-trial-20261110/wrist/stream.bin",
+      "bytes": 1394753536,
+      "sha256": "0c1b6eda3f4251b020443fc1e4ddc25eaecd1a101dec538724c6d203df98ef77"
+    },
+    {
+      "phase": "exposure",
+      "path": "camera-exposure-trial-20261110/wrist/frames.jsonl",
+      "bytes": 408570,
+      "sha256": "7879e9fd5fcdcecf20e7bc019cb5c0327bc40a3604804adef45a929dda2ee61f"
+    },
+    {
+      "phase": "exposure",
+      "path": "camera-exposure-trial-20261110/wrist/all-frame-metrics.npz",
+      "bytes": 425210,
+      "sha256": "ad1304d7114e01b8ef7b16b582f177b31b2e8dc0aaf9e3adae26891830859ce5"
+    },
+    {
+      "phase": "exposure",
+      "path": "camera-exposure-trial-20261110/side/stream.bin",
+      "bytes": 79306752,
+      "sha256": "8fe96550de9384150773bf4edeb0d7207a6a2c4f90c40895ab5ce6aa55c2471f"
+    },
+    {
+      "phase": "exposure",
+      "path": "camera-exposure-trial-20261110/side/frames.jsonl",
+      "bytes": 389874,
+      "sha256": "fc0d84bbd6feb390ca36954c0910edfaefdd2e81526f379b0062667d4da10d2c"
+    },
+    {
+      "phase": "exposure",
+      "path": "camera-exposure-trial-20261110/side/all-frame-metrics.npz",
+      "bytes": 280595,
+      "sha256": "5d822e55605ee4e424168460a8cb5353400c2b430e44b18f924ebf6e1de5cbc0"
+    },
+    {
+      "phase": "gamma-coarse",
+      "path": "camera-gamma-trial-20261110/wrist/stream.bin",
+      "bytes": 1394753536,
+      "sha256": "a66f288adf6cb66aa28017d2f1dd8bb46bcbc6fd964df41a5cb15678635d4a1b"
+    },
+    {
+      "phase": "gamma-coarse",
+      "path": "camera-gamma-trial-20261110/wrist/frames.jsonl",
+      "bytes": 408609,
+      "sha256": "c912bba7b10cf4c1971f12671bdcf59ae04af1104a3472e47dadbf51f41f3aff"
+    },
+    {
+      "phase": "gamma-coarse",
+      "path": "camera-gamma-trial-20261110/wrist/all-frame-metrics.npz",
+      "bytes": 376433,
+      "sha256": "432ec369ef39bd3eb003977c67d358f37a71824db9cd839c7624c5248c84ed7f"
+    },
+    {
+      "phase": "gamma-coarse",
+      "path": "camera-gamma-trial-20261110/side/stream.bin",
+      "bytes": 79413248,
+      "sha256": "4fbbc49adb2cfdaafaead1b2dc2e149861710bf5123b90188fbce9626e4f0624"
+    },
+    {
+      "phase": "gamma-coarse",
+      "path": "camera-gamma-trial-20261110/side/frames.jsonl",
+      "bytes": 389592,
+      "sha256": "622be3bc871b0f33ed1e9980027b77aa86a3e47ef46c1c76f255a244a0d90279"
+    },
+    {
+      "phase": "gamma-coarse",
+      "path": "camera-gamma-trial-20261110/side/all-frame-metrics.npz",
+      "bytes": 281001,
+      "sha256": "21a89bf4e85ea32f86d0e3d2bcd7b9d8c09148da2032e543a549acb94be53954"
+    },
+    {
+      "phase": "gamma-refine",
+      "path": "camera-gamma-refine-20261110/wrist/stream.bin",
+      "bytes": 1394753536,
+      "sha256": "5842aa6dc5d95ca8724716d8640a4cf08f721c14725fcc2fb39b9211d2d9ab26"
+    },
+    {
+      "phase": "gamma-refine",
+      "path": "camera-gamma-refine-20261110/wrist/frames.jsonl",
+      "bytes": 408624,
+      "sha256": "c1bed71e1d1cf8fb1bb945df8744f01e7f9bb2cb6600789785f032ac6d4b9cd6"
+    },
+    {
+      "phase": "gamma-refine",
+      "path": "camera-gamma-refine-20261110/wrist/all-frame-metrics.npz",
+      "bytes": 404581,
+      "sha256": "bc258733829a2b53fae9448038af23cc16081b67f9943f8552a0f642dd1e4757"
+    },
+    {
+      "phase": "gamma-refine",
+      "path": "camera-gamma-refine-20261110/side/stream.bin",
+      "bytes": 79335424,
+      "sha256": "afe0d0a1103fe707c69f8aa8c8a25444ebba0b0cf865466e94480d1ad1bb47a7"
+    },
+    {
+      "phase": "gamma-refine",
+      "path": "camera-gamma-refine-20261110/side/frames.jsonl",
+      "bytes": 389856,
+      "sha256": "cb8269808fbbc481ca52b455cea6d0cbe92744b9c4d227eb597d36a70e15eadc"
+    },
+    {
+      "phase": "gamma-refine",
+      "path": "camera-gamma-refine-20261110/side/all-frame-metrics.npz",
+      "bytes": 281333,
+      "sha256": "98c85466df05a48a84b9216da1cb5e7c04c43601586d36a69ef9023be7e87b08"
+    }
+  ],
+  "note": "Copies preserve source bytes. Original scripts may use __file__-relative paths, overwrite results, or access hardware; use the offline verify.py entry point. Raw streams and per-frame PNGs stay outside Git. Source reports are historical and may describe then-pending proposals; the consolidated report gives final status."
+}

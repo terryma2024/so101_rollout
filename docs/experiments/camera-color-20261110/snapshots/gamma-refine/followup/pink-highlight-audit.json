@@ -1,0 +1,30 @@
+{
+  "roi": "chart_r1_c3",
+  "definition": ">=253 is a near-limit warning; ==255 is an output endpoint; pre-clamp R>255 demonstrates conversion overflow, not sensor RAW clipping.",
+  "conditions": {
+    "g67_initial": {
+      "frames": 309,
+      "R_ge253_fraction": 0.0,
+      "R_eq255_fraction": 0.0,
+      "pre_clamp_R_gt255_fraction": 0.0
+    },
+    "g100": {
+      "frames": 309,
+      "R_ge253_fraction": 0.014813404685858523,
+      "R_eq255_fraction": 0.0033279043368516052,
+      "pre_clamp_R_gt255_fraction": 0.001142204454597373
+    },
+    "g110": {
+      "frames": 309,
+      "R_ge253_fraction": 0.1910865748672716,
+      "R_eq255_fraction": 0.06642412448618426,
+      "pre_clamp_R_gt255_fraction": 0.043058287680408376
+    },
+    "g67_repeat": {
+      "frames": 310,
+      "R_ge253_fraction": 0.0,
+      "R_eq255_fraction": 0.0,
+      "pre_clamp_R_gt255_fraction": 0.0
+    }
+  }
+}

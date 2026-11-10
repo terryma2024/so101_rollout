@@ -1,0 +1,22 @@
+{
+  "created": "2026-11-10T17:14:43.220318",
+  "purpose": "placement inspection only; no control or format setters; streams are not hardware synchronized",
+  "results": [
+    {
+      "camera": "wrist",
+      "path": "/data/work/so101-evidence/real-robot/camera-placement-20261110-171441/wrist.png",
+      "width": 640,
+      "height": 480,
+      "controls_and_format_unchanged": true,
+      "stream_bytes": 12288000
+    },
+    {
+      "camera": "side",
+      "path": "/data/work/so101-evidence/real-robot/camera-placement-20261110-171441/side.png",
+      "width": 640,
+      "height": 480,
+      "controls_and_format_unchanged": true,
+      "stream_bytes": 974700
+    }
+  ]
+}

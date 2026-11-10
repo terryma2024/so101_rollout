@@ -1,0 +1,4 @@
+gamma: 67
+white_balance_automatic: 1
+saturation: 25
+exposure_time_absolute: 40

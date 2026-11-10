@@ -1,0 +1,11 @@
+{
+  "capture.py": "fe51c8c3b6d1316f4204c6ff944cf475917d22eebfd3fbc8d0dd70d1673f37e9",
+  "analyze.py": "a1d799842969fcfe95f5c4f27ac56c4aaa3c755b5a13dbcef2008b764e4fabb0",
+  "report-zh.txt": "ed8d37dc8dc2f89043d694d8334c0dd8d2f68f6a05483306e07d7ffdbc6bb0fd",
+  "manifest.json": "ec4db390d8203a9f58ca2e63a7a5da15ac4353f4036afbb3f74049fe3950ed54",
+  "statistics.json": "808c9b845d02e1b0393e7005b97fcd65e968138738ca6ad651aef31617a74bfb",
+  "roi.json": "a02546b0c262e92b87ce13b070342225edd6c8a7dfb001a7a273e9c95dc5a8c5",
+  "verification.json": "93108cacf70193924c54181e46ce44b51995aa602428a9fc132c55942a801422",
+  "gain-exploration.json": "97b37f2edc850a1eaffdb80ac315b5fc21daa3d9215e1181474ba4e4b4ca29bf",
+  "exposure-trial-proposal.json": "4ca8807945e3e41fc9756b72fd7454da5e596fc1d8129657f9d3dd90f4f21aa8"
+}

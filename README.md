@@ -4,6 +4,10 @@
 
 Offline dataset review, collection cards and evidence utilities: [tools](tools/README.md).
 
+Camera color experiments (historical diagnosis, baseline, exposure and gamma):
+[report](docs/experiments/camera-color-20261110.md) and
+[offline verification](tools/camera_color_20261110/README.md).
+
 ## 1. Environment
 
 | Component | Version or setting |

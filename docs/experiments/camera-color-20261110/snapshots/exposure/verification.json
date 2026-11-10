@@ -1,0 +1,40 @@
+{
+  "wrist": {
+    "complete_frames": 2270,
+    "saved_png_lossless_roundtrips_verified": 492,
+    "before_after_identical": true,
+    "host_reception_seconds": 109.86931863601785,
+    "conditions": {
+      "e40_initial": 309,
+      "e60": 310,
+      "e80": 310,
+      "e40_repeat": 310
+    },
+    "usable_condition_frames": {
+      "e40_initial": 309,
+      "e60": 310,
+      "e80": 310,
+      "e40_repeat": 310
+    },
+    "final_live_readback_matches_original": true
+  },
+  "side": {
+    "complete_frames": 2187,
+    "saved_png_lossless_roundtrips_verified": 517,
+    "before_after_identical": true,
+    "host_reception_seconds": 109.64213766891044,
+    "conditions": {
+      "e40_initial": 300,
+      "e60": 298,
+      "e80": 299,
+      "e40_repeat": 299
+    },
+    "usable_condition_frames": {
+      "e40_initial": 300,
+      "e60": 297,
+      "e80": 299,
+      "e40_repeat": 299
+    },
+    "final_live_readback_matches_original": true
+  }
+}

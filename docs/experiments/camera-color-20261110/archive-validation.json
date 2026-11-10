@@ -1,0 +1,295 @@
+{
+  "verified_at": "2026-11-10T22:56:43.281370+08:00",
+  "base_commit": "c70f44f9a43e7d6d7bcfc45d8c8c1523000a9031",
+  "hardware_access": false,
+  "scope": "Offline archive verification only. Raw/PNG identity and original YUYV/pink audit replay; no full ROI summary recomputation or new capture.",
+  "environment": {
+    "python": "3.12.3",
+    "opencv": "4.13.0",
+    "numpy": "2.2.6",
+    "pillow": "12.3.0"
+  },
+  "commands": {
+    "snapshots": "python3 -m tools.camera_color_20261110.verify",
+    "raw": ".venv/bin/python -m tools.camera_color_20261110.verify --raw-root /data/work/so101-evidence/real-robot",
+    "replay": "Run originals/{exposure,gamma-coarse,gamma-refine}/followup/audit_yuyv.py and gamma-refine/followup/pink-highlight-audit.py in a fresh external directory with read-only original-input symlinks; JSON compared exactly to snapshots.",
+    "compile": ".venv/bin/python -m compileall -q tools/camera_color_20261110",
+    "diff": "git diff --check",
+    "negative": "Temporary copied baseline with ROI fraction=1.5 rejected; same-size changed file rejected by SHA-256; new document local links resolved."
+  },
+  "results": {
+    "snapshot": {
+      "archived_files_sha256_checked": 171,
+      "hardware_access": false,
+      "mode": "snapshots_only",
+      "phases": {
+        "baseline": {
+          "side": {
+            "complete_frames": 890,
+            "png_checked_historically": 205,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "baseline": 300
+            }
+          },
+          "wrist": {
+            "complete_frames": 927,
+            "png_checked_historically": 201,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "baseline": 310
+            }
+          }
+        },
+        "exposure": {
+          "side": {
+            "complete_frames": 2187,
+            "png_checked_historically": 517,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "e40_initial": 300,
+              "e40_repeat": 299,
+              "e60": 297,
+              "e80": 299
+            }
+          },
+          "wrist": {
+            "complete_frames": 2270,
+            "png_checked_historically": 492,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "e40_initial": 309,
+              "e40_repeat": 310,
+              "e60": 310,
+              "e80": 310
+            }
+          }
+        },
+        "gamma-coarse": {
+          "side": {
+            "complete_frames": 2187,
+            "png_checked_historically": 507,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "g120": 297,
+              "g67_initial": 300,
+              "g67_repeat": 299,
+              "g90": 299
+            }
+          },
+          "wrist": {
+            "complete_frames": 2270,
+            "png_checked_historically": 492,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "g120": 309,
+              "g67_initial": 309,
+              "g67_repeat": 310,
+              "g90": 309
+            }
+          }
+        },
+        "gamma-refine": {
+          "side": {
+            "complete_frames": 2188,
+            "png_checked_historically": 512,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "g100": 299,
+              "g110": 300,
+              "g67_initial": 299,
+              "g67_repeat": 300
+            }
+          },
+          "wrist": {
+            "complete_frames": 2270,
+            "png_checked_historically": 491,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "g100": 309,
+              "g110": 309,
+              "g67_initial": 309,
+              "g67_repeat": 310
+            }
+          }
+        }
+      }
+    },
+    "raw": {
+      "archived_files_sha256_checked": 171,
+      "external_raw_files_sha256_checked": 24,
+      "fresh_png_roundtrips": {
+        "baseline": {
+          "side": 205,
+          "wrist": 201
+        },
+        "exposure": {
+          "side": 517,
+          "wrist": 492
+        },
+        "gamma-coarse": {
+          "side": 507,
+          "wrist": 492
+        },
+        "gamma-refine": {
+          "side": 512,
+          "wrist": 491
+        }
+      },
+      "hardware_access": false,
+      "mode": "raw_and_snapshots",
+      "phases": {
+        "baseline": {
+          "side": {
+            "complete_frames": 890,
+            "png_checked_historically": 205,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "baseline": 300
+            }
+          },
+          "wrist": {
+            "complete_frames": 927,
+            "png_checked_historically": 201,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "baseline": 310
+            }
+          }
+        },
+        "exposure": {
+          "side": {
+            "complete_frames": 2187,
+            "png_checked_historically": 517,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "e40_initial": 300,
+              "e40_repeat": 299,
+              "e60": 297,
+              "e80": 299
+            }
+          },
+          "wrist": {
+            "complete_frames": 2270,
+            "png_checked_historically": 492,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "e40_initial": 309,
+              "e40_repeat": 310,
+              "e60": 310,
+              "e80": 310
+            }
+          }
+        },
+        "gamma-coarse": {
+          "side": {
+            "complete_frames": 2187,
+            "png_checked_historically": 507,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "g120": 297,
+              "g67_initial": 300,
+              "g67_repeat": 299,
+              "g90": 299
+            }
+          },
+          "wrist": {
+            "complete_frames": 2270,
+            "png_checked_historically": 492,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "g120": 309,
+              "g67_initial": 309,
+              "g67_repeat": 310,
+              "g90": 309
+            }
+          }
+        },
+        "gamma-refine": {
+          "side": {
+            "complete_frames": 2188,
+            "png_checked_historically": 512,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "g100": 299,
+              "g110": 300,
+              "g67_initial": 299,
+              "g67_repeat": 300
+            }
+          },
+          "wrist": {
+            "complete_frames": 2270,
+            "png_checked_historically": 491,
+            "recorded_state_equal": true,
+            "usable_condition_frames": {
+              "g100": 309,
+              "g110": 309,
+              "g67_initial": 309,
+              "g67_repeat": 310
+            }
+          }
+        }
+      }
+    },
+    "replay": {
+      "output_directory": "/data/work/so101-evidence/camera-color-archive-replay-oomy7tt1",
+      "phases": {
+        "exposure": {
+          "recomputed_yuyv_matches_archived_json": true,
+          "reference": "OpenCV 4.13.0 integer BT.601 packed-YUYV path; source coefficients and rounding.",
+          "tested_channel_samples": 15496173,
+          "mismatched_channel_samples": 0,
+          "source": "https://github.com/opencv/opencv/blob/4.13.0/modules/imgproc/src/color_yuv.simd.hpp",
+          "metadata": "Device declared YUYV/BT.601/limited range. No independent proof of device colorimetry accuracy."
+        },
+        "gamma-coarse": {
+          "recomputed_yuyv_matches_archived_json": true,
+          "reference": "OpenCV 4.13.0 integer BT.601 packed-YUYV path; source coefficients and rounding.",
+          "tested_channel_samples": 15471159,
+          "mismatched_channel_samples": 0,
+          "source": "https://github.com/opencv/opencv/blob/4.13.0/modules/imgproc/src/color_yuv.simd.hpp",
+          "metadata": "Device declared YUYV/BT.601/limited range. No independent proof of device colorimetry accuracy."
+        },
+        "gamma-refine": {
+          "recomputed_yuyv_matches_archived_json": true,
+          "reference": "OpenCV 4.13.0 integer BT.601 packed-YUYV path; source coefficients and rounding.",
+          "tested_channel_samples": 15471159,
+          "mismatched_channel_samples": 0,
+          "source": "https://github.com/opencv/opencv/blob/4.13.0/modules/imgproc/src/color_yuv.simd.hpp",
+          "metadata": "Device declared YUYV/BT.601/limited range. No independent proof of device colorimetry accuracy.",
+          "recomputed_pink_audit_matches_archived_json": true
+        }
+      }
+    },
+    "negative": {
+      "changed_file_rejected": true,
+      "invalid_roi_fraction_rejected": true,
+      "new_document_local_links_resolve": true
+    }
+  },
+  "content_sha256": {
+    "tools/camera_color_20261110/verify.py": "0f6ae536c5a3ad143f2a061e5724838feb2b45b371fa901c9c92afca4cda601e",
+    "tools/camera_color_20261110/README.md": "aee75e95c605f95d128f53d3767fa90f17662cf609197099dcb3be2208ed6250",
+    "docs/experiments/camera-color-20261110.md": "11e79e5ae8d9125b7aa593061013728cb9bac71088771962d8607b6c84943851",
+    "docs/experiments/camera-color-20261110/source-provenance.json": "013750a49f0557fc0dbc178297d817e38fc7f06f205cf951944ba039e664c287",
+    ".gitattributes": "628c183c70397742912fc3969b08c1dad42803942dc5e4a0e440b1b0e2ea73dc"
+  },
+  "integration_checks": {
+    "verified_at": "2026-11-10T23:04:26.416451+08:00",
+    "pytest": {
+      "passed": 611,
+      "failed": 0,
+      "errors": 0,
+      "duration_seconds": 53.1,
+      "interpreter": ".venv/bin/python",
+      "environment": {
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+      },
+      "bootstrap": "import sys; sys.path.append('/data/work/venvs/so101-rollout-tools/lib/python3.12/site-packages'); import pytest; raise SystemExit(pytest.main(['-q']))",
+      "note": "Optional pandas/av/pyarrow supplied to the test process only; deployment subprocess environments remain unchanged. External ROS pytest plugin autoload disabled."
+    },
+    "staged_source_blobs_sha256_checked": 171,
+    "git_cached_diff_check": "passed",
+    "snapshot_git_attributes": "-text -whitespace, preserving captured trailing spaces and CSV CRLF without changing source bytes"
+  }
+}

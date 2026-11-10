@@ -1,0 +1,18 @@
+{
+  "wrist": {
+    "all_frame_statistics_count": 927,
+    "png_lossless_roundtrip_checked": 201,
+    "controls_and_format_unchanged": true,
+    "phase_correlation_max_displacement_pixels": 0.31704980301531227,
+    "phase_correlation_response_min": 0.6929237052798272,
+    "note": "Motion proxy on cropped chart only; not geometric ground truth or certified dropped-frame detection."
+  },
+  "side": {
+    "all_frame_statistics_count": 890,
+    "png_lossless_roundtrip_checked": 205,
+    "controls_and_format_unchanged": true,
+    "phase_correlation_max_displacement_pixels": 0.5662994406781312,
+    "phase_correlation_response_min": 0.9862938758850097,
+    "note": "Motion proxy on cropped chart only; not geometric ground truth or certified dropped-frame detection."
+  }
+}

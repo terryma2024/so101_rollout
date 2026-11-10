@@ -1,0 +1,42 @@
+{
+  "wrist": {
+    "complete_frames": 2270,
+    "png_lossless_roundtrip_checked": 491,
+    "live_state_matches_original": true,
+    "host_receipt_duration": 109.86874459404498,
+    "captured_condition_frames": {
+      "g67_initial": 309,
+      "g100": 309,
+      "g110": 309,
+      "g67_repeat": 310
+    },
+    "usable_condition_frames": {
+      "g67_initial": 309,
+      "g100": 309,
+      "g110": 309,
+      "g67_repeat": 310
+    },
+    "fresh_final_live_state_matches_original": true,
+    "fresh_final_live_verified_at": "2026-11-10T22:10:54.822174+08:00"
+  },
+  "side": {
+    "complete_frames": 2188,
+    "png_lossless_roundtrip_checked": 512,
+    "live_state_matches_original": true,
+    "host_receipt_duration": 109.64539330499247,
+    "captured_condition_frames": {
+      "g67_initial": 299,
+      "g100": 299,
+      "g110": 300,
+      "g67_repeat": 300
+    },
+    "usable_condition_frames": {
+      "g67_initial": 299,
+      "g100": 299,
+      "g110": 300,
+      "g67_repeat": 300
+    },
+    "fresh_final_live_state_matches_original": true,
+    "fresh_final_live_verified_at": "2026-11-10T22:10:54.929923+08:00"
+  }
+}

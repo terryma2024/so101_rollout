@@ -1,0 +1,16 @@
+{
+  "run_trial.py": "e0b9500fc67b40c653555d60f8a09555dff9e9fd0f6b2d8f452653ae5936143d",
+  "stream_capture.py": "37b1ed964f05d9fa125f99f1352ab77e4920d816a701653b99f2cd34f4d67606",
+  "analyze_trial.py": "3158e9f204d3e09b165bec8e0006278fc8759c9f99cbbb168e41ac543a2d4c19",
+  "finalize.py": "8f8a39b2cd95cdb5944cde5b8cdb2cef40860c499ed8357dd3d0ef8393cb2433",
+  "baseline_roi_definitions.py": "a1d799842969fcfe95f5c4f27ac56c4aaa3c755b5a13dbcef2008b764e4fabb0",
+  "manifest.json": "1f575957278ecd326714453698a62accd4596476fe6fcf16c85649f02cb3eb60",
+  "events.jsonl": "3ff4b3631828c5b513c7401b3f3545a02559f387fb90149e2f85d1746d6a8366",
+  "statistics.json": "9f8792c1c43979a954fcc52f794380887f273abd63889d5c988a2a973483ac7e",
+  "roi.json": "a994d39589c6e5158a9c877131d25e77006f2b6ccb9b82ca693147a8ce3be06d",
+  "verification.json": "2651b3e084a7a45ff2b88b88af49ec642f6569d749e48b7e05f6c6d43a849385",
+  "report-zh.txt": "06d87c8bf7c2fd6fed2567410e011729e4762e42576e2050eab230ab383d877c",
+  "jpeg-warning-frames.json": "fd6656da42e456442d15672b68ed0c0cc8aa9718ca2d74c6449d00860394c525",
+  "decoded-white-plateau-check.json": "be162253e05e3e346a88bd4b92b3e31782b174a26b6f63cdd50c151fe4c97c7e",
+  "exposure-comparison-preview.png": "cbbe19116d45664df85b981290b109bb12069b72a79785dbfb47d0dbbfa1f72e"
+}

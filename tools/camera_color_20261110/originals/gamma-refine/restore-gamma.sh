@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+v4l2-ctl -d /dev/v4l/by-id/usb-icSpring_icspring_camera-video-index0 --set-ctrl=gamma=67
+v4l2-ctl -d /dev/v4l/by-id/usb-icSpring_icspring_camera-video-index0 --get-ctrl=gamma

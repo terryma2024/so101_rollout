@@ -1,5 +1,12 @@
 # Offline evidence tools
 
+Camera color experiments from 2026-11-02 through 2026-11-10 have a
+[complete report](../docs/experiments/camera-color-20261110.md) and a
+[read-only verification entry point](camera_color_20261110/README.md).
+Run `python3 -m tools.camera_color_20261110.verify` to check the archived snapshots
+without hardware access; add `--raw-root /data/work/so101-evidence/real-robot`
+to verify retained streams and reproduce all saved PNGs.
+
 Run these modules from the repository root with `python -m tools.<module>`.
 They support dataset review, explicit human outcome annotations, collection cards,
 and evidence assets. They are separate from robot runtime imports and are not

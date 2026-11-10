@@ -1,0 +1,386 @@
+[
+  {
+    "trial": 1,
+    "camera": "wrist",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l1-green-r1-20261102/videos/observation.images.wrist/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 1,
+    "camera": "side",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l1-green-r1-20261102/videos/observation.images.side/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 2,
+    "camera": "wrist",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l1-green-r2-20261102/videos/observation.images.wrist/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 2,
+    "camera": "side",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l1-green-r2-20261102/videos/observation.images.side/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 3,
+    "camera": "wrist",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l1-green-r3-20261102/videos/observation.images.wrist/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 3,
+    "camera": "side",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l1-green-r3-20261102/videos/observation.images.side/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 4,
+    "camera": "wrist",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l1-red-r1-20261102/videos/observation.images.wrist/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 4,
+    "camera": "side",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l1-red-r1-20261102/videos/observation.images.side/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 5,
+    "camera": "wrist",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l1-red-r2-20261102/videos/observation.images.wrist/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 5,
+    "camera": "side",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l1-red-r2-20261102/videos/observation.images.side/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 6,
+    "camera": "wrist",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l1-red-r3-20261102/videos/observation.images.wrist/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 6,
+    "camera": "side",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l1-red-r3-20261102/videos/observation.images.side/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 7,
+    "camera": "wrist",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l2-green-r1-20261102/videos/observation.images.wrist/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 7,
+    "camera": "side",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l2-green-r1-20261102/videos/observation.images.side/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 8,
+    "camera": "wrist",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l2-green-r2-20261102/videos/observation.images.wrist/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 8,
+    "camera": "side",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l2-green-r2-20261102/videos/observation.images.side/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 9,
+    "camera": "wrist",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l2-green-r3-20261102/videos/observation.images.wrist/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 9,
+    "camera": "side",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l2-green-r3-20261102/videos/observation.images.side/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 10,
+    "camera": "wrist",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l2-red-r1-20261102/videos/observation.images.wrist/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 10,
+    "camera": "side",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l2-red-r1-20261102/videos/observation.images.side/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 11,
+    "camera": "wrist",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l2-red-r2-20261102/videos/observation.images.wrist/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 11,
+    "camera": "side",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l2-red-r2-20261102/videos/observation.images.side/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 12,
+    "camera": "wrist",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l2-red-r3-20261102/videos/observation.images.wrist/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  },
+  {
+    "trial": 12,
+    "camera": "side",
+    "path": "/data/work/so101-datasets/eval-smolvla-hard-diagnostic-l2-red-r3-20261102/videos/observation.images.side/chunk-000/file-000.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "av1",
+        "width": 640,
+        "height": 480,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "20/1"
+      }
+    ]
+  }
+]

@@ -1,0 +1,4 @@
+# Preserve captured evidence bytes (including V4L2 trailing spaces and CSV CRLF)
+# so checkout contents continue to match the recorded source SHA-256 values.
+docs/experiments/camera-color-20261110/snapshots/** -text -whitespace
+tools/camera_color_20261110/originals/** -text

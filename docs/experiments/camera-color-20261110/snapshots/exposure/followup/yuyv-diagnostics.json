@@ -1,0 +1,605 @@
+{
+  "e40_initial": {
+    "frames": 309,
+    "rois": {
+      "cube_red": {
+        "y_median": 32.0,
+        "y_eq16": 0.16448669543329736,
+        "y_le16": 0.16448669543329736,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          92.0,
+          -16.0,
+          -5.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.9988538295577121,
+          0.8267035239122614
+        ]
+      },
+      "cube_green": {
+        "y_median": 21.0,
+        "y_eq16": 0.36533384431953675,
+        "y_le16": 0.36533384431953675,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          -21.0,
+          21.0,
+          2.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.999063191960484,
+          0.000660023846022824,
+          0.15318940555271676
+        ]
+      },
+      "chart_r0_c0": {
+        "y_median": 171.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          180.0,
+          178.0,
+          195.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r1_c0": {
+        "y_median": 149.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          156.0,
+          153.0,
+          173.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r2_c0": {
+        "y_median": 118.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          119.0,
+          115.0,
+          132.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r3_c0": {
+        "y_median": 44.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          36.0,
+          29.0,
+          46.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r4_c0": {
+        "y_median": 16.0,
+        "y_eq16": 0.9994964347580872,
+        "y_le16": 0.9994964347580872,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          0.0,
+          -1.0,
+          6.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.26292819831070646,
+          0.7145187930548283,
+          1.3428406451006458e-05
+        ]
+      },
+      "chart_r5_c0": {
+        "y_median": 16.0,
+        "y_eq16": 1.0,
+        "y_le16": 1.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          0.0,
+          0.0,
+          2.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.16155339805825242,
+          0.4330240920532182,
+          0.0010571736785329015
+        ]
+      },
+      "paper": {
+        "y_median": 174.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          186.0,
+          182.0,
+          198.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "e60": {
+    "frames": 310,
+    "rois": {
+      "cube_red": {
+        "y_median": 46.75,
+        "y_eq16": 0.1400089605734767,
+        "y_le16": 0.1400089605734767,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          117.5,
+          -2.0,
+          11.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.5673611111111116,
+          0.18691756272401433
+        ]
+      },
+      "cube_green": {
+        "y_median": 31.5,
+        "y_eq16": 0.17871392190152802,
+        "y_le16": 0.17871392190152802,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          -16.0,
+          37.0,
+          14.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.933892190152801,
+          6.366723259762309e-05,
+          0.03418930390492363
+        ]
+      },
+      "chart_r0_c0": {
+        "y_median": 213.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          229.0,
+          226.0,
+          239.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r1_c0": {
+        "y_median": 195.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          210.0,
+          205.0,
+          222.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r2_c0": {
+        "y_median": 164.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          172.0,
+          170.0,
+          186.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r3_c0": {
+        "y_median": 68.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          65.0,
+          57.0,
+          70.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r4_c0": {
+        "y_median": 21.0,
+        "y_eq16": 0.0022821576763485474,
+        "y_le16": 0.0022821576763485474,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          9.0,
+          1.0,
+          15.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.013191005220184682,
+          0.2334359523490832,
+          0.0
+        ]
+      },
+      "chart_r5_c0": {
+        "y_median": 16.0,
+        "y_eq16": 1.0,
+        "y_le16": 1.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          3.0,
+          -2.0,
+          4.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.06739068100358427,
+          0.807777777777778,
+          0.0028888888888888875
+        ]
+      },
+      "paper": {
+        "y_median": 216.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          234.0,
+          231.0,
+          243.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "e80": {
+    "frames": 310,
+    "rois": {
+      "cube_red": {
+        "y_median": 72.0,
+        "y_eq16": 0.0012992831541218637,
+        "y_le16": 0.0012992831541218637,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          157.5,
+          24.5,
+          32.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.18413978494623662,
+          0.15427867383512534
+        ]
+      },
+      "cube_green": {
+        "y_median": 50.0,
+        "y_eq16": 0.015810696095076397,
+        "y_le16": 0.015810696095076397,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          10.5,
+          56.0,
+          33.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.28890067911714784,
+          2.122241086587436e-05,
+          0.01589558573853991
+        ]
+      },
+      "chart_r0_c0": {
+        "y_median": 232.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.9999947802484602,
+        "pre_saturation_median_rgb": [
+          251.0,
+          251.0,
+          251.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r1_c0": {
+        "y_median": 222.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          245.0,
+          237.0,
+          246.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r2_c0": {
+        "y_median": 196.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          216.0,
+          205.0,
+          216.75
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r3_c0": {
+        "y_median": 90.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          97.0,
+          79.0,
+          92.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r4_c0": {
+        "y_median": 38.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          34.0,
+          19.0,
+          30.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          2.6770178021683843e-05,
+          0.0
+        ]
+      },
+      "chart_r5_c0": {
+        "y_median": 16.0,
+        "y_eq16": 0.6662078853046595,
+        "y_le16": 0.6662078853046595,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          11.0,
+          -4.0,
+          0.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.002480286738351254,
+          0.9122724014336917,
+          0.1874050179211472
+        ]
+      },
+      "paper": {
+        "y_median": 232.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.972389769039893,
+        "pre_saturation_median_rgb": [
+          251.0,
+          251.0,
+          251.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "e40_repeat": {
+    "frames": 310,
+    "rois": {
+      "cube_red": {
+        "y_median": 32.0,
+        "y_eq16": 0.16375448028673834,
+        "y_le16": 0.16375448028673834,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          98.0,
+          -17.0,
+          -10.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.9991711469534046,
+          0.9510080645161286
+        ]
+      },
+      "cube_green": {
+        "y_median": 20.5,
+        "y_eq16": 0.37128607809847197,
+        "y_le16": 0.37128607809847197,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          -18.5,
+          19.0,
+          -1.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.9967741935483877,
+          0.0007427843803056025,
+          0.5078947368421052
+        ]
+      },
+      "chart_r0_c0": {
+        "y_median": 171.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          184.0,
+          178.0,
+          187.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r1_c0": {
+        "y_median": 151.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          161.0,
+          152.0,
+          166.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r2_c0": {
+        "y_median": 118.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          122.0,
+          115.0,
+          126.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r3_c0": {
+        "y_median": 44.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          39.0,
+          29.0,
+          37.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "chart_r4_c0": {
+        "y_median": 16.0,
+        "y_eq16": 0.9993374380939632,
+        "y_le16": 0.9993374380939632,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          1.0,
+          -1.0,
+          2.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.07432070673269982,
+          0.66835764957837,
+          0.0011845803774595102
+        ]
+      },
+      "chart_r5_c0": {
+        "y_median": 16.0,
+        "y_eq16": 1.0,
+        "y_le16": 1.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          2.0,
+          -1.0,
+          0.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.06080286738351256,
+          0.5059713261648747,
+          0.02572043010752686
+        ]
+      },
+      "paper": {
+        "y_median": 175.0,
+        "y_eq16": 0.0,
+        "y_le16": 0.0,
+        "y_eq232": 0.0,
+        "pre_saturation_median_rgb": [
+          190.0,
+          181.0,
+          190.0
+        ],
+        "pre_saturation_negative_fraction_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "validation": {
+    "reference": "OpenCV 4.13.0 integer BT.601 packed-YUYV path; source coefficients and rounding.",
+    "tested_channel_samples": 15496173,
+    "mismatched_channel_samples": 0,
+    "source": "https://github.com/opencv/opencv/blob/4.13.0/modules/imgproc/src/color_yuv.simd.hpp",
+    "metadata": "Device declared YUYV/BT.601/limited range. No independent proof of device colorimetry accuracy."
+  }
+}

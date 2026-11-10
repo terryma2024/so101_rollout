@@ -1,0 +1,102 @@
+{
+  "created": "2026-11-10T21:48:32.999762+08:00",
+  "sequence": [
+    67,
+    100,
+    110,
+    67
+  ],
+  "startup_seconds": 30,
+  "settle_seconds": 5,
+  "record_seconds": 15,
+  "conditions": [
+    {
+      "name": "g67_initial",
+      "gamma": 67,
+      "start": 800741.432328657,
+      "end": 800756.432483388
+    },
+    {
+      "name": "g100",
+      "gamma": 100,
+      "start": 800761.441631261,
+      "end": 800776.44184159
+    },
+    {
+      "name": "g110",
+      "gamma": 110,
+      "start": 800781.451668234,
+      "end": 800796.451891594
+    },
+    {
+      "name": "g67_repeat",
+      "gamma": 67,
+      "start": 800801.461002979,
+      "end": 800816.461227717
+    }
+  ],
+  "results": [
+    {
+      "camera": "wrist",
+      "device": "/dev/v4l/by-id/usb-icSpring_icspring_camera-video-index0",
+      "resolved_device": "/dev/video0",
+      "format": "YUYV",
+      "width": 640,
+      "height": 480,
+      "frames": 2270,
+      "saved_png": 491,
+      "duration_requested": 180.0,
+      "first_frame_delay": 0.14962953596841544,
+      "full_frame_bytes": 1394688000,
+      "trailing_incomplete_bytes": 65536,
+      "controls_format_and_device_unchanged": true,
+      "command": [
+        "v4l2-ctl",
+        "-d",
+        "/dev/v4l/by-id/usb-icSpring_icspring_camera-video-index0",
+        "--stream-mmap=3",
+        "--stream-poll",
+        "--stream-no-query",
+        "--stream-to=-"
+      ],
+      "error": null,
+      "process_returncode": -2,
+      "timestamp_definition": "Host reception of a complete frame; not exposure time or hardware synchronization."
+    },
+    {
+      "camera": "side",
+      "device": "/dev/v4l/by-id/usb-icSpring_icspring_camera_202404160005-video-index0",
+      "resolved_device": "/dev/video2",
+      "format": "MJPG",
+      "width": 640,
+      "height": 480,
+      "frames": 2188,
+      "saved_png": 512,
+      "duration_requested": 180.0,
+      "first_frame_delay": 0.4283420799765736,
+      "full_frame_bytes": 79301800,
+      "trailing_incomplete_bytes": 33624,
+      "controls_format_and_device_unchanged": true,
+      "command": [
+        "v4l2-ctl",
+        "-d",
+        "/dev/v4l/by-id/usb-icSpring_icspring_camera_202404160005-video-index0",
+        "--stream-mmap=3",
+        "--stream-poll",
+        "--stream-no-query",
+        "--stream-to=-"
+      ],
+      "error": null,
+      "process_returncode": -2,
+      "timestamp_definition": "Host reception of a complete frame; not exposure time or hardware synchronization."
+    }
+  ],
+  "error": null,
+  "restore_error": null,
+  "final_state_matches": {
+    "wrist": true,
+    "side": true
+  },
+  "time_definition": "Host reception; not hardware exposure synchronization. Use record interval host_monotonic boundaries, not legacy phase field in stream_capture metadata.",
+  "limitations": "AWB remains enabled, no isolated AWB/gamma causality; same position A, no independent position holdout."
+}

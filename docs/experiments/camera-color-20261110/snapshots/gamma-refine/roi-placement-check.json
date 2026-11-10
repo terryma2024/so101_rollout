@@ -1,0 +1,103 @@
+{
+  "method": "Phase correlation on fixed grayscale chart crop and Hanning window; proxy only, gamma can affect response. Crop and DFT dimensions are even.",
+  "cameras": {
+    "wrist": {
+      "crop_xyxy": [
+        135,
+        65,
+        325,
+        365
+      ],
+      "within_trial": [
+        {
+          "condition": "g67_initial",
+          "shift_xy_pixels": [
+            -2.842170943040401e-14,
+            0.0
+          ],
+          "response": 0.9999999999999224
+        },
+        {
+          "condition": "g100",
+          "shift_xy_pixels": [
+            0.028155627794618,
+            -0.030977533154754155
+          ],
+          "response": 0.8693182378345066
+        },
+        {
+          "condition": "g110",
+          "shift_xy_pixels": [
+            0.0018299256347802384,
+            -0.14126472097223086
+          ],
+          "response": 0.8500588798522949
+        },
+        {
+          "condition": "g67_repeat",
+          "shift_xy_pixels": [
+            0.04189361481920173,
+            -0.06566578692513758
+          ],
+          "response": 0.919372640715705
+        }
+      ],
+      "versus_coarse_initial": {
+        "shift_xy_pixels": [
+          0.09602108121993069,
+          -0.030169069704186313
+        ],
+        "response": 0.9320592541164822
+      }
+    },
+    "side": {
+      "crop_xyxy": [
+        230,
+        230,
+        350,
+        350
+      ],
+      "within_trial": [
+        {
+          "condition": "g67_initial",
+          "shift_xy_pixels": [
+            0.0,
+            0.0
+          ],
+          "response": 1.0
+        },
+        {
+          "condition": "g100",
+          "shift_xy_pixels": [
+            0.01178744398188769,
+            0.02432725969414662
+          ],
+          "response": 1.0097038795219528
+        },
+        {
+          "condition": "g110",
+          "shift_xy_pixels": [
+            0.036172287677189274,
+            -0.008700795744175593
+          ],
+          "response": 0.9874184000492096
+        },
+        {
+          "condition": "g67_repeat",
+          "shift_xy_pixels": [
+            0.08326518186039777,
+            -0.06445698755883456
+          ],
+          "response": 1.0250024502476056
+        }
+      ],
+      "versus_coarse_initial": {
+        "shift_xy_pixels": [
+          -0.003225764600458092,
+          0.0014347337112425862
+        ],
+        "response": 1.0371992949644724
+      }
+    }
+  }
+}

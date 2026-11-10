@@ -1,0 +1,31 @@
+{
+  "status": "executed_and_original_controls_restored",
+  "purpose": "Probe wrist tone response at existing exposure; not an adopted configuration.",
+  "device": "/dev/v4l/by-id/usb-icSpring_icspring_camera-video-index0",
+  "control": "gamma",
+  "observed_original": 67,
+  "reported_range": [
+    1,
+    500
+  ],
+  "sequence": [
+    67,
+    90,
+    120,
+    67
+  ],
+  "startup_seconds": 30,
+  "settle_seconds_per_condition": 5,
+  "record_seconds_per_condition": 15,
+  "restore": 67,
+  "unchanged": {
+    "wrist_exposure_time_absolute": 40,
+    "wrist_white_balance_automatic": 1,
+    "wrist_saturation": 25,
+    "side_all_controls": "keep original values"
+  },
+  "recovery": "Restore original gamma on normal exit, exceptions and Ctrl+C; read back all controls and formats, and repeat original condition. Requery before execution.",
+  "limitations": "Control value is not a known mathematical exponent; AWB remains enabled; single position A and no adoption decision.",
+  "authorization": "User: 按表执行 gamma 临时实验",
+  "execution_manifest": "manifest.json"
+}
