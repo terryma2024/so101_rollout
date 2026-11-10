@@ -58,26 +58,6 @@
       "sha256": "9d3736e4a50bab1ff8fed443cd6774f9578874c262fcfe67cb8dd8ee79678c51"
     },
     {
-      "path": "docs/experiments/camera-color-20261110/figures/historical/all-trials-contact-sheet.jpg",
-      "source": "/data/work/so101-evidence/real-robot/camera-color-research-20261102/all-trials-contact-sheet.jpg",
-      "bytes": 260067,
-      "sha256": "44ef52822a20a9dc6b8be08bb14f89419eef5d2f05dae39263a0ae405897b2f9",
-      "image_dimensions": [
-        1280,
-        1530
-      ]
-    },
-    {
-      "path": "docs/experiments/camera-color-20261110/figures/historical/fixed-patches-verification.jpg",
-      "source": "/data/work/so101-evidence/real-robot/camera-color-research-20261102/fixed-patches-verification.jpg",
-      "bytes": 195342,
-      "sha256": "9a89179613af22c32ef6f42905c3ff5a09e65156d45e7243312f3f782bc55ea7",
-      "image_dimensions": [
-        1280,
-        1470
-      ]
-    },
-    {
       "path": "tools/camera_color_20261110/originals/baseline/analyze.py",
       "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/analyze.py",
       "bytes": 8721,
@@ -172,16 +152,6 @@
       "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/side/summary.json",
       "bytes": 794,
       "sha256": "6c25ddd3da9f858f358b0468df8bf5f576dddc1dfac9ae35096115ccfffe4bef"
-    },
-    {
-      "path": "docs/experiments/camera-color-20261110/figures/baseline/roi-verification.png",
-      "source": "/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/roi-verification.png",
-      "bytes": 1021749,
-      "sha256": "2fb11b24bddd7bea48f0f240b21997638a988adddd97e291e050b77d44356a75",
-      "image_dimensions": [
-        1280,
-        480
-      ]
     },
     {
       "path": "tools/camera_color_20261110/originals/exposure/analyze_trial.py",
@@ -442,16 +412,6 @@
       "sha256": "8b36a6d62626f616df3632d69426659d766047ba7c0eab6476305eb64a6e4f51"
     },
     {
-      "path": "docs/experiments/camera-color-20261110/figures/exposure/exposure-comparison-preview.png",
-      "source": "/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/exposure-comparison-preview.png",
-      "bytes": 2473275,
-      "sha256": "cbbe19116d45664df85b981290b109bb12069b72a79785dbfb47d0dbbfa1f72e",
-      "image_dimensions": [
-        1000,
-        1588
-      ]
-    },
-    {
       "path": "tools/camera_color_20261110/originals/gamma-coarse/analyze_trial.py",
       "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/analyze_trial.py",
       "bytes": 6850,
@@ -708,16 +668,6 @@
       "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/side/summary.json",
       "bytes": 796,
       "sha256": "2488a5fc06ed0c5df06f314cfedd9655cef073944084b8595e1f6e46329c10b5"
-    },
-    {
-      "path": "docs/experiments/camera-color-20261110/figures/gamma-coarse/gamma-comparison-preview.png",
-      "source": "/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/gamma-comparison-preview.png",
-      "bytes": 2533006,
-      "sha256": "6d08ac486c1fd03be72a8fddf5d9edf54aebf6acdc34a39ca47623d04f356f7f",
-      "image_dimensions": [
-        1000,
-        1588
-      ]
     },
     {
       "path": "tools/camera_color_20261110/originals/gamma-refine/analyze_trial.py",
@@ -1002,50 +952,16 @@
       "sha256": "5fe6dc7c25ff1342eb6665e655cdd1f20e78c42710ab9a5b932356fb4c1e4950"
     },
     {
-      "path": "docs/experiments/camera-color-20261110/figures/gamma-refine/gamma-comparison-preview.png",
-      "source": "/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/gamma-comparison-preview.png",
-      "bytes": 2541763,
-      "sha256": "7e134d09f9ea2f7af9b43b830f0bfa8f90098d07c6b53bf2ee6fcb34ac6d56c0",
-      "image_dimensions": [
-        1000,
-        1588
-      ]
-    },
-    {
       "path": "docs/experiments/camera-color-20261110/snapshots/history/camera-placement-20261110-171441/manifest.json",
       "source": "/data/work/so101-evidence/real-robot/camera-placement-20261110-171441/manifest.json",
       "bytes": 675,
       "sha256": "123da9b5797a5aeff1f58d16dd2dffce7059ca83b6853535e365b01f2fae06db"
     },
     {
-      "path": "docs/experiments/camera-color-20261110/figures/history/camera-placement-20261110-171441/wrist.png",
-      "source": "/data/work/so101-evidence/real-robot/camera-placement-20261110-171441/wrist.png",
-      "bytes": 499652,
-      "sha256": "94db7a11e2cbd4e26505b99a799a18ca49303cd681aea6134fcb4b1beade7f40"
-    },
-    {
-      "path": "docs/experiments/camera-color-20261110/figures/history/camera-placement-20261110-171441/side.png",
-      "source": "/data/work/so101-evidence/real-robot/camera-placement-20261110-171441/side.png",
-      "bytes": 427813,
-      "sha256": "b3843d2e351b2eb6222bd424d7883f5849eaa521b332bf7ee03f405f2b7989fc"
-    },
-    {
       "path": "docs/experiments/camera-color-20261110/snapshots/history/camera-placement-20261110-173010/manifest.json",
       "source": "/data/work/so101-evidence/real-robot/camera-placement-20261110-173010/manifest.json",
       "bytes": 656,
       "sha256": "874330b4a004551d468643af7b9fde9456bf70234c674eec5762ba891b6a847e"
-    },
-    {
-      "path": "docs/experiments/camera-color-20261110/figures/history/camera-placement-20261110-173010/wrist.png",
-      "source": "/data/work/so101-evidence/real-robot/camera-placement-20261110-173010/wrist.png",
-      "bytes": 519704,
-      "sha256": "fa44d35fb7a5e1ff9362079d7166b10fb0ea5e75c3d5c4d5be8bc75f0c3faeca"
-    },
-    {
-      "path": "docs/experiments/camera-color-20261110/figures/history/camera-placement-20261110-173010/side.png",
-      "source": "/data/work/so101-evidence/real-robot/camera-placement-20261110-173010/side.png",
-      "bytes": 478750,
-      "sha256": "9fbf56cdf24071910f195fee0d210620fc5ec5c9071d2fa1f33194220c1119c5"
     },
     {
       "path": "docs/experiments/camera-color-20261110/snapshots/history/camera-color-baseline-20261110-A/manifest.json",
@@ -1206,5 +1122,81 @@
       "sha256": "98c85466df05a48a84b9216da1cb5e7c04c43601586d36a69ef9023be7e87b08"
     }
   ],
-  "note": "Copies preserve source bytes. Original scripts may use __file__-relative paths, overwrite results, or access hardware; use the offline verify.py entry point. Raw streams and per-frame PNGs stay outside Git. Source reports are historical and may describe then-pending proposals; the consolidated report gives final status."
+  "note": "Copies preserve source bytes. Original scripts may use __file__-relative paths, overwrite results, or access hardware; use the offline verify.py entry point. Raw streams and per-frame PNGs stay outside Git. Source reports are historical and may describe then-pending proposals; the consolidated report gives final status. User requested images remain outside Git. external_images records local evidence references; preview copies are ignored, not tracked.",
+  "external_images": [
+    {
+      "path": "camera-color-research-20261102/all-trials-contact-sheet.jpg",
+      "bytes": 260067,
+      "sha256": "44ef52822a20a9dc6b8be08bb14f89419eef5d2f05dae39263a0ae405897b2f9",
+      "image_dimensions": [
+        1280,
+        1530
+      ]
+    },
+    {
+      "path": "camera-color-research-20261102/fixed-patches-verification.jpg",
+      "bytes": 195342,
+      "sha256": "9a89179613af22c32ef6f42905c3ff5a09e65156d45e7243312f3f782bc55ea7",
+      "image_dimensions": [
+        1280,
+        1470
+      ]
+    },
+    {
+      "path": "camera-color-baseline-20261110-A-retry2/roi-verification.png",
+      "bytes": 1021749,
+      "sha256": "2fb11b24bddd7bea48f0f240b21997638a988adddd97e291e050b77d44356a75",
+      "image_dimensions": [
+        1280,
+        480
+      ]
+    },
+    {
+      "path": "camera-exposure-trial-20261110/exposure-comparison-preview.png",
+      "bytes": 2473275,
+      "sha256": "cbbe19116d45664df85b981290b109bb12069b72a79785dbfb47d0dbbfa1f72e",
+      "image_dimensions": [
+        1000,
+        1588
+      ]
+    },
+    {
+      "path": "camera-gamma-trial-20261110/gamma-comparison-preview.png",
+      "bytes": 2533006,
+      "sha256": "6d08ac486c1fd03be72a8fddf5d9edf54aebf6acdc34a39ca47623d04f356f7f",
+      "image_dimensions": [
+        1000,
+        1588
+      ]
+    },
+    {
+      "path": "camera-gamma-refine-20261110/gamma-comparison-preview.png",
+      "bytes": 2541763,
+      "sha256": "7e134d09f9ea2f7af9b43b830f0bfa8f90098d07c6b53bf2ee6fcb34ac6d56c0",
+      "image_dimensions": [
+        1000,
+        1588
+      ]
+    },
+    {
+      "path": "camera-placement-20261110-171441/wrist.png",
+      "bytes": 499652,
+      "sha256": "94db7a11e2cbd4e26505b99a799a18ca49303cd681aea6134fcb4b1beade7f40"
+    },
+    {
+      "path": "camera-placement-20261110-171441/side.png",
+      "bytes": 427813,
+      "sha256": "b3843d2e351b2eb6222bd424d7883f5849eaa521b332bf7ee03f405f2b7989fc"
+    },
+    {
+      "path": "camera-placement-20261110-173010/wrist.png",
+      "bytes": 519704,
+      "sha256": "fa44d35fb7a5e1ff9362079d7166b10fb0ea5e75c3d5c4d5be8bc75f0c3faeca"
+    },
+    {
+      "path": "camera-placement-20261110-173010/side.png",
+      "bytes": 478750,
+      "sha256": "9fbf56cdf24071910f195fee0d210620fc5ec5c9071d2fa1f33194220c1119c5"
+    }
+  ]
 }

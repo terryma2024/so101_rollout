@@ -73,7 +73,7 @@
 | 绿块矩形，含边界 | `[215,17,233,24]`，152 像素 | `[305,353,314,358]`，60 像素 |
 | 后续白纸矩形，含边界 | `[75,140,100,165]` | `[275,395,300,415]` |
 
-[位置 A ROI 图](camera-color-20261110/figures/baseline/roi-verification.png)。图像查看前检查尺寸；单路 640×480，入库对照长边不超过 1600 px，原图仍保留。局部相位相关和人工预览支持沿用 ROI，但相位相关仅是位置代理，不是几何真值。
+位置 A ROI 图（外部证据：`/data/work/so101-evidence/real-robot/camera-color-baseline-20261110-A-retry2/roi-verification.png`）。图像查看前检查尺寸；单路 640×480，对照预览长边不超过 1600 px，原图仍保留。局部相位相关和人工预览支持沿用 ROI，但相位相关仅是位置代理，不是几何真值。
 
 方块较小、材质透光、没有物理标记确认同一微观表面。观察方向、阴影、反光及局部照明与相机响应混在一起，跨视角差异不能全部归因于相机。侧面相机不是绝对真值；没有标准色卡参考值，不报告标定色差或 ΔE。
 
@@ -152,7 +152,7 @@
 
 恢复 40 后最浅灰和白纸色度仍相对初始有约 `[+4,0,-8]` / `[+4,-1,-8]` 变化，说明读回相同不能当内部状态相同；未将全部变化归因于纯曝光或 AWB。
 
-[曝光对照图](camera-color-20261110/figures/exposure/exposure-comparison-preview.png) · [原报告](camera-color-20261110/snapshots/exposure/report-zh.txt) · [原始码值追查](camera-color-20261110/snapshots/exposure/followup/conclusion-zh.txt)
+曝光对照图（外部证据：`/data/work/so101-evidence/real-robot/camera-exposure-trial-20261110/exposure-comparison-preview.png`） · [原报告](camera-color-20261110/snapshots/exposure/report-zh.txt) · [原始码值追查](camera-color-20261110/snapshots/exposure/followup/conclusion-zh.txt)
 
 ## 8. gamma 粗测：67→90→120→67
 
@@ -171,7 +171,7 @@
 
 90 保留为保守待验证候选，120 不直接采用，因此安排 100、110 细测。
 
-[粗测对照图](camera-color-20261110/figures/gamma-coarse/gamma-comparison-preview.png) · [粗测原报告](camera-color-20261110/snapshots/gamma-coarse/report-zh.txt)
+粗测对照图（外部证据：`/data/work/so101-evidence/real-robot/camera-gamma-trial-20261110/gamma-comparison-preview.png`） · [粗测原报告](camera-color-20261110/snapshots/gamma-coarse/report-zh.txt)
 
 ## 9. gamma 细测：67→100→110→67
 
@@ -190,7 +190,7 @@
 
 **结论：110 暂不优先；100 仅保留为有亮部代价的折中对照。两者均不满足无新增转换截断。**
 
-[细测对照图](camera-color-20261110/figures/gamma-refine/gamma-comparison-preview.png) · [细测原报告](camera-color-20261110/snapshots/gamma-refine/report-zh.txt) · [高值专项核验](camera-color-20261110/snapshots/gamma-refine/followup/pink-highlight-audit.json)
+细测对照图（外部证据：`/data/work/so101-evidence/real-robot/camera-gamma-refine-20261110/gamma-comparison-preview.png`） · [细测原报告](camera-color-20261110/snapshots/gamma-refine/report-zh.txt) · [高值专项核验](camera-color-20261110/snapshots/gamma-refine/followup/pink-highlight-audit.json)
 
 ## 10. 数据质量与解码复核
 
@@ -219,7 +219,7 @@
 
 [脚本使用说明](../../tools/camera_color_20261110/README.md) · [来源与 SHA-256 清单](camera-color-20261110/source-provenance.json)
 
-仓库保存完整汇总报告、5 份历史原报告、原始统计/ROI/控制/恢复回执/提案/质量审计快照、受限尺寸预览及原脚本。历史原报告中的“下一步尚未执行”是当时状态，后续执行结果以本报告时间线为准；原文件字节未改写，便于追溯。
+仓库保存完整汇总报告、5 份历史原报告、原始统计/ROI/控制/恢复回执/提案/质量审计快照、预览的外部证据路径及原脚本。历史原报告中的“下一步尚未执行”是当时状态，后续执行结果以本报告时间线为准；原文件字节未改写，便于追溯。
 
 默认入口仅使用标准库验证入库文件哈希、序列、已记录的恢复快照、帧数、ROI 指标和各审计之间的一致性，不访问设备、不写入证据：
 
@@ -234,9 +234,9 @@ python3 -m tools.camera_color_20261110.verify
   --raw-root /data/work/so101-evidence/real-robot
 ```
 
-外部原始数据约 5 GB；`source-provenance.json` 记录 24 个原始流/逐帧索引/指标文件的大小与 SHA-256，以及每个入库文件的原路径和 SHA-256。PNG 不进 Git，由逐帧索引定位并在 raw 模式全部重解码核对。仅有 repo 可核验快照；缺少原始数据时不能声称重新完成像素级验证。
+外部原始数据约 5 GB；`source-provenance.json` 记录 24 个原始流/逐帧索引/指标文件的大小与 SHA-256，以及每个入库文件的原路径和 SHA-256。逐帧 PNG 和对照预览均不进 Git；对照预览记录于同清单的 `external_images`，逐帧 PNG 由逐帧索引定位并在 raw 模式全部重解码核对。仅有 repo 可核验快照；缺少原始数据时不能声称重新完成像素级验证。
 
-本次归档已实际运行默认验证和 raw 验证：171 个来源副本、24 个外部大文件及 3417 张 PNG 均通过。另在新建的独立回放目录运行三批原始 `audit_yuyv.py`，共 46438491 个通道样本与 OpenCV 差异为 0，生成 JSON 与快照完全一致；细测浅粉专项重算也完全一致。文件损坏及非法 ROI 比例的反向检查均被拒绝，新增文档本地链接、Python 编译及 `git diff --check` 通过。详细命令、环境和结果见[归档验证回执](camera-color-20261110/archive-validation.json)。本次没有重跑所有帧的 ROI 汇总，也没有重复硬件实验。
+移除入库图片后，本次归档已实际运行默认验证和 raw 验证：161 个来源副本、24 个外部大文件及 3417 张 PNG 均通过。另在新建的独立回放目录运行三批原始 `audit_yuyv.py`，共 46438491 个通道样本与 OpenCV 差异为 0，生成 JSON 与快照完全一致；细测浅粉专项重算也完全一致。文件损坏及非法 ROI 比例的反向检查均被拒绝，新增文档本地链接、Python 编译及 `git diff --check` 通过。详细命令、环境和结果见[归档验证回执](camera-color-20261110/archive-validation.json)。本次没有重跑所有帧的 ROI 汇总，也没有重复硬件实验。
 
 | 阶段 | 外部证据目录（共同父目录 `/data/work/so101-evidence/real-robot`） |
 |---|---|

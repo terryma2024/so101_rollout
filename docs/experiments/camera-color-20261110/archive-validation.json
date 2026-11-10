@@ -19,7 +19,7 @@
   },
   "results": {
     "snapshot": {
-      "archived_files_sha256_checked": 171,
+      "archived_files_sha256_checked": 161,
       "hardware_access": false,
       "mode": "snapshots_only",
       "phases": {
@@ -116,7 +116,7 @@
       }
     },
     "raw": {
-      "archived_files_sha256_checked": 171,
+      "archived_files_sha256_checked": 161,
       "external_raw_files_sha256_checked": 24,
       "fresh_png_roundtrips": {
         "baseline": {
@@ -269,9 +269,9 @@
   },
   "content_sha256": {
     "tools/camera_color_20261110/verify.py": "0f6ae536c5a3ad143f2a061e5724838feb2b45b371fa901c9c92afca4cda601e",
-    "tools/camera_color_20261110/README.md": "aee75e95c605f95d128f53d3767fa90f17662cf609197099dcb3be2208ed6250",
-    "docs/experiments/camera-color-20261110.md": "11e79e5ae8d9125b7aa593061013728cb9bac71088771962d8607b6c84943851",
-    "docs/experiments/camera-color-20261110/source-provenance.json": "013750a49f0557fc0dbc178297d817e38fc7f06f205cf951944ba039e664c287",
+    "tools/camera_color_20261110/README.md": "9edf8604cc7e14e15ed4bca1a121ba1d184dc4f357a480400f0d0345ff9e8578",
+    "docs/experiments/camera-color-20261110.md": "8c48cf841990f45364c6445e48a8813ffd521b0903b38cdbe5036e10c1330b2c",
+    "docs/experiments/camera-color-20261110/source-provenance.json": "ba1771508e2fc276f044809ca315e883a77824c24b7ed14474a2f6b283988a14",
     ".gitattributes": "628c183c70397742912fc3969b08c1dad42803942dc5e4a0e440b1b0e2ea73dc"
   },
   "integration_checks": {
@@ -291,5 +291,14 @@
     "staged_source_blobs_sha256_checked": 171,
     "git_cached_diff_check": "passed",
     "snapshot_git_attributes": "-text -whitespace, preserving captured trailing spaces and CSV CRLF without changing source bytes"
+  },
+  "image_exclusion": {
+    "verified_at": "2026-11-10T23:11:23.953436+08:00",
+    "tracked_images_removed": 10,
+    "current_copied_source_files": 161,
+    "external_image_paths_and_sha256": "source-provenance.json:external_images",
+    "initial_pushed_commit_with_images": "4ea63e9",
+    "history_rewritten": false,
+    "note": "Follow-up commit removes images from current tree. Original local evidence and ignored local preview copies remain. Initial remote commit still contains historical image objects."
   }
 }

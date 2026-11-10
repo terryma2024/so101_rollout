@@ -11,3 +11,6 @@ wheels/
 
 # Isolated development worktrees
 .worktrees/
+
+# Camera color previews stay in external evidence; do not upload images.
+docs/experiments/camera-color-20261110/figures/

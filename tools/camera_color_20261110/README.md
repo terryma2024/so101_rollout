@@ -10,7 +10,7 @@
 python3 -m tools.camera_color_20261110.verify
 ```
 
-检查：171 个入库来源文件的大小/SHA-256、原实验序列和 15 秒记录窗、已记录的前后/恢复控制快照、有效帧数、ROI 范围、JPEG 排除记录及 YUYV/浅粉专项审计的一致性。输出 JSON 到 stdout；缺失、损坏或不一致时非零退出。`recorded_state_equal` 表示历史快照一致，不表示重新查询了现在的设备。
+检查：161 个入库来源文件的大小/SHA-256、原实验序列和 15 秒记录窗、已记录的前后/恢复控制快照、有效帧数、ROI 范围、JPEG 排除记录及 YUYV/浅粉专项审计的一致性。输出 JSON 到 stdout；缺失、损坏或不一致时非零退出。`recorded_state_equal` 表示历史快照一致，不表示重新查询了现在的设备。
 
 有原始数据时运行：
 
@@ -34,10 +34,10 @@ python3 -m tools.camera_color_20261110.verify
 | `originals/gamma-coarse/` | gamma 粗测各阶段原脚本 |
 | `originals/gamma-refine/` | gamma 细测各阶段原脚本、浅粉截断专项复核 |
 | `../../docs/experiments/camera-color-20261110/snapshots/` | 原报告、统计、ROI、manifest、控制读回、恢复和审计结果 |
-| `../../docs/experiments/camera-color-20261110/figures/` | 经过尺寸检查的入库预览 |
+| `source-provenance.json` 的 `external_images` | 10 张外部证据预览的路径与哈希，图片不进 Git |
 | `../../docs/experiments/camera-color-20261110/source-provenance.json` | 每个副本的原路径、大小与 SHA-256；外部原始文件指纹 |
 
-共归档 32 个原 Python/shell 文件和 129 个原结果/文本快照，以及 10 张预览；这些 171 个文件均未改写。`originals` 是历史来源副本：
+共归档 32 个原 Python/shell 文件和 129 个原结果/文本快照，共 161 个文件均未改写；10 张预览仅记录外部路径和哈希，图片不进 Git。`originals` 是历史来源副本：
 
 - `analyze*.py`、`baseline_roi_definitions.py`、`finalize.py`、`audit_jpeg.py`、`followup/audit_yuyv.py`、`followup/pink-highlight-audit.py` 处理本地文件；通常按 `__file__` 定位输入并写结果。
 - `run_trial.py`、`stream_capture.py`、`capture.py`、`restore-*.sh` 可采集或写硬件控制；保留用于追溯实验执行，不能当离线验证命令运行。旧曝光控制器本身没有新 gamma 控制器的 `--execute-approved` 门槛。
